@@ -1,0 +1,15 @@
+﻿game_id,date,parse_confidence,needs_review,notes,raw_line
+G2026-003,2026-01-08,medium,true,Se infiere que Counters era de Andrés y que «Panigua» corresponde a Pani.,graveyard Jairo counterscounters(precon) bulk(artefactos sami) chepe dinosaurios(Pani) / gano panigua
+G2026-008,2026-01-11,medium,true,La línea omite nombres de jugador después de «jin» y «elnazis»; se asignan a Chepe y Andrés por contexto.,virtual / yuna(jairo ver) jairo jin elnazis / jairo
+G2026-030,2026-02-02,medium,false,El ganador se escribió como el nombre del deck «halflife»; se resuelve a Andrés.,vir / experience chepe halflife andres conejos jairo / halflife
+G2026-047,2026-02-15,medium,false,El ganador fue inferido a partir de la narrativa de eliminaciones.,6:56 7:15 / inicia jairo / jin gitaxias chepe winota jairo halflife andres / jairo mata a ambos
+G2026-048,2026-02-15,medium,false,El ganador fue inferido a partir de la narrativa de eliminaciones.,7:23 7:38 / inicia jairo / jin gitaxias chepe winota jairpo halflife andres / andres mata a ambos
+G2026-049,2026-02-15,medium,true,El ganador fue inferido a partir de la narrativa de eliminaciones.,"7:43 8:30 / inicia andres / rocco chepe Jairo iroh chaos andres / andrse mata a chep commander damage, jairo mata a andres / jairo"
+G2026-050,2026-02-16,medium,false,El ganador fue inferido a partir de la narrativa de eliminaciones.,2:18 3:19 / Jairo empieza / bulkartifacts chepe auntie andres marneus jairo/ Jairo mata a ambos por que todo es un 10/10
+G2026-051,2026-02-16,medium,false,El ganador fue inferido a partir de la narrativa de eliminaciones.,"3:22 4:20 / chep empieza / iroh jairo tidus chepe auntie andres / hubo Nuke de andres / Chep mata Andres por commander damage, Jairo a chep por directo damage"
+G2026-052,2026-02-16,medium,false,El ganador fue inferido a partir de la narrativa de eliminaciones.,4:25 5:01 / chep empieza / Vivi andres volo(nerfed ver.) jairo aerith chepe / Jairo mata a chep y a Andrés por combat damage
+G2026-054,2026-02-16,medium,false,El ganador fue inferido a partir de la narrativa de eliminaciones.,5:57 6:20 ch3p empieza / sol ring turno 1 chep/ dragones chepe graveyard jairo eldrazis andres / chepe mata a ambos por combat damage
+G2026-055,2026-02-22,medium,false,El ganador fue inferido a partir de la narrativa de eliminaciones.,jairo empieza 6:34 7:48 / mabelmouses jairo  vanilletutors chepe  monoblueperonel andres / andres mata ambos por muhco token damage
+G2026-058,2026-02-22,low,true,"La fuente menciona «artefacts lady» y «octopus», pero no permite asignarlos con seguridad a Chepe y Andrés.",empieza chep jin sakai jairoh artefacts lady octopus gana chep matando a mabos por direct damage
+G2026-061,2026-03-03,medium,false,El ganador fue inferido a partir de la narrativa de eliminaciones.,7:52 8:30 jairo empieza / iroh jairo jin sakai chepe helflife andres / andres mata a ambos por big dick damage
+G2026-062,2026-03-03,medium,false,El ganador fue inferido a partir de la narrativa de eliminaciones.,8:50 9:44 empieza andres  / rocco chepe ragostjairo arañasungoliant andres / andres es rata y mata a chep y chep a jairo

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MTG Commander Games Dataset",
+  "type": "object",
+  "required": [
+    "metadata",
+    "games"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object"
+    },
+    "games": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "game_id",
+          "date",
+          "location",
+          "player_count",
+          "result_type",
+          "participants",
+          "raw_line",
+          "parse_confidence"
+        ],
+        "properties": {
+          "game_id": {
+            "type": "string",
+            "pattern": "^G2026-[0-9]{3}$"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "location": {
+            "enum": [
+              "virtual",
+              "in_person"
+            ]
+          },
+          "player_count": {
+            "type": "integer",
+            "minimum": 2
+          },
+          "result_type": {
+            "enum": [
+              "win",
+              "draw"
+            ]
+          },
+          "winner_player": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "duration_minutes": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "nuke_recorded": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "sol_ring_t1_recorded": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "needs_review": {
+            "type": "boolean"
+          },
+          "participants": {
+            "type": "array",
+            "minItems": 2
+          },
+          "events": {
+            "type": "array"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+﻿game_id,event_order,event_type,actor,target,method,notes,explicitness
+G2026-040,1,concession,Jairo,Jairo,concession,Jairo se rinde.,explicit
+G2026-040,2,elimination,Andrés,Chepe,unspecified,Andrés mata a Chepe.,explicit
+G2026-041,1,elimination,Chepe,Andrés,mill,Ambos matados por Chepe vía mill.,explicit
+G2026-041,2,elimination,Chepe,Jairo,mill,Ambos matados por Chepe vía mill.,explicit
+G2026-042,1,elimination,Andrés,Chepe,combat_damage,Ambos matados por Andrés vía combat damage.,explicit
+G2026-042,2,elimination,Andrés,Jairo,combat_damage,Ambos matados por Andrés vía combat damage.,explicit
+G2026-043,1,elimination,Chepe,Jairo,unspecified,Chepe mató a Jairo.,explicit
+G2026-043,2,elimination,Andrés,Chepe,unspecified,Andrés mató a Chepe.,explicit
+G2026-044,1,elimination,Jairo,Andrés,unspecified,Jairo mató a Andrés.,explicit
+G2026-044,2,elimination,Chepe,Jairo,combat_damage,Chepe mató a Jairo con 8 dragones +8/+8.,explicit
+G2026-045,1,elimination,Jairo,Chepe,direct_damage,Daño directo por disparos al morir.,explicit
+G2026-045,2,elimination,Jairo,Andrés,direct_damage,Daño directo por disparos al morir.,explicit
+G2026-046,1,self_elimination,Andrés,Andrés,life_loss,Andrés se mató por perder vida.,explicit
+G2026-046,2,elimination,Chepe,Jairo,combat_damage,Con un flying grande.,explicit
+G2026-047,1,elimination,Jairo,Chepe,unspecified,Jairo mata a ambos.,explicit
+G2026-047,2,elimination,Jairo,Andrés,unspecified,Jairo mata a ambos.,explicit
+G2026-048,1,elimination,Andrés,Chepe,unspecified,Andrés mata a ambos.,explicit
+G2026-048,2,elimination,Andrés,Jairo,unspecified,Andrés mata a ambos.,explicit
+G2026-049,1,elimination,Andrés,Chepe,commander_damage,Andrés mata a Chepe por commander damage.,explicit
+G2026-049,2,elimination,Jairo,Andrés,unspecified,Jairo mata a Andrés.,explicit
+G2026-050,1,elimination,Jairo,Chepe,combat_damage,Todo era 10/10.,explicit
+G2026-050,2,elimination,Jairo,Andrés,combat_damage,Todo era 10/10.,explicit
+G2026-051,1,nuke,Andrés,,nuke,Hubo Nuke de Andrés.,explicit
+G2026-051,2,elimination,Chepe,Andrés,commander_damage,,explicit
+G2026-051,3,elimination,Jairo,Chepe,direct_damage,,explicit
+G2026-052,1,elimination,Jairo,Chepe,combat_damage,,explicit
+G2026-052,2,elimination,Jairo,Andrés,combat_damage,,explicit
+G2026-053,1,elimination,Andrés,Chepe,commander_damage,,explicit
+G2026-053,2,elimination,Andrés,Jairo,combat_damage,,explicit
+G2026-054,1,sol_ring_turn_1,Chepe,,sol_ring_turn_1,Sol Ring turno 1.,explicit
+G2026-054,2,elimination,Chepe,Jairo,combat_damage,,explicit
+G2026-054,3,elimination,Chepe,Andrés,combat_damage,,explicit
+G2026-055,1,elimination,Andrés,Jairo,token_damage,,explicit
+G2026-055,2,elimination,Andrés,Chepe,token_damage,,explicit
+G2026-058,1,elimination,Chepe,Jairo,direct_damage,,explicit
+G2026-058,2,elimination,Chepe,Andrés,direct_damage,,explicit
+G2026-059,1,concession,Jairo,Jairo,concession,Jairo se rinde.,explicit
+G2026-061,1,elimination,Andrés,Jairo,combat_damage,«big dick damage» en la fuente.,explicit
+G2026-061,2,elimination,Andrés,Chepe,combat_damage,«big dick damage» en la fuente.,explicit
+G2026-062,1,elimination,Andrés,Chepe,unspecified,«Andrés es rata y mata a Chep».,explicit
+G2026-062,2,elimination,Chepe,Jairo,unspecified,Chepe mata a Jairo.,explicit
+G2026-063,1,concession,Jairo,Jairo,concession,Ambos se rindieron.,explicit
+G2026-063,2,concession,Andrés,Andrés,concession,Ambos se rindieron.,explicit

@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MTG Commander 2026 - Estadísticas</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__content">
+        <div>
+          <p class="eyebrow">Commander 2026</p>
+          <h1>Estadísticas de partidas MTG</h1>
+        </div>
+        <div class="header-meta" aria-live="polite">
+          <span id="datasetMeta">Cargando datos...</span>
+          <span id="statusMessage" class="status-message">Preparando tablero</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="filter-band" aria-labelledby="filtersTitle">
+        <div class="section-shell">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Exploración</p>
+              <h2 id="filtersTitle">Filtros</h2>
+            </div>
+            <div class="filter-actions">
+              <span id="visibleCounter" class="visible-counter">0 partidas visibles</span>
+              <button id="clearFilters" class="button button--secondary" type="button">Limpiar filtros</button>
+              <button id="exportCsv" class="button" type="button">Descargar CSV</button>
+            </div>
+          </div>
+
+          <form id="filtersForm" class="filters" aria-describedby="filtersHelp">
+            <p id="filtersHelp" class="sr-only">Los filtros se combinan y actualizan los indicadores, gráficos y tabla.</p>
+
+            <label class="field">
+              <span>Buscar</span>
+              <input id="searchText" name="searchText" type="search" autocomplete="off" placeholder="Deck, jugador, notas o línea original">
+            </label>
+
+            <label class="field">
+              <span>Desde</span>
+              <input id="dateStart" name="dateStart" type="date">
+            </label>
+
+            <label class="field">
+              <span>Hasta</span>
+              <input id="dateEnd" name="dateEnd" type="date">
+            </label>
+
+            <label class="field">
+              <span>Ubicación</span>
+              <select id="locationFilter" name="location"></select>
+            </label>
+
+            <label class="field">
+              <span>Jugador participante</span>
+              <select id="participantFilter" name="participant"></select>
+            </label>
+
+            <label class="field">
+              <span>Ganador</span>
+              <select id="winnerFilter" name="winner"></select>
+            </label>
+
+            <label class="field">
+              <span>Deck normalizado</span>
+              <select id="deckFilter" name="deck"></select>
+            </label>
+
+            <label class="field">
+              <span>Comandante real</span>
+              <select id="commanderFilter" name="commander"></select>
+            </label>
+
+            <label class="field">
+              <span>Jugador inicial</span>
+              <select id="starterFilter" name="starter"></select>
+            </label>
+
+            <label class="field">
+              <span>Resultado</span>
+              <select id="resultFilter" name="result"></select>
+            </label>
+
+            <label class="field">
+              <span>Condición de victoria</span>
+              <select id="winConditionFilter" name="winCondition"></select>
+            </label>
+
+            <label class="field">
+              <span>Confianza de parseo</span>
+              <select id="confidenceFilter" name="confidence"></select>
+            </label>
+
+            <label class="field field--check">
+              <input id="needsReviewFilter" name="needsReview" type="checkbox">
+              <span>Solo partidas que necesitan revisión</span>
+            </label>
+          </form>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="summaryTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Resumen</p>
+            <h2 id="summaryTitle">Indicadores principales</h2>
+          </div>
+          <p class="section-note">Los valores vacíos se muestran como “No registrado”; no se tratan como cero ni como “no”.</p>
+        </div>
+        <div id="kpiGrid" class="kpi-grid" aria-live="polite"></div>
+        <div id="coverageGrid" class="coverage-grid"></div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="chartsTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Gráficos</p>
+            <h2 id="chartsTitle">Tendencias y rendimiento</h2>
+          </div>
+          <div class="control-cluster">
+            <label class="inline-control">
+              <span>Mínimo apariciones decks</span>
+              <input id="deckMinAppearances" type="number" min="1" max="99" step="1" value="2">
+            </label>
+            <span id="deckMinimumEffect" class="chart-meta">Filtra gráfica y tabla de decks</span>
+          </div>
+        </div>
+
+        <div class="chart-grid">
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Victorias por jugador</h3>
+              <span id="winsByPlayerMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="winsByPlayerChart" aria-label="Victorias por jugador"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Tasa de victoria por jugador</h3>
+              <span id="winRateByPlayerMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="winRateByPlayerChart" aria-label="Tasa de victoria por jugador"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Partidas por mes</h3>
+              <span id="gamesByMonthMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="gamesByMonthChart" aria-label="Partidas por mes"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Presencial vs virtual</h3>
+              <span id="locationMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="locationChart" aria-label="Distribución presencial contra virtual"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Decks más jugados</h3>
+              <span id="topDecksMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="topDecksChart" aria-label="Decks más jugados"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Rendimiento de decks</h3>
+              <span id="deckPerformanceMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="deckPerformanceChart" aria-label="Rendimiento de decks"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Distribución de duración</h3>
+              <span id="durationMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="durationChart" aria-label="Distribución de duración"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Comenzar y ganar</h3>
+              <span id="starterMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="starterChart" aria-label="Relación entre comenzar y ganar"></canvas>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="matchupsTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Matchups</p>
+            <h2 id="matchupsTitle">Deck contra deck</h2>
+          </div>
+          <div class="matchup-controls">
+            <label class="inline-control inline-control--select">
+              <span>Deck analizado</span>
+              <select id="matchupSubjectDeck"></select>
+            </label>
+            <label class="inline-control inline-control--select">
+              <span>Rival específico</span>
+              <select id="matchupRivalDeck"></select>
+            </label>
+            <label class="inline-control">
+              <span>Mínimo partidas matchup</span>
+              <input id="matchupMinGames" type="number" min="1" max="99" step="1" value="1">
+            </label>
+          </div>
+        </div>
+
+        <div class="chart-grid">
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Tasa contra rivales</h3>
+              <span id="matchupRatesMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="matchupRatesChart" aria-label="Tasas de victoria del deck elegido contra rivales"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Resultado directo</h3>
+              <span id="matchupDirectMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="matchupDirectChart" aria-label="Resultado directo entre el deck elegido y un rival específico"></canvas>
+          </article>
+        </div>
+
+        <div id="matchupTable" class="table-shell table-shell--spaced"></div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="playersTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Jugadores</p>
+            <h2 id="playersTitle">Rendimiento por jugador</h2>
+          </div>
+        </div>
+        <div id="playersTable" class="table-shell"></div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="decksTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Decks</p>
+            <h2 id="decksTitle">Rendimiento por jugador y deck</h2>
+          </div>
+        </div>
+        <div id="decksTable" class="table-shell"></div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="historyTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Historial</p>
+            <h2 id="historyTitle">Partidas</h2>
+          </div>
+          <p class="section-note">Ordenable por fecha, ubicación, resultado, duración, confianza o revisión.</p>
+        </div>
+        <div id="gamesTable" class="table-shell"></div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="qualityTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Calidad</p>
+            <h2 id="qualityTitle">Cobertura y revisión</h2>
+          </div>
+        </div>
+        <div class="quality-layout">
+          <div id="qualityPanel" class="quality-panel"></div>
+          <div id="reviewList" class="quality-panel"></div>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="gameDialog" class="game-dialog">
+      <div class="dialog-head">
+        <div>
+          <p class="eyebrow">Detalle de partida</p>
+          <h2 id="dialogTitle">Partida</h2>
+        </div>
+        <button id="closeDialog" class="button button--secondary" type="button">Cerrar</button>
+      </div>
+      <div id="dialogContent" class="dialog-content"></div>
+    </dialog>
+  </body>
+</html>

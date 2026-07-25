@@ -1,3 +1,9 @@
+this is vibe coded like hell bruv, tampoco confie mucho xddddddddddd
+
+
+
+
+
 # Estadísticas MTG Commander 2026
 
 Página web estática para explorar partidas de Magic: The Gathering Commander registradas durante 2026. La app carga los datos locales del repositorio, permite filtrar partidas, recalcula KPIs y gráficos, muestra detalles de cada partida y exporta el subconjunto filtrado a CSV.

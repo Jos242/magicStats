@@ -8,6 +8,7 @@ import {
   renderDeckTable,
   renderGameDetail,
   renderGameTable,
+  renderKillPairsTable,
   renderMatchupTable,
   renderPlayerTable,
   renderQualityPanel,
@@ -120,6 +121,7 @@ function render() {
   renderCharts(stats, { deckMinAppearances: deckMinimum });
   renderMatchupCharts(matchupStats);
   renderMatchupTable(matchupStats);
+  renderKillPairsTable(stats.combat);
   elements.deckMinimumEffect.textContent = `Filtra ${stats.deckStats.filter((deck) => deck.appearances >= deckMinimum).length} decks en gráfica y tabla`;
 
   if (dataset.games.length === 0) {

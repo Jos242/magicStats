@@ -240,6 +240,110 @@ function buildQualityStats(games) {
   };
 }
 
+function buildCombatStats(games) {
+  const eliminationEvents = games.flatMap((game) =>
+    game.events
+      .filter((event) => event.event_type === "elimination" && isKnown(event.actor) && isKnown(event.target))
+      .map((event) => ({
+        ...event,
+        game_id: game.game_id,
+        date: game.date,
+      })),
+  );
+  const gamesWithEliminations = new Set(eliminationEvents.map((event) => event.game_id));
+  const byActor = new Map();
+  const byTarget = new Map();
+  const byPair = new Map();
+  const byMethod = new Map();
+  const winConditions = new Map();
+
+  for (const event of eliminationEvents) {
+    incrementMap(byActor, event.actor);
+    incrementMap(byTarget, event.target);
+    incrementMap(byMethod, event.method || "unspecified");
+
+    const pairKey = `${event.actor}||${event.target}`;
+    if (!byPair.has(pairKey)) {
+      byPair.set(pairKey, {
+        actor: event.actor,
+        target: event.target,
+        count: 0,
+        methods: new Map(),
+        gameIds: [],
+      });
+    }
+
+    const pair = byPair.get(pairKey);
+    pair.count += 1;
+    pair.gameIds.push(event.game_id);
+    incrementMap(pair.methods, event.method || "unspecified");
+  }
+
+  for (const game of games) {
+    if (!isKnown(game.win_condition_category)) continue;
+    const key = game.win_condition_category;
+    if (!winConditions.has(key)) {
+      winConditions.set(key, {
+        category: key,
+        count: 0,
+        winners: new Map(),
+        gameIds: [],
+      });
+    }
+
+    const condition = winConditions.get(key);
+    condition.count += 1;
+    condition.gameIds.push(game.game_id);
+    if (isKnown(game.winner_player)) incrementMap(condition.winners, game.winner_player);
+  }
+
+  const mapToRows = (map, labelName) =>
+    [...map.entries()]
+      .map(([label, count]) => ({ [labelName]: label, count }))
+      .sort((a, b) => {
+        const countDifference = b.count - a.count;
+        if (countDifference !== 0) return countDifference;
+        return String(a[labelName]).localeCompare(String(b[labelName]), "es", { sensitivity: "base" });
+      });
+
+  const pairRows = [...byPair.values()]
+    .map((pair) => ({
+      ...pair,
+      topMethod: bestMapEntry(pair.methods)?.[0] ?? "",
+      methods: [...pair.methods.entries()]
+        .sort((a, b) => b[1] - a[1])
+        .map(([method, count]) => `${method} (${count})`),
+    }))
+    .sort((a, b) => {
+      const countDifference = b.count - a.count;
+      if (countDifference !== 0) return countDifference;
+      return `${a.actor} ${a.target}`.localeCompare(`${b.actor} ${b.target}`, "es", { sensitivity: "base" });
+    });
+
+  const winConditionRows = [...winConditions.values()]
+    .map((condition) => ({
+      ...condition,
+      topWinner: bestMapEntry(condition.winners)?.[0] ?? "",
+    }))
+    .sort((a, b) => {
+      const countDifference = b.count - a.count;
+      if (countDifference !== 0) return countDifference;
+      return a.category.localeCompare(b.category, "es", { sensitivity: "base" });
+    });
+
+  return {
+    eliminationEvents,
+    eliminationEventCount: eliminationEvents.length,
+    gamesWithEliminations: gamesWithEliminations.size,
+    byActor: mapToRows(byActor, "actor"),
+    byTarget: mapToRows(byTarget, "target"),
+    byMethod: mapToRows(byMethod, "method"),
+    pairs: pairRows,
+    winConditions: winConditionRows,
+    winConditionGameCount: winConditionRows.reduce((total, row) => total + row.count, 0),
+  };
+}
+
 export function calculateStats(games) {
   const totalGames = games.length;
   const locations = emptyLocationCounts();
@@ -260,6 +364,7 @@ export function calculateStats(games) {
   const playerStats = buildPlayerStats(games);
   const deckStats = buildDeckStats(games);
   const quality = buildQualityStats(games);
+  const combat = buildCombatStats(games);
   const starterAdvantage = buildStarterAdvantage(games);
 
   return {
@@ -288,6 +393,7 @@ export function calculateStats(games) {
     deckStats,
     gamesByMonth: buildGamesByMonth(games),
     quality,
+    combat,
     starterAdvantage,
     topDecks: sortByNumberDescThenName(deckStats, "appearances", "displayName").slice(0, 10),
   };

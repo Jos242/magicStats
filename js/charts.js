@@ -1,4 +1,4 @@
-import { formatLocation, formatPercent } from "./utils.js";
+import { formatLocation, formatPercent, formatWinCondition } from "./utils.js";
 
 const chartInstances = new Map();
 const textColor = "#f0f3f4";
@@ -356,6 +356,111 @@ function renderStarter(stats) {
   });
 }
 
+function renderEliminationsByActor(stats) {
+  const rows = stats.combat.byActor.slice(0, 10);
+  setMeta(
+    "eliminationsByActorMeta",
+    `${stats.combat.eliminationEventCount} eliminaciones en ${stats.combat.gamesWithEliminations} partidas`,
+  );
+  createChart("eliminationsByActorChart", {
+    type: "bar",
+    data: {
+      labels: rows.length > 0 ? rows.map((row) => row.actor) : ["Sin datos"],
+      datasets: [barDataset("Eliminaciones", rows.length > 0 ? rows.map((row) => row.count) : [0], palette[0])],
+    },
+    options: baseOptions({
+      plugins: { ...baseOptions().plugins, legend: { display: false } },
+      scales: {
+        x: { ticks: { color: mutedColor }, grid: { display: false } },
+        y: { beginAtZero: true, ticks: { color: mutedColor, precision: 0 }, grid: { color: gridColor } },
+      },
+    }),
+  });
+}
+
+function renderEliminationsByTarget(stats) {
+  const rows = stats.combat.byTarget.slice(0, 10);
+  setMeta("eliminationsByTargetMeta", "Veces eliminado; solo eventos registrados");
+  createChart("eliminationsByTargetChart", {
+    type: "bar",
+    data: {
+      labels: rows.length > 0 ? rows.map((row) => row.target) : ["Sin datos"],
+      datasets: [barDataset("Veces eliminado", rows.length > 0 ? rows.map((row) => row.count) : [0], palette[3])],
+    },
+    options: baseOptions({
+      plugins: { ...baseOptions().plugins, legend: { display: false } },
+      scales: {
+        x: { ticks: { color: mutedColor }, grid: { display: false } },
+        y: { beginAtZero: true, ticks: { color: mutedColor, precision: 0 }, grid: { color: gridColor } },
+      },
+    }),
+  });
+}
+
+function renderEliminationMethods(stats) {
+  const rows = stats.combat.byMethod;
+  setMeta("eliminationMethodsMeta", `${stats.combat.eliminationEventCount} eliminaciones con método registrado/inferido`);
+  createChart("eliminationMethodsChart", {
+    type: "doughnut",
+    data: {
+      labels: rows.length > 0 ? rows.map((row) => row.method) : ["Sin datos"],
+      datasets: [
+        {
+          label: "Eliminaciones",
+          data: rows.length > 0 ? rows.map((row) => row.count) : [0],
+          backgroundColor: palette,
+          borderColor: "#20272f",
+          borderWidth: 2,
+        },
+      ],
+    },
+    options: baseOptions({
+      cutout: "58%",
+      scales: {},
+    }),
+  });
+}
+
+function renderWinConditions(stats) {
+  const rows = stats.combat.winConditions;
+  setMeta("winConditionsMeta", `${stats.combat.winConditionGameCount} partidas con condición de victoria`);
+  createChart("winConditionsChart", {
+    type: "bar",
+    data: {
+      labels: rows.length > 0 ? rows.map((row) => formatWinCondition(row.category)) : ["Sin datos"],
+      datasets: [barDataset("Partidas", rows.length > 0 ? rows.map((row) => row.count) : [0], palette[1])],
+    },
+    options: baseOptions({
+      indexAxis: "y",
+      plugins: { ...baseOptions().plugins, legend: { display: false } },
+      scales: {
+        x: { beginAtZero: true, ticks: { color: mutedColor, precision: 0 }, grid: { color: gridColor } },
+        y: { ticks: { color: mutedColor }, grid: { display: false } },
+      },
+    }),
+  });
+}
+
+function renderKillPairs(stats) {
+  const rows = stats.combat.pairs.slice(0, 12);
+  setMeta("killPairsMeta", "Pares actor -> objetivo más repetidos");
+  createChart("killPairsChart", {
+    type: "bar",
+    data: {
+      labels: rows.length > 0 ? rows.map((row) => `${row.actor} -> ${row.target}`) : ["Sin datos"],
+      datasets: [barDataset("Eliminaciones", rows.length > 0 ? rows.map((row) => row.count) : [0], palette[2])],
+    },
+    options: baseOptions({
+      indexAxis: "y",
+      plugins: { ...baseOptions().plugins, legend: { display: false } },
+      scales: {
+        x: { beginAtZero: true, ticks: { color: mutedColor, precision: 0 }, grid: { color: gridColor } },
+        y: { ticks: { color: mutedColor }, grid: { display: false } },
+      },
+    }),
+  });
+}
+
 export function renderCharts(stats, options) {
   if (!window.Chart) {
     for (const id of [
@@ -381,6 +486,11 @@ export function renderCharts(stats, options) {
   renderDeckPerformance(stats, options.deckMinAppearances);
   renderDuration(stats);
   renderStarter(stats);
+  renderEliminationsByActor(stats);
+  renderEliminationsByTarget(stats);
+  renderEliminationMethods(stats);
+  renderWinConditions(stats);
+  renderKillPairs(stats);
 }
 
 export function renderMatchupCharts(matchupStats) {

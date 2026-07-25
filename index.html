@@ -276,6 +276,60 @@
         <div id="gamesTable" class="table-shell"></div>
       </section>
 
+      <section class="section-shell" aria-labelledby="combatTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Eliminaciones</p>
+            <h2 id="combatTitle">Quién elimina a quién y cómo se gana</h2>
+          </div>
+          <p class="section-note">Usa solo eventos y condiciones registradas; las partidas sin ese dato no cuentan como cero.</p>
+        </div>
+
+        <div class="chart-grid">
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Eliminaciones por jugador</h3>
+              <span id="eliminationsByActorMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="eliminationsByActorChart" aria-label="Eliminaciones por jugador"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Quién suele ser eliminado</h3>
+              <span id="eliminationsByTargetMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="eliminationsByTargetChart" aria-label="Jugadores eliminados con mayor frecuencia"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Métodos de eliminación</h3>
+              <span id="eliminationMethodsMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="eliminationMethodsChart" aria-label="Métodos de eliminación registrados"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Formas de victoria</h3>
+              <span id="winConditionsMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="winConditionsChart" aria-label="Condiciones de victoria registradas"></canvas>
+          </article>
+
+          <article class="chart-panel chart-panel--wide">
+            <div class="chart-panel__header">
+              <h3>Pares más frecuentes</h3>
+              <span id="killPairsMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="killPairsChart" aria-label="Pares de eliminador y eliminado más frecuentes"></canvas>
+          </article>
+        </div>
+
+        <div id="killPairsTable" class="table-shell table-shell--spaced"></div>
+      </section>
+
       <section class="section-shell" aria-labelledby="qualityTitle">
         <div class="section-heading">
           <div>

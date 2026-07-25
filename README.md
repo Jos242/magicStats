@@ -45,10 +45,13 @@ La página muestra inicialmente las 74 partidas. Los filtros se combinan y actua
 - gráficos Chart.js;
 - tablas de jugadores, decks e historial;
 - gráficos y tabla de matchups deck contra deck;
+- gráficos de eliminaciones registradas y formas de victoria;
 - panel de calidad de datos;
 - exportación CSV.
 
 El control **Mínimo apariciones decks** filtra tanto las gráficas de decks como la tabla de decks. La sección **Matchups** usa combinaciones `jugador + deck`, permite elegir un deck analizado, un rival específico opcional y un mínimo de partidas para mostrar tasas con tamaño de muestra.
+
+La sección **Eliminaciones** usa solo eventos `elimination` con actor y objetivo registrados. Muestra quién elimina más, quién suele ser eliminado, pares actor -> objetivo, métodos de eliminación y formas de victoria registradas. Las partidas sin eventos o sin condición de victoria no se cuentan como cero.
 
 Los valores `null`, vacíos o ausentes se muestran como **No registrado**. No se convierten a `false` ni a cero. Esto es importante para campos con poca cobertura como duración, jugador inicial, nuke y Sol Ring turno 1.
 

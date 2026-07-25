@@ -262,6 +262,35 @@ export function renderMatchupTable(matchupStats) {
   );
 }
 
+export function renderKillPairsTable(combatStats) {
+  const container = document.getElementById("killPairsTable");
+  if (combatStats.pairs.length === 0) {
+    renderEmpty(container, "No hay eliminaciones registradas en el subconjunto filtrado.");
+    return;
+  }
+
+  removeChildren(container);
+  const rows = combatStats.pairs.map((pair) => {
+    const row = createElement("tr");
+    row.append(
+      createElement("td", { text: pair.actor }),
+      createElement("td", { text: pair.target }),
+      createElement("td", { text: String(pair.count) }),
+      createElement("td", { text: displayValue(pair.topMethod) }),
+      createElement("td", {}, tagList(pair.methods)),
+      createElement("td", {}, tagList(pair.gameIds)),
+    );
+    return row;
+  });
+
+  container.append(
+    createTable(
+      ["Eliminador", "Eliminado", "Veces", "Método más común", "Métodos", "Partidas"],
+      rows,
+    ),
+  );
+}
+
 function sortValue(game, key) {
   const values = {
     date: game.date,

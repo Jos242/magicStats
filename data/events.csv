@@ -42,3 +42,6 @@ G2026-062,1,elimination,Andrés,Chepe,unspecified,«Andrés es rata y mata a Che
 G2026-062,2,elimination,Chepe,Jairo,unspecified,Chepe mata a Jairo.,explicit
 G2026-063,1,concession,Jairo,Jairo,concession,Ambos se rindieron.,explicit
 G2026-063,2,concession,Andrés,Andrés,concession,Ambos se rindieron.,explicit
+G2026-075,1,elimination,Chepe,Andrés,direct_damage,Dano por draw,explicit
+G2026-075,2,concession,Cris,Cris,concession,Se rinde por estar harto de la partida,explicit
+G2026-075,3,nuke,Chepe,,nuke,Nuke registrado por Chepe.,explicit

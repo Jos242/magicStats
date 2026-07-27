@@ -2,9 +2,9 @@
   "metadata": {
     "title": "Partidas MTG Commander 2026",
     "season_year": 2026,
-    "generated_on": "2026-07-25",
+    "generated_on": "2026-07-27",
     "source_file": "source/magicpartidas.txt",
-    "total_games": 74,
+    "total_games": 75,
     "normalization_policy": {
       "default_location": "in_person",
       "virtual_markers": [
@@ -5189,6 +5189,112 @@
         }
       ],
       "events": []
+    },
+    {
+      "game_id": "G2026-075",
+      "date": "2026-07-26",
+      "location": "virtual",
+      "player_count": 4,
+      "result_type": "win",
+      "winner_player": "Chepe",
+      "winner_raw": "Chepe",
+      "starting_player": "Jairo",
+      "start_time": null,
+      "end_time": null,
+      "duration_minutes": 125,
+      "win_condition_category": "cartas_que_ganan",
+      "win_condition_text": "Chepe hizo que la sufrieran tanto que implosionaron",
+      "nuke_recorded": true,
+      "nuke_player": "Chepe",
+      "sol_ring_t1_recorded": null,
+      "sol_ring_t1_player": null,
+      "parse_confidence": "medium",
+      "needs_review": true,
+      "notes": "Importado desde GitHub issue #1. https://github.com/Jos242/magicStats/issues/1 Chepe / Stardew: deck nuevo o alias no encontrado Jairo / LoreholdInternet: deck nuevo o alias no encontrado Cris / Gigantes: deck nuevo o alias no encontrado Condición de victoria nueva para revisar: cartas_que_ganan",
+      "source_line": 0,
+      "raw_line": "Según el 75% de los jugadores, fue la peor partida de  la historia\nSegún el 25% de los jugadores, fue la mejor partida de la historia",
+      "participants": [
+        {
+          "game_id": "G2026-075",
+          "seat_order": 1,
+          "player": "Chepe",
+          "deck_name_raw": "Stardew",
+          "deck_name_normalized": "Stardew",
+          "deck_variant": "",
+          "commander_name": "",
+          "result": "winner",
+          "assignment_confidence": "medium",
+          "notes": "Deck nuevo o alias no encontrado en deck_catalog.csv; revisar antes de merge."
+        },
+        {
+          "game_id": "G2026-075",
+          "seat_order": 2,
+          "player": "Andrés",
+          "deck_name_raw": "Octolady",
+          "deck_name_normalized": "Octopus Lady",
+          "deck_variant": "",
+          "commander_name": "",
+          "result": "loser",
+          "assignment_confidence": "high",
+          "notes": ""
+        },
+        {
+          "game_id": "G2026-075",
+          "seat_order": 3,
+          "player": "Jairo",
+          "deck_name_raw": "LoreholdInternet",
+          "deck_name_normalized": "LoreholdInternet",
+          "deck_variant": "",
+          "commander_name": "",
+          "result": "loser",
+          "assignment_confidence": "medium",
+          "notes": "Deck nuevo o alias no encontrado en deck_catalog.csv; revisar antes de merge."
+        },
+        {
+          "game_id": "G2026-075",
+          "seat_order": 4,
+          "player": "Cris",
+          "deck_name_raw": "Gigantes",
+          "deck_name_normalized": "Gigantes",
+          "deck_variant": "",
+          "commander_name": "",
+          "result": "loser",
+          "assignment_confidence": "medium",
+          "notes": "Deck nuevo o alias no encontrado en deck_catalog.csv; revisar antes de merge."
+        }
+      ],
+      "events": [
+        {
+          "game_id": "G2026-075",
+          "event_order": 1,
+          "event_type": "elimination",
+          "actor": "Chepe",
+          "target": "Andrés",
+          "method": "direct_damage",
+          "notes": "Dano por draw",
+          "explicitness": "explicit"
+        },
+        {
+          "game_id": "G2026-075",
+          "event_order": 2,
+          "event_type": "concession",
+          "actor": "Cris",
+          "target": "Cris",
+          "method": "concession",
+          "notes": "Se rinde por estar harto de la partida",
+          "explicitness": "explicit"
+        },
+        {
+          "game_id": "G2026-075",
+          "event_order": 3,
+          "event_type": "nuke",
+          "actor": "Chepe",
+          "target": "",
+          "method": "nuke",
+          "notes": "Nuke registrado por Chepe.",
+          "explicitness": "explicit"
+        }
+      ]
     }
   ]
 }

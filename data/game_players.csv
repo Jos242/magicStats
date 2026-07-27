@@ -226,3 +226,7 @@ G2026-074,1,Chepe,Lands,Lands,,,winner,high,
 G2026-074,2,Cris,angeles,Ángeles,,,loser,high,
 G2026-074,3,Jairo,marneus,Marneus,,,loser,high,
 G2026-074,4,Andrés,eldrazis,Eldrazis,,,loser,high,
+G2026-075,1,Chepe,Stardew,Stardew,,,winner,medium,Deck nuevo o alias no encontrado en deck_catalog.csv; revisar antes de merge.
+G2026-075,2,Andrés,Octolady,Octopus Lady,,,loser,high,
+G2026-075,3,Jairo,LoreholdInternet,LoreholdInternet,,,loser,medium,Deck nuevo o alias no encontrado en deck_catalog.csv; revisar antes de merge.
+G2026-075,4,Cris,Gigantes,Gigantes,,,loser,medium,Deck nuevo o alias no encontrado en deck_catalog.csv; revisar antes de merge.

@@ -21,6 +21,7 @@ This repository is a static GitHub Pages site for MTG Commander 2026 statistics.
 - Empty deck names are allowed only for historical ambiguous records, but they must not be included in deck rankings or catalog rows.
 - New issue-imported decks may be added with `needs_review: true` and medium assignment confidence.
 - New issue-imported players, custom win conditions, custom elimination methods or custom special events may be accepted only when they come from explicit "Other" fields; they must be marked for review.
+- Multiple nukes or Sol Ring turn 1 records in one game must be represented as repeated `events[]` rows. The top-level `nuke_player` and `sol_ring_t1_player` fields are compatibility summaries and may contain only the first recorded player.
 - Canonical player names come from `data/player_aliases.csv`.
 - Known deck aliases come from `data/deck_catalog.csv`.
 

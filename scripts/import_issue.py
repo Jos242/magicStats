@@ -109,6 +109,9 @@ def normalize_optional_player(raw_player: str, aliases: dict[str, str], other_pl
         return ""
     if is_other_player_value(value):
         canonical = canonicalize_new_player(other_player)
+        for existing in IMPORT_CONTEXT["new_player_aliases"].values():
+            if normalize_text(existing) == normalize_text(canonical):
+                return existing
         IMPORT_CONTEXT["new_player_aliases"][canonical] = canonical
         IMPORT_CONTEXT["warnings"].append(f"Jugador nuevo para revisar: {canonical}")
         return canonical
@@ -179,7 +182,7 @@ def normalize_result(fields: dict[str, str], participants: list[dict[str, Any]],
 
 def parse_player_line(line: str, aliases: dict[str, str]) -> tuple[str, str]:
     parts = [part.strip() for part in line.split("|", 1)]
-    player = normalize_player_with_context(parts[0], aliases)
+    player = normalize_event_player(parts[0], aliases)
     notes = parts[1] if len(parts) > 1 else ""
     return player, notes
 
@@ -194,8 +197,8 @@ def parse_elimination_line(line: str, aliases: dict[str, str]) -> dict[str, str]
     if len(parts) < 2:
         raise ValueError(f"Eliminación inválida: {line}")
 
-    actor = normalize_player_with_context(parts[0], aliases)
-    target = normalize_player_with_context(parts[1], aliases)
+    actor = normalize_event_player(parts[0], aliases)
+    target = normalize_event_player(parts[1], aliases)
     method = normalize_event_method(parts[2]) if len(parts) >= 3 else "unspecified"
     if method not in EVENT_METHOD_ALIASES.values():
         IMPORT_CONTEXT["warnings"].append(f"Método de eliminación nuevo para revisar: {method}")
@@ -209,6 +212,32 @@ def normalize_player_with_context(raw_player: str, aliases: dict[str, str]) -> s
         if normalize_text(canonical) == key:
             return canonical
     return normalize_player(raw_player, aliases)
+
+
+def normalize_event_player(raw_player: str, aliases: dict[str, str]) -> str:
+    value = clean_response(raw_player)
+    if not value:
+        return ""
+
+    if ":" in value:
+        prefix, new_player = [part.strip() for part in value.split(":", 1)]
+        if normalize_text(prefix) in {"otro", "nuevo", "new"} or is_other_player_value(prefix):
+            return normalize_optional_player("Otro jugador", aliases, new_player)
+
+    return normalize_player_with_context(value, aliases)
+
+
+def parse_repeated_player_events(raw_lines: str, aliases: dict[str, str]) -> list[tuple[str, str]]:
+    events: list[tuple[str, str]] = []
+    for line in raw_lines.splitlines():
+        line = clean_response(line)
+        if not line:
+            continue
+        player, notes = parse_player_line(line, aliases)
+        if not player:
+            raise ValueError(f"Evento especial sin jugador: {line}")
+        events.append((player, notes))
+    return events
 
 
 def parse_events(fields: dict[str, str], aliases: dict[str, str], participants: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], str | None, str | None]:
@@ -254,21 +283,33 @@ def parse_events(fields: dict[str, str], aliases: dict[str, str], participants: 
         player, notes = parse_player_line(line, aliases)
         add_event("self_elimination", player, player, "self_elimination", notes)
 
-    nuke_player = normalize_optional_player(
+    nuke_players: list[str] = []
+    for player, notes in parse_repeated_player_events(optional_field(fields, "Nukes registrados por"), aliases):
+        add_event("nuke", player, "", "nuke", notes or f"Nuke registrado por {player}.")
+        nuke_players.append(player)
+
+    legacy_nuke_player = normalize_optional_player(
         optional_field(fields, "Nuke registrado por"),
         aliases,
         optional_field(fields, "Nuke otro jugador"),
     )
-    if nuke_player:
-        add_event("nuke", nuke_player, "", "nuke", f"Nuke registrado por {nuke_player}.")
+    if legacy_nuke_player and legacy_nuke_player not in nuke_players:
+        add_event("nuke", legacy_nuke_player, "", "nuke", f"Nuke registrado por {legacy_nuke_player}.")
+        nuke_players.append(legacy_nuke_player)
 
-    sol_ring_player = normalize_optional_player(
+    sol_ring_players: list[str] = []
+    for player, notes in parse_repeated_player_events(optional_field(fields, "Sol Ring turno 1 registrados por"), aliases):
+        add_event("sol_ring_turn_1", player, "", "sol_ring_turn_1", notes or "Sol Ring turno 1.")
+        sol_ring_players.append(player)
+
+    legacy_sol_ring_player = normalize_optional_player(
         optional_field(fields, "Sol Ring turno 1 por"),
         aliases,
         optional_field(fields, "Sol Ring turno 1 otro jugador"),
     )
-    if sol_ring_player:
-        add_event("sol_ring_turn_1", sol_ring_player, "", "sol_ring_turn_1", "Sol Ring turno 1.")
+    if legacy_sol_ring_player and legacy_sol_ring_player not in sol_ring_players:
+        add_event("sol_ring_turn_1", legacy_sol_ring_player, "", "sol_ring_turn_1", "Sol Ring turno 1.")
+        sol_ring_players.append(legacy_sol_ring_player)
 
     for line in optional_field(fields, "Eventos especiales adicionales").splitlines():
         line = clean_response(line)
@@ -278,12 +319,12 @@ def parse_events(fields: dict[str, str], aliases: dict[str, str], participants: 
         event_type = slugify(parts[0]) if parts else ""
         if not event_type:
             raise ValueError(f"Evento especial inválido: {line}")
-        actor = normalize_player_with_context(parts[1], aliases) if len(parts) >= 2 and clean_response(parts[1]) else ""
+        actor = normalize_event_player(parts[1], aliases) if len(parts) >= 2 and clean_response(parts[1]) else ""
         notes = parts[2] if len(parts) >= 3 else ""
         IMPORT_CONTEXT["warnings"].append(f"Evento especial nuevo para revisar: {event_type}")
         add_event(event_type, actor, "", event_type, notes)
 
-    return events, nuke_player or None, sol_ring_player or None
+    return events, (nuke_players[0] if nuke_players else None), (sol_ring_players[0] if sol_ring_players else None)
 
 
 def generated_raw_line(fields: dict[str, str], participants: list[dict[str, Any]], winner: str | None, result_type: str) -> str:

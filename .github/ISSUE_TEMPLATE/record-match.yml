@@ -320,51 +320,25 @@ body:
     validations:
       required: false
 
-  - type: dropdown
-    id: nuke_player
+  - type: textarea
+    id: nuke_players
     attributes:
-      label: Nuke registrado por
-      options:
-        - No player
-        - Chepe
-        - Andrés
-        - Jairo
-        - Pani
-        - Cris
-        - Otro jugador
+      label: Nukes registrados por
+      description: "Una por línea: Jugador o Jugador | nota. Si es jugador nuevo, usa: Otro jugador: Juan | nota."
+      placeholder: |
+        Chepe | Nuke con Cyclonic Rift overload.
+        Otro jugador: Juan | Nuke con Farewell.
     validations:
       required: false
 
-  - type: input
-    id: nuke_player_other
+  - type: textarea
+    id: sol_ring_t1_players
     attributes:
-      label: Nuke otro jugador
-      description: Llena esto solo si el jugador de Nuke es "Otro jugador".
-      placeholder: "Juan"
-    validations:
-      required: false
-
-  - type: dropdown
-    id: sol_ring_t1_player
-    attributes:
-      label: Sol Ring turno 1 por
-      options:
-        - No player
-        - Chepe
-        - Andrés
-        - Jairo
-        - Pani
-        - Cris
-        - Otro jugador
-    validations:
-      required: false
-
-  - type: input
-    id: sol_ring_t1_player_other
-    attributes:
-      label: Sol Ring turno 1 otro jugador
-      description: Llena esto solo si el jugador de Sol Ring turno 1 es "Otro jugador".
-      placeholder: "Juan"
+      label: Sol Ring turno 1 registrados por
+      description: "Una por línea: Jugador o Jugador | nota. Si es jugador nuevo, usa: Otro jugador: Juan | nota."
+      placeholder: |
+        Chepe
+        Pani | Sol Ring en turno 1.
     validations:
       required: false
 
@@ -383,7 +357,7 @@ body:
     id: notes
     attributes:
       label: Notas
-      description: Cualquier ambigüedad o cosa rara.
+      description: Cualquier ambigüedad o cosa rara que deba ver quien revise el PR.
     validations:
       required: false
 
@@ -391,7 +365,7 @@ body:
     id: raw_line
     attributes:
       label: Nota original opcional
-      description: Si escribiste una nota informal, pégala aquí. Si queda vacío, el importador genera una línea estructurada.
+      description: Si escribiste una nota informal, pégala aquí para conservarla como fuente original. Si queda vacío, el importador genera una línea estructurada.
     validations:
       required: false
 
@@ -399,6 +373,7 @@ body:
     id: needs_review
     attributes:
       label: Revisión manual
+      description: Marca esto cuando quieras que el PR quede pendiente de revisión aunque el importador no detecte problemas.
       options:
         - label: Marcar esta partida para revisión manual
           required: false

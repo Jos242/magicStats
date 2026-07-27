@@ -81,7 +81,7 @@ import-match-123
 
 Then it opens a PR for review.
 
-The Issue Form intentionally supports `Otro jugador`, custom win conditions, custom elimination methods and additional special events. Those imports should be marked `needs_review: true` so a human or Codex can normalize aliases, event names or deck names before merge.
+The Issue Form intentionally supports `Otro jugador`, custom win conditions, custom elimination methods and additional special events. Repeated special events such as multiple nukes or multiple Sol Ring turn 1 plays are stored as separate rows in `events[]`. Those imports should be marked `needs_review: true` so a human or Codex can normalize aliases, event names or deck names before merge.
 
 ## Important Semantics
 
@@ -92,6 +92,7 @@ Examples:
 - `duration_minutes: null` means duration was not recorded.
 - `nuke_recorded: null` means no nuke information was recorded.
 - `sol_ring_t1_recorded: null` means no Sol Ring T1 information was recorded.
+- `nuke_player` and `sol_ring_t1_player` are compatibility summary fields. If multiple players are recorded, use the corresponding `events[]` rows for complete counts.
 
 Do not calculate percentages over all games for sparse metadata unless the coverage is explicitly shown.
 

@@ -17,9 +17,9 @@
 | `win_condition_category` | string vacío permitido | Categoría normalizada. |
 | `win_condition_text` | string vacío permitido | Descripción legible. |
 | `nuke_recorded` | boolean nullable | `true` cuando se registró. Vacío = desconocido. |
-| `nuke_player` | string vacío permitido | Jugador asociado. |
+| `nuke_player` | string vacío permitido | Jugador asociado. Si hay varios nukes registrados, este campo conserva solo el primero por compatibilidad; usa `events[]` / `data/events.csv` para el conteo completo. |
 | `sol_ring_t1_recorded` | boolean nullable | `true` cuando se registró. Vacío = desconocido. |
-| `sol_ring_t1_player` | string vacío permitido | Jugador asociado. |
+| `sol_ring_t1_player` | string vacío permitido | Jugador asociado. Si hay varios Sol Ring turno 1 registrados, este campo conserva solo el primero por compatibilidad; usa `events[]` / `data/events.csv` para el conteo completo. |
 | `parse_confidence` | enum | `high`, `medium`, `low`. |
 | `needs_review` | boolean | Revisión manual prioritaria. |
 | `notes` | string | Supuestos o ambigüedades. |
@@ -45,7 +45,7 @@
 
 | Campo | Descripción |
 |---|---|
-| `event_type` | Eliminación, rendición, autoeliminación, nuke o Sol Ring T1. |
+| `event_type` | Eliminación, rendición, autoeliminación, nuke, Sol Ring T1 o evento especial personalizado. |
 | `actor` | Jugador que causa o protagoniza el evento. |
 | `target` | Víctima, cuando aplica. |
 | `method` | Método normalizado. |

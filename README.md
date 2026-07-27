@@ -159,6 +159,7 @@ También puedes usar valores nuevos en:
 - `Otra condición de victoria`;
 - métodos de eliminación dentro de `Eliminaciones`;
 - `Eventos especiales adicionales`.
+- `Nukes registrados por` y `Sol Ring turno 1 registrados por`, usando `Otro jugador: Nombre` si el jugador es nuevo.
 
 Ejemplo:
 
@@ -172,16 +173,32 @@ Juan | Chepe | win_method_x | método nuevo para revisar
 Eventos especiales adicionales:
 mana_crypt_turn_1 | Juan | Mana Crypt turno 1.
 rule_zero |  | Se permitió una regla especial.
+
+Nukes registrados por:
+Chepe | Nuke con Cyclonic Rift overload.
+Otro jugador: Juan | Nuke con Farewell.
+
+Sol Ring turno 1 registrados por:
+Chepe
+Pani | Sol Ring en turno 1.
 ```
 
 Los eventos especiales ya conocidos también tienen campos propios:
 
 ```text
-Nuke registrado por
-Sol Ring turno 1 por
+Nukes registrados por
+Sol Ring turno 1 registrados por
 ```
 
-Si el jugador de Nuke o Sol Ring es nuevo, selecciona `Otro jugador` y llena el campo `Nuke otro jugador` o `Sol Ring turno 1 otro jugador`.
+Esos campos aceptan más de una línea. El JSON conserva todos los registros como eventos anidados en `events[]`. Los campos resumidos `nuke_player` y `sol_ring_t1_player` guardan solo el primer jugador para compatibilidad con la estructura anterior.
+
+### Campos finales del formulario
+
+`Notas` es para ambigüedades que quien revise el PR debe ver, por ejemplo "no estoy seguro del método exacto" o "el orden de eliminaciones puede estar incompleto". Se agrega al campo `notes` de la partida.
+
+`Nota original opcional` es para pegar la nota informal tal como la escribiste en WhatsApp, Discord o papel. Si lo dejas vacío, el importador genera una línea estructurada; si lo llenas, esa línea queda guardada como `raw_line`.
+
+`Revisión manual` fuerza `needs_review: true` aunque el importador no detecte nada raro. Úsalo cuando quieres que Codex o tú revisen la partida antes de mergear el PR.
 
 ## Comprobaciones rápidas
 

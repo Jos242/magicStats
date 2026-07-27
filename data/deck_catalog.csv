@@ -12,7 +12,7 @@ andres--half-life,Andrés,Half-Life,Half-Life,,2026-01-11,2026-03-03,21,8,,"[""h
 andres--iroh,Andrés,Iroh,Iroh,,2026-01-30,2026-01-30,1,1,,"[""Iroh""]",[],1.0
 andres--mono-blue-pero-nel,Andrés,Mono Blue Pero Nel,Mono Blue Pero Nel,,2026-02-22,2026-02-22,1,1,,"[""monoblueperonel""]",[],1.0
 andres--nekusar,Andrés,Nekusar,Nekusar,,2026-04-16,2026-04-16,1,0,,"[""nekuzar""]",[],0.0
-andres--octopus-lady,Andrés,Octopus Lady,Octopus Lady,,2026-02-22,2026-03-26,5,2,,"[""octolady"", ""octopus girl"", ""octupus lady""]",[],0.4
+andres--octopus-lady,Andrés,Octopus Lady,Octopus Lady,,2026-02-22,2026-07-26,6,2,,"[""Octolady"", ""octolady"", ""octopus girl"", ""octupus lady""]",[],0.3333
 andres--omnath-locus-of-mana,Andrés,"Omnath, Locus of Mana","Omnath, Locus of Mana",,2026-04-16,2026-04-16,1,0,,"[""omnathlocusmana""]",[],0.0
 andres--osos,Andrés,Osos,Osos,,2026-02-22,2026-02-22,1,1,,"[""osos""]",[],1.0
 andres--robin,Andrés,Robin,Robin,,2026-01-19,2026-01-19,1,0,,"[""robin""]",[],0.0
@@ -42,6 +42,7 @@ chepe--sauron,Chepe,Sauron,Sauron,,2026-01-08,2026-02-13,2,1,,"[""Sauron"", ""Sa
 chepe--sephiroth,Chepe,Sephiroth,Sephiroth,,2026-01-19,2026-01-19,1,1,,"[""sephiroth""]",[],1.0
 chepe--shadowdillas,Chepe,Shadowdillas,Shadowdillas,,2026-02-09,2026-02-10,2,0,,"[""shadowdillas""]",[],0.0
 chepe--shadowheart,Chepe,Shadowheart,Shadowheart,,2026-07-10,2026-07-10,1,1,,"[""shadowheart""]",[],1.0
+chepe--stardew,Chepe,Stardew,Stardew,,2026-07-26,2026-07-26,1,1,,"[""Stardew""]",[],1.0
 chepe--terra-sagas,Chepe,Terra Sagas,Terra Sagas,,2026-03-03,2026-03-03,1,0,,"[""terrasagas""]",[],0.0
 chepe--tidus,Chepe,Tidus,Tidus,,2026-01-30,2026-07-25,3,0,,"[""Tidus"", ""tidus""]",[],0.0
 chepe--tifa,Chepe,Tifa,Tifa,,2026-02-10,2026-02-10,2,0,,"[""tifa""]",[],0.0
@@ -49,6 +50,7 @@ chepe--vanilla-tutors,Chepe,Vanilla Tutors,Vanilla Tutors,,2026-02-22,2026-02-22
 chepe--yuna,Chepe,Yuna,Yuna,,2026-01-11,2026-02-12,3,2,,"[""yuna"", ""yunachepe""]",[],0.6667
 cris--angeles,Cris,Ángeles,Ángeles,,2026-07-25,2026-07-25,2,1,,"[""Angeles"", ""angeles""]",[],0.5
 cris--dinos,Cris,Dinos,Dinos,,2026-07-25,2026-07-25,1,0,,"[""Dinos""]",[],0.0
+cris--gigantes,Cris,Gigantes,Gigantes,,2026-07-26,2026-07-26,1,0,,"[""Gigantes""]",[],0.0
 jairo--abuelo,Jairo,Abuelo,Abuelo,,2026-02-22,2026-02-22,1,0,,"[""abuelo""]",[],0.0
 jairo--attractions,Jairo,Attractions,Attractions,,2026-02-02,2026-02-02,1,0,,"[""attractions""]",[],0.0
 jairo--auntie,Jairo,Auntie,Auntie,,2026-01-21,2026-01-21,1,0,,"[""auntie""]",[],0.0
@@ -64,6 +66,7 @@ jairo--iroh,Jairo,Iroh,Iroh,,2026-01-11,2026-04-16,19,5,,"[""iroh""]",[],0.2632
 jairo--jairo-verde-verde,Jairo,Jairo Verde Verde,Jairo Verde Verde,,2026-02-12,2026-02-12,1,0,,"[""jairoverdeverde""]",[],0.0
 jairo--jin-sakai,Jairo,Jin Sakai,Jin Sakai,,2026-02-22,2026-02-22,1,0,,"[""jin sakai""]",[],0.0
 jairo--kithkin,Jairo,Kithkin,Kithkin,,2026-01-19,2026-01-19,1,1,,"[""kithkin""]",[],1.0
+jairo--loreholdinternet,Jairo,LoreholdInternet,LoreholdInternet,,2026-07-26,2026-07-26,1,0,,"[""LoreholdInternet""]",[],0.0
 jairo--mabel-mouses,Jairo,Mabel Mouses,Mabel Mouses,,2026-02-22,2026-02-22,1,0,,"[""mabelmouses""]",[],0.0
 jairo--magnus,Jairo,Magnus,Magnus,,2026-02-13,2026-02-13,1,1,,"[""Magnus""]",[],1.0
 jairo--marneus,Jairo,Marneus,Marneus,,2026-01-22,2026-07-25,8,1,,"[""maerneus"", ""Marneus"", ""marneus""]",[],0.125

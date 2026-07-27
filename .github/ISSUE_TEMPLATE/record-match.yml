@@ -1,0 +1,404 @@
+name: Record Commander match
+description: Registrar una partida nueva de MTG Commander
+title: "[match]: YYYY-MM-DD"
+labels: ["match-import"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Completa una partida por issue. Usa decks como aparecen normalmente; el importador normaliza aliases conocidos y marca decks nuevos para revisión.
+
+  - type: input
+    id: date
+    attributes:
+      label: Fecha
+      description: Usa formato YYYY-MM-DD.
+      placeholder: "2026-07-25"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: location
+    attributes:
+      label: Ubicación
+      options:
+        - Presencial
+        - Virtual
+    validations:
+      required: true
+
+  - type: dropdown
+    id: player_1
+    attributes:
+      label: Jugador 1
+      options:
+        - Chepe
+        - Andrés
+        - Jairo
+        - Pani
+        - Cris
+        - Otro jugador
+    validations:
+      required: true
+
+  - type: input
+    id: player_1_other
+    attributes:
+      label: Jugador 1 otro
+      description: Llena esto solo si elegiste "Otro jugador".
+      placeholder: "Juan"
+    validations:
+      required: false
+
+  - type: input
+    id: deck_1
+    attributes:
+      label: Deck 1
+      placeholder: "Sauron"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: player_2
+    attributes:
+      label: Jugador 2
+      options:
+        - Chepe
+        - Andrés
+        - Jairo
+        - Pani
+        - Cris
+        - Otro jugador
+    validations:
+      required: true
+
+  - type: input
+    id: player_2_other
+    attributes:
+      label: Jugador 2 otro
+      description: Llena esto solo si elegiste "Otro jugador".
+      placeholder: "Juan"
+    validations:
+      required: false
+
+  - type: input
+    id: deck_2
+    attributes:
+      label: Deck 2
+      placeholder: "Iroh"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: player_3
+    attributes:
+      label: Jugador 3 opcional
+      options:
+        - No player
+        - Chepe
+        - Andrés
+        - Jairo
+        - Pani
+        - Cris
+        - Otro jugador
+    validations:
+      required: false
+
+  - type: input
+    id: player_3_other
+    attributes:
+      label: Jugador 3 otro
+      description: Llena esto solo si elegiste "Otro jugador".
+      placeholder: "Juan"
+    validations:
+      required: false
+
+  - type: input
+    id: deck_3
+    attributes:
+      label: Deck 3 opcional
+      placeholder: "Half-Life"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: player_4
+    attributes:
+      label: Jugador 4 opcional
+      options:
+        - No player
+        - Chepe
+        - Andrés
+        - Jairo
+        - Pani
+        - Cris
+        - Otro jugador
+    validations:
+      required: false
+
+  - type: input
+    id: player_4_other
+    attributes:
+      label: Jugador 4 otro
+      description: Llena esto solo si elegiste "Otro jugador".
+      placeholder: "Juan"
+    validations:
+      required: false
+
+  - type: input
+    id: deck_4
+    attributes:
+      label: Deck 4 opcional
+      placeholder: "Dinos"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: player_5
+    attributes:
+      label: Jugador 5 opcional
+      options:
+        - No player
+        - Chepe
+        - Andrés
+        - Jairo
+        - Pani
+        - Cris
+        - Otro jugador
+    validations:
+      required: false
+
+  - type: input
+    id: player_5_other
+    attributes:
+      label: Jugador 5 otro
+      description: Llena esto solo si elegiste "Otro jugador".
+      placeholder: "Juan"
+    validations:
+      required: false
+
+  - type: input
+    id: deck_5
+    attributes:
+      label: Deck 5 opcional
+      placeholder: "Ángeles"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: result
+    attributes:
+      label: Resultado
+      options:
+        - Ganador
+        - Empate
+    validations:
+      required: true
+
+  - type: dropdown
+    id: winner
+    attributes:
+      label: Ganador si aplica
+      options:
+        - No winner / draw
+        - Chepe
+        - Andrés
+        - Jairo
+        - Pani
+        - Cris
+        - Otro jugador
+    validations:
+      required: true
+
+  - type: input
+    id: winner_other
+    attributes:
+      label: Ganador otro
+      description: Llena esto solo si el ganador es "Otro jugador".
+      placeholder: "Juan"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: starting_player
+    attributes:
+      label: Jugador inicial
+      options:
+        - No player
+        - Chepe
+        - Andrés
+        - Jairo
+        - Pani
+        - Cris
+        - Otro jugador
+    validations:
+      required: false
+
+  - type: input
+    id: starting_player_other
+    attributes:
+      label: Jugador inicial otro
+      description: Llena esto solo si el jugador inicial es "Otro jugador".
+      placeholder: "Juan"
+    validations:
+      required: false
+
+  - type: input
+    id: duration_minutes
+    attributes:
+      label: Duración minutos
+      description: Déjalo vacío si no fue registrado.
+      placeholder: "72"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: win_condition
+    attributes:
+      label: Condición de victoria
+      options:
+        - No registrado
+        - Combat damage
+        - Commander damage
+        - Direct damage
+        - Damage unspecified
+        - Tokens
+        - Mill
+        - Concessions
+        - Last player standing
+        - Eliminated all
+        - Otra condición
+    validations:
+      required: false
+
+  - type: input
+    id: win_condition_other
+    attributes:
+      label: Otra condición de victoria
+      description: Llena esto solo si elegiste "Otra condición".
+      placeholder: "WinReasonX"
+    validations:
+      required: false
+
+  - type: textarea
+    id: win_condition_text
+    attributes:
+      label: Detalle de victoria
+      description: Frase breve sobre cómo terminó la partida.
+      placeholder: "Chepe ganó por commander damage."
+    validations:
+      required: false
+
+  - type: textarea
+    id: eliminations
+    attributes:
+      label: Eliminaciones
+      description: "Una por línea: Actor | Objetivo | método | notas. Puedes usar un método nuevo; quedará marcado para revisión."
+      placeholder: |
+        Chepe | Andrés | commander_damage | Chepe mata a Andrés.
+        Jairo | Chepe | direct_damage
+    validations:
+      required: false
+
+  - type: textarea
+    id: concessions
+    attributes:
+      label: Rendiciones
+      description: Una por línea. Puedes escribir solo el jugador o "Jugador | nota".
+      placeholder: |
+        Pani | se rinde por mesa perdida
+    validations:
+      required: false
+
+  - type: textarea
+    id: self_eliminations
+    attributes:
+      label: Autoeliminaciones
+      description: Una por línea. Puedes escribir solo el jugador o "Jugador | nota".
+      placeholder: |
+        Andrés | se autoelimina con su propio efecto
+    validations:
+      required: false
+
+  - type: dropdown
+    id: nuke_player
+    attributes:
+      label: Nuke registrado por
+      options:
+        - No player
+        - Chepe
+        - Andrés
+        - Jairo
+        - Pani
+        - Cris
+        - Otro jugador
+    validations:
+      required: false
+
+  - type: input
+    id: nuke_player_other
+    attributes:
+      label: Nuke otro jugador
+      description: Llena esto solo si el jugador de Nuke es "Otro jugador".
+      placeholder: "Juan"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: sol_ring_t1_player
+    attributes:
+      label: Sol Ring turno 1 por
+      options:
+        - No player
+        - Chepe
+        - Andrés
+        - Jairo
+        - Pani
+        - Cris
+        - Otro jugador
+    validations:
+      required: false
+
+  - type: input
+    id: sol_ring_t1_player_other
+    attributes:
+      label: Sol Ring turno 1 otro jugador
+      description: Llena esto solo si el jugador de Sol Ring turno 1 es "Otro jugador".
+      placeholder: "Juan"
+    validations:
+      required: false
+
+  - type: textarea
+    id: special_events
+    attributes:
+      label: Eventos especiales adicionales
+      description: "Una por línea: tipo | jugador opcional | nota. Ejemplo: mana_crypt_turn_1 | Chepe | Mana Crypt turno 1."
+      placeholder: |
+        mana_crypt_turn_1 | Chepe | Mana Crypt turno 1.
+        rule_zero |  | Se permitió un proxy.
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notas
+      description: Cualquier ambigüedad o cosa rara.
+    validations:
+      required: false
+
+  - type: textarea
+    id: raw_line
+    attributes:
+      label: Nota original opcional
+      description: Si escribiste una nota informal, pégala aquí. Si queda vacío, el importador genera una línea estructurada.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: needs_review
+    attributes:
+      label: Revisión manual
+      options:
+        - label: Marcar esta partida para revisión manual
+          required: false

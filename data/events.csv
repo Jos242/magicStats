@@ -1,4 +1,4 @@
-﻿game_id,event_order,event_type,actor,target,method,notes,explicitness
+game_id,event_order,event_type,actor,target,method,notes,explicitness
 G2026-040,1,concession,Jairo,Jairo,concession,Jairo se rinde.,explicit
 G2026-040,2,elimination,Andrés,Chepe,unspecified,Andrés mata a Chepe.,explicit
 G2026-041,1,elimination,Chepe,Andrés,mill,Ambos matados por Chepe vía mill.,explicit

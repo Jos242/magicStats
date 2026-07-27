@@ -1,0 +1,34 @@
+name: Validate data
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile scripts
+        run: |
+          python -m py_compile scripts/mtg_data.py scripts/import_issue.py scripts/rebuild_exports.py scripts/validate_data.py
+
+      - name: Check derived files
+        run: |
+          python scripts/rebuild_exports.py --check
+
+      - name: Validate dataset
+        run: |
+          python scripts/validate_data.py

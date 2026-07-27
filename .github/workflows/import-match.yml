@@ -1,0 +1,139 @@
+name: Import match issue
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  import-match:
+    if: contains(github.event.issue.labels.*.name, 'match-import')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check submitter allowlist
+        id: auth
+        shell: bash
+        env:
+          ACTOR: ${{ github.actor }}
+          OWNER: ${{ github.repository_owner }}
+          EXTRA_ALLOWED_USERS: ${{ vars.MATCH_IMPORT_ALLOWED_USERS }}
+        run: |
+          python - <<'PY'
+          import os
+          import re
+
+          actor = os.environ["ACTOR"].casefold()
+          owner = os.environ["OWNER"].casefold()
+          extra = os.environ.get("EXTRA_ALLOWED_USERS", "")
+          allowed = {owner}
+          allowed.update(item.casefold() for item in re.split(r"[\s,]+", extra) if item.strip())
+          is_allowed = actor in allowed
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
+              handle.write(f"allowed={'true' if is_allowed else 'false'}\n")
+              handle.write(f"allowed_list={','.join(sorted(allowed))}\n")
+          PY
+
+      - name: Comment unauthorized issue
+        if: steps.auth.outputs.allowed != 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ACTOR: ${{ github.actor }}
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body "No importé esta partida porque @$ACTOR no está en la allowlist del workflow."
+
+      - name: Stop if unauthorized
+        if: steps.auth.outputs.allowed != 'true'
+        run: exit 0
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Write issue body
+        shell: bash
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+
+          Path("issue-body.md").write_text(os.environ["ISSUE_BODY"], encoding="utf-8")
+          PY
+
+      - name: Prepare import branch
+        shell: bash
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          BRANCH="import-match-${ISSUE_NUMBER}"
+          git fetch origin main
+          git switch -C "$BRANCH" origin/main
+
+      - name: Import match and rebuild derived data
+        shell: bash
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          python scripts/import_issue.py \
+            --issue-body issue-body.md \
+            --issue-number "$ISSUE_NUMBER" \
+            --issue-url "$ISSUE_URL" \
+            --rebuild
+          python scripts/validate_data.py
+
+      - name: Create or update pull request
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          BRANCH="import-match-${ISSUE_NUMBER}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/games.json data/games.csv data/game_players.csv data/events.csv data/deck_catalog.csv data/player_aliases.csv data/quality_issues.csv data/summary.json
+
+          if git diff --cached --quiet; then
+            gh issue comment "$ISSUE_NUMBER" --body "No hubo cambios para importar desde este issue."
+            exit 0
+          fi
+
+          git commit -m "Import match from issue #${ISSUE_NUMBER}"
+          git push --force-with-lease origin "$BRANCH"
+
+          PR_URL="$(gh pr list --head "$BRANCH" --json url --jq '.[0].url')"
+          if [ -z "$PR_URL" ]; then
+            PR_URL="$(gh pr create \
+              --head "$BRANCH" \
+              --base main \
+              --title "Import match from issue #${ISSUE_NUMBER}" \
+              --body "Imports the Commander match submitted in ${ISSUE_URL}.\n\nValidation ran in GitHub Actions before this PR was created.")"
+          fi
+
+          gh issue comment "$ISSUE_NUMBER" --body "Partida importada en PR: ${PR_URL}"
+
+      - name: Comment import failure
+        if: failure() && steps.auth.outputs.allowed == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body "No pude importar esta partida. Revisa los errores de validación en ${RUN_URL} y edita el issue para volver a intentar."

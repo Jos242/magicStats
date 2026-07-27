@@ -1,4 +1,4 @@
-﻿game_id,date,location,player_count,result_type,winner_player,winner_raw,starting_player,start_time,end_time,duration_minutes,win_condition_category,win_condition_text,nuke_recorded,nuke_player,sol_ring_t1_recorded,sol_ring_t1_player,parse_confidence,needs_review,notes,source_line,raw_line
+game_id,date,location,player_count,result_type,winner_player,winner_raw,starting_player,start_time,end_time,duration_minutes,win_condition_category,win_condition_text,nuke_recorded,nuke_player,sol_ring_t1_recorded,sol_ring_t1_player,parse_confidence,needs_review,notes,source_line,raw_line
 G2026-001,2026-01-08,in_person,3,win,Jairo,jairo,,,,,,,,,,,high,false,,2,volo jairo counters(precon) andres bulk(artefactos sami) chepe / gano jairo
 G2026-002,2026-01-08,in_person,3,win,Chepe,chep,,,,,,,,,,,high,false,,3,graveyard jairo counters(precon) Andres bulk(artefactos sami) chepe  / chep gano
 G2026-003,2026-01-08,in_person,4,win,Pani,panigua,,,,,,,,,,,medium,true,Se infiere que Counters era de Andrés y que «Panigua» corresponde a Pani.,4,graveyard Jairo counterscounters(precon) bulk(artefactos sami) chepe dinosaurios(Pani) / gano panigua

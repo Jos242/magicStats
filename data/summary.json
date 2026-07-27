@@ -29,11 +29,11 @@
     "Cris": 1
   },
   "win_rate_by_player": {
-    "Jairo": 0.2703,
     "Andrés": 0.3243,
     "Chepe": 0.3649,
-    "Pani": 0.5,
-    "Cris": 0.3333
+    "Cris": 0.3333,
+    "Jairo": 0.2703,
+    "Pani": 0.5
   },
   "duration_coverage_games": 27,
   "average_duration_minutes": 48.3,

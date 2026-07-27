@@ -1,4 +1,4 @@
-﻿game_id,seat_order,player,deck_name_raw,deck_name_normalized,deck_variant,commander_name,result,assignment_confidence,notes
+game_id,seat_order,player,deck_name_raw,deck_name_normalized,deck_variant,commander_name,result,assignment_confidence,notes
 G2026-001,1,Jairo,volo,Volo,,,winner,high,
 G2026-001,2,Andrés,counters(precon),Counters,Precon,,loser,high,
 G2026-001,3,Chepe,bulk(artefactos sami),Bulk Artifacts,,,loser,high,

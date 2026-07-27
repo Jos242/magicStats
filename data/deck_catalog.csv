@@ -1,10 +1,10 @@
-﻿deck_id,player,deck_name_normalized,display_name,commander_name,first_played,last_played,games_played,wins,notes,aliases,variants,win_rate
+deck_id,player,deck_name_normalized,display_name,commander_name,first_played,last_played,games_played,wins,notes,aliases,variants,win_rate
 andres--5-colores,Andrés,5 Colores,5 Colores,,2026-03-03,2026-03-26,3,0,,"[""5colores""]",[],0.0
 andres--aranas-ungoliant,Andrés,Arañas/Ungoliant,Arañas/Ungoliant,,2026-03-03,2026-03-03,1,1,,"[""arañasungoliant""]",[],1.0
 andres--auntie,Andrés,Auntie,Auntie,,2026-01-21,2026-02-16,7,1,,"[""auntie""]",[],0.1429
 andres--chaos,Andrés,Chaos,Chaos,,2026-01-19,2026-02-15,2,0,,"[""chaos""]",[],0.0
 andres--counters,Andrés,Counters,Counters,,2026-01-08,2026-01-08,3,0,,"[""counters(precon)"", ""counterscounters(precon)""]","[""Precon""]",0.0
-andres--eldrazis,Andrés,Eldrazis,Eldrazis,,2026-01-11,2026-07-25,7,2,,"[""Eldrazisprecon"", ""eldrazis"", ""eldrazis(precon)"", ""elnazis"", ""elnazis(eldrazis caro)""]","[""Caro"", ""Precon""]",0.2857
+andres--eldrazis,Andrés,Eldrazis,Eldrazis,,2026-01-11,2026-07-25,7,2,,"[""eldrazis"", ""eldrazis(precon)"", ""Eldrazisprecon"", ""elnazis"", ""elnazis(eldrazis caro)""]","[""Caro"", ""Precon""]",0.2857
 andres--eldrazis-colores,Andrés,Eldrazis Colores,Eldrazis Colores,,2026-02-09,2026-02-12,4,1,,"[""eldrazicolor"", ""eldraziscolores""]",[],0.25
 andres--espiritus,Andrés,Espíritus,Espíritus,,2026-07-10,2026-07-10,1,0,,"[""espiritus""]",[],0.0
 andres--gato,Andrés,Gato,Gato,,2026-01-08,2026-07-25,5,2,,"[""gato""]",[],0.4
@@ -25,17 +25,17 @@ chepe--cloud,Chepe,Cloud,Cloud,,2026-02-16,2026-02-16,1,0,,"[""Cloud""]",[],0.0
 chepe--destroy,Chepe,Destroy,Destroy,,2026-01-19,2026-01-19,1,0,,"[""destroy""]",[],0.0
 chepe--dragones,Chepe,Dragones,Dragones,,2026-01-21,2026-07-10,5,3,,"[""Dragones"", ""dragones""]",[],0.6
 chepe--edea,Chepe,Edea,Edea,,2026-02-09,2026-02-09,1,1,,"[""edea""]",[],1.0
-chepe--elementals,Chepe,Elementals,Elementals,,2026-01-21,2026-07-25,7,4,,"[""Elementals"", ""elementales"", ""elementals"", ""elementtals""]",[],0.5714
+chepe--elementals,Chepe,Elementals,Elementals,,2026-01-21,2026-07-25,7,4,,"[""elementales"", ""Elementals"", ""elementals"", ""elementtals""]",[],0.5714
 chepe--esix,Chepe,Esix,Esix,,2026-02-04,2026-02-04,1,0,,"[""esix""]",[],0.0
 chepe--experience,Chepe,Experience,Experience,,2026-01-19,2026-02-04,4,0,,"[""experience""]",[],0.0
 chepe--jeskai,Chepe,Jeskai,Jeskai,,2026-01-30,2026-01-30,1,0,,"[""jeskai""]",[],0.0
-chepe--jin-sakai,Chepe,Jin Sakai,Jin Sakai,,2026-02-10,2026-03-26,9,5,,"[""jin sakai"", ""jin skaai"", ""jinsakai""]",[],0.5556
 chepe--jin-gitaxias,Chepe,Jin-Gitaxias,Jin-Gitaxias,,2026-01-11,2026-02-15,4,0,,"[""jin"", ""jin gitaxias"", ""jingitaxias""]",[],0.0
+chepe--jin-sakai,Chepe,Jin Sakai,Jin Sakai,,2026-02-10,2026-03-26,9,5,,"[""jin sakai"", ""jin skaai"", ""jinsakai""]",[],0.5556
 chepe--koma,Chepe,Koma,Koma,,2026-03-03,2026-03-03,1,1,,"[""koma""]",[],1.0
 chepe--lands,Chepe,Lands,Lands,,2026-01-22,2026-07-25,2,1,,"[""Lands"", ""lands""]",[],0.5
+chepe--pajaros,Chepe,Pájaros,Pájaros,,2026-02-22,2026-02-22,1,1,,"[""pajaros""]",[],1.0
 chepe--phyrexia,Chepe,Phyrexia,Phyrexia,,2026-01-19,2026-01-19,1,0,,"[""phyrexia""]",[],0.0
 chepe--phyrexians,Chepe,Phyrexians,Phyrexians,,2026-01-31,2026-01-31,3,1,,"[""phyrexians""]",[],0.3333
-chepe--pajaros,Chepe,Pájaros,Pájaros,,2026-02-22,2026-02-22,1,1,,"[""pajaros""]",[],1.0
 chepe--raphael,Chepe,Raphael,Raphael,,2026-03-26,2026-04-16,4,2,,"[""rapahael"", ""raphael""]",[],0.5
 chepe--rocco,Chepe,Rocco,Rocco,,2026-02-15,2026-03-03,2,0,,"[""rocco""]",[],0.0
 chepe--sauron,Chepe,Sauron,Sauron,,2026-01-08,2026-02-13,2,1,,"[""Sauron"", ""Sauron(nuevocommander)""]","[""Nuevo commander""]",0.5
@@ -47,8 +47,8 @@ chepe--tidus,Chepe,Tidus,Tidus,,2026-01-30,2026-07-25,3,0,,"[""Tidus"", ""tidus"
 chepe--tifa,Chepe,Tifa,Tifa,,2026-02-10,2026-02-10,2,0,,"[""tifa""]",[],0.0
 chepe--vanilla-tutors,Chepe,Vanilla Tutors,Vanilla Tutors,,2026-02-22,2026-02-22,1,0,,"[""vanilletutors""]",[],0.0
 chepe--yuna,Chepe,Yuna,Yuna,,2026-01-11,2026-02-12,3,2,,"[""yuna"", ""yunachepe""]",[],0.6667
-cris--dinos,Cris,Dinos,Dinos,,2026-07-25,2026-07-25,1,0,,"[""Dinos""]",[],0.0
 cris--angeles,Cris,Ángeles,Ángeles,,2026-07-25,2026-07-25,2,1,,"[""Angeles"", ""angeles""]",[],0.5
+cris--dinos,Cris,Dinos,Dinos,,2026-07-25,2026-07-25,1,0,,"[""Dinos""]",[],0.0
 jairo--abuelo,Jairo,Abuelo,Abuelo,,2026-02-22,2026-02-22,1,0,,"[""abuelo""]",[],0.0
 jairo--attractions,Jairo,Attractions,Attractions,,2026-02-02,2026-02-02,1,0,,"[""attractions""]",[],0.0
 jairo--auntie,Jairo,Auntie,Auntie,,2026-01-21,2026-01-21,1,0,,"[""auntie""]",[],0.0
@@ -66,7 +66,7 @@ jairo--jin-sakai,Jairo,Jin Sakai,Jin Sakai,,2026-02-22,2026-02-22,1,0,,"[""jin s
 jairo--kithkin,Jairo,Kithkin,Kithkin,,2026-01-19,2026-01-19,1,1,,"[""kithkin""]",[],1.0
 jairo--mabel-mouses,Jairo,Mabel Mouses,Mabel Mouses,,2026-02-22,2026-02-22,1,0,,"[""mabelmouses""]",[],0.0
 jairo--magnus,Jairo,Magnus,Magnus,,2026-02-13,2026-02-13,1,1,,"[""Magnus""]",[],1.0
-jairo--marneus,Jairo,Marneus,Marneus,,2026-01-22,2026-07-25,8,1,,"[""Marneus"", ""maerneus"", ""marneus""]",[],0.125
+jairo--marneus,Jairo,Marneus,Marneus,,2026-01-22,2026-07-25,8,1,,"[""maerneus"", ""Marneus"", ""marneus""]",[],0.125
 jairo--meteoritos,Jairo,Meteoritos,Meteoritos,,2026-04-16,2026-04-16,1,1,,"[""metoritos""]",[],1.0
 jairo--ragos,Jairo,Ragos,Ragos,,2026-03-03,2026-03-03,1,0,,"[""ragostjairo""]",[],0.0
 jairo--rata,Jairo,Rata,Rata,,2026-01-11,2026-03-26,5,1,,"[""rata"", ""rata(vehic)"", ""rata(vehiculos)""]","[""Vehículos""]",0.2

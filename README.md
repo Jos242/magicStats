@@ -18,7 +18,14 @@ Página web estática para explorar partidas de Magic: The Gathering Commander r
 - `data/deck_catalog.csv`: catálogo de decks por jugador; `commander_name` se usa cuando esté completado.
 - `data/summary.json`: resumen precalculado para referencia.
 - `data/quality_issues.csv`: partidas con inferencias o ambigüedades.
+- `scripts/import_issue.py`: importa una partida desde un GitHub Issue Form.
+- `scripts/rebuild_exports.py`: regenera CSVs, catálogo, issues de calidad y resumen desde `games.json`.
 - `scripts/validate_data.py`: validación local sin dependencias externas.
+- `.github/ISSUE_TEMPLATE/record-match.yml`: formulario para registrar partidas desde GitHub.
+- `.github/workflows/import-match.yml`: workflow que abre PRs de partidas nuevas.
+- `.github/workflows/validate-data.yml`: workflow de validación para pushes y PRs.
+- `AGENTS.md`: instrucciones durables para Codex.
+- `PROJECT.md`: resumen del proyecto para chats nuevos o colaboradores.
 - `source/magicpartidas.txt`: fuente original, no se modifica.
 
 ## Ejecutar localmente
@@ -26,6 +33,13 @@ Página web estática para explorar partidas de Magic: The Gathering Commander r
 Valida primero el dataset:
 
 ```bash
+python scripts/validate_data.py
+```
+
+Si editas `data/games.json`, regenera derivados antes de validar:
+
+```bash
+python scripts/rebuild_exports.py
 python scripts/validate_data.py
 ```
 
@@ -78,6 +92,97 @@ La app no asume que vive en `/`, por lo que funciona bajo una ruta como:
 https://usuario.github.io/nombre-repo/
 ```
 
+## Agregar partidas desde GitHub
+
+El flujo dinámico recomendado es:
+
+```text
+Issue Form -> GitHub Action -> importación -> validación -> Pull Request -> merge
+```
+
+Cuando el repo esté en GitHub:
+
+1. Ve a `Issues`.
+2. Click `New issue`.
+3. Elige `Record Commander match`.
+4. Llena una partida por issue.
+5. La Action valida el submitter, importa la partida, regenera archivos derivados y abre un PR.
+6. Revisa el PR.
+7. Si todo se ve bien, haz merge.
+8. GitHub Pages se actualizará con la nueva partida.
+
+El workflow permite al dueño del repo por defecto. Para permitir amigos, configura la variable del repositorio:
+
+```text
+MATCH_IMPORT_ALLOWED_USERS
+```
+
+con usuarios separados por coma o espacios, por ejemplo:
+
+```text
+Jos242,ChepeGitHub,JairoGitHub
+```
+
+Formato recomendado para eliminaciones en el formulario:
+
+```text
+Chepe | Andrés | commander_damage | Chepe mata a Andrés.
+Jairo | Chepe | direct_damage
+```
+
+Métodos aceptados:
+
+```text
+combat_damage
+commander_damage
+direct_damage
+token_damage
+mill
+unspecified
+```
+
+Si un deck no existe en `deck_catalog.csv`, el importador lo agrega como deck nuevo en el PR y marca la partida para revisión manual.
+
+### Opciones "Otro" en el formulario
+
+Los campos de jugador incluyen `Otro jugador`. Si lo seleccionas, llena el campo de texto correspondiente, por ejemplo:
+
+```text
+Jugador 1: Otro jugador
+Jugador 1 otro: Juan
+```
+
+Esto agrega `Juan` a la partida, añade `Juan,Juan` a `data/player_aliases.csv` en el PR y marca la partida para revisión.
+
+También puedes usar valores nuevos en:
+
+- `Otra condición de victoria`;
+- métodos de eliminación dentro de `Eliminaciones`;
+- `Eventos especiales adicionales`.
+
+Ejemplo:
+
+```text
+Condición de victoria: Otra condición
+Otra condición de victoria: WinReasonX
+
+Eliminaciones:
+Juan | Chepe | win_method_x | método nuevo para revisar
+
+Eventos especiales adicionales:
+mana_crypt_turn_1 | Juan | Mana Crypt turno 1.
+rule_zero |  | Se permitió una regla especial.
+```
+
+Los eventos especiales ya conocidos también tienen campos propios:
+
+```text
+Nuke registrado por
+Sol Ring turno 1 por
+```
+
+Si el jugador de Nuke o Sol Ring es nuevo, selecciona `Otro jugador` y llena el campo `Nuke otro jugador` o `Sol Ring turno 1 otro jugador`.
+
 ## Comprobaciones rápidas
 
 Después de iniciar el servidor:
@@ -96,4 +201,4 @@ Después de iniciar el servidor:
 
 - Chart.js se carga mediante CDN, así que los gráficos requieren acceso a internet en el navegador.
 - `commander_name` está vacío actualmente en el catálogo; cuando se complete en `data/deck_catalog.csv`, la UI lo mostrará sin cambiar JavaScript.
-- La web es de solo lectura. La edición de datos y el parser de nuevas notas quedan fuera del alcance inicial.
+- La web publicada sigue siendo de solo lectura. La entrada dinámica ocurre por GitHub Issues y PRs.

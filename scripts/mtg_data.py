@@ -161,6 +161,7 @@ class DeckResolution:
 
 def normalize_text(value: Any) -> str:
     text = str(value or "").strip()
+    text = re.sub("andr(?:\\?|\\ufffd|\\u00e9)s", "Andres", text, flags=re.IGNORECASE)
     text = unicodedata.normalize("NFD", text)
     text = "".join(char for char in text if unicodedata.category(char) != "Mn")
     return re.sub(r"\s+", " ", text).casefold()

@@ -8,6 +8,11 @@ export function displayValue(value) {
   return isKnown(value) ? String(value) : UNKNOWN_LABEL;
 }
 
+export function repairKnownText(value) {
+  if (typeof value !== "string") return value;
+  return value.replace(/andr(?:\?|\uFFFD|\u00e9)s/gi, "Andres");
+}
+
 export function normalizeSearch(value) {
   return String(value ?? "")
     .normalize("NFD")

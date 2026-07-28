@@ -4,6 +4,7 @@ import {
   makeDeckKey,
   parseCsv,
   parseJsonArray,
+  repairKnownText,
 } from "./utils.js";
 
 const DATA_PATHS = {
@@ -13,16 +14,32 @@ const DATA_PATHS = {
   qualityIssues: "./data/quality_issues.csv",
 };
 
+const dataCacheVersion = Date.now();
+
+function dataUrl(path) {
+  const separator = path.includes("?") ? "&" : "?";
+  return `${path}${separator}v=${dataCacheVersion}`;
+}
+
 async function fetchJson(path) {
-  const response = await fetch(path);
+  const response = await fetch(dataUrl(path), { cache: "no-store" });
   if (!response.ok) throw new Error(`${path}: ${response.status} ${response.statusText}`);
-  return response.json();
+  return repairKnownTextValues(await response.json());
 }
 
 async function fetchText(path) {
-  const response = await fetch(path);
+  const response = await fetch(dataUrl(path), { cache: "no-store" });
   if (!response.ok) throw new Error(`${path}: ${response.status} ${response.statusText}`);
-  return response.text();
+  return repairKnownText(await response.text());
+}
+
+function repairKnownTextValues(value) {
+  if (typeof value === "string") return repairKnownText(value);
+  if (Array.isArray(value)) return value.map(repairKnownTextValues);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, repairKnownTextValues(item)]));
+  }
+  return value;
 }
 
 function normalizeCatalogRow(row) {

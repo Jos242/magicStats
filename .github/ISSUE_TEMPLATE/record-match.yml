@@ -35,7 +35,7 @@ body:
         - Chepe
         - Andrés
         - Jairo
-        - Pani
+        - Paniagua
         - Cris
         - Otro jugador
     validations:
@@ -58,6 +58,15 @@ body:
     validations:
       required: true
 
+  - type: input
+    id: deck_1_moxfield_url
+    attributes:
+      label: Deck 1 Moxfield URL opcional
+      description: Pega el link público/unlisted de Moxfield si lo tienes.
+      placeholder: "https://moxfield.com/decks/..."
+    validations:
+      required: false
+
   - type: dropdown
     id: player_2
     attributes:
@@ -66,7 +75,7 @@ body:
         - Chepe
         - Andrés
         - Jairo
-        - Pani
+        - Paniagua
         - Cris
         - Otro jugador
     validations:
@@ -89,6 +98,15 @@ body:
     validations:
       required: true
 
+  - type: input
+    id: deck_2_moxfield_url
+    attributes:
+      label: Deck 2 Moxfield URL opcional
+      description: Pega el link público/unlisted de Moxfield si lo tienes.
+      placeholder: "https://moxfield.com/decks/..."
+    validations:
+      required: false
+
   - type: dropdown
     id: player_3
     attributes:
@@ -98,7 +116,7 @@ body:
         - Chepe
         - Andrés
         - Jairo
-        - Pani
+        - Paniagua
         - Cris
         - Otro jugador
     validations:
@@ -121,6 +139,15 @@ body:
     validations:
       required: false
 
+  - type: input
+    id: deck_3_moxfield_url
+    attributes:
+      label: Deck 3 Moxfield URL opcional
+      description: Pega el link público/unlisted de Moxfield si lo tienes.
+      placeholder: "https://moxfield.com/decks/..."
+    validations:
+      required: false
+
   - type: dropdown
     id: player_4
     attributes:
@@ -130,7 +157,7 @@ body:
         - Chepe
         - Andrés
         - Jairo
-        - Pani
+        - Paniagua
         - Cris
         - Otro jugador
     validations:
@@ -153,6 +180,15 @@ body:
     validations:
       required: false
 
+  - type: input
+    id: deck_4_moxfield_url
+    attributes:
+      label: Deck 4 Moxfield URL opcional
+      description: Pega el link público/unlisted de Moxfield si lo tienes.
+      placeholder: "https://moxfield.com/decks/..."
+    validations:
+      required: false
+
   - type: dropdown
     id: player_5
     attributes:
@@ -162,7 +198,7 @@ body:
         - Chepe
         - Andrés
         - Jairo
-        - Pani
+        - Paniagua
         - Cris
         - Otro jugador
     validations:
@@ -185,6 +221,15 @@ body:
     validations:
       required: false
 
+  - type: input
+    id: deck_5_moxfield_url
+    attributes:
+      label: Deck 5 Moxfield URL opcional
+      description: Pega el link público/unlisted de Moxfield si lo tienes.
+      placeholder: "https://moxfield.com/decks/..."
+    validations:
+      required: false
+
   - type: dropdown
     id: result
     attributes:
@@ -204,7 +249,7 @@ body:
         - Chepe
         - Andrés
         - Jairo
-        - Pani
+        - Paniagua
         - Cris
         - Otro jugador
     validations:
@@ -228,7 +273,7 @@ body:
         - Chepe
         - Andrés
         - Jairo
-        - Pani
+        - Paniagua
         - Cris
         - Otro jugador
     validations:
@@ -306,7 +351,7 @@ body:
       label: Rendiciones
       description: Una por línea. Puedes escribir solo el jugador o "Jugador | nota".
       placeholder: |
-        Pani | se rinde por mesa perdida
+        Paniagua | se rinde por mesa perdida
     validations:
       required: false
 
@@ -338,7 +383,7 @@ body:
       description: "Una por línea: Jugador o Jugador | nota. Si es jugador nuevo, usa: Otro jugador: Juan | nota."
       placeholder: |
         Chepe
-        Pani | Sol Ring en turno 1.
+        Paniagua | Sol Ring en turno 1.
     validations:
       required: false
 

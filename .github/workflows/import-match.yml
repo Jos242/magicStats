@@ -95,6 +95,8 @@ jobs:
             --issue-number "$ISSUE_NUMBER" \
             --issue-url "$ISSUE_URL" \
             --rebuild
+          python scripts/enrich_deck_catalog.py --quiet
+          python scripts/rebuild_exports.py
           python scripts/validate_data.py
 
       - name: Create or update pull request

@@ -442,6 +442,17 @@ tbody tr:hover {
   color: #bce7cd;
 }
 
+.tag--link {
+  color: #c6ddff;
+  text-decoration: none;
+}
+
+.tag--link:hover,
+.tag--link:focus-visible {
+  border-color: rgba(119, 168, 216, 0.75);
+  color: #ffffff;
+}
+
 .muted {
   color: var(--muted);
 }

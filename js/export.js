@@ -1,4 +1,4 @@
-import { displayValue, toCsvValue } from "./utils.js";
+import { deckLabelForParticipant, displayValue, toCsvValue } from "./utils.js";
 
 const CSV_COLUMNS = [
   "game_id",
@@ -6,6 +6,7 @@ const CSV_COLUMNS = [
   "location",
   "participants",
   "decks",
+  "deck_ids",
   "winner",
   "starting_player",
   "duration_minutes",
@@ -17,7 +18,10 @@ const CSV_COLUMNS = [
 function gameToCsvRow(game) {
   const participants = game.participants.map((participant) => participant.player).join("; ");
   const decks = game.participants
-    .map((participant) => `${participant.player}: ${displayValue(participant.deck_name_normalized)}`)
+    .map((participant) => `${participant.player}: ${deckLabelForParticipant(participant)}`)
+    .join("; ");
+  const deckIds = game.participants
+    .map((participant) => `${participant.player}: ${displayValue(participant.deck_id)}`)
     .join("; ");
 
   return [
@@ -26,6 +30,7 @@ function gameToCsvRow(game) {
     game.location,
     participants,
     decks,
+    deckIds,
     game.winner_player ?? "",
     game.starting_player ?? "",
     game.duration_minutes ?? "",

@@ -12,19 +12,19 @@
     "Chepe",
     "Cris",
     "Jairo",
-    "Pani"
+    "Paniagua"
   ],
   "games_played_by_player": {
     "Jairo": 75,
     "Andrés": 75,
     "Chepe": 75,
-    "Pani": 2,
+    "Paniagua": 2,
     "Cris": 4
   },
   "wins_by_player": {
     "Jairo": 20,
     "Chepe": 28,
-    "Pani": 1,
+    "Paniagua": 1,
     "Andrés": 24,
     "Cris": 1
   },
@@ -33,7 +33,7 @@
     "Chepe": 0.3733,
     "Cris": 0.25,
     "Jairo": 0.2667,
-    "Pani": 0.5
+    "Paniagua": 0.5
   },
   "duration_coverage_games": 28,
   "average_duration_minutes": 51.1,

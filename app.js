@@ -15,7 +15,7 @@ import {
   renderReviewList,
   renderSummary,
 } from "./js/table.js";
-import { downloadTextFile, formatNumber, isKnown, makeDeckKey } from "./js/utils.js";
+import { deckLabelForCatalog, downloadTextFile, formatNumber, isKnown } from "./js/utils.js";
 
 const elements = {
   form: document.getElementById("filtersForm"),
@@ -68,12 +68,12 @@ function readMatchupMinimum() {
 }
 
 function deckOptionLabel(row) {
-  return `${row.display_name || row.deck_name_normalized} / ${row.player}`;
+  return deckLabelForCatalog(row);
 }
 
-function populateMatchupControls(catalogRows) {
-  const rows = [...catalogRows]
-    .filter((row) => isKnown(row.player) && isKnown(row.deck_name_normalized))
+function populateMatchupControls(deckIdentityRows) {
+  const rows = [...deckIdentityRows]
+    .filter((row) => isKnown(row.deck_id))
     .sort((a, b) => {
       const gamesDifference = (b.games_played ?? 0) - (a.games_played ?? 0);
       if (gamesDifference !== 0) return gamesDifference;
@@ -84,14 +84,14 @@ function populateMatchupControls(catalogRows) {
   elements.matchupRivalDeck.replaceChildren(new Option("Todos los rivales", ""));
 
   for (const row of rows) {
-    const value = makeDeckKey(row.player, row.deck_name_normalized);
+    const value = row.deck_id;
     const label = deckOptionLabel(row);
     elements.matchupSubjectDeck.append(new Option(label, value));
     elements.matchupRivalDeck.append(new Option(label, value));
   }
 
   if (rows.length > 0) {
-    elements.matchupSubjectDeck.value = makeDeckKey(rows[0].player, rows[0].deck_name_normalized);
+    elements.matchupSubjectDeck.value = rows[0].deck_id;
   }
 }
 
@@ -106,7 +106,7 @@ function render() {
     subjectKey: elements.matchupSubjectDeck.value,
     rivalKey: elements.matchupRivalDeck.value,
     minGames: readMatchupMinimum(),
-    catalogRows: dataset.catalogRows,
+    catalogRows: dataset.deckIdentityRows,
   });
 
   currentFilteredGames = filteredGames;
@@ -177,7 +177,7 @@ async function init() {
   try {
     dataset = await loadDataset();
     populateFilterControls(elements.form, dataset);
-    populateMatchupControls(dataset.catalogRows);
+    populateMatchupControls(dataset.deckIdentityRows);
 
     const warnings = collectDataWarnings(dataset.games);
     if (warnings.length > 0) {

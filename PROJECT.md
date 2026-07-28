@@ -30,6 +30,8 @@ It contains:
 - `participants[]` inside each game;
 - `events[]` inside each game.
 
+Participants store the pilot of that match. Deck identity is stored separately through `deck_id` and `deck_owner`, so a borrowed deck can remain one canonical deck across several pilots. Decks with the same display name but different real versions must keep different IDs.
+
 Derived files:
 
 ```text
@@ -68,6 +70,8 @@ Files involved:
 .github/workflows/import-match.yml
 .github/workflows/validate-data.yml
 scripts/import_issue.py
+scripts/enrich_deck_catalog.py
+scripts/deck_review.py
 scripts/rebuild_exports.py
 scripts/validate_data.py
 scripts/mtg_data.py
@@ -83,6 +87,29 @@ Then it opens a PR for review.
 
 The Issue Form intentionally supports `Otro jugador`, custom win conditions, custom elimination methods and additional special events. Repeated special events such as multiple nukes or multiple Sol Ring turn 1 plays are stored as separate rows in `events[]`. Those imports should be marked `needs_review: true` so a human or Codex can normalize aliases, event names or deck names before merge.
 
+Deck resolution first tries the exact pilot/deck catalog row. If that is missing but the deck name maps to exactly one canonical `deck_id`, the importer treats it as a likely borrowed deck and marks the game for review. Ambiguous names, such as decks with multiple real versions, should be reviewed manually.
+
+Deck catalog enrichment can be run locally with:
+
+```bash
+python scripts/enrich_deck_catalog.py
+python scripts/rebuild_exports.py
+python scripts/validate_data.py
+```
+
+It reads `moxfield_url` and fills empty `official_name` / `commander_name`. It uses unofficial Moxfield endpoints plus an HTML-title fallback, so failures should be handled as recoverable unless `--strict` is used.
+
+Manual deck cleanup should go through:
+
+```bash
+python scripts/deck_review.py export
+# edit data/deck_review.json
+python scripts/deck_review.py apply
+python scripts/validate_data.py
+```
+
+`data/deck_review.json` is intentionally user-editable. `assignments[]` maps pilot/deck rows to canonical deck identities; `identities[]` stores deck owner and metadata; `game_overrides[]` handles one-off per-game splits.
+
 ## Important Semantics
 
 Unknown means unknown. It does not mean false or zero.
@@ -93,6 +120,8 @@ Examples:
 - `nuke_recorded: null` means no nuke information was recorded.
 - `sol_ring_t1_recorded: null` means no Sol Ring T1 information was recorded.
 - `nuke_player` and `sol_ring_t1_player` are compatibility summary fields. If multiple players are recorded, use the corresponding `events[]` rows for complete counts.
+- A losing participant is not automatically eliminated. Eliminations, concessions and self-eliminations exist only when an `events[]` row records them.
+- Deck stats and matchups use `deck_id`, not `player + deck_name_normalized`.
 
 Do not calculate percentages over all games for sparse metadata unless the coverage is explicitly shown.
 

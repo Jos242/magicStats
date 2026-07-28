@@ -41,6 +41,7 @@ def validate_core(dataset: dict) -> list[str]:
     ids: set[str] = set()
     deck_catalog = read_deck_catalog()
     catalog_pairs = {(row["player"], row["deck_name_normalized"]) for row in deck_catalog}
+    catalog_deck_ids = {row["deck_id"] for row in deck_catalog if is_known(row.get("deck_id"))}
 
     for game in games:
         gid = game.get("game_id", "")
@@ -90,8 +91,13 @@ def validate_core(dataset: dict) -> list[str]:
         for participant in participants:
             player = participant.get("player", "")
             deck = participant.get("deck_name_normalized", "")
+            participant_deck_id = participant.get("deck_id", "")
             if is_known(deck) and (player, deck) not in catalog_pairs:
                 add(errors, f"{gid}: falta en deck_catalog.csv la combinación {player} / {deck}")
+            if is_known(deck) and not is_known(participant_deck_id):
+                add(errors, f"{gid}: participante {player} / {deck} no tiene deck_id")
+            if is_known(participant_deck_id) and participant_deck_id not in catalog_deck_ids:
+                add(errors, f"{gid}: deck_id no existe en deck_catalog.csv: {participant_deck_id}")
             if participant.get("result") not in VALID_PARTICIPANT_RESULTS:
                 add(errors, f"{gid}: resultado de participante inválido para {player}")
             if result_type == "draw" and participant.get("result") != "draw":

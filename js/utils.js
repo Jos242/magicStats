@@ -88,6 +88,54 @@ export function splitDeckKey(key) {
   return { player, deckName };
 }
 
+export function deckIdForParticipant(participant) {
+  return (
+    participant?.deck_catalog?.deck_id ||
+    participant?.deck_id ||
+    makeDeckKey(participant?.player, participant?.deck_name_normalized)
+  );
+}
+
+export function deckNameForCatalog(row) {
+  return row?.official_name || row?.display_name || row?.deck_name_normalized || "";
+}
+
+export function deckOwnerForCatalog(row) {
+  return row?.owner_player || row?.deck_owner || row?.player || "";
+}
+
+export function deckNameForParticipant(participant) {
+  return (
+    participant?.deck_catalog?.official_name ||
+    participant?.deck_catalog?.display_name ||
+    participant?.deck_name_normalized ||
+    ""
+  );
+}
+
+export function deckOwnerForParticipant(participant) {
+  return (
+    participant?.deck_owner ||
+    participant?.deck_catalog?.owner_player ||
+    participant?.deck_catalog?.player ||
+    participant?.player ||
+    ""
+  );
+}
+
+export function deckLabelFromParts(name, owner) {
+  if (!isKnown(name)) return UNKNOWN_LABEL;
+  return isKnown(owner) ? `${name} / ${owner}` : name;
+}
+
+export function deckLabelForCatalog(row) {
+  return deckLabelFromParts(deckNameForCatalog(row), deckOwnerForCatalog(row));
+}
+
+export function deckLabelForParticipant(participant) {
+  return deckLabelFromParts(deckNameForParticipant(participant), deckOwnerForParticipant(participant));
+}
+
 export function parseJsonArray(value) {
   if (!isKnown(value)) return [];
   try {

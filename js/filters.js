@@ -1,4 +1,6 @@
 import {
+  deckIdForParticipant,
+  deckLabelForCatalog,
   displayValue,
   formatConfidence,
   formatLocation,
@@ -70,7 +72,7 @@ export function populateFilterControls(form, dataset) {
 
   setOptions(
     selectors.deck,
-    uniqueSorted(participants.map((participant) => participant.deck_name_normalized)).map((deck) => option(deck, deck)),
+    dataset.deckIdentityRows.map((deck) => option(deck.deck_id, deckLabelForCatalog(deck))),
   );
 
   const commanders = uniqueSorted(participants.map((participant) => participant.commander_name));
@@ -145,6 +147,12 @@ function matchesSearch(game, searchText) {
       participant.player,
       participant.deck_name_raw,
       participant.deck_name_normalized,
+      participant.deck_id,
+      participant.deck_owner,
+      participant.deck_catalog?.official_name,
+      participant.deck_catalog?.moxfield_url,
+      participant.deck_catalog?.archidekt_url,
+      participant.deck_catalog?.edhrec_url,
       participant.deck_variant,
       participant.commander_name,
       participant.notes,
@@ -183,7 +191,7 @@ export function applyFilters(games, filters) {
 
     if (
       isKnown(filters.deck) &&
-      !game.participants.some((participant) => participant.deck_name_normalized === filters.deck)
+      !game.participants.some((participant) => deckIdForParticipant(participant) === filters.deck)
     ) {
       return false;
     }

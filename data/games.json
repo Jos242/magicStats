@@ -51,7 +51,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--volo"
         },
         {
           "game_id": "G2026-001",
@@ -63,7 +65,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--counters"
         },
         {
           "game_id": "G2026-001",
@@ -75,7 +79,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--bulk-artifacts"
         }
       ],
       "events": []
@@ -114,7 +120,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--graveyard"
         },
         {
           "game_id": "G2026-002",
@@ -126,7 +134,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--counters"
         },
         {
           "game_id": "G2026-002",
@@ -138,7 +148,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--bulk-artifacts"
         }
       ],
       "events": []
@@ -149,7 +161,7 @@
       "location": "in_person",
       "player_count": 4,
       "result_type": "win",
-      "winner_player": "Pani",
+      "winner_player": "Paniagua",
       "winner_raw": "panigua",
       "starting_player": null,
       "start_time": null,
@@ -163,7 +175,7 @@
       "sol_ring_t1_player": null,
       "parse_confidence": "medium",
       "needs_review": true,
-      "notes": "Se infiere que Counters era de Andrés y que «Panigua» corresponde a Pani.",
+      "notes": "Se infiere que Counters era de Andrés y que «Panigua» corresponde a Paniagua.",
       "source_line": 4,
       "raw_line": "graveyard Jairo counterscounters(precon) bulk(artefactos sami) chepe dinosaurios(Pani) / gano panigua",
       "participants": [
@@ -177,7 +189,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--graveyard"
         },
         {
           "game_id": "G2026-003",
@@ -189,7 +203,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "medium",
-          "notes": "El nombre del jugador no aparece; se infiere por continuidad."
+          "notes": "El nombre del jugador no aparece; se infiere por continuidad.",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--counters"
         },
         {
           "game_id": "G2026-003",
@@ -201,19 +217,23 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--bulk-artifacts"
         },
         {
           "game_id": "G2026-003",
           "seat_order": 4,
-          "player": "Pani",
+          "player": "Paniagua",
           "deck_name_raw": "dinosaurios(Pani)",
           "deck_name_normalized": "Dinos",
           "deck_variant": "",
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_id": "jairo--dinos",
+          "deck_owner": "Jairo"
         }
       ],
       "events": []
@@ -245,14 +265,16 @@
         {
           "game_id": "G2026-004",
           "seat_order": 1,
-          "player": "Pani",
+          "player": "Paniagua",
           "deck_name_raw": "dinos(Pani)",
           "deck_name_normalized": "Dinos",
           "deck_variant": "",
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_id": "jairo--dinos",
+          "deck_owner": "Jairo"
         },
         {
           "game_id": "G2026-004",
@@ -264,7 +286,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--dragones"
         },
         {
           "game_id": "G2026-004",
@@ -276,7 +300,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--gato"
         },
         {
           "game_id": "G2026-004",
@@ -288,7 +314,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--sauron"
         }
       ],
       "events": []
@@ -327,7 +355,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--aerith"
         },
         {
           "game_id": "G2026-005",
@@ -339,7 +369,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         },
         {
           "game_id": "G2026-005",
@@ -351,7 +383,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--rata"
         }
       ],
       "events": []
@@ -390,7 +424,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--yuna"
         },
         {
           "game_id": "G2026-006",
@@ -402,7 +438,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         },
         {
           "game_id": "G2026-006",
@@ -414,7 +452,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--rata"
         }
       ],
       "events": []
@@ -453,7 +493,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         },
         {
           "game_id": "G2026-007",
@@ -465,7 +507,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--jin-gitaxias"
         },
         {
           "game_id": "G2026-007",
@@ -477,7 +521,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--eldrazis"
         }
       ],
       "events": []
@@ -516,7 +562,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--yuna"
         },
         {
           "game_id": "G2026-008",
@@ -528,7 +576,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "medium",
-          "notes": "«jin» se normaliza como Jin-Gitaxias."
+          "notes": "«jin» se normaliza como Jin-Gitaxias.",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--jin-gitaxias"
         },
         {
           "game_id": "G2026-008",
@@ -540,7 +590,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "medium",
-          "notes": "El jugador se infiere por el patrón del grupo."
+          "notes": "El jugador se infiere por el patrón del grupo.",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--eldrazis"
         }
       ],
       "events": []
@@ -579,7 +631,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--experience"
         },
         {
           "game_id": "G2026-009",
@@ -591,7 +645,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         },
         {
           "game_id": "G2026-009",
@@ -603,7 +659,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         }
       ],
       "events": []
@@ -642,7 +700,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--destroy"
         },
         {
           "game_id": "G2026-010",
@@ -654,7 +714,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--scry"
         },
         {
           "game_id": "G2026-010",
@@ -666,7 +728,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--chaos"
         }
       ],
       "events": []
@@ -705,7 +769,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--sephiroth"
         },
         {
           "game_id": "G2026-011",
@@ -717,7 +783,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--unknown"
         },
         {
           "game_id": "G2026-011",
@@ -729,7 +797,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--robin"
         }
       ],
       "events": []
@@ -768,7 +838,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--kithkin"
         },
         {
           "game_id": "G2026-012",
@@ -780,7 +852,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--phyrexia"
         },
         {
           "game_id": "G2026-012",
@@ -792,7 +866,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         }
       ],
       "events": []
@@ -831,7 +907,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--dragones"
         },
         {
           "game_id": "G2026-013",
@@ -843,7 +921,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_id": "jairo--dinos",
+          "deck_owner": "Jairo"
         },
         {
           "game_id": "G2026-013",
@@ -855,7 +935,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--gato"
         }
       ],
       "events": []
@@ -894,7 +976,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--elementals"
         },
         {
           "game_id": "G2026-014",
@@ -906,7 +990,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--auntie"
         },
         {
           "game_id": "G2026-014",
@@ -918,7 +1004,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--graveyard"
         }
       ],
       "events": []
@@ -957,7 +1045,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--elementals"
         },
         {
           "game_id": "G2026-015",
@@ -969,7 +1059,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--auntie"
         },
         {
           "game_id": "G2026-015",
@@ -981,7 +1073,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--vivi"
         }
       ],
       "events": []
@@ -1020,7 +1114,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--dragones"
         },
         {
           "game_id": "G2026-016",
@@ -1032,7 +1128,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--vivi"
         },
         {
           "game_id": "G2026-016",
@@ -1044,7 +1142,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_id": "jairo--marneus",
+          "deck_owner": "Jairo"
         }
       ],
       "events": []
@@ -1083,7 +1183,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--elementals"
         },
         {
           "game_id": "G2026-017",
@@ -1095,7 +1197,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--eldrazis"
         },
         {
           "game_id": "G2026-017",
@@ -1107,7 +1211,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         }
       ],
       "events": []
@@ -1146,7 +1252,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--eldrazis"
         },
         {
           "game_id": "G2026-018",
@@ -1158,7 +1266,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--lands"
         },
         {
           "game_id": "G2026-018",
@@ -1170,7 +1280,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_id": "jairo--marneus",
+          "deck_owner": "Jairo"
         }
       ],
       "events": []
@@ -1209,7 +1321,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--volo"
         },
         {
           "game_id": "G2026-019",
@@ -1221,7 +1335,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--elementals"
         },
         {
           "game_id": "G2026-019",
@@ -1233,7 +1349,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--gato"
         }
       ],
       "events": []
@@ -1272,7 +1390,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--volo"
         },
         {
           "game_id": "G2026-020",
@@ -1284,7 +1404,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--elementals"
         },
         {
           "game_id": "G2026-020",
@@ -1296,7 +1418,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--gato"
         }
       ],
       "events": []
@@ -1335,7 +1459,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--tidus"
         },
         {
           "game_id": "G2026-021",
@@ -1347,7 +1473,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--auntie"
         },
         {
           "game_id": "G2026-021",
@@ -1359,7 +1487,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_id": "jairo--dinos",
+          "deck_owner": "Jairo"
         }
       ],
       "events": []
@@ -1398,7 +1528,9 @@
           "commander_name": "",
           "result": "draw",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--auntie"
         },
         {
           "game_id": "G2026-022",
@@ -1410,7 +1542,9 @@
           "commander_name": "",
           "result": "draw",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         },
         {
           "game_id": "G2026-022",
@@ -1422,7 +1556,9 @@
           "commander_name": "",
           "result": "draw",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--jeskai"
         }
       ],
       "events": []
@@ -1461,7 +1597,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--iroh"
         },
         {
           "game_id": "G2026-023",
@@ -1473,7 +1611,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--aerith"
         },
         {
           "game_id": "G2026-023",
@@ -1485,7 +1625,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--cloud"
         }
       ],
       "events": []
@@ -1524,7 +1666,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_id": "jairo--marneus",
+          "deck_owner": "Jairo"
         },
         {
           "game_id": "G2026-024",
@@ -1536,7 +1680,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--auntie"
         },
         {
           "game_id": "G2026-024",
@@ -1548,7 +1694,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--aerith"
         }
       ],
       "events": []
@@ -1587,7 +1735,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--elementals"
         },
         {
           "game_id": "G2026-025",
@@ -1599,7 +1749,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--eldrazis"
         },
         {
           "game_id": "G2026-025",
@@ -1611,7 +1763,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--graveyard"
         }
       ],
       "events": []
@@ -1650,7 +1804,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--phyrexians"
         },
         {
           "game_id": "G2026-026",
@@ -1662,7 +1818,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         },
         {
           "game_id": "G2026-026",
@@ -1674,7 +1832,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--conejos"
         }
       ],
       "events": []
@@ -1713,7 +1873,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--phyrexians"
         },
         {
           "game_id": "G2026-027",
@@ -1725,7 +1887,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--sokka-suki"
         },
         {
           "game_id": "G2026-027",
@@ -1737,7 +1901,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         }
       ],
       "events": []
@@ -1776,7 +1942,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--phyrexians"
         },
         {
           "game_id": "G2026-028",
@@ -1788,7 +1956,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         },
         {
           "game_id": "G2026-028",
@@ -1800,7 +1970,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         }
       ],
       "events": []
@@ -1839,7 +2011,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--experience"
         },
         {
           "game_id": "G2026-029",
@@ -1851,7 +2025,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         },
         {
           "game_id": "G2026-029",
@@ -1863,7 +2039,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         }
       ],
       "events": []
@@ -1902,7 +2080,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--experience"
         },
         {
           "game_id": "G2026-030",
@@ -1914,7 +2094,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         },
         {
           "game_id": "G2026-030",
@@ -1926,7 +2108,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--conejos"
         }
       ],
       "events": []
@@ -1965,7 +2149,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--yuna"
         },
         {
           "game_id": "G2026-031",
@@ -1977,7 +2163,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         },
         {
           "game_id": "G2026-031",
@@ -1989,7 +2177,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--attractions"
         }
       ],
       "events": []
@@ -2028,7 +2218,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--experience"
         },
         {
           "game_id": "G2026-032",
@@ -2040,7 +2232,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         },
         {
           "game_id": "G2026-032",
@@ -2052,7 +2246,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         }
       ],
       "events": []
@@ -2091,7 +2287,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--esix"
         },
         {
           "game_id": "G2026-033",
@@ -2103,7 +2301,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--equips"
         },
         {
           "game_id": "G2026-033",
@@ -2115,7 +2315,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         }
       ],
       "events": []
@@ -2154,7 +2356,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         },
         {
           "game_id": "G2026-034",
@@ -2166,7 +2370,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--eldrazis-colores"
         },
         {
           "game_id": "G2026-034",
@@ -2178,7 +2384,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--shadowdillas"
         }
       ],
       "events": []
@@ -2217,7 +2425,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         },
         {
           "game_id": "G2026-035",
@@ -2229,7 +2439,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--eldrazis-colores"
         },
         {
           "game_id": "G2026-035",
@@ -2241,7 +2453,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--edea"
         }
       ],
       "events": []
@@ -2280,7 +2494,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--counters-weird"
         },
         {
           "game_id": "G2026-036",
@@ -2292,7 +2508,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--shadowdillas"
         },
         {
           "game_id": "G2026-036",
@@ -2304,7 +2522,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         }
       ],
       "events": []
@@ -2343,7 +2563,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--tifa"
         },
         {
           "game_id": "G2026-037",
@@ -2355,7 +2577,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--rata"
         },
         {
           "game_id": "G2026-037",
@@ -2367,7 +2591,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         }
       ],
       "events": []
@@ -2406,7 +2632,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--tifa"
         },
         {
           "game_id": "G2026-038",
@@ -2418,7 +2646,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--rata"
         },
         {
           "game_id": "G2026-038",
@@ -2430,7 +2660,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         }
       ],
       "events": []
@@ -2469,7 +2701,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--jin-sakai"
         },
         {
           "game_id": "G2026-039",
@@ -2481,7 +2715,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         },
         {
           "game_id": "G2026-039",
@@ -2493,7 +2729,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         }
       ],
       "events": []
@@ -2532,7 +2770,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--jin-sakai"
         },
         {
           "game_id": "G2026-040",
@@ -2544,7 +2784,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--eldrazis-colores"
         },
         {
           "game_id": "G2026-040",
@@ -2556,7 +2798,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         }
       ],
       "events": [
@@ -2616,7 +2860,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--eldrazis-colores"
         },
         {
           "game_id": "G2026-041",
@@ -2628,7 +2874,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--jin-sakai"
         },
         {
           "game_id": "G2026-041",
@@ -2640,7 +2888,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--sokka-suki"
         }
       ],
       "events": [
@@ -2700,7 +2950,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--yuna"
         },
         {
           "game_id": "G2026-042",
@@ -2712,7 +2964,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         },
         {
           "game_id": "G2026-042",
@@ -2724,7 +2978,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--jairo-verde-verde"
         }
       ],
       "events": [
@@ -2784,7 +3040,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--azula"
         },
         {
           "game_id": "G2026-043",
@@ -2796,7 +3054,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--vivi"
         },
         {
           "game_id": "G2026-043",
@@ -2808,7 +3068,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_id": "jairo--marneus",
+          "deck_owner": "Jairo"
         }
       ],
       "events": [
@@ -2868,7 +3130,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--vivi"
         },
         {
           "game_id": "G2026-044",
@@ -2880,7 +3144,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_id": "jairo--marneus",
+          "deck_owner": "Jairo"
         },
         {
           "game_id": "G2026-044",
@@ -2892,7 +3158,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--dragones"
         }
       ],
       "events": [
@@ -2952,7 +3220,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--sauron"
         },
         {
           "game_id": "G2026-045",
@@ -2964,19 +3234,23 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--auntie"
         },
         {
           "game_id": "G2026-045",
           "seat_order": 3,
           "player": "Jairo",
           "deck_name_raw": "Magnus",
-          "deck_name_normalized": "Magnus",
+          "deck_name_normalized": "Marneus",
           "deck_variant": "",
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "Magnus normalizado como Marneus.",
+          "deck_id": "jairo--marneus",
+          "deck_owner": "Jairo"
         }
       ],
       "events": [
@@ -3036,7 +3310,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--conejos"
         },
         {
           "game_id": "G2026-046",
@@ -3048,7 +3324,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         },
         {
           "game_id": "G2026-046",
@@ -3060,7 +3338,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--jin-sakai"
         }
       ],
       "events": [
@@ -3120,7 +3400,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--jin-gitaxias"
         },
         {
           "game_id": "G2026-047",
@@ -3132,7 +3414,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--winota"
         },
         {
           "game_id": "G2026-047",
@@ -3144,7 +3428,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         }
       ],
       "events": [
@@ -3204,7 +3490,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--jin-gitaxias"
         },
         {
           "game_id": "G2026-048",
@@ -3216,7 +3504,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--winota"
         },
         {
           "game_id": "G2026-048",
@@ -3228,7 +3518,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         }
       ],
       "events": [
@@ -3288,7 +3580,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--rocco"
         },
         {
           "game_id": "G2026-049",
@@ -3300,7 +3594,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "medium",
-          "notes": "El orden de palabras está alterado en la fuente."
+          "notes": "El orden de palabras está alterado en la fuente.",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         },
         {
           "game_id": "G2026-049",
@@ -3312,7 +3608,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--chaos"
         }
       ],
       "events": [
@@ -3372,7 +3670,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--bulk-artifacts"
         },
         {
           "game_id": "G2026-050",
@@ -3384,7 +3684,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--auntie"
         },
         {
           "game_id": "G2026-050",
@@ -3396,7 +3698,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_id": "jairo--marneus",
+          "deck_owner": "Jairo"
         }
       ],
       "events": [
@@ -3456,7 +3760,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         },
         {
           "game_id": "G2026-051",
@@ -3468,7 +3774,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--tidus"
         },
         {
           "game_id": "G2026-051",
@@ -3480,7 +3788,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--auntie"
         }
       ],
       "events": [
@@ -3550,7 +3860,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--vivi"
         },
         {
           "game_id": "G2026-052",
@@ -3562,7 +3874,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--volo"
         },
         {
           "game_id": "G2026-052",
@@ -3574,7 +3888,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--aerith"
         }
       ],
       "events": [
@@ -3634,7 +3950,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--cloud"
         },
         {
           "game_id": "G2026-053",
@@ -3646,7 +3964,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--vivi"
         },
         {
           "game_id": "G2026-053",
@@ -3658,7 +3978,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_id": "jairo--dinos",
+          "deck_owner": "Jairo"
         }
       ],
       "events": [
@@ -3718,7 +4040,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--dragones"
         },
         {
           "game_id": "G2026-054",
@@ -3730,7 +4054,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--graveyard"
         },
         {
           "game_id": "G2026-054",
@@ -3742,7 +4068,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--eldrazis"
         }
       ],
       "events": [
@@ -3812,7 +4140,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--mabel-mouses"
         },
         {
           "game_id": "G2026-055",
@@ -3824,7 +4154,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--vanilla-tutors"
         },
         {
           "game_id": "G2026-055",
@@ -3836,7 +4168,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--mono-blue-pero-nel"
         }
       ],
       "events": [
@@ -3896,7 +4230,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         },
         {
           "game_id": "G2026-056",
@@ -3908,7 +4244,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--octopus-lady"
         },
         {
           "game_id": "G2026-056",
@@ -3920,7 +4258,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--pajaros"
         }
       ],
       "events": []
@@ -3959,7 +4299,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--osos"
         },
         {
           "game_id": "G2026-057",
@@ -3971,7 +4313,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--jin-sakai"
         },
         {
           "game_id": "G2026-057",
@@ -3983,7 +4327,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--abuelo"
         }
       ],
       "events": []
@@ -4022,7 +4368,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--jin-sakai"
         },
         {
           "game_id": "G2026-058",
@@ -4034,7 +4382,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "low",
-          "notes": "Uno de «artefacts lady» u «octopus», sin asignación segura."
+          "notes": "Uno de «artefacts lady» u «octopus», sin asignación segura.",
+          "deck_id": "",
+          "deck_owner": ""
         },
         {
           "game_id": "G2026-058",
@@ -4046,7 +4396,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "low",
-          "notes": "Uno de «artefacts lady» u «octopus», sin asignación segura."
+          "notes": "Uno de «artefacts lady» u «octopus», sin asignación segura.",
+          "deck_id": "",
+          "deck_owner": ""
         }
       ],
       "events": [
@@ -4106,7 +4458,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--jin-sakai"
         },
         {
           "game_id": "G2026-059",
@@ -4118,7 +4472,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--octopus-lady"
         },
         {
           "game_id": "G2026-059",
@@ -4130,7 +4486,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         }
       ],
       "events": [
@@ -4180,7 +4538,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--terra-sagas"
         },
         {
           "game_id": "G2026-060",
@@ -4192,7 +4552,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         },
         {
           "game_id": "G2026-060",
@@ -4204,7 +4566,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--octopus-lady"
         }
       ],
       "events": []
@@ -4243,7 +4607,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         },
         {
           "game_id": "G2026-061",
@@ -4255,7 +4621,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--jin-sakai"
         },
         {
           "game_id": "G2026-061",
@@ -4267,7 +4635,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--half-life"
         }
       ],
       "events": [
@@ -4327,7 +4697,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--rocco"
         },
         {
           "game_id": "G2026-062",
@@ -4339,7 +4711,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--ragos"
         },
         {
           "game_id": "G2026-062",
@@ -4351,7 +4725,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--aranas-ungoliant"
         }
       ],
       "events": [
@@ -4411,7 +4787,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--koma"
         },
         {
           "game_id": "G2026-063",
@@ -4423,7 +4801,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--roxanne"
         },
         {
           "game_id": "G2026-063",
@@ -4435,7 +4815,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--5-colores"
         }
       ],
       "events": [
@@ -4495,7 +4877,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--jin-sakai"
         },
         {
           "game_id": "G2026-064",
@@ -4507,7 +4891,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--5-colores"
         },
         {
           "game_id": "G2026-064",
@@ -4519,7 +4905,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--conejos"
         }
       ],
       "events": []
@@ -4558,7 +4946,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--jin-sakai"
         },
         {
           "game_id": "G2026-065",
@@ -4570,7 +4960,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         },
         {
           "game_id": "G2026-065",
@@ -4582,7 +4974,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--5-colores"
         }
       ],
       "events": []
@@ -4621,7 +5015,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--raphael"
         },
         {
           "game_id": "G2026-066",
@@ -4633,7 +5029,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--rata"
         },
         {
           "game_id": "G2026-066",
@@ -4645,7 +5043,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--octopus-lady"
         }
       ],
       "events": []
@@ -4684,7 +5084,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--octopus-lady"
         },
         {
           "game_id": "G2026-067",
@@ -4696,7 +5098,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--conejos"
         },
         {
           "game_id": "G2026-067",
@@ -4708,7 +5112,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--raphael"
         }
       ],
       "events": []
@@ -4747,7 +5153,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--raphael"
         },
         {
           "game_id": "G2026-068",
@@ -4759,7 +5167,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--meteoritos"
         },
         {
           "game_id": "G2026-068",
@@ -4771,7 +5181,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--nekusar"
         }
       ],
       "events": []
@@ -4810,7 +5222,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--raphael"
         },
         {
           "game_id": "G2026-069",
@@ -4822,7 +5236,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--omnath-locus-of-mana"
         },
         {
           "game_id": "G2026-069",
@@ -4834,7 +5250,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         }
       ],
       "events": []
@@ -4873,7 +5291,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--shadowheart"
         },
         {
           "game_id": "G2026-070",
@@ -4885,7 +5305,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--espiritus"
         },
         {
           "game_id": "G2026-070",
@@ -4897,7 +5319,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_id": "jairo--dinos",
+          "deck_owner": "Jairo"
         }
       ],
       "events": []
@@ -4936,7 +5360,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--dragones"
         },
         {
           "game_id": "G2026-071",
@@ -4948,7 +5374,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--tortugas"
         },
         {
           "game_id": "G2026-071",
@@ -4960,7 +5388,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--graveyard"
         }
       ],
       "events": []
@@ -4999,7 +5429,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Cris",
+          "deck_id": "cris--angeles"
         },
         {
           "game_id": "G2026-072",
@@ -5011,7 +5443,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--elementals"
         },
         {
           "game_id": "G2026-072",
@@ -5023,7 +5457,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--gato"
         },
         {
           "game_id": "G2026-072",
@@ -5035,7 +5471,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--espiritus"
         }
       ],
       "events": []
@@ -5074,7 +5512,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_id": "jairo--dinos",
+          "deck_owner": "Jairo"
         },
         {
           "game_id": "G2026-073",
@@ -5086,7 +5526,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--vivi"
         },
         {
           "game_id": "G2026-073",
@@ -5098,7 +5540,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--tidus"
         },
         {
           "game_id": "G2026-073",
@@ -5110,7 +5554,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_id": "jairo--marneus",
+          "deck_owner": "Jairo"
         }
       ],
       "events": []
@@ -5149,7 +5595,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--lands"
         },
         {
           "game_id": "G2026-074",
@@ -5161,7 +5609,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Cris",
+          "deck_id": "cris--angeles"
         },
         {
           "game_id": "G2026-074",
@@ -5173,7 +5623,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_id": "jairo--marneus",
+          "deck_owner": "Jairo"
         },
         {
           "game_id": "G2026-074",
@@ -5185,7 +5637,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--eldrazis"
         }
       ],
       "events": []
@@ -5224,7 +5678,9 @@
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "medium",
-          "notes": "Deck nuevo o alias no encontrado en deck_catalog.csv; revisar antes de merge."
+          "notes": "Deck nuevo o alias no encontrado en deck_catalog.csv; revisar antes de merge.",
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--stardew"
         },
         {
           "game_id": "G2026-075",
@@ -5236,7 +5692,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
-          "notes": ""
+          "notes": "",
+          "deck_owner": "Andrés",
+          "deck_id": "andres--octopus-lady"
         },
         {
           "game_id": "G2026-075",
@@ -5248,7 +5706,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "medium",
-          "notes": "Deck nuevo o alias no encontrado en deck_catalog.csv; revisar antes de merge."
+          "notes": "Deck nuevo o alias no encontrado en deck_catalog.csv; revisar antes de merge.",
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--loreholdinternet"
         },
         {
           "game_id": "G2026-075",
@@ -5260,7 +5720,9 @@
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "medium",
-          "notes": "Deck nuevo o alias no encontrado en deck_catalog.csv; revisar antes de merge."
+          "notes": "Deck nuevo o alias no encontrado en deck_catalog.csv; revisar antes de merge.",
+          "deck_owner": "Cris",
+          "deck_id": "cris--gigantes"
         }
       ],
       "events": [

@@ -15,14 +15,17 @@ Página web estática para explorar partidas de Magic: The Gathering Commander r
 - `app.js`: inicialización de la app.
 - `js/`: módulos de carga de datos, filtros, estadísticas, gráficos, tablas y exportación.
 - `data/games.json`: fuente principal de partidas, participantes y eventos anidados.
-- `data/deck_catalog.csv`: catálogo de decks por jugador; `commander_name` se usa cuando esté completado.
+- `data/deck_catalog.csv`: catálogo de identidades de deck, pilotos, dueños, comandante y links externos.
 - `data/summary.json`: resumen precalculado para referencia.
 - `data/quality_issues.csv`: partidas con inferencias o ambigüedades.
 - `scripts/import_issue.py`: importa una partida desde un GitHub Issue Form.
+- `scripts/enrich_deck_catalog.py`: completa nombres y comandantes desde links de Moxfield.
+- `scripts/deck_review.py`: genera/aplica un JSON editable para limpiar identidades de decks.
 - `scripts/rebuild_exports.py`: regenera CSVs, catálogo, issues de calidad y resumen desde `games.json`.
 - `scripts/validate_data.py`: validación local sin dependencias externas.
 - `.github/ISSUE_TEMPLATE/record-match.yml`: formulario para registrar partidas desde GitHub.
 - `.github/workflows/import-match.yml`: workflow que abre PRs de partidas nuevas.
+- `.github/workflows/enrich-deck-catalog.yml`: workflow manual para enriquecer el catálogo desde Moxfield.
 - `.github/workflows/validate-data.yml`: workflow de validación para pushes y PRs.
 - `AGENTS.md`: instrucciones durables para Codex.
 - `PROJECT.md`: resumen del proyecto para chats nuevos o colaboradores.
@@ -59,7 +62,7 @@ No abras `index.html` directamente como archivo local, porque `fetch()` puede qu
 
 ## Uso
 
-La página muestra inicialmente las 74 partidas. Los filtros se combinan y actualizan:
+La página muestra inicialmente las 75 partidas. Los filtros se combinan y actualizan:
 
 - KPIs de resumen;
 - gráficos Chart.js;
@@ -69,9 +72,11 @@ La página muestra inicialmente las 74 partidas. Los filtros se combinan y actua
 - panel de calidad de datos;
 - exportación CSV.
 
-El control **Mínimo apariciones decks** filtra tanto las gráficas de decks como la tabla de decks. La sección **Matchups** usa combinaciones `jugador + deck`, permite elegir un deck analizado, un rival específico opcional y un mínimo de partidas para mostrar tasas con tamaño de muestra.
+El control **Mínimo apariciones decks** filtra tanto las gráficas de decks como la tabla de decks. La sección **Matchups** usa `deck_id` canónico: un deck prestado cuenta como el mismo deck real, pero decks distintos con el mismo nombre pueden mantenerse separados con IDs diferentes, como `chepe--yuna` y `jairo--yuna`.
 
 La sección **Eliminaciones** usa solo eventos `elimination` con actor y objetivo registrados. Muestra quién elimina más, quién suele ser eliminado, pares actor -> objetivo, métodos de eliminación y formas de victoria registradas. Las partidas sin eventos o sin condición de victoria no se cuentan como cero.
+
+Un jugador que pierde no necesariamente fue eliminado o se rindió. Si alguien gana con una condición como `Approach of the Second Sun`, los demás participantes quedan como `loser`, pero solo habrá eventos de eliminación/rendición si realmente fueron registrados.
 
 Los valores `null`, vacíos o ausentes se muestran como **No registrado**. No se convierten a `false` ni a cero. Esto es importante para campos con poca cobertura como duración, jugador inicial, nuke y Sol Ring turno 1.
 
@@ -141,7 +146,130 @@ mill
 unspecified
 ```
 
-Si un deck no existe en `deck_catalog.csv`, el importador lo agrega como deck nuevo en el PR y marca la partida para revisión manual.
+Si un deck no existe en `deck_catalog.csv`, el importador lo agrega como deck nuevo en el PR y marca la partida para revisión manual. Si el nombre existe como una única identidad canónica, el importador puede resolverlo como deck prestado y también lo marca para revisión. Si el nombre es ambiguo, por ejemplo porque hay dos versiones reales de `Yuna`, se debe revisar el PR.
+
+### Catálogo de decks
+
+`deck_id` identifica el deck real. `player` indica quién lo piloteó en partidas registradas y `owner_player` indica de quién es el deck. Por eso `Dinos` puede aparecer en varias filas por piloto, pero compartir `deck_id = jairo--dinos`.
+
+Campos útiles para completar manualmente en `data/deck_catalog.csv`:
+
+```text
+official_name
+commander_name
+moxfield_url
+archidekt_url
+edhrec_url
+```
+
+Después de completar esos datos, corre:
+
+```bash
+python scripts/rebuild_exports.py
+python scripts/validate_data.py
+```
+
+El regenerador preserva esos campos cuando vuelve a crear el catálogo.
+
+### Enriquecer decks desde Moxfield
+
+Si pegas un link en `moxfield_url`, puedes intentar completar `official_name` y `commander_name` automáticamente:
+
+```bash
+python scripts/enrich_deck_catalog.py
+python scripts/rebuild_exports.py
+python scripts/validate_data.py
+```
+
+Por defecto el script solo rellena campos vacíos. Para probar sin escribir:
+
+```bash
+python scripts/enrich_deck_catalog.py --dry-run
+```
+
+Para inspeccionar un solo link:
+
+```bash
+python scripts/enrich_deck_catalog.py --url https://moxfield.com/decks/IfKVN4kO3UmoSUmRJ7pyig
+```
+
+Para limitarlo a un deck:
+
+```bash
+python scripts/enrich_deck_catalog.py --deck-id chepe--jin-sakai
+```
+
+Si quieres sobrescribir valores existentes:
+
+```bash
+python scripts/enrich_deck_catalog.py --overwrite
+```
+
+Moxfield no publica una API oficial estable para esto. El script usa endpoints no oficiales y fallback por HTML; si Moxfield bloquea o cambia algo, reporta el error y deja el CSV intacto para esos decks.
+
+En GitHub también existe el workflow manual **Enrich deck catalog**. Sirve para correr el mismo script desde Actions y abrir un PR con los cambios. En issues nuevos puedes llenar los campos `Deck N Moxfield URL opcional`; el workflow de import intentará enriquecer el catálogo automáticamente si Moxfield responde.
+
+### Limpieza manual de identidades de deck
+
+Para revisar y corregir decks manualmente, genera este archivo:
+
+```bash
+python scripts/deck_review.py export
+```
+
+Eso crea `data/deck_review.json`. Edita principalmente:
+
+- `identities`: un objeto por deck real. Aquí cambias dueño, nombre visible, nombre oficial, comandante y links.
+- `assignments`: una fila por combinación `piloto || deck normalizado`. Aquí cambias a qué deck real apunta cada asignación.
+- `game_overrides`: casos puntuales por partida si una misma fila de `assignments` necesita separarse solo para un juego específico.
+
+Ejemplo: si `Cris || Dinos` realmente era el deck de Jairo, deja:
+
+```json
+{
+  "assignment_key": "Cris||Dinos",
+  "target_deck_id": "jairo--dinos",
+  "target_deck_name_normalized": "Dinos"
+}
+```
+
+Ejemplo: si una fila fue fusionada por error y debe ser deck distinto, agrega una identidad nueva:
+
+```json
+{
+  "deck_id": "cris--dinos",
+  "owner_player": "Cris",
+  "display_name": "Dinos Cris",
+  "official_name": "",
+  "commander_name": "",
+  "moxfield_url": ""
+}
+```
+
+y apunta la assignment a ese ID:
+
+```json
+{
+  "assignment_key": "Cris||Dinos",
+  "target_deck_id": "cris--dinos",
+  "target_deck_name_normalized": "Dinos Cris"
+}
+```
+
+Antes de escribir cambios puedes probar:
+
+```bash
+python scripts/deck_review.py apply --dry-run
+```
+
+Para aplicar:
+
+```bash
+python scripts/deck_review.py apply
+python scripts/validate_data.py
+```
+
+Después de aplicar, el script actualiza `data/games.json`, regenera derivados y conserva la metadata de `identities` en `data/deck_catalog.csv`.
 
 ### Opciones "Otro" en el formulario
 
@@ -180,7 +308,7 @@ Otro jugador: Juan | Nuke con Farewell.
 
 Sol Ring turno 1 registrados por:
 Chepe
-Pani | Sol Ring en turno 1.
+Paniagua | Sol Ring en turno 1.
 ```
 
 Los eventos especiales ya conocidos también tienen campos propios:
@@ -204,18 +332,20 @@ Esos campos aceptan más de una línea. El JSON conserva todos los registros com
 
 Después de iniciar el servidor:
 
-- sin filtros deben verse 74 partidas;
-- `virtual` debe dejar 44 partidas;
+- sin filtros deben verse 75 partidas;
+- `virtual` debe dejar 45 partidas;
 - `in_person` debe dejar 30 partidas;
 - `draw` debe dejar 1 partida;
 - ganador `Cris` debe dejar 1 partida;
 - búsqueda `Sol Ring` debe encontrar `G2026-054`;
-- `needs_review` debe mostrar `G2026-003`, `G2026-008`, `G2026-049` y `G2026-058`;
-- duración debe indicar muestra `n=27`;
-- comenzar y ganar debe indicar muestra `n=29`.
+- `needs_review` debe mostrar `G2026-003`, `G2026-008`, `G2026-049`, `G2026-058` y `G2026-075`;
+- duración debe indicar muestra `n=28`;
+- comenzar y ganar debe indicar muestra `n=30`;
+- el filtro de deck `Dinos / Jairo` debe incluir partidas donde lo pilotearon Jairo, Paniagua o Cris;
+- `Yuna / Chepe` y `Yuna / Jairo` deben aparecer como decks separados.
 
 ## Limitaciones
 
 - Chart.js se carga mediante CDN, así que los gráficos requieren acceso a internet en el navegador.
-- `commander_name` está vacío actualmente en el catálogo; cuando se complete en `data/deck_catalog.csv`, la UI lo mostrará sin cambiar JavaScript.
+- `commander_name`, `official_name` y los links externos se completan manualmente en `data/deck_catalog.csv`; la UI los mostrará sin cambiar JavaScript.
 - La web publicada sigue siendo de solo lectura. La entrada dinámica ocurre por GitHub Issues y PRs.

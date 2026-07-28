@@ -34,7 +34,10 @@
 | `seat_order` | Orden textual, no necesariamente orden real de turnos. |
 | `player` | Nombre normalizado. |
 | `deck_name_raw` | Nombre como aparece en la nota. |
-| `deck_name_normalized` | Alias consolidado para estadísticas. |
+| `deck_name_normalized` | Nombre normalizado escrito para esa asignación de piloto/deck. |
+| `deck_id` | Identidad canónica del deck real. Puede repetirse entre pilotos si el deck fue prestado. |
+| `deck_owner` | Dueño canónico del deck, distinto del piloto cuando aplica. |
+| `moxfield_url` | Link de Moxfield usado como semilla para el catálogo, cuando vino del formulario. |
 | `deck_variant` | Precon, nerfed u otra anotación. |
 | `commander_name` | Vacío por ahora. El catálogo es la fuente futura. |
 | `result` | `winner`, `loser` o `draw`. |
@@ -54,8 +57,37 @@
 
 ## `data/deck_catalog.csv`
 
-Una fila por combinación de jugador y deck normalizado. `commander_name` está vacío deliberadamente para completarlo después.
+Una fila por combinación de piloto y deck normalizado. Varias filas pueden compartir el mismo `deck_id` cuando representan el mismo deck real usado por diferentes pilotos.
+
+| Campo | Descripción |
+|---|---|
+| `deck_id` | Identidad canónica del deck real. |
+| `owner_player` | Dueño del deck. |
+| `player` | Piloto que ha usado ese deck en partidas registradas. |
+| `deck_name_normalized` | Nombre normalizado para esa asignación. |
+| `display_name` | Nombre visible corto. |
+| `official_name` | Nombre oficial/apodo elegido por el grupo, opcional. |
+| `commander_name` | Comandante real, opcional. |
+| `moxfield_url`, `archidekt_url`, `edhrec_url` | Links externos opcionales. |
+| `first_played`, `last_played` | Rango de fechas para ese piloto/deck. |
+| `games_played`, `wins`, `win_rate` | Estadísticas de ese piloto usando ese deck. |
+| `aliases` | Alias observados en fuentes o formularios. |
+| `variants` | Variantes textuales observadas. |
+
+Las estadísticas de la web agrupan decks por `deck_id`. `Yuna / Chepe` y `Yuna / Jairo` se mantienen separados porque tienen IDs distintos. `Dinos` se consolida con `deck_id = jairo--dinos` aunque lo hayan jugado otros pilotos.
 
 ## `data/games.json`
 
 Versión anidada recomendada para la web. Los tipos nulos se conservan correctamente, a diferencia de los CSV.
+
+## `data/deck_review.json`
+
+Archivo editable generado por `python scripts/deck_review.py export`.
+
+| Sección | Descripción |
+|---|---|
+| `identities` | Decks reales canónicos. Aquí se corrige `owner_player`, `display_name`, `official_name`, `commander_name` y links. |
+| `assignments` | Mapea cada combinación `piloto || deck normalizado` hacia un `target_deck_id`. |
+| `game_overrides` | Correcciones puntuales por `game_id` y `seat_order` cuando una assignment completa no basta. |
+
+Después de editarlo, aplica con `python scripts/deck_review.py apply`. El script modifica `data/games.json`, regenera derivados y escribe metadata canónica en `data/deck_catalog.csv`.

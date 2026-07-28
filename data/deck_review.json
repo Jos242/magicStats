@@ -1,0 +1,3956 @@
+{
+  "version": 1,
+  "instructions": [
+    "Edita target_deck_id y target_deck_name_normalized en assignments.",
+    "Si dos filas deben ser el mismo deck real, apunta ambas al mismo target_deck_id.",
+    "Si una fila fue fusionada por error, crea una identidad nueva en identities y apunta esa assignment al nuevo deck_id.",
+    "Edita owner_player, display_name, official_name, commander_name y links dentro de identities.",
+    "No edites stats salvo que quieras dejar notas personales; el script las regenera.",
+    "Para casos puntuales por partida, agrega filas en game_overrides con game_id, seat_order, target_deck_id y target_deck_name_normalized."
+  ],
+  "identities": [
+    {
+      "deck_id": "andres--5-colores",
+      "owner_player": "Andrés",
+      "display_name": "5 Colores",
+      "official_name": "5 fakin colors",
+      "commander_name": "Jenson Carthalion, Druid Exile",
+      "moxfield_url": "https://moxfield.com/decks/qFXpa593BUWIwdOzto8rDg",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 3,
+        "wins": 0,
+        "aliases": [
+          "5colores"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--aranas-ungoliant",
+      "owner_player": "Andrés",
+      "display_name": "Arañas/Ungoliant",
+      "official_name": "Blight Curse (Lorwyn Eclipsed Commander Precon Decklist)",
+      "commander_name": "Auntie Ool, Cursewretch",
+      "moxfield_url": "https://moxfield.com/decks/wZCqAM_hbEu-TrzZcSpFtw",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "arañasungoliant"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--auntie",
+      "owner_player": "Andrés",
+      "display_name": "Auntie",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 7,
+        "wins": 1,
+        "aliases": [
+          "auntie"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--chaos",
+      "owner_player": "Andrés",
+      "display_name": "Chaos",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 2,
+        "wins": 0,
+        "aliases": [
+          "chaos"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--counters",
+      "owner_player": "Andrés",
+      "display_name": "Counters",
+      "official_name": "Counter Intelligence (Edge of Eternities Commander Precon Decklist)",
+      "commander_name": "Optimus Prime, Hero // Optimus Prime, Autobot Leader",
+      "moxfield_url": "https://moxfield.com/decks/Xp2se19l60-83ug1gUME8g",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 3,
+        "wins": 0,
+        "aliases": [
+          "counters(precon)",
+          "counterscounters(precon)"
+        ],
+        "variants": [
+          "Precon"
+        ]
+      }
+    },
+    {
+      "deck_id": "andres--eldrazis",
+      "owner_player": "Andrés",
+      "display_name": "Eldrazis",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 7,
+        "wins": 2,
+        "aliases": [
+          "eldrazis",
+          "eldrazis(precon)",
+          "Eldrazisprecon",
+          "elnazis",
+          "elnazis(eldrazis caro)"
+        ],
+        "variants": [
+          "Caro",
+          "Precon"
+        ]
+      }
+    },
+    {
+      "deck_id": "andres--eldrazis-colores",
+      "owner_player": "Andrés",
+      "display_name": "Eldrazis Colores",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 4,
+        "wins": 1,
+        "aliases": [
+          "eldrazicolor",
+          "eldraziscolores"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--espiritus",
+      "owner_player": "Andrés",
+      "display_name": "Espíritus",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "espiritus"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--gato",
+      "owner_player": "Andrés",
+      "display_name": "Gato",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 5,
+        "wins": 2,
+        "aliases": [
+          "gato"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--half-life",
+      "owner_player": "Andrés",
+      "display_name": "Half-Life",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 21,
+        "wins": 8,
+        "aliases": [
+          "halflife",
+          "helflife"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--iroh",
+      "owner_player": "Andrés",
+      "display_name": "Iroh",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "Iroh"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--mono-blue-pero-nel",
+      "owner_player": "Andrés",
+      "display_name": "Mono Blue Pero Nel",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "monoblueperonel"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--nekusar",
+      "owner_player": "Andrés",
+      "display_name": "Nekusar",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "nekuzar"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--octopus-lady",
+      "owner_player": "Andrés",
+      "display_name": "Octopus Lady",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 6,
+        "wins": 2,
+        "aliases": [
+          "Octolady",
+          "octolady",
+          "octopus girl",
+          "octupus lady"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--omnath-locus-of-mana",
+      "owner_player": "Andrés",
+      "display_name": "Omnath, Locus of Mana",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "omnathlocusmana"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--osos",
+      "owner_player": "Andrés",
+      "display_name": "Osos",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "osos"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--robin",
+      "owner_player": "Andrés",
+      "display_name": "Robin",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "robin"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--tortugas",
+      "owner_player": "Andrés",
+      "display_name": "Tortugas",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "tortugas"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "andres--vivi",
+      "owner_player": "Andrés",
+      "display_name": "Vivi",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Andrés"
+        ],
+        "games_played": 7,
+        "wins": 3,
+        "aliases": [
+          "Vivi",
+          "vivi",
+          "viví"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--aerith",
+      "owner_player": "Chepe",
+      "display_name": "Aerith",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 4,
+        "wins": 1,
+        "aliases": [
+          "aerith"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--azula",
+      "owner_player": "Chepe",
+      "display_name": "Azula",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "Azula"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--bulk-artifacts",
+      "owner_player": "Chepe",
+      "display_name": "Bulk Artifacts",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 4,
+        "wins": 1,
+        "aliases": [
+          "bulk(artefactos sami)",
+          "bulkartifacts"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--cloud",
+      "owner_player": "Chepe",
+      "display_name": "Cloud",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "Cloud"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--destroy",
+      "owner_player": "Chepe",
+      "display_name": "Destroy",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "destroy"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--dragones",
+      "owner_player": "Chepe",
+      "display_name": "Dragones",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 5,
+        "wins": 3,
+        "aliases": [
+          "Dragones",
+          "dragones"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--edea",
+      "owner_player": "Chepe",
+      "display_name": "Edea",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "edea"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--elementals",
+      "owner_player": "Chepe",
+      "display_name": "Elementals",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 7,
+        "wins": 4,
+        "aliases": [
+          "elementales",
+          "Elementals",
+          "elementals",
+          "elementtals"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--esix",
+      "owner_player": "Chepe",
+      "display_name": "Esix",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "esix"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--experience",
+      "owner_player": "Chepe",
+      "display_name": "Experience",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 4,
+        "wins": 0,
+        "aliases": [
+          "experience"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--jeskai",
+      "owner_player": "Chepe",
+      "display_name": "Jeskai",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "jeskai"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--jin-gitaxias",
+      "owner_player": "Chepe",
+      "display_name": "Jin-Gitaxias",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 4,
+        "wins": 0,
+        "aliases": [
+          "jin",
+          "jin gitaxias",
+          "jingitaxias"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--jin-sakai",
+      "owner_player": "Chepe",
+      "display_name": "Jin Sakai",
+      "official_name": "Jin Sakai Draw",
+      "commander_name": "Jin Sakai, Ghost of Tsushima",
+      "moxfield_url": "https://moxfield.com/decks/IfKVN4kO3UmoSUmRJ7pyig",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 9,
+        "wins": 5,
+        "aliases": [
+          "jin sakai",
+          "jin skaai",
+          "jinsakai"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--koma",
+      "owner_player": "Chepe",
+      "display_name": "Koma",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "koma"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--lands",
+      "owner_player": "Chepe",
+      "display_name": "Lands",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 2,
+        "wins": 1,
+        "aliases": [
+          "Lands",
+          "lands"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--pajaros",
+      "owner_player": "Chepe",
+      "display_name": "Pájaros",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "pajaros"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--phyrexia",
+      "owner_player": "Chepe",
+      "display_name": "Phyrexia",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "phyrexia"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--phyrexians",
+      "owner_player": "Chepe",
+      "display_name": "Phyrexians",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 3,
+        "wins": 1,
+        "aliases": [
+          "phyrexians"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--raphael",
+      "owner_player": "Chepe",
+      "display_name": "Raphael",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 4,
+        "wins": 2,
+        "aliases": [
+          "rapahael",
+          "raphael"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--rocco",
+      "owner_player": "Chepe",
+      "display_name": "Rocco",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 2,
+        "wins": 0,
+        "aliases": [
+          "rocco"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--sauron",
+      "owner_player": "Chepe",
+      "display_name": "Sauron",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 2,
+        "wins": 1,
+        "aliases": [
+          "Sauron",
+          "Sauron(nuevocommander)"
+        ],
+        "variants": [
+          "Nuevo commander"
+        ]
+      }
+    },
+    {
+      "deck_id": "chepe--sephiroth",
+      "owner_player": "Chepe",
+      "display_name": "Sephiroth",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "sephiroth"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--shadowdillas",
+      "owner_player": "Chepe",
+      "display_name": "Shadowdillas",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 2,
+        "wins": 0,
+        "aliases": [
+          "shadowdillas"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--shadowheart",
+      "owner_player": "Chepe",
+      "display_name": "Shadowheart",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "shadowheart"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--stardew",
+      "owner_player": "Chepe",
+      "display_name": "Stardew",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "Stardew"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--terra-sagas",
+      "owner_player": "Chepe",
+      "display_name": "Terra Sagas",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "terrasagas"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--tidus",
+      "owner_player": "Chepe",
+      "display_name": "Tidus",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 3,
+        "wins": 0,
+        "aliases": [
+          "Tidus",
+          "tidus"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--tifa",
+      "owner_player": "Chepe",
+      "display_name": "Tifa",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 2,
+        "wins": 0,
+        "aliases": [
+          "tifa"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--vanilla-tutors",
+      "owner_player": "Chepe",
+      "display_name": "Vanilla Tutors",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "vanilletutors"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "chepe--yuna",
+      "owner_player": "Chepe",
+      "display_name": "Yuna",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Chepe"
+        ],
+        "games_played": 3,
+        "wins": 2,
+        "aliases": [
+          "yuna",
+          "yunachepe"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "cris--angeles",
+      "owner_player": "Cris",
+      "display_name": "Ángeles",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Cris"
+        ],
+        "games_played": 2,
+        "wins": 1,
+        "aliases": [
+          "Angeles",
+          "angeles"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "cris--gigantes",
+      "owner_player": "Cris",
+      "display_name": "Gigantes",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Cris"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "Gigantes"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--abuelo",
+      "owner_player": "Jairo",
+      "display_name": "Abuelo",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "abuelo"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--attractions",
+      "owner_player": "Jairo",
+      "display_name": "Attractions",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "attractions"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--auntie",
+      "owner_player": "Jairo",
+      "display_name": "Auntie",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "auntie"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--cloud",
+      "owner_player": "Jairo",
+      "display_name": "Cloud",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "cloud"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--conejos",
+      "owner_player": "Jairo",
+      "display_name": "Conejos",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 5,
+        "wins": 1,
+        "aliases": [
+          "conejos",
+          "conejosjairo"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--counters-weird",
+      "owner_player": "Jairo",
+      "display_name": "Counters Weird",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "countersweird"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--dinos",
+      "owner_player": "Jairo",
+      "display_name": "Dinos",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Cris",
+          "Jairo",
+          "Paniagua"
+        ],
+        "games_played": 7,
+        "wins": 2,
+        "aliases": [
+          "Dinos",
+          "dinos",
+          "dinos(Pani)",
+          "dinosaurios(Pani)"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--dragones",
+      "owner_player": "Jairo",
+      "display_name": "Dragones",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "dragones(Jairo)"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--equips",
+      "owner_player": "Jairo",
+      "display_name": "Equips",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "equipsjairo"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--espiritus",
+      "owner_player": "Jairo",
+      "display_name": "Espíritus",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "espíritus"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--graveyard",
+      "owner_player": "Jairo",
+      "display_name": "Graveyard",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 6,
+        "wins": 0,
+        "aliases": [
+          "graveyard"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--iroh",
+      "owner_player": "Jairo",
+      "display_name": "Iroh",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 19,
+        "wins": 5,
+        "aliases": [
+          "iroh"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--jairo-verde-verde",
+      "owner_player": "Jairo",
+      "display_name": "Jairo Verde Verde",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "jairoverdeverde"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--jin-sakai",
+      "owner_player": "Jairo",
+      "display_name": "Jin Sakai",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "jin sakai"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--kithkin",
+      "owner_player": "Jairo",
+      "display_name": "Kithkin",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "kithkin"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--loreholdinternet",
+      "owner_player": "Jairo",
+      "display_name": "LoreholdInternet",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "LoreholdInternet"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--mabel-mouses",
+      "owner_player": "Jairo",
+      "display_name": "Mabel Mouses",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "mabelmouses"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--marneus",
+      "owner_player": "Jairo",
+      "display_name": "Marneus",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 9,
+        "wins": 2,
+        "aliases": [
+          "maerneus",
+          "Magnus",
+          "Marneus",
+          "marneus"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--meteoritos",
+      "owner_player": "Jairo",
+      "display_name": "Meteoritos",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "metoritos"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--ragos",
+      "owner_player": "Jairo",
+      "display_name": "Ragos",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "ragostjairo"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--rata",
+      "owner_player": "Jairo",
+      "display_name": "Rata",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 5,
+        "wins": 1,
+        "aliases": [
+          "rata",
+          "rata(vehic)",
+          "rata(vehiculos)"
+        ],
+        "variants": [
+          "Vehículos"
+        ]
+      }
+    },
+    {
+      "deck_id": "jairo--roxanne",
+      "owner_player": "Jairo",
+      "display_name": "Roxanne",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "roxanne"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--scry",
+      "owner_player": "Jairo",
+      "display_name": "Scry",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "scry"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--sokka-suki",
+      "owner_player": "Jairo",
+      "display_name": "Sokka/Suki",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 2,
+        "wins": 1,
+        "aliases": [
+          "sokkasuki"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--unknown",
+      "owner_player": "Jairo",
+      "display_name": "Unknown",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 0,
+        "aliases": [
+          "unknown"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--volo",
+      "owner_player": "Jairo",
+      "display_name": "Volo",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 4,
+        "wins": 3,
+        "aliases": [
+          "Volo",
+          "volo",
+          "volo(nerfed ver.)"
+        ],
+        "variants": [
+          "Nerfed"
+        ]
+      }
+    },
+    {
+      "deck_id": "jairo--winota",
+      "owner_player": "Jairo",
+      "display_name": "Winota",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 2,
+        "wins": 1,
+        "aliases": [
+          "winota"
+        ],
+        "variants": []
+      }
+    },
+    {
+      "deck_id": "jairo--yuna",
+      "owner_player": "Jairo",
+      "display_name": "Yuna",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
+      "archidekt_url": "",
+      "edhrec_url": "",
+      "notes": "",
+      "stats": {
+        "pilots": [
+          "Jairo"
+        ],
+        "games_played": 1,
+        "wins": 1,
+        "aliases": [
+          "yuna(jairo ver)"
+        ],
+        "variants": [
+          "Versión Jairo"
+        ]
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "assignment_key": "Andrés||5 Colores",
+      "player": "Andrés",
+      "source_deck_name_normalized": "5 Colores",
+      "current_deck_id": "andres--5-colores",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--5-colores",
+      "target_deck_name_normalized": "5 Colores",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 3,
+        "wins": 0,
+        "first_played": "2026-03-03",
+        "last_played": "2026-03-26",
+        "raw_names": [
+          "5colores"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-063",
+          "G2026-064",
+          "G2026-065"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Arañas/Ungoliant",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Arañas/Ungoliant",
+      "current_deck_id": "andres--aranas-ungoliant",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--aranas-ungoliant",
+      "target_deck_name_normalized": "Arañas/Ungoliant",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-03-03",
+        "last_played": "2026-03-03",
+        "raw_names": [
+          "arañasungoliant"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-062"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Auntie",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Auntie",
+      "current_deck_id": "andres--auntie",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--auntie",
+      "target_deck_name_normalized": "Auntie",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 7,
+        "wins": 1,
+        "first_played": "2026-01-21",
+        "last_played": "2026-02-16",
+        "raw_names": [
+          "auntie"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-014",
+          "G2026-021",
+          "G2026-022",
+          "G2026-024",
+          "G2026-045",
+          "G2026-050",
+          "G2026-051"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Chaos",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Chaos",
+      "current_deck_id": "andres--chaos",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--chaos",
+      "target_deck_name_normalized": "Chaos",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 2,
+        "wins": 0,
+        "first_played": "2026-01-19",
+        "last_played": "2026-02-15",
+        "raw_names": [
+          "chaos"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-010",
+          "G2026-049"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Counters",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Counters",
+      "current_deck_id": "andres--counters",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--counters",
+      "target_deck_name_normalized": "Counters",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 3,
+        "wins": 0,
+        "first_played": "2026-01-08",
+        "last_played": "2026-01-08",
+        "raw_names": [
+          "counters(precon)",
+          "counterscounters(precon)"
+        ],
+        "variants": [
+          "Precon"
+        ],
+        "game_ids": [
+          "G2026-001",
+          "G2026-002",
+          "G2026-003"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Eldrazis",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Eldrazis",
+      "current_deck_id": "andres--eldrazis",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--eldrazis",
+      "target_deck_name_normalized": "Eldrazis",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 7,
+        "wins": 2,
+        "first_played": "2026-01-11",
+        "last_played": "2026-07-25",
+        "raw_names": [
+          "eldrazis",
+          "eldrazis(precon)",
+          "Eldrazisprecon",
+          "elnazis",
+          "elnazis(eldrazis caro)"
+        ],
+        "variants": [
+          "Caro",
+          "Precon"
+        ],
+        "game_ids": [
+          "G2026-007",
+          "G2026-008",
+          "G2026-017",
+          "G2026-018",
+          "G2026-025",
+          "G2026-054",
+          "G2026-074"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Eldrazis Colores",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Eldrazis Colores",
+      "current_deck_id": "andres--eldrazis-colores",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--eldrazis-colores",
+      "target_deck_name_normalized": "Eldrazis Colores",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 4,
+        "wins": 1,
+        "first_played": "2026-02-09",
+        "last_played": "2026-02-12",
+        "raw_names": [
+          "eldrazicolor",
+          "eldraziscolores"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-034",
+          "G2026-035",
+          "G2026-040",
+          "G2026-041"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Espíritus",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Espíritus",
+      "current_deck_id": "andres--espiritus",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--espiritus",
+      "target_deck_name_normalized": "Espíritus",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-07-10",
+        "last_played": "2026-07-10",
+        "raw_names": [
+          "espiritus"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-070"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Gato",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Gato",
+      "current_deck_id": "andres--gato",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--gato",
+      "target_deck_name_normalized": "Gato",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 5,
+        "wins": 2,
+        "first_played": "2026-01-08",
+        "last_played": "2026-07-25",
+        "raw_names": [
+          "gato"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-004",
+          "G2026-013",
+          "G2026-019",
+          "G2026-020",
+          "G2026-072"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Half-Life",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Half-Life",
+      "current_deck_id": "andres--half-life",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--half-life",
+      "target_deck_name_normalized": "Half-Life",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 21,
+        "wins": 8,
+        "first_played": "2026-01-11",
+        "last_played": "2026-03-03",
+        "raw_names": [
+          "halflife",
+          "helflife"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-005",
+          "G2026-006",
+          "G2026-009",
+          "G2026-012",
+          "G2026-026",
+          "G2026-027",
+          "G2026-028",
+          "G2026-029",
+          "G2026-030",
+          "G2026-031",
+          "G2026-032",
+          "G2026-033",
+          "G2026-036",
+          "G2026-037",
+          "G2026-038",
+          "G2026-039",
+          "G2026-042",
+          "G2026-046",
+          "G2026-047",
+          "G2026-048",
+          "G2026-061"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Iroh",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Iroh",
+      "current_deck_id": "andres--iroh",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--iroh",
+      "target_deck_name_normalized": "Iroh",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-01-30",
+        "last_played": "2026-01-30",
+        "raw_names": [
+          "Iroh"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-023"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Mono Blue Pero Nel",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Mono Blue Pero Nel",
+      "current_deck_id": "andres--mono-blue-pero-nel",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--mono-blue-pero-nel",
+      "target_deck_name_normalized": "Mono Blue Pero Nel",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-02-22",
+        "last_played": "2026-02-22",
+        "raw_names": [
+          "monoblueperonel"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-055"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Nekusar",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Nekusar",
+      "current_deck_id": "andres--nekusar",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--nekusar",
+      "target_deck_name_normalized": "Nekusar",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-04-16",
+        "last_played": "2026-04-16",
+        "raw_names": [
+          "nekuzar"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-068"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Octopus Lady",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Octopus Lady",
+      "current_deck_id": "andres--octopus-lady",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--octopus-lady",
+      "target_deck_name_normalized": "Octopus Lady",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 6,
+        "wins": 2,
+        "first_played": "2026-02-22",
+        "last_played": "2026-07-26",
+        "raw_names": [
+          "Octolady",
+          "octolady",
+          "octopus girl",
+          "octupus lady"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-056",
+          "G2026-059",
+          "G2026-060",
+          "G2026-066",
+          "G2026-067",
+          "G2026-075"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Omnath, Locus of Mana",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Omnath, Locus of Mana",
+      "current_deck_id": "andres--omnath-locus-of-mana",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--omnath-locus-of-mana",
+      "target_deck_name_normalized": "Omnath, Locus of Mana",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-04-16",
+        "last_played": "2026-04-16",
+        "raw_names": [
+          "omnathlocusmana"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-069"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Osos",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Osos",
+      "current_deck_id": "andres--osos",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--osos",
+      "target_deck_name_normalized": "Osos",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-02-22",
+        "last_played": "2026-02-22",
+        "raw_names": [
+          "osos"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-057"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Robin",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Robin",
+      "current_deck_id": "andres--robin",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--robin",
+      "target_deck_name_normalized": "Robin",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-01-19",
+        "last_played": "2026-01-19",
+        "raw_names": [
+          "robin"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-011"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Tortugas",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Tortugas",
+      "current_deck_id": "andres--tortugas",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--tortugas",
+      "target_deck_name_normalized": "Tortugas",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-07-10",
+        "last_played": "2026-07-10",
+        "raw_names": [
+          "tortugas"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-071"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Andrés||Vivi",
+      "player": "Andrés",
+      "source_deck_name_normalized": "Vivi",
+      "current_deck_id": "andres--vivi",
+      "current_deck_owner": "Andrés",
+      "target_deck_id": "andres--vivi",
+      "target_deck_name_normalized": "Vivi",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 7,
+        "wins": 3,
+        "first_played": "2026-01-21",
+        "last_played": "2026-07-25",
+        "raw_names": [
+          "Vivi",
+          "vivi",
+          "viví"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-015",
+          "G2026-016",
+          "G2026-043",
+          "G2026-044",
+          "G2026-052",
+          "G2026-053",
+          "G2026-073"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Aerith",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Aerith",
+      "current_deck_id": "chepe--aerith",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--aerith",
+      "target_deck_name_normalized": "Aerith",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 4,
+        "wins": 1,
+        "first_played": "2026-01-11",
+        "last_played": "2026-02-16",
+        "raw_names": [
+          "aerith"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-005",
+          "G2026-023",
+          "G2026-024",
+          "G2026-052"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Azula",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Azula",
+      "current_deck_id": "chepe--azula",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--azula",
+      "target_deck_name_normalized": "Azula",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-02-13",
+        "last_played": "2026-02-13",
+        "raw_names": [
+          "Azula"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-043"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Bulk Artifacts",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Bulk Artifacts",
+      "current_deck_id": "chepe--bulk-artifacts",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--bulk-artifacts",
+      "target_deck_name_normalized": "Bulk Artifacts",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 4,
+        "wins": 1,
+        "first_played": "2026-01-08",
+        "last_played": "2026-02-16",
+        "raw_names": [
+          "bulk(artefactos sami)",
+          "bulkartifacts"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-001",
+          "G2026-002",
+          "G2026-003",
+          "G2026-050"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Cloud",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Cloud",
+      "current_deck_id": "chepe--cloud",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--cloud",
+      "target_deck_name_normalized": "Cloud",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-02-16",
+        "last_played": "2026-02-16",
+        "raw_names": [
+          "Cloud"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-053"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Destroy",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Destroy",
+      "current_deck_id": "chepe--destroy",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--destroy",
+      "target_deck_name_normalized": "Destroy",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-01-19",
+        "last_played": "2026-01-19",
+        "raw_names": [
+          "destroy"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-010"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Dragones",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Dragones",
+      "current_deck_id": "chepe--dragones",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--dragones",
+      "target_deck_name_normalized": "Dragones",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 5,
+        "wins": 3,
+        "first_played": "2026-01-21",
+        "last_played": "2026-07-10",
+        "raw_names": [
+          "Dragones",
+          "dragones"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-013",
+          "G2026-016",
+          "G2026-044",
+          "G2026-054",
+          "G2026-071"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Edea",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Edea",
+      "current_deck_id": "chepe--edea",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--edea",
+      "target_deck_name_normalized": "Edea",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-02-09",
+        "last_played": "2026-02-09",
+        "raw_names": [
+          "edea"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-035"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Elementals",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Elementals",
+      "current_deck_id": "chepe--elementals",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--elementals",
+      "target_deck_name_normalized": "Elementals",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 7,
+        "wins": 4,
+        "first_played": "2026-01-21",
+        "last_played": "2026-07-25",
+        "raw_names": [
+          "elementales",
+          "Elementals",
+          "elementals",
+          "elementtals"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-014",
+          "G2026-015",
+          "G2026-017",
+          "G2026-019",
+          "G2026-020",
+          "G2026-025",
+          "G2026-072"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Esix",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Esix",
+      "current_deck_id": "chepe--esix",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--esix",
+      "target_deck_name_normalized": "Esix",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-02-04",
+        "last_played": "2026-02-04",
+        "raw_names": [
+          "esix"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-033"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Experience",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Experience",
+      "current_deck_id": "chepe--experience",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--experience",
+      "target_deck_name_normalized": "Experience",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 4,
+        "wins": 0,
+        "first_played": "2026-01-19",
+        "last_played": "2026-02-04",
+        "raw_names": [
+          "experience"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-009",
+          "G2026-029",
+          "G2026-030",
+          "G2026-032"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Jeskai",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Jeskai",
+      "current_deck_id": "chepe--jeskai",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--jeskai",
+      "target_deck_name_normalized": "Jeskai",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-01-30",
+        "last_played": "2026-01-30",
+        "raw_names": [
+          "jeskai"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-022"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Jin-Gitaxias",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Jin-Gitaxias",
+      "current_deck_id": "chepe--jin-gitaxias",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--jin-gitaxias",
+      "target_deck_name_normalized": "Jin-Gitaxias",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 4,
+        "wins": 0,
+        "first_played": "2026-01-11",
+        "last_played": "2026-02-15",
+        "raw_names": [
+          "jin",
+          "jin gitaxias",
+          "jingitaxias"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-007",
+          "G2026-008",
+          "G2026-047",
+          "G2026-048"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Jin Sakai",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Jin Sakai",
+      "current_deck_id": "chepe--jin-sakai",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--jin-sakai",
+      "target_deck_name_normalized": "Jin Sakai",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 9,
+        "wins": 5,
+        "first_played": "2026-02-10",
+        "last_played": "2026-03-26",
+        "raw_names": [
+          "jin sakai",
+          "jin skaai",
+          "jinsakai"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-039",
+          "G2026-040",
+          "G2026-041",
+          "G2026-046",
+          "G2026-057",
+          "G2026-059",
+          "G2026-061",
+          "G2026-064",
+          "G2026-065"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Koma",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Koma",
+      "current_deck_id": "chepe--koma",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--koma",
+      "target_deck_name_normalized": "Koma",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-03-03",
+        "last_played": "2026-03-03",
+        "raw_names": [
+          "koma"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-063"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Lands",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Lands",
+      "current_deck_id": "chepe--lands",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--lands",
+      "target_deck_name_normalized": "Lands",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 2,
+        "wins": 1,
+        "first_played": "2026-01-22",
+        "last_played": "2026-07-25",
+        "raw_names": [
+          "Lands",
+          "lands"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-018",
+          "G2026-074"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Pájaros",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Pájaros",
+      "current_deck_id": "chepe--pajaros",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--pajaros",
+      "target_deck_name_normalized": "Pájaros",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-02-22",
+        "last_played": "2026-02-22",
+        "raw_names": [
+          "pajaros"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-056"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Phyrexia",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Phyrexia",
+      "current_deck_id": "chepe--phyrexia",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--phyrexia",
+      "target_deck_name_normalized": "Phyrexia",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-01-19",
+        "last_played": "2026-01-19",
+        "raw_names": [
+          "phyrexia"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-012"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Phyrexians",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Phyrexians",
+      "current_deck_id": "chepe--phyrexians",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--phyrexians",
+      "target_deck_name_normalized": "Phyrexians",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 3,
+        "wins": 1,
+        "first_played": "2026-01-31",
+        "last_played": "2026-01-31",
+        "raw_names": [
+          "phyrexians"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-026",
+          "G2026-027",
+          "G2026-028"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Raphael",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Raphael",
+      "current_deck_id": "chepe--raphael",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--raphael",
+      "target_deck_name_normalized": "Raphael",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 4,
+        "wins": 2,
+        "first_played": "2026-03-26",
+        "last_played": "2026-04-16",
+        "raw_names": [
+          "rapahael",
+          "raphael"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-066",
+          "G2026-067",
+          "G2026-068",
+          "G2026-069"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Rocco",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Rocco",
+      "current_deck_id": "chepe--rocco",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--rocco",
+      "target_deck_name_normalized": "Rocco",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 2,
+        "wins": 0,
+        "first_played": "2026-02-15",
+        "last_played": "2026-03-03",
+        "raw_names": [
+          "rocco"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-049",
+          "G2026-062"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Sauron",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Sauron",
+      "current_deck_id": "chepe--sauron",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--sauron",
+      "target_deck_name_normalized": "Sauron",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 2,
+        "wins": 1,
+        "first_played": "2026-01-08",
+        "last_played": "2026-02-13",
+        "raw_names": [
+          "Sauron",
+          "Sauron(nuevocommander)"
+        ],
+        "variants": [
+          "Nuevo commander"
+        ],
+        "game_ids": [
+          "G2026-004",
+          "G2026-045"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Sephiroth",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Sephiroth",
+      "current_deck_id": "chepe--sephiroth",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--sephiroth",
+      "target_deck_name_normalized": "Sephiroth",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-01-19",
+        "last_played": "2026-01-19",
+        "raw_names": [
+          "sephiroth"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-011"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Shadowdillas",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Shadowdillas",
+      "current_deck_id": "chepe--shadowdillas",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--shadowdillas",
+      "target_deck_name_normalized": "Shadowdillas",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 2,
+        "wins": 0,
+        "first_played": "2026-02-09",
+        "last_played": "2026-02-10",
+        "raw_names": [
+          "shadowdillas"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-034",
+          "G2026-036"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Shadowheart",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Shadowheart",
+      "current_deck_id": "chepe--shadowheart",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--shadowheart",
+      "target_deck_name_normalized": "Shadowheart",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-07-10",
+        "last_played": "2026-07-10",
+        "raw_names": [
+          "shadowheart"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-070"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Stardew",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Stardew",
+      "current_deck_id": "chepe--stardew",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--stardew",
+      "target_deck_name_normalized": "Stardew",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-07-26",
+        "last_played": "2026-07-26",
+        "raw_names": [
+          "Stardew"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-075"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Terra Sagas",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Terra Sagas",
+      "current_deck_id": "chepe--terra-sagas",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--terra-sagas",
+      "target_deck_name_normalized": "Terra Sagas",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-03-03",
+        "last_played": "2026-03-03",
+        "raw_names": [
+          "terrasagas"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-060"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Tidus",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Tidus",
+      "current_deck_id": "chepe--tidus",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--tidus",
+      "target_deck_name_normalized": "Tidus",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 3,
+        "wins": 0,
+        "first_played": "2026-01-30",
+        "last_played": "2026-07-25",
+        "raw_names": [
+          "Tidus",
+          "tidus"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-021",
+          "G2026-051",
+          "G2026-073"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Tifa",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Tifa",
+      "current_deck_id": "chepe--tifa",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--tifa",
+      "target_deck_name_normalized": "Tifa",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 2,
+        "wins": 0,
+        "first_played": "2026-02-10",
+        "last_played": "2026-02-10",
+        "raw_names": [
+          "tifa"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-037",
+          "G2026-038"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Vanilla Tutors",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Vanilla Tutors",
+      "current_deck_id": "chepe--vanilla-tutors",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--vanilla-tutors",
+      "target_deck_name_normalized": "Vanilla Tutors",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-02-22",
+        "last_played": "2026-02-22",
+        "raw_names": [
+          "vanilletutors"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-055"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Chepe||Yuna",
+      "player": "Chepe",
+      "source_deck_name_normalized": "Yuna",
+      "current_deck_id": "chepe--yuna",
+      "current_deck_owner": "Chepe",
+      "target_deck_id": "chepe--yuna",
+      "target_deck_name_normalized": "Yuna",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 3,
+        "wins": 2,
+        "first_played": "2026-01-11",
+        "last_played": "2026-02-12",
+        "raw_names": [
+          "yuna",
+          "yunachepe"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-006",
+          "G2026-031",
+          "G2026-042"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Cris||Ángeles",
+      "player": "Cris",
+      "source_deck_name_normalized": "Ángeles",
+      "current_deck_id": "cris--angeles",
+      "current_deck_owner": "Cris",
+      "target_deck_id": "cris--angeles",
+      "target_deck_name_normalized": "Ángeles",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 2,
+        "wins": 1,
+        "first_played": "2026-07-25",
+        "last_played": "2026-07-25",
+        "raw_names": [
+          "Angeles",
+          "angeles"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-072",
+          "G2026-074"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Cris||Gigantes",
+      "player": "Cris",
+      "source_deck_name_normalized": "Gigantes",
+      "current_deck_id": "cris--gigantes",
+      "current_deck_owner": "Cris",
+      "target_deck_id": "cris--gigantes",
+      "target_deck_name_normalized": "Gigantes",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-07-26",
+        "last_played": "2026-07-26",
+        "raw_names": [
+          "Gigantes"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-075"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Abuelo",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Abuelo",
+      "current_deck_id": "jairo--abuelo",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--abuelo",
+      "target_deck_name_normalized": "Abuelo",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-02-22",
+        "last_played": "2026-02-22",
+        "raw_names": [
+          "abuelo"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-057"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Attractions",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Attractions",
+      "current_deck_id": "jairo--attractions",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--attractions",
+      "target_deck_name_normalized": "Attractions",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-02-02",
+        "last_played": "2026-02-02",
+        "raw_names": [
+          "attractions"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-031"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Auntie",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Auntie",
+      "current_deck_id": "jairo--auntie",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--auntie",
+      "target_deck_name_normalized": "Auntie",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-01-21",
+        "last_played": "2026-01-21",
+        "raw_names": [
+          "auntie"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-015"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Cloud",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Cloud",
+      "current_deck_id": "jairo--cloud",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--cloud",
+      "target_deck_name_normalized": "Cloud",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-01-30",
+        "last_played": "2026-01-30",
+        "raw_names": [
+          "cloud"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-023"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Conejos",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Conejos",
+      "current_deck_id": "jairo--conejos",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--conejos",
+      "target_deck_name_normalized": "Conejos",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 5,
+        "wins": 1,
+        "first_played": "2026-01-31",
+        "last_played": "2026-03-26",
+        "raw_names": [
+          "conejos",
+          "conejosjairo"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-026",
+          "G2026-030",
+          "G2026-046",
+          "G2026-064",
+          "G2026-067"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Counters Weird",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Counters Weird",
+      "current_deck_id": "jairo--counters-weird",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--counters-weird",
+      "target_deck_name_normalized": "Counters Weird",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-02-10",
+        "last_played": "2026-02-10",
+        "raw_names": [
+          "countersweird"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-036"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Cris||Dinos",
+      "player": "Cris",
+      "source_deck_name_normalized": "Dinos",
+      "current_deck_id": "jairo--dinos",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--dinos",
+      "target_deck_name_normalized": "Dinos",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-07-25",
+        "last_played": "2026-07-25",
+        "raw_names": [
+          "Dinos"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-073"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Dinos",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Dinos",
+      "current_deck_id": "jairo--dinos",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--dinos",
+      "target_deck_name_normalized": "Dinos",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 4,
+        "wins": 1,
+        "first_played": "2026-01-21",
+        "last_played": "2026-07-10",
+        "raw_names": [
+          "dinos"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-013",
+          "G2026-021",
+          "G2026-053",
+          "G2026-070"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Paniagua||Dinos",
+      "player": "Paniagua",
+      "source_deck_name_normalized": "Dinos",
+      "current_deck_id": "jairo--dinos",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--dinos",
+      "target_deck_name_normalized": "Dinos",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 2,
+        "wins": 1,
+        "first_played": "2026-01-08",
+        "last_played": "2026-01-08",
+        "raw_names": [
+          "dinos(Pani)",
+          "dinosaurios(Pani)"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-003",
+          "G2026-004"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Dragones",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Dragones",
+      "current_deck_id": "jairo--dragones",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--dragones",
+      "target_deck_name_normalized": "Dragones",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-01-08",
+        "last_played": "2026-01-08",
+        "raw_names": [
+          "dragones(Jairo)"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-004"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Equips",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Equips",
+      "current_deck_id": "jairo--equips",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--equips",
+      "target_deck_name_normalized": "Equips",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-02-04",
+        "last_played": "2026-02-04",
+        "raw_names": [
+          "equipsjairo"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-033"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Espíritus",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Espíritus",
+      "current_deck_id": "jairo--espiritus",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--espiritus",
+      "target_deck_name_normalized": "Espíritus",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-07-25",
+        "last_played": "2026-07-25",
+        "raw_names": [
+          "espíritus"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-072"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Graveyard",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Graveyard",
+      "current_deck_id": "jairo--graveyard",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--graveyard",
+      "target_deck_name_normalized": "Graveyard",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 6,
+        "wins": 0,
+        "first_played": "2026-01-08",
+        "last_played": "2026-07-10",
+        "raw_names": [
+          "graveyard"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-002",
+          "G2026-003",
+          "G2026-014",
+          "G2026-025",
+          "G2026-054",
+          "G2026-071"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Iroh",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Iroh",
+      "current_deck_id": "jairo--iroh",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--iroh",
+      "target_deck_name_normalized": "Iroh",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 19,
+        "wins": 5,
+        "first_played": "2026-01-11",
+        "last_played": "2026-04-16",
+        "raw_names": [
+          "iroh"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-007",
+          "G2026-009",
+          "G2026-017",
+          "G2026-022",
+          "G2026-028",
+          "G2026-029",
+          "G2026-032",
+          "G2026-034",
+          "G2026-035",
+          "G2026-039",
+          "G2026-040",
+          "G2026-049",
+          "G2026-051",
+          "G2026-056",
+          "G2026-059",
+          "G2026-060",
+          "G2026-061",
+          "G2026-065",
+          "G2026-069"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Jairo Verde Verde",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Jairo Verde Verde",
+      "current_deck_id": "jairo--jairo-verde-verde",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--jairo-verde-verde",
+      "target_deck_name_normalized": "Jairo Verde Verde",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-02-12",
+        "last_played": "2026-02-12",
+        "raw_names": [
+          "jairoverdeverde"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-042"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Jin Sakai",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Jin Sakai",
+      "current_deck_id": "jairo--jin-sakai",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--jin-sakai",
+      "target_deck_name_normalized": "Jin Sakai",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-02-22",
+        "last_played": "2026-02-22",
+        "raw_names": [
+          "jin sakai"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-058"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Kithkin",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Kithkin",
+      "current_deck_id": "jairo--kithkin",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--kithkin",
+      "target_deck_name_normalized": "Kithkin",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-01-19",
+        "last_played": "2026-01-19",
+        "raw_names": [
+          "kithkin"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-012"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||LoreholdInternet",
+      "player": "Jairo",
+      "source_deck_name_normalized": "LoreholdInternet",
+      "current_deck_id": "jairo--loreholdinternet",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--loreholdinternet",
+      "target_deck_name_normalized": "LoreholdInternet",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-07-26",
+        "last_played": "2026-07-26",
+        "raw_names": [
+          "LoreholdInternet"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-075"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Mabel Mouses",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Mabel Mouses",
+      "current_deck_id": "jairo--mabel-mouses",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--mabel-mouses",
+      "target_deck_name_normalized": "Mabel Mouses",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-02-22",
+        "last_played": "2026-02-22",
+        "raw_names": [
+          "mabelmouses"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-055"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Marneus",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Marneus",
+      "current_deck_id": "jairo--marneus",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--marneus",
+      "target_deck_name_normalized": "Marneus",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 9,
+        "wins": 2,
+        "first_played": "2026-01-22",
+        "last_played": "2026-07-25",
+        "raw_names": [
+          "maerneus",
+          "Magnus",
+          "Marneus",
+          "marneus"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-016",
+          "G2026-018",
+          "G2026-024",
+          "G2026-043",
+          "G2026-044",
+          "G2026-045",
+          "G2026-050",
+          "G2026-073",
+          "G2026-074"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Meteoritos",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Meteoritos",
+      "current_deck_id": "jairo--meteoritos",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--meteoritos",
+      "target_deck_name_normalized": "Meteoritos",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-04-16",
+        "last_played": "2026-04-16",
+        "raw_names": [
+          "metoritos"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-068"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Ragos",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Ragos",
+      "current_deck_id": "jairo--ragos",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--ragos",
+      "target_deck_name_normalized": "Ragos",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-03-03",
+        "last_played": "2026-03-03",
+        "raw_names": [
+          "ragostjairo"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-062"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Rata",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Rata",
+      "current_deck_id": "jairo--rata",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--rata",
+      "target_deck_name_normalized": "Rata",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 5,
+        "wins": 1,
+        "first_played": "2026-01-11",
+        "last_played": "2026-03-26",
+        "raw_names": [
+          "rata",
+          "rata(vehic)",
+          "rata(vehiculos)"
+        ],
+        "variants": [
+          "Vehículos"
+        ],
+        "game_ids": [
+          "G2026-005",
+          "G2026-006",
+          "G2026-037",
+          "G2026-038",
+          "G2026-066"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Roxanne",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Roxanne",
+      "current_deck_id": "jairo--roxanne",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--roxanne",
+      "target_deck_name_normalized": "Roxanne",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-03-03",
+        "last_played": "2026-03-03",
+        "raw_names": [
+          "roxanne"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-063"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Scry",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Scry",
+      "current_deck_id": "jairo--scry",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--scry",
+      "target_deck_name_normalized": "Scry",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-01-19",
+        "last_played": "2026-01-19",
+        "raw_names": [
+          "scry"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-010"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Sokka/Suki",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Sokka/Suki",
+      "current_deck_id": "jairo--sokka-suki",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--sokka-suki",
+      "target_deck_name_normalized": "Sokka/Suki",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 2,
+        "wins": 1,
+        "first_played": "2026-01-31",
+        "last_played": "2026-02-12",
+        "raw_names": [
+          "sokkasuki"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-027",
+          "G2026-041"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Unknown",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Unknown",
+      "current_deck_id": "jairo--unknown",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--unknown",
+      "target_deck_name_normalized": "Unknown",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 0,
+        "first_played": "2026-01-19",
+        "last_played": "2026-01-19",
+        "raw_names": [
+          "unknown"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-011"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Volo",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Volo",
+      "current_deck_id": "jairo--volo",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--volo",
+      "target_deck_name_normalized": "Volo",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 4,
+        "wins": 3,
+        "first_played": "2026-01-08",
+        "last_played": "2026-02-16",
+        "raw_names": [
+          "Volo",
+          "volo",
+          "volo(nerfed ver.)"
+        ],
+        "variants": [
+          "Nerfed"
+        ],
+        "game_ids": [
+          "G2026-001",
+          "G2026-019",
+          "G2026-020",
+          "G2026-052"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Winota",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Winota",
+      "current_deck_id": "jairo--winota",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--winota",
+      "target_deck_name_normalized": "Winota",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 2,
+        "wins": 1,
+        "first_played": "2026-02-15",
+        "last_played": "2026-02-15",
+        "raw_names": [
+          "winota"
+        ],
+        "variants": [],
+        "game_ids": [
+          "G2026-047",
+          "G2026-048"
+        ]
+      }
+    },
+    {
+      "assignment_key": "Jairo||Yuna",
+      "player": "Jairo",
+      "source_deck_name_normalized": "Yuna",
+      "current_deck_id": "jairo--yuna",
+      "current_deck_owner": "Jairo",
+      "target_deck_id": "jairo--yuna",
+      "target_deck_name_normalized": "Yuna",
+      "target_assignment_confidence": "",
+      "target_notes": null,
+      "stats": {
+        "appearances": 1,
+        "wins": 1,
+        "first_played": "2026-01-11",
+        "last_played": "2026-01-11",
+        "raw_names": [
+          "yuna(jairo ver)"
+        ],
+        "variants": [
+          "Versión Jairo"
+        ],
+        "game_ids": [
+          "G2026-008"
+        ]
+      }
+    }
+  ],
+  "game_overrides": [],
+  "_game_override_template": {
+    "game_id": "G2026-000",
+    "seat_order": 1,
+    "target_deck_id": "owner--deck",
+    "target_deck_name_normalized": "Deck",
+    "target_assignment_confidence": "high",
+    "target_notes": "Motivo opcional"
+  }
+}

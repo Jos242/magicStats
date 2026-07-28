@@ -1,5 +1,8 @@
 import {
   createElement,
+  deckLabelForParticipant,
+  deckNameForParticipant,
+  deckOwnerForParticipant,
   displayValue,
   formatAverage,
   formatConfidence,
@@ -139,6 +142,30 @@ function tagList(values, emptyText = UNKNOWN_LABEL) {
   return list;
 }
 
+function deckLinks(deck) {
+  const links = [
+    ["Moxfield", deck.moxfieldUrl],
+    ["Archidekt", deck.archidektUrl],
+    ["EDHREC", deck.edhrecUrl],
+  ].filter(([, url]) => isKnown(url));
+
+  if (links.length === 0) return tagList([], "Sin links");
+
+  const list = createElement("div", { className: "tag-list" });
+  for (const [label, url] of links) {
+    list.append(
+      createElement("a", {
+        className: "tag tag--link",
+        href: url,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        text: label,
+      }),
+    );
+  }
+  return list;
+}
+
 export function renderPlayerTable(playerStats) {
   const container = document.getElementById("playersTable");
   if (playerStats.length === 0) {
@@ -193,14 +220,17 @@ export function renderDeckTable(deckStats, minAppearances = 1) {
   removeChildren(container);
   const rows = visibleDeckStats.map((deck) => {
     const commander = isKnown(deck.commanderName) ? deck.commanderName : "Comandante pendiente";
+    const displayName = deck.officialName || deck.displayName;
     const row = createElement("tr");
     row.append(
-      createElement("td", { text: deck.player }),
-      createElement("td", { text: deck.displayName }),
+      createElement("td", { text: displayName }),
+      createElement("td", { text: deck.ownerPlayer }),
       createElement("td", { text: commander }),
+      createElement("td", {}, tagList(deck.pilots, "Sin pilotos")),
       createElement("td", { text: String(deck.appearances) }),
       createElement("td", { text: String(deck.wins) }),
       createElement("td", { text: `${formatPercent(deck.winRate)} (n=${deck.appearances})` }),
+      createElement("td", {}, deckLinks(deck)),
       createElement("td", { text: `${deck.firstDate} a ${deck.lastDate}` }),
       createElement("td", {}, tagList(deck.variants, "Sin variantes")),
       createElement("td", {}, tagList(deck.aliases, "Sin aliases")),
@@ -210,7 +240,19 @@ export function renderDeckTable(deckStats, minAppearances = 1) {
 
   container.append(
     createTable(
-      ["Jugador", "Deck", "Comandante", "Apariciones", "Victorias", "Tasa", "Fechas", "Variantes", "Aliases"],
+      [
+        "Deck",
+        "Dueño",
+        "Comandante",
+        "Pilotos",
+        "Apariciones",
+        "Victorias",
+        "Tasa",
+        "Links",
+        "Fechas",
+        "Variantes",
+        "Aliases",
+      ],
       rows,
     ),
   );
@@ -328,7 +370,7 @@ function compareGames(a, b) {
 
 function participantSummary(game) {
   return game.participants
-    .map((participant) => `${participant.player}: ${displayValue(participant.deck_name_normalized)}`)
+    .map((participant) => `${participant.player}: ${deckLabelForParticipant(participant)}`)
     .join(" / ");
 }
 
@@ -445,7 +487,9 @@ function renderParticipantsDetail(game) {
       createElement("td", { text: String(participant.seat_order) }),
       createElement("td", { text: participant.player }),
       createElement("td", { text: displayValue(participant.deck_name_raw) }),
-      createElement("td", { text: displayValue(participant.deck_name_normalized) }),
+      createElement("td", { text: displayValue(deckNameForParticipant(participant)) }),
+      createElement("td", { text: displayValue(participant.deck_id) }),
+      createElement("td", { text: displayValue(deckOwnerForParticipant(participant)) }),
       createElement("td", { text: displayValue(participant.deck_variant) }),
       createElement("td", { text: commander }),
       createElement("td", { text: displayValue(participant.result) }),
@@ -455,7 +499,18 @@ function renderParticipantsDetail(game) {
   });
 
   return createTable(
-    ["Orden", "Jugador", "Deck original", "Deck normalizado", "Variante", "Comandante", "Resultado", "Confianza"],
+    [
+      "Orden",
+      "Jugador",
+      "Deck original",
+      "Deck canónico",
+      "Deck ID",
+      "Dueño",
+      "Variante",
+      "Comandante",
+      "Resultado",
+      "Confianza",
+    ],
     rows,
   );
 }

@@ -185,7 +185,7 @@ function renderTopDecks(stats, minAppearances) {
   createChart("topDecksChart", {
     type: "bar",
     data: {
-      labels: rows.map((row) => `${row.displayName} / ${row.player}`),
+      labels: rows.map((row) => `${row.displayName} / ${row.ownerPlayer}`),
       datasets: [barDataset("Apariciones", rows.map((row) => row.appearances), palette[3])],
     },
     options: baseOptions({
@@ -213,7 +213,7 @@ function renderDeckPerformance(stats, minAppearances) {
   createChart("deckPerformanceChart", {
     type: "bar",
     data: {
-      labels: rows.map((row) => `${row.displayName} / ${row.player} (n=${row.appearances})`),
+      labels: rows.map((row) => `${row.displayName} / ${row.ownerPlayer} (n=${row.appearances})`),
       datasets: [barDataset("Tasa de victoria", rows.map((row) => Number((row.winRate * 100).toFixed(2))), palette[4])],
     },
     options: baseOptions({

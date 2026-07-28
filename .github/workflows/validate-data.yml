@@ -23,7 +23,7 @@ jobs:
 
       - name: Compile scripts
         run: |
-          python -m py_compile scripts/mtg_data.py scripts/import_issue.py scripts/rebuild_exports.py scripts/validate_data.py
+          python -m py_compile scripts/mtg_data.py scripts/import_issue.py scripts/enrich_deck_catalog.py scripts/deck_review.py scripts/rebuild_exports.py scripts/validate_data.py
 
       - name: Check derived files
         run: |

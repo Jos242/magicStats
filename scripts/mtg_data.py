@@ -11,6 +11,7 @@ from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
@@ -47,6 +48,9 @@ PARTICIPANT_FIELDS = [
     "player",
     "deck_name_raw",
     "deck_name_normalized",
+    "deck_id",
+    "deck_owner",
+    "moxfield_url",
     "deck_variant",
     "commander_name",
     "result",
@@ -67,10 +71,15 @@ EVENT_FIELDS = [
 
 DECK_CATALOG_FIELDS = [
     "deck_id",
+    "owner_player",
     "player",
     "deck_name_normalized",
     "display_name",
+    "official_name",
     "commander_name",
+    "moxfield_url",
+    "archidekt_url",
+    "edhrec_url",
     "first_played",
     "last_played",
     "games_played",
@@ -129,17 +138,25 @@ EVENT_METHOD_ALIASES = {
 }
 
 OTHER_PLAYER_VALUES = {"otro jugador", "other", "other player", "nuevo jugador", "new player"}
+MOXFIELD_DECK_ID_RE = re.compile(r"^[A-Za-z0-9_-]+$")
 
 
 @dataclass
 class DeckResolution:
     raw: str
     normalized: str
+    deck_id: str
+    owner_player: str
+    official_name: str
     variant: str
     commander_name: str
+    moxfield_url: str
+    archidekt_url: str
+    edhrec_url: str
     assignment_confidence: str
     notes: str
     is_new_deck: bool
+    needs_review: bool
 
 
 def normalize_text(value: Any) -> str:
@@ -157,6 +174,29 @@ def slugify(value: str) -> str:
 
 def is_known(value: Any) -> bool:
     return value is not None and str(value).strip() != ""
+
+
+def moxfield_public_id(value: str) -> str:
+    text = str(value or "").strip()
+    if not text:
+        return ""
+
+    parsed = urlparse(text)
+    if parsed.scheme and parsed.netloc:
+        host = parsed.netloc.casefold()
+        if host not in {"moxfield.com", "www.moxfield.com"}:
+            return ""
+        parts = [part for part in parsed.path.split("/") if part]
+        if len(parts) >= 2 and parts[0] == "decks" and MOXFIELD_DECK_ID_RE.match(parts[1]):
+            return parts[1]
+        return ""
+
+    return text if MOXFIELD_DECK_ID_RE.match(text) else ""
+
+
+def normalize_moxfield_url(value: str) -> str:
+    public_id = moxfield_public_id(value)
+    return f"https://moxfield.com/decks/{public_id}" if public_id else ""
 
 
 def load_dataset(path: Path = GAMES_JSON) -> dict[str, Any]:
@@ -230,9 +270,17 @@ def normalize_player(raw_player: str, aliases: dict[str, str]) -> str:
 def read_deck_catalog(path: Path = DATA_DIR / "deck_catalog.csv") -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for row in read_csv_rows(path):
+        player = row.get("player", "").strip()
+        owner_player = row.get("owner_player", "").strip() or player
         rows.append(
             {
                 **row,
+                "player": player,
+                "owner_player": owner_player,
+                "official_name": row.get("official_name", "").strip(),
+                "moxfield_url": row.get("moxfield_url", "").strip(),
+                "archidekt_url": row.get("archidekt_url", "").strip(),
+                "edhrec_url": row.get("edhrec_url", "").strip(),
                 "games_played": int(row.get("games_played") or 0),
                 "wins": int(row.get("wins") or 0),
                 "win_rate": float(row.get("win_rate") or 0),
@@ -250,12 +298,42 @@ def deck_catalog_lookup(catalog_rows: list[dict[str, Any]]) -> dict[tuple[str, s
         candidates = [
             row.get("deck_name_normalized", ""),
             row.get("display_name", ""),
+            row.get("official_name", ""),
             *row.get("aliases_list", []),
         ]
         for candidate in candidates:
             if is_known(candidate):
                 lookup[(player, normalize_text(candidate))] = row
     return lookup
+
+
+def deck_identity_lookup(catalog_rows: list[dict[str, Any]]) -> dict[str, dict[str, dict[str, Any]]]:
+    lookup: dict[str, dict[str, dict[str, Any]]] = defaultdict(dict)
+    for row in catalog_rows:
+        row_deck_id = row.get("deck_id", "")
+        if not is_known(row_deck_id):
+            continue
+        candidates = [
+            row.get("deck_name_normalized", ""),
+            row.get("display_name", ""),
+            row.get("official_name", ""),
+            *row.get("aliases_list", []),
+        ]
+        for candidate in candidates:
+            if is_known(candidate):
+                lookup[normalize_text(candidate)][row_deck_id] = row
+    return lookup
+
+
+def preferred_catalog_row(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    for row in rows:
+        if row.get("owner_player") and row.get("player") == row.get("owner_player"):
+            return row
+    return rows[0]
+
+
+def catalog_deck_id(row: dict[str, Any]) -> str:
+    return row.get("deck_id") or deck_id(row.get("owner_player") or row.get("player", ""), row.get("deck_name_normalized", ""))
 
 
 def extract_variant(raw_deck: str) -> tuple[str, str]:
@@ -275,6 +353,7 @@ def title_deck_name(raw_deck: str) -> str:
 def resolve_deck(player: str, raw_deck: str, catalog_rows: list[dict[str, Any]]) -> DeckResolution:
     cleaned_deck, variant = extract_variant(raw_deck)
     lookup = deck_catalog_lookup(catalog_rows)
+    identity_lookup = deck_identity_lookup(catalog_rows)
     candidates = [raw_deck, cleaned_deck]
 
     for candidate in candidates:
@@ -283,22 +362,77 @@ def resolve_deck(player: str, raw_deck: str, catalog_rows: list[dict[str, Any]])
             return DeckResolution(
                 raw=raw_deck,
                 normalized=row["deck_name_normalized"],
+                deck_id=catalog_deck_id(row),
+                owner_player=row.get("owner_player") or row["player"],
+                official_name=row.get("official_name", ""),
                 variant=variant,
                 commander_name=row.get("commander_name", ""),
+                moxfield_url=row.get("moxfield_url", ""),
+                archidekt_url=row.get("archidekt_url", ""),
+                edhrec_url=row.get("edhrec_url", ""),
                 assignment_confidence="high",
                 notes="",
                 is_new_deck=False,
+                needs_review=False,
+            )
+
+    for candidate in candidates:
+        matches_by_id = identity_lookup.get(normalize_text(candidate), {})
+        if len(matches_by_id) == 1:
+            row = preferred_catalog_row(list(matches_by_id.values()))
+            owner_player = row.get("owner_player") or row["player"]
+            return DeckResolution(
+                raw=raw_deck,
+                normalized=row["deck_name_normalized"],
+                deck_id=catalog_deck_id(row),
+                owner_player=owner_player,
+                official_name=row.get("official_name", ""),
+                variant=variant,
+                commander_name=row.get("commander_name", ""),
+                moxfield_url=row.get("moxfield_url", ""),
+                archidekt_url=row.get("archidekt_url", ""),
+                edhrec_url=row.get("edhrec_url", ""),
+                assignment_confidence="medium",
+                notes=f"Deck resuelto por nombre único del catálogo; revisar si {player} estaba usando un deck de {owner_player}.",
+                is_new_deck=False,
+                needs_review=True,
+            )
+
+        if len(matches_by_id) > 1:
+            normalized = title_deck_name(cleaned_deck)
+            return DeckResolution(
+                raw=raw_deck,
+                normalized=normalized,
+                deck_id=deck_id(player, normalized),
+                owner_player=player,
+                official_name="",
+                variant=variant,
+                commander_name="",
+                moxfield_url="",
+                archidekt_url="",
+                edhrec_url="",
+                assignment_confidence="medium",
+                notes="Nombre de deck ambiguo en deck_catalog.csv; revisar identidad antes de merge.",
+                is_new_deck=True,
+                needs_review=True,
             )
 
     normalized = title_deck_name(cleaned_deck)
     return DeckResolution(
         raw=raw_deck,
         normalized=normalized,
+        deck_id=deck_id(player, normalized),
+        owner_player=player,
+        official_name="",
         variant=variant,
         commander_name="",
+        moxfield_url="",
+        archidekt_url="",
+        edhrec_url="",
         assignment_confidence="medium",
         notes="Deck nuevo o alias no encontrado en deck_catalog.csv; revisar antes de merge.",
         is_new_deck=True,
+        needs_review=True,
     )
 
 
@@ -452,13 +586,20 @@ def generate_exports(dataset: dict[str, Any], current_catalog: list[dict[str, An
                 continue
             key = (player, deck_name)
             current = current_by_key.get(key, {})
+            participant_deck_id = participant.get("deck_id") or current.get("deck_id") or deck_id(player, deck_name)
+            owner_player = participant.get("deck_owner") or current.get("owner_player") or player
             if key not in deck_stats:
                 deck_stats[key] = {
-                    "deck_id": current.get("deck_id") or deck_id(player, deck_name),
+                    "deck_id": participant_deck_id,
+                    "owner_player": owner_player,
                     "player": player,
                     "deck_name_normalized": deck_name,
                     "display_name": current.get("display_name") or deck_name,
+                    "official_name": current.get("official_name", ""),
                     "commander_name": current.get("commander_name") or participant.get("commander_name", ""),
+                    "moxfield_url": current.get("moxfield_url") or participant.get("moxfield_url", ""),
+                    "archidekt_url": current.get("archidekt_url", ""),
+                    "edhrec_url": current.get("edhrec_url", ""),
                     "first_played": game["date"],
                     "last_played": game["date"],
                     "games_played": 0,
@@ -468,6 +609,8 @@ def generate_exports(dataset: dict[str, Any], current_catalog: list[dict[str, An
                     "variants": list(current.get("variants_list", [])),
                 }
             stat = deck_stats[key]
+            stat["deck_id"] = participant_deck_id
+            stat["owner_player"] = owner_player
             stat["first_played"] = min(stat["first_played"], game["date"])
             stat["last_played"] = max(stat["last_played"], game["date"])
             stat["games_played"] += 1
@@ -479,7 +622,7 @@ def generate_exports(dataset: dict[str, Any], current_catalog: list[dict[str, An
                 stat["variants"].append(participant["deck_variant"])
 
     catalog_rows = []
-    for stat in sorted(deck_stats.values(), key=lambda row: row["deck_id"]):
+    for stat in sorted(deck_stats.values(), key=lambda row: (row["deck_id"], normalize_text(row["player"]))):
         games_played = stat["games_played"]
         catalog_rows.append(
             {

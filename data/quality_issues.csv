@@ -1,5 +1,5 @@
 game_id,date,parse_confidence,needs_review,notes,raw_line
-G2026-003,2026-01-08,medium,true,Se infiere que Counters era de Andrés y que «Panigua» corresponde a Pani.,graveyard Jairo counterscounters(precon) bulk(artefactos sami) chepe dinosaurios(Pani) / gano panigua
+G2026-003,2026-01-08,medium,true,Se infiere que Counters era de Andrés y que «Panigua» corresponde a Paniagua.,graveyard Jairo counterscounters(precon) bulk(artefactos sami) chepe dinosaurios(Pani) / gano panigua
 G2026-008,2026-01-11,medium,true,La línea omite nombres de jugador después de «jin» y «elnazis»; se asignan a Chepe y Andrés por contexto.,virtual / yuna(jairo ver) jairo jin elnazis / jairo
 G2026-030,2026-02-02,medium,false,El ganador se escribió como el nombre del deck «halflife»; se resuelve a Andrés.,vir / experience chepe halflife andres conejos jairo / halflife
 G2026-047,2026-02-15,medium,false,,6:56 7:15 / inicia jairo / jin gitaxias chepe winota jairo halflife andres / jairo mata a ambos

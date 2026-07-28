@@ -18,6 +18,7 @@ from mtg_data import (
     next_game_id,
     normalize_event_method,
     normalize_location,
+    normalize_moxfield_url,
     normalize_player,
     normalize_text,
     normalize_win_condition,
@@ -45,11 +46,11 @@ NO_RESPONSE_VALUES = {
 }
 
 PLAYER_FIELD_LABELS = {
-    1: ("Jugador 1", "Jugador 1 otro", "Deck 1"),
-    2: ("Jugador 2", "Jugador 2 otro", "Deck 2"),
-    3: ("Jugador 3 opcional", "Jugador 3 otro", "Deck 3 opcional"),
-    4: ("Jugador 4 opcional", "Jugador 4 otro", "Deck 4 opcional"),
-    5: ("Jugador 5 opcional", "Jugador 5 otro", "Deck 5 opcional"),
+    1: ("Jugador 1", "Jugador 1 otro", "Deck 1", "Deck 1 Moxfield URL opcional"),
+    2: ("Jugador 2", "Jugador 2 otro", "Deck 2", "Deck 2 Moxfield URL opcional"),
+    3: ("Jugador 3 opcional", "Jugador 3 otro", "Deck 3 opcional", "Deck 3 Moxfield URL opcional"),
+    4: ("Jugador 4 opcional", "Jugador 4 otro", "Deck 4 opcional", "Deck 4 Moxfield URL opcional"),
+    5: ("Jugador 5 opcional", "Jugador 5 otro", "Deck 5 opcional", "Deck 5 Moxfield URL opcional"),
 }
 
 IMPORT_CONTEXT = {
@@ -122,10 +123,13 @@ def parse_participants(fields: dict[str, str], aliases: dict[str, str], catalog:
     participants: list[dict[str, Any]] = []
     warnings: list[str] = []
 
-    for seat_order, (player_label, other_player_label, deck_label) in PLAYER_FIELD_LABELS.items():
+    for seat_order, (player_label, other_player_label, deck_label, moxfield_label) in PLAYER_FIELD_LABELS.items():
         raw_player = require_field(fields, player_label) if seat_order <= 2 else optional_field(fields, player_label)
         player = normalize_optional_player(raw_player, aliases, optional_field(fields, other_player_label))
         raw_deck = require_field(fields, deck_label) if seat_order <= 2 else optional_field(fields, deck_label)
+        moxfield_url = normalize_moxfield_url(optional_field(fields, moxfield_label))
+        if optional_field(fields, moxfield_label) and not moxfield_url:
+            raise ValueError(f"{moxfield_label} no parece ser un link válido de Moxfield")
 
         if not player and not raw_deck:
             continue
@@ -135,8 +139,8 @@ def parse_participants(fields: dict[str, str], aliases: dict[str, str], catalog:
             raise ValueError(f"{player_label} tiene jugador pero falta deck")
 
         deck = resolve_deck(player, raw_deck, catalog)
-        if deck.is_new_deck:
-            warnings.append(f"{player} / {deck.normalized}: deck nuevo o alias no encontrado")
+        if deck.needs_review:
+            warnings.append(f"{player} / {deck.normalized}: {deck.notes}")
 
         participants.append(
             {
@@ -145,6 +149,9 @@ def parse_participants(fields: dict[str, str], aliases: dict[str, str], catalog:
                 "player": player,
                 "deck_name_raw": deck.raw,
                 "deck_name_normalized": deck.normalized,
+                "deck_id": deck.deck_id,
+                "deck_owner": deck.owner_player,
+                "moxfield_url": moxfield_url or deck.moxfield_url,
                 "deck_variant": deck.variant,
                 "commander_name": deck.commander_name,
                 "result": "loser",

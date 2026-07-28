@@ -1,7 +1,11 @@
 import {
+  deckIdForParticipant,
+  deckLabelForCatalog,
+  deckLabelForParticipant,
+  deckNameForParticipant,
+  deckOwnerForParticipant,
   groupBy,
   isKnown,
-  makeDeckKey,
   mean,
   median,
   monthLabel,
@@ -57,8 +61,10 @@ function buildPlayerStats(games) {
       record.participations += 1;
 
       if (isKnown(participant.deck_name_normalized)) {
-        record.decksUsed.add(participant.deck_name_normalized);
-        incrementMap(record.deckCounts, participant.deck_name_normalized);
+        const deckId = deckIdForParticipant(participant);
+        const deckLabel = deckLabelForParticipant(participant);
+        record.decksUsed.add(deckId);
+        incrementMap(record.deckCounts, deckLabel);
       }
 
       if (isKnown(game.duration_minutes)) {
@@ -71,7 +77,7 @@ function buildPlayerStats(games) {
         if (game.location === "in_person") record.inPersonWins += 1;
         if (game.location === "virtual") record.virtualWins += 1;
         if (isKnown(participant.deck_name_normalized)) {
-          incrementMap(record.deckWins, participant.deck_name_normalized);
+          incrementMap(record.deckWins, deckLabelForParticipant(participant));
         }
       }
     }
@@ -106,16 +112,25 @@ function buildPlayerStats(games) {
 
 function createDeckRecord(game, participant) {
   const catalog = participant.deck_catalog;
+  const displayName = deckNameForParticipant(participant);
+  const ownerPlayer = deckOwnerForParticipant(participant);
   return {
-    key: makeDeckKey(participant.player, participant.deck_name_normalized),
-    player: participant.player,
+    key: deckIdForParticipant(participant),
+    deckId: deckIdForParticipant(participant),
+    ownerPlayer,
+    player: ownerPlayer,
     deckName: participant.deck_name_normalized,
-    displayName: catalog?.display_name || participant.deck_name_normalized,
+    displayName,
+    officialName: catalog?.official_name || "",
     commanderName: participant.commander_name || "",
+    moxfieldUrl: catalog?.moxfield_url || "",
+    archidektUrl: catalog?.archidekt_url || "",
+    edhrecUrl: catalog?.edhrec_url || "",
     appearances: 0,
     wins: 0,
     firstDate: game.date,
     lastDate: game.date,
+    pilots: new Map(),
     variants: new Set(catalog?.variants_list ?? []),
     aliases: new Set(catalog?.aliases_list ?? []),
   };
@@ -128,18 +143,31 @@ function buildDeckStats(games) {
     for (const participant of game.participants) {
       if (!isKnown(participant.deck_name_normalized)) continue;
 
-      const key = makeDeckKey(participant.player, participant.deck_name_normalized);
+      const key = deckIdForParticipant(participant);
       if (!decks.has(key)) decks.set(key, createDeckRecord(game, participant));
 
       const record = decks.get(key);
       record.appearances += 1;
       record.firstDate = record.firstDate < game.date ? record.firstDate : game.date;
       record.lastDate = record.lastDate > game.date ? record.lastDate : game.date;
+      incrementMap(record.pilots, participant.player);
 
       if (isKnown(participant.deck_variant)) record.variants.add(participant.deck_variant);
       if (isKnown(participant.deck_name_raw)) record.aliases.add(participant.deck_name_raw);
       if (!isKnown(record.commanderName) && isKnown(participant.commander_name)) {
         record.commanderName = participant.commander_name;
+      }
+      if (!isKnown(record.officialName) && isKnown(participant.deck_catalog?.official_name)) {
+        record.officialName = participant.deck_catalog.official_name;
+      }
+      if (!isKnown(record.moxfieldUrl) && isKnown(participant.deck_catalog?.moxfield_url)) {
+        record.moxfieldUrl = participant.deck_catalog.moxfield_url;
+      }
+      if (!isKnown(record.archidektUrl) && isKnown(participant.deck_catalog?.archidekt_url)) {
+        record.archidektUrl = participant.deck_catalog.archidekt_url;
+      }
+      if (!isKnown(record.edhrecUrl) && isKnown(participant.deck_catalog?.edhrec_url)) {
+        record.edhrecUrl = participant.deck_catalog.edhrec_url;
       }
 
       if (game.result_type === "win" && game.winner_player === participant.player) {
@@ -153,6 +181,9 @@ function buildDeckStats(games) {
       ...record,
       variants: uniqueSorted([...record.variants]),
       aliases: uniqueSorted([...record.aliases]),
+      pilots: [...record.pilots.entries()]
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "es", { sensitivity: "base" }))
+        .map(([pilot, count]) => `${pilot} (n=${count})`),
       winRate: safeRatio(record.wins, record.appearances) ?? 0,
     }))
     .sort((a, b) => {
@@ -400,20 +431,18 @@ export function calculateStats(games) {
 }
 
 function participantLabel(participant) {
-  const displayName = participant.deck_catalog?.display_name || participant.deck_name_normalized;
-  return `${displayName} / ${participant.player}`;
+  return deckLabelForParticipant(participant);
 }
 
 function deckOptionLabel(deckKey, catalogRows) {
+  const catalogRow = catalogRows?.find((row) => row.deck_id === deckKey);
+  if (catalogRow) return deckLabelForCatalog(catalogRow);
   const { player, deckName } = splitDeckKey(deckKey);
-  const catalogRow = catalogRows?.find(
-    (row) => row.player === player && row.deck_name_normalized === deckName,
-  );
-  return `${catalogRow?.display_name || deckName} / ${player}`;
+  return deckName ? `${deckName} / ${player}` : deckKey;
 }
 
 function ensureMatchupRecord(records, subjectParticipant, opponentParticipant, catalogRows) {
-  const opponentKey = makeDeckKey(opponentParticipant.player, opponentParticipant.deck_name_normalized);
+  const opponentKey = deckIdForParticipant(opponentParticipant);
 
   if (!records.has(opponentKey)) {
     records.set(opponentKey, {
@@ -456,7 +485,7 @@ export function calculateMatchupStats(games, options = {}) {
     const subjectParticipant = game.participants.find(
       (participant) =>
         isKnown(participant.deck_name_normalized) &&
-        makeDeckKey(participant.player, participant.deck_name_normalized) === subjectKey,
+        deckIdForParticipant(participant) === subjectKey,
     );
 
     if (!subjectParticipant) continue;
@@ -464,7 +493,7 @@ export function calculateMatchupStats(games, options = {}) {
 
     const opponents = game.participants.filter((participant) => {
       if (participant === subjectParticipant || !isKnown(participant.deck_name_normalized)) return false;
-      const opponentKey = makeDeckKey(participant.player, participant.deck_name_normalized);
+      const opponentKey = deckIdForParticipant(participant);
       return !isKnown(rivalKey) || opponentKey === rivalKey;
     });
 

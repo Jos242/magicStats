@@ -1,13 +1,14 @@
 {
   "season_year": 2026,
-  "total_games": 75,
-  "decisive_games": 74,
+  "total_games": 76,
+  "decisive_games": 75,
   "draws": 1,
   "locations": {
     "in_person": 30,
-    "virtual": 45
+    "virtual": 46
   },
   "players": [
+    "Andr?s",
     "Andrés",
     "Chepe",
     "Cris",
@@ -15,34 +16,37 @@
     "Paniagua"
   ],
   "games_played_by_player": {
-    "Jairo": 75,
+    "Jairo": 76,
     "Andrés": 75,
-    "Chepe": 75,
+    "Chepe": 76,
     "Paniagua": 2,
-    "Cris": 4
+    "Cris": 4,
+    "Andr?s": 1
   },
   "wins_by_player": {
     "Jairo": 20,
     "Chepe": 28,
     "Paniagua": 1,
     "Andrés": 24,
-    "Cris": 1
+    "Cris": 1,
+    "Andr?s": 1
   },
   "win_rate_by_player": {
+    "Andr?s": 1.0,
     "Andrés": 0.32,
-    "Chepe": 0.3733,
+    "Chepe": 0.3684,
     "Cris": 0.25,
-    "Jairo": 0.2667,
+    "Jairo": 0.2632,
     "Paniagua": 0.5
   },
-  "duration_coverage_games": 28,
-  "average_duration_minutes": 51.1,
-  "median_duration_minutes": 51.5,
-  "starting_player_coverage_games": 30,
+  "duration_coverage_games": 29,
+  "average_duration_minutes": 51.6,
+  "median_duration_minutes": 53,
+  "starting_player_coverage_games": 31,
   "win_condition_coverage_games": 28,
   "parse_confidence": {
     "high": 60,
-    "medium": 14,
+    "medium": 15,
     "low": 1
   },
   "needs_review_game_ids": [
@@ -50,7 +54,8 @@
     "G2026-008",
     "G2026-049",
     "G2026-058",
-    "G2026-075"
+    "G2026-075",
+    "G2026-076"
   ],
   "sparse_metadata_warning": "Los valores vacíos de nukes, Sol Ring turno 1, duración, inicio y condición significan «no registrado», no «no ocurrió»."
 }

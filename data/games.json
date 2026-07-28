@@ -287,8 +287,8 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Jairo",
-          "deck_id": "jairo--dragones"
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--dragones"
         },
         {
           "game_id": "G2026-004",
@@ -516,14 +516,14 @@
           "seat_order": 3,
           "player": "Andrés",
           "deck_name_raw": "elnazis(eldrazis caro)",
-          "deck_name_normalized": "Eldrazis",
+          "deck_name_normalized": "Elnazis",
           "deck_variant": "Caro",
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
           "deck_owner": "Andrés",
-          "deck_id": "andres--eldrazis"
+          "deck_id": "andres--elnazis"
         }
       ],
       "events": []
@@ -585,14 +585,14 @@
           "seat_order": 3,
           "player": "Andrés",
           "deck_name_raw": "elnazis",
-          "deck_name_normalized": "Eldrazis",
+          "deck_name_normalized": "Elnazis",
           "deck_variant": "",
           "commander_name": "",
           "result": "loser",
-          "assignment_confidence": "medium",
+          "assignment_confidence": "high",
           "notes": "El jugador se infiere por el patrón del grupo.",
           "deck_owner": "Andrés",
-          "deck_id": "andres--eldrazis"
+          "deck_id": "andres--elnazis"
         }
       ],
       "events": []
@@ -784,8 +784,8 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Jairo",
-          "deck_id": "jairo--unknown"
+          "deck_owner": "No registrado",
+          "deck_id": "unknown--unknown"
         },
         {
           "game_id": "G2026-011",
@@ -847,14 +847,14 @@
           "seat_order": 2,
           "player": "Chepe",
           "deck_name_raw": "phyrexia",
-          "deck_name_normalized": "Phyrexia",
+          "deck_name_normalized": "Phyrexians",
           "deck_variant": "",
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
           "deck_owner": "Chepe",
-          "deck_id": "chepe--phyrexia"
+          "deck_id": "chepe--phyrexians"
         },
         {
           "game_id": "G2026-012",
@@ -1060,8 +1060,8 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Jairo",
-          "deck_id": "jairo--auntie"
+          "deck_owner": "Andrés",
+          "deck_id": "andres--auntie"
         },
         {
           "game_id": "G2026-015",
@@ -1598,8 +1598,8 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
-          "deck_id": "andres--iroh"
+          "deck_owner": "Jairo",
+          "deck_id": "jairo--iroh"
         },
         {
           "game_id": "G2026-023",
@@ -1626,8 +1626,8 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Jairo",
-          "deck_id": "jairo--cloud"
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--cloud"
         }
       ],
       "events": []
@@ -2296,14 +2296,14 @@
           "seat_order": 2,
           "player": "Jairo",
           "deck_name_raw": "equipsjairo",
-          "deck_name_normalized": "Equips",
+          "deck_name_normalized": "Jairo Equipments",
           "deck_variant": "",
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
           "deck_owner": "Jairo",
-          "deck_id": "jairo--equips"
+          "deck_id": "jairo--equipments"
         },
         {
           "game_id": "G2026-033",
@@ -2489,14 +2489,14 @@
           "seat_order": 1,
           "player": "Jairo",
           "deck_name_raw": "countersweird",
-          "deck_name_normalized": "Counters Weird",
+          "deck_name_normalized": "CountersWeird",
           "deck_variant": "",
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Jairo",
-          "deck_id": "jairo--counters-weird"
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--counters-weird"
         },
         {
           "game_id": "G2026-036",
@@ -4149,14 +4149,14 @@
           "seat_order": 2,
           "player": "Chepe",
           "deck_name_raw": "vanilletutors",
-          "deck_name_normalized": "Vanilla Tutors",
+          "deck_name_normalized": "Vanille Tutors",
           "deck_variant": "",
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
           "deck_owner": "Chepe",
-          "deck_id": "chepe--vanilla-tutors"
+          "deck_id": "chepe--vanille-tutors"
         },
         {
           "game_id": "G2026-055",
@@ -4369,8 +4369,8 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Jairo",
-          "deck_id": "jairo--jin-sakai"
+          "deck_owner": "Chepe",
+          "deck_id": "chepe--jin-sakai"
         },
         {
           "game_id": "G2026-058",
@@ -4706,14 +4706,14 @@
           "seat_order": 2,
           "player": "Jairo",
           "deck_name_raw": "ragostjairo",
-          "deck_name_normalized": "Ragos",
+          "deck_name_normalized": "Ragost",
           "deck_variant": "",
           "commander_name": "",
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
           "deck_owner": "Jairo",
-          "deck_id": "jairo--ragos"
+          "deck_id": "jairo--ragost"
         },
         {
           "game_id": "G2026-062",
@@ -5162,14 +5162,14 @@
           "seat_order": 2,
           "player": "Jairo",
           "deck_name_raw": "metoritos",
-          "deck_name_normalized": "Meteoritos",
+          "deck_name_normalized": "Roxanne",
           "deck_variant": "",
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
           "deck_owner": "Jairo",
-          "deck_id": "jairo--meteoritos"
+          "deck_id": "jairo--roxanne"
         },
         {
           "game_id": "G2026-068",
@@ -5472,8 +5472,8 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Jairo",
-          "deck_id": "jairo--espiritus"
+          "deck_owner": "Andrés",
+          "deck_id": "andres--espiritus"
         }
       ],
       "events": []

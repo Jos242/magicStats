@@ -1,26 +1,25 @@
 deck_id,owner_player,player,deck_name_normalized,display_name,official_name,commander_name,moxfield_url,archidekt_url,edhrec_url,first_played,last_played,games_played,wins,notes,aliases,variants,win_rate
-andres--5-colores,Andrés,Andrés,5 Colores,5 Colores,5 fakin colors,"Jenson Carthalion, Druid Exile",https://moxfield.com/decks/qFXpa593BUWIwdOzto8rDg,,,2026-03-03,2026-03-26,3,0,,"[""5colores""]",[],0.0
-andres--aranas-ungoliant,Andrés,Andrés,Arañas/Ungoliant,Arañas/Ungoliant,,,,,,2026-03-03,2026-03-03,1,1,,"[""arañasungoliant""]",[],1.0
-andres--auntie,Andrés,Andrés,Auntie,Auntie,Blight Curse (Lorwyn Eclipsed Commander Precon Decklist),"Auntie Ool, Cursewretch",https://moxfield.com/decks/wZCqAM_hbEu-TrzZcSpFtw,,,2026-01-21,2026-02-16,7,1,,"[""auntie""]",[],0.1429
-andres--auntie,Andrés,Jairo,Auntie,Auntie,Blight Curse (Lorwyn Eclipsed Commander Precon Decklist),"Auntie Ool, Cursewretch",https://moxfield.com/decks/wZCqAM_hbEu-TrzZcSpFtw,,,2026-01-21,2026-01-21,1,0,,"[""auntie""]",[],0.0
-andres--chaos,Andrés,Andrés,Chaos,Chaos,,,,,,2026-01-19,2026-02-15,2,0,,"[""chaos""]",[],0.0
-andres--counters,Andrés,Andrés,Counters,Counters,Counter Intelligence (Edge of Eternities Commander Precon Decklist),"Optimus Prime, Hero // Optimus Prime, Autobot Leader",https://moxfield.com/decks/Xp2se19l60-83ug1gUME8g,,,2026-01-08,2026-01-08,3,0,,"[""counters(precon)"", ""counterscounters(precon)""]","[""Precon""]",0.0
-andres--eldrazis,Andrés,Andrés,Eldrazis,Eldrazis,,,,,,2026-01-22,2026-07-25,5,1,,"[""eldrazis"", ""eldrazis(precon)"", ""Eldrazisprecon""]","[""Precon""]",0.2
-andres--eldrazis-colores,Andrés,Andr?s,Eldrazis Colores,Eldrazis Colores,All color Elnazis,"Ulalek, Fused Atrocity",https://moxfield.com/decks/qfc2M2VliEeU1jC-SyrkDQ,,,2026-07-27,2026-07-27,1,1,,"[""Eldrazis Colores""]",[],1.0
-andres--eldrazis-colores,Andrés,Andrés,Eldrazis Colores,Eldrazis Colores,All color Elnazis,"Ulalek, Fused Atrocity",https://moxfield.com/decks/qfc2M2VliEeU1jC-SyrkDQ,,,2026-02-09,2026-02-12,4,1,,"[""eldrazicolor"", ""eldraziscolores""]",[],0.25
-andres--elnazis,Andrés,Andrés,Elnazis,Elnazis,,,,,,2026-01-11,2026-01-11,2,1,Separado manualmente de Eldrazis; alias Eldrazis Caro.,"[""elnazis"", ""elnazis(eldrazis caro)""]","[""Caro""]",0.5
-andres--espiritus,Andrés,Andrés,Espíritus,Espíritus,,,,,,2026-07-10,2026-07-10,1,0,,"[""espiritus""]",[],0.0
-andres--espiritus,Andrés,Jairo,Espíritus,Espíritus,,,,,,2026-07-25,2026-07-25,1,0,,"[""espíritus""]",[],0.0
-andres--gato,Andrés,Andrés,Gato,Gato,,,,,,2026-01-08,2026-07-25,5,2,,"[""gato""]",[],0.4
-andres--half-life,Andrés,Andrés,Half-Life,Half-Life,,,,,,2026-01-11,2026-03-03,21,8,,"[""halflife"", ""helflife""]",[],0.381
-andres--mono-blue-pero-nel,Andrés,Andrés,Mono Blue Pero Nel,Mono Blue Pero Nel,,,,,,2026-02-22,2026-02-22,1,1,,"[""monoblueperonel""]",[],1.0
-andres--nekusar,Andrés,Andrés,Nekusar,Nekusar,,,,,,2026-04-16,2026-04-16,1,0,,"[""nekuzar""]",[],0.0
-andres--octopus-lady,Andrés,Andrés,Octopus Lady,Octopus Lady,,,,,,2026-02-22,2026-07-26,6,2,,"[""Octolady"", ""octolady"", ""octopus girl"", ""octupus lady""]",[],0.3333
-andres--omnath-locus-of-mana,Andrés,Andrés,"Omnath, Locus of Mana","Omnath, Locus of Mana",,,,,,2026-04-16,2026-04-16,1,0,,"[""omnathlocusmana""]",[],0.0
-andres--osos,Andrés,Andrés,Osos,Osos,,,,,,2026-02-22,2026-02-22,1,1,,"[""osos""]",[],1.0
-andres--robin,Andrés,Andrés,Robin,Robin,,,,,,2026-01-19,2026-01-19,1,0,,"[""robin""]",[],0.0
-andres--tortugas,Andrés,Andrés,Tortugas,Tortugas,,,,,,2026-07-10,2026-07-10,1,1,,"[""tortugas""]",[],1.0
-andres--vivi,Andrés,Andrés,Vivi,Vivi,,,,,,2026-01-21,2026-07-25,7,3,,"[""Vivi"", ""vivi"", ""viví""]",[],0.4286
+andres--5-colores,Andres,Andres,5 Colores,5 Colores,,,,,,2026-03-03,2026-03-26,3,0,,"[""5colores""]",[],0.0
+andres--aranas-ungoliant,Andres,Andres,Arañas/Ungoliant,Arañas/Ungoliant,,,,,,2026-03-03,2026-03-03,1,1,,"[""arañasungoliant""]",[],1.0
+andres--auntie,Andres,Andres,Auntie,Auntie,,,,,,2026-01-21,2026-02-16,7,1,,"[""auntie""]",[],0.1429
+andres--auntie,Andres,Jairo,Auntie,Auntie,Blight Curse (Lorwyn Eclipsed Commander Precon Decklist),"Auntie Ool, Cursewretch",https://moxfield.com/decks/wZCqAM_hbEu-TrzZcSpFtw,,,2026-01-21,2026-01-21,1,0,,"[""auntie""]",[],0.0
+andres--chaos,Andres,Andres,Chaos,Chaos,,,,,,2026-01-19,2026-02-15,2,0,,"[""chaos""]",[],0.0
+andres--counters,Andres,Andres,Counters,Counters,,,,,,2026-01-08,2026-01-08,3,0,,"[""counters(precon)"", ""counterscounters(precon)""]","[""Precon""]",0.0
+andres--eldrazis,Andres,Andres,Eldrazis,Eldrazis,,,,,,2026-01-22,2026-07-25,5,1,,"[""eldrazis"", ""eldrazis(precon)"", ""Eldrazisprecon""]","[""Precon""]",0.2
+andres--eldrazis-colores,Andres,Andres,Eldrazis Colores,Eldrazis Colores,,,,,,2026-02-09,2026-07-27,5,2,,"[""eldrazicolor"", ""Eldrazis Colores"", ""eldraziscolores""]",[],0.4
+andres--elnazis,Andres,Andres,Elnazis,Elnazis,,,,,,2026-01-11,2026-01-11,2,1,,"[""elnazis"", ""elnazis(eldrazis caro)""]","[""Caro""]",0.5
+andres--espiritus,Andres,Andres,Espíritus,Espíritus,,,,,,2026-07-10,2026-07-10,1,0,,"[""espiritus""]",[],0.0
+andres--espiritus,Andres,Jairo,Espíritus,Espíritus,,,,,,2026-07-25,2026-07-25,1,0,,"[""espíritus""]",[],0.0
+andres--gato,Andres,Andres,Gato,Gato,,,,,,2026-01-08,2026-07-25,5,2,,"[""gato""]",[],0.4
+andres--half-life,Andres,Andres,Half-Life,Half-Life,,,,,,2026-01-11,2026-03-03,21,8,,"[""halflife"", ""helflife""]",[],0.381
+andres--mono-blue-pero-nel,Andres,Andres,Mono Blue Pero Nel,Mono Blue Pero Nel,,,,,,2026-02-22,2026-02-22,1,1,,"[""monoblueperonel""]",[],1.0
+andres--nekusar,Andres,Andres,Nekusar,Nekusar,,,,,,2026-04-16,2026-04-16,1,0,,"[""nekuzar""]",[],0.0
+andres--octopus-lady,Andres,Andres,Octopus Lady,Octopus Lady,,,,,,2026-02-22,2026-07-26,6,2,,"[""Octolady"", ""octolady"", ""octopus girl"", ""octupus lady""]",[],0.3333
+andres--omnath-locus-of-mana,Andres,Andres,"Omnath, Locus of Mana","Omnath, Locus of Mana",,,,,,2026-04-16,2026-04-16,1,0,,"[""omnathlocusmana""]",[],0.0
+andres--osos,Andres,Andres,Osos,Osos,,,,,,2026-02-22,2026-02-22,1,1,,"[""osos""]",[],1.0
+andres--robin,Andres,Andres,Robin,Robin,,,,,,2026-01-19,2026-01-19,1,0,,"[""robin""]",[],0.0
+andres--tortugas,Andres,Andres,Tortugas,Tortugas,,,,,,2026-07-10,2026-07-10,1,1,,"[""tortugas""]",[],1.0
+andres--vivi,Andres,Andres,Vivi,Vivi,,,,,,2026-01-21,2026-07-25,7,3,,"[""Vivi"", ""vivi"", ""viví""]",[],0.4286
 chepe--aerith,Chepe,Chepe,Aerith,Aerith,,,,,,2026-01-11,2026-02-16,4,1,,"[""aerith""]",[],0.25
 chepe--azula,Chepe,Chepe,Azula,Azula,,,,,,2026-02-13,2026-02-13,1,0,,"[""Azula""]",[],0.0
 chepe--bulk-artifacts,Chepe,Chepe,Bulk Artifacts,Bulk Artifacts,,,,,,2026-01-08,2026-02-16,4,1,,"[""bulk(artefactos sami)"", ""bulkartifacts""]",[],0.25
@@ -64,7 +63,7 @@ jairo--dinos,Jairo,Jairo,Dinos,Dinos,,,,,,2026-01-21,2026-07-10,4,1,,"[""dinos""
 jairo--dinos,Jairo,Paniagua,Dinos,Dinos,,,,,,2026-01-08,2026-01-08,2,1,,"[""dinos(Pani)"", ""dinosaurios(Pani)""]",[],0.5
 jairo--equipments,Jairo,Jairo,Jairo Equipments,Jairo Equipments,,,,,,2026-02-04,2026-02-04,1,1,,"[""equipsjairo""]",[],1.0
 jairo--graveyard,Jairo,Jairo,Graveyard,Graveyard,,,,,,2026-01-08,2026-07-10,6,0,,"[""graveyard""]",[],0.0
-jairo--iroh,Jairo,Andrés,Iroh,Iroh,,,,,,2026-01-30,2026-01-30,1,1,,"[""Iroh""]",[],1.0
+jairo--iroh,Jairo,Andres,Iroh,Iroh,,,,,,2026-01-30,2026-01-30,1,1,,"[""Iroh""]",[],1.0
 jairo--iroh,Jairo,Jairo,Iroh,Iroh,,,,,,2026-01-11,2026-04-16,19,5,,"[""iroh""]",[],0.2632
 jairo--jairo-verde-verde,Jairo,Jairo,Jairo Verde Verde,Jairo Verde Verde,,,,,,2026-02-12,2026-02-12,1,0,,"[""jairoverdeverde""]",[],0.0
 jairo--kithkin,Jairo,Jairo,Kithkin,Kithkin,,,,,,2026-01-19,2026-01-19,1,1,,"[""kithkin""]",[],1.0

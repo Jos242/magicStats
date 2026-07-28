@@ -58,7 +58,7 @@
         {
           "game_id": "G2026-001",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "counters(precon)",
           "deck_name_normalized": "Counters",
           "deck_variant": "Precon",
@@ -66,7 +66,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--counters"
         },
         {
@@ -127,7 +127,7 @@
         {
           "game_id": "G2026-002",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "counters(precon)",
           "deck_name_normalized": "Counters",
           "deck_variant": "Precon",
@@ -135,7 +135,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--counters"
         },
         {
@@ -175,7 +175,7 @@
       "sol_ring_t1_player": null,
       "parse_confidence": "medium",
       "needs_review": true,
-      "notes": "Se infiere que Counters era de Andrés y que «Panigua» corresponde a Paniagua.",
+      "notes": "Se infiere que Counters era de Andres y que «Panigua» corresponde a Paniagua.",
       "source_line": 4,
       "raw_line": "graveyard Jairo counterscounters(precon) bulk(artefactos sami) chepe dinosaurios(Pani) / gano panigua",
       "participants": [
@@ -196,7 +196,7 @@
         {
           "game_id": "G2026-003",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "counterscounters(precon)",
           "deck_name_normalized": "Counters",
           "deck_variant": "Precon",
@@ -204,7 +204,7 @@
           "result": "loser",
           "assignment_confidence": "medium",
           "notes": "El nombre del jugador no aparece; se infiere por continuidad.",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--counters"
         },
         {
@@ -293,7 +293,7 @@
         {
           "game_id": "G2026-004",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "gato",
           "deck_name_normalized": "Gato",
           "deck_variant": "",
@@ -301,7 +301,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--gato"
         },
         {
@@ -362,7 +362,7 @@
         {
           "game_id": "G2026-005",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -370,7 +370,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         },
         {
@@ -431,7 +431,7 @@
         {
           "game_id": "G2026-006",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -439,7 +439,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         },
         {
@@ -465,7 +465,7 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
       "starting_player": null,
       "start_time": null,
@@ -514,7 +514,7 @@
         {
           "game_id": "G2026-007",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "elnazis(eldrazis caro)",
           "deck_name_normalized": "Elnazis",
           "deck_variant": "Caro",
@@ -522,7 +522,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--elnazis"
         }
       ],
@@ -548,7 +548,7 @@
       "sol_ring_t1_player": null,
       "parse_confidence": "medium",
       "needs_review": true,
-      "notes": "La línea omite nombres de jugador después de «jin» y «elnazis»; se asignan a Chepe y Andrés por contexto.",
+      "notes": "La línea omite nombres de jugador después de «jin» y «elnazis»; se asignan a Chepe y Andres por contexto.",
       "source_line": 10,
       "raw_line": "virtual / yuna(jairo ver) jairo jin elnazis / jairo",
       "participants": [
@@ -583,7 +583,7 @@
         {
           "game_id": "G2026-008",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "elnazis",
           "deck_name_normalized": "Elnazis",
           "deck_variant": "",
@@ -591,7 +591,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "El jugador se infiere por el patrón del grupo.",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--elnazis"
         }
       ],
@@ -603,7 +603,7 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
       "starting_player": null,
       "start_time": null,
@@ -652,7 +652,7 @@
         {
           "game_id": "G2026-009",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -660,7 +660,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         }
       ],
@@ -721,7 +721,7 @@
         {
           "game_id": "G2026-010",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "chaos",
           "deck_name_normalized": "Chaos",
           "deck_variant": "",
@@ -729,7 +729,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--chaos"
         }
       ],
@@ -790,7 +790,7 @@
         {
           "game_id": "G2026-011",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "robin",
           "deck_name_normalized": "Robin",
           "deck_variant": "",
@@ -798,7 +798,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--robin"
         }
       ],
@@ -859,7 +859,7 @@
         {
           "game_id": "G2026-012",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -867,7 +867,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         }
       ],
@@ -879,7 +879,7 @@
       "location": "in_person",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
       "starting_player": null,
       "start_time": null,
@@ -928,7 +928,7 @@
         {
           "game_id": "G2026-013",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "gato",
           "deck_name_normalized": "Gato",
           "deck_variant": "",
@@ -936,7 +936,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--gato"
         }
       ],
@@ -983,7 +983,7 @@
         {
           "game_id": "G2026-014",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "auntie",
           "deck_name_normalized": "Auntie",
           "deck_variant": "",
@@ -991,7 +991,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--auntie"
         },
         {
@@ -1060,13 +1060,13 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--auntie"
         },
         {
           "game_id": "G2026-015",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "vivi",
           "deck_name_normalized": "Vivi",
           "deck_variant": "",
@@ -1074,7 +1074,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--vivi"
         }
       ],
@@ -1121,7 +1121,7 @@
         {
           "game_id": "G2026-016",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "viví",
           "deck_name_normalized": "Vivi",
           "deck_variant": "",
@@ -1129,7 +1129,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--vivi"
         },
         {
@@ -1190,7 +1190,7 @@
         {
           "game_id": "G2026-017",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "eldrazis(precon)",
           "deck_name_normalized": "Eldrazis",
           "deck_variant": "Precon",
@@ -1198,7 +1198,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--eldrazis"
         },
         {
@@ -1224,7 +1224,7 @@
       "location": "in_person",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
       "starting_player": null,
       "start_time": null,
@@ -1245,7 +1245,7 @@
         {
           "game_id": "G2026-018",
           "seat_order": 1,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "Eldrazisprecon",
           "deck_name_normalized": "Eldrazis",
           "deck_variant": "Precon",
@@ -1253,7 +1253,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--eldrazis"
         },
         {
@@ -1342,7 +1342,7 @@
         {
           "game_id": "G2026-019",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "gato",
           "deck_name_normalized": "Gato",
           "deck_variant": "",
@@ -1350,7 +1350,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--gato"
         }
       ],
@@ -1362,7 +1362,7 @@
       "location": "in_person",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
       "starting_player": null,
       "start_time": null,
@@ -1411,7 +1411,7 @@
         {
           "game_id": "G2026-020",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "gato",
           "deck_name_normalized": "Gato",
           "deck_variant": "",
@@ -1419,7 +1419,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--gato"
         }
       ],
@@ -1466,7 +1466,7 @@
         {
           "game_id": "G2026-021",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "auntie",
           "deck_name_normalized": "Auntie",
           "deck_variant": "",
@@ -1474,7 +1474,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--auntie"
         },
         {
@@ -1521,7 +1521,7 @@
         {
           "game_id": "G2026-022",
           "seat_order": 1,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "auntie",
           "deck_name_normalized": "Auntie",
           "deck_variant": "",
@@ -1529,7 +1529,7 @@
           "result": "draw",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--auntie"
         },
         {
@@ -1569,7 +1569,7 @@
       "location": "in_person",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
       "starting_player": null,
       "start_time": null,
@@ -1590,7 +1590,7 @@
         {
           "game_id": "G2026-023",
           "seat_order": 1,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "Iroh",
           "deck_name_normalized": "Iroh",
           "deck_variant": "",
@@ -1638,8 +1638,8 @@
       "location": "in_person",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
-      "winner_raw": "Andrés",
+      "winner_player": "Andres",
+      "winner_raw": "Andres",
       "starting_player": null,
       "start_time": null,
       "end_time": null,
@@ -1654,7 +1654,7 @@
       "needs_review": false,
       "notes": "",
       "source_line": 30,
-      "raw_line": "Marneus jairo auntie andres aerith chepe / Andrés",
+      "raw_line": "Marneus jairo auntie andres aerith chepe / Andres",
       "participants": [
         {
           "game_id": "G2026-024",
@@ -1673,7 +1673,7 @@
         {
           "game_id": "G2026-024",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "auntie",
           "deck_name_normalized": "Auntie",
           "deck_variant": "",
@@ -1681,7 +1681,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--auntie"
         },
         {
@@ -1742,7 +1742,7 @@
         {
           "game_id": "G2026-025",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "eldrazis",
           "deck_name_normalized": "Eldrazis",
           "deck_variant": "",
@@ -1750,7 +1750,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--eldrazis"
         },
         {
@@ -1811,7 +1811,7 @@
         {
           "game_id": "G2026-026",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -1819,7 +1819,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         },
         {
@@ -1894,7 +1894,7 @@
         {
           "game_id": "G2026-027",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -1902,7 +1902,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         }
       ],
@@ -1963,7 +1963,7 @@
         {
           "game_id": "G2026-028",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -1971,7 +1971,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         }
       ],
@@ -2018,7 +2018,7 @@
         {
           "game_id": "G2026-029",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -2026,7 +2026,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         },
         {
@@ -2052,7 +2052,7 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "halflife",
       "starting_player": null,
       "start_time": null,
@@ -2066,7 +2066,7 @@
       "sol_ring_t1_player": null,
       "parse_confidence": "medium",
       "needs_review": false,
-      "notes": "El ganador se escribió como el nombre del deck «halflife»; se resuelve a Andrés.",
+      "notes": "El ganador se escribió como el nombre del deck «halflife»; se resuelve a Andres.",
       "source_line": 38,
       "raw_line": "vir / experience chepe halflife andres conejos jairo / halflife",
       "participants": [
@@ -2087,7 +2087,7 @@
         {
           "game_id": "G2026-030",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -2095,7 +2095,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         },
         {
@@ -2156,7 +2156,7 @@
         {
           "game_id": "G2026-031",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -2164,7 +2164,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         },
         {
@@ -2190,7 +2190,7 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
       "starting_player": null,
       "start_time": null,
@@ -2239,7 +2239,7 @@
         {
           "game_id": "G2026-032",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -2247,7 +2247,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         }
       ],
@@ -2308,7 +2308,7 @@
         {
           "game_id": "G2026-033",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -2316,7 +2316,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         }
       ],
@@ -2363,7 +2363,7 @@
         {
           "game_id": "G2026-034",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "eldraziscolores",
           "deck_name_normalized": "Eldrazis Colores",
           "deck_variant": "",
@@ -2371,7 +2371,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--eldrazis-colores"
         },
         {
@@ -2432,7 +2432,7 @@
         {
           "game_id": "G2026-035",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "eldraziscolores",
           "deck_name_normalized": "Eldrazis Colores",
           "deck_variant": "",
@@ -2440,7 +2440,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--eldrazis-colores"
         },
         {
@@ -2466,7 +2466,7 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
       "starting_player": null,
       "start_time": null,
@@ -2515,7 +2515,7 @@
         {
           "game_id": "G2026-036",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -2523,7 +2523,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         }
       ],
@@ -2584,7 +2584,7 @@
         {
           "game_id": "G2026-037",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -2592,7 +2592,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         }
       ],
@@ -2604,7 +2604,7 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
       "starting_player": null,
       "start_time": null,
@@ -2653,7 +2653,7 @@
         {
           "game_id": "G2026-038",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -2661,7 +2661,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         }
       ],
@@ -2722,7 +2722,7 @@
         {
           "game_id": "G2026-039",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -2730,7 +2730,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         }
       ],
@@ -2742,14 +2742,14 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
-      "starting_player": "Andrés",
+      "starting_player": "Andres",
       "start_time": null,
       "end_time": null,
       "duration_minutes": null,
       "win_condition_category": "last_player_standing",
-      "win_condition_text": "Jairo se rindió; Andrés mató a Chepe.",
+      "win_condition_text": "Jairo se rindió; Andres mató a Chepe.",
       "nuke_recorded": null,
       "nuke_player": null,
       "sol_ring_t1_recorded": null,
@@ -2777,7 +2777,7 @@
         {
           "game_id": "G2026-040",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "eldraziscolores",
           "deck_name_normalized": "Eldrazis Colores",
           "deck_variant": "",
@@ -2785,7 +2785,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--eldrazis-colores"
         },
         {
@@ -2818,10 +2818,10 @@
           "game_id": "G2026-040",
           "event_order": 2,
           "event_type": "elimination",
-          "actor": "Andrés",
+          "actor": "Andres",
           "target": "Chepe",
           "method": "unspecified",
-          "notes": "Andrés mata a Chepe.",
+          "notes": "Andres mata a Chepe.",
           "explicitness": "explicit"
         }
       ]
@@ -2853,7 +2853,7 @@
         {
           "game_id": "G2026-041",
           "seat_order": 1,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "eldrazicolor",
           "deck_name_normalized": "Eldrazis Colores",
           "deck_variant": "",
@@ -2861,7 +2861,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--eldrazis-colores"
         },
         {
@@ -2899,7 +2899,7 @@
           "event_order": 1,
           "event_type": "elimination",
           "actor": "Chepe",
-          "target": "Andrés",
+          "target": "Andres",
           "method": "mill",
           "notes": "Ambos matados por Chepe vía mill.",
           "explicitness": "explicit"
@@ -2922,14 +2922,14 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
-      "starting_player": "Andrés",
+      "starting_player": "Andres",
       "start_time": "4:10",
       "end_time": "4:46",
       "duration_minutes": 36,
       "win_condition_category": "combat_damage",
-      "win_condition_text": "Andrés eliminó a ambos por daño de combate.",
+      "win_condition_text": "Andres eliminó a ambos por daño de combate.",
       "nuke_recorded": null,
       "nuke_player": null,
       "sol_ring_t1_recorded": null,
@@ -2957,7 +2957,7 @@
         {
           "game_id": "G2026-042",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -2965,7 +2965,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         },
         {
@@ -2988,20 +2988,20 @@
           "game_id": "G2026-042",
           "event_order": 1,
           "event_type": "elimination",
-          "actor": "Andrés",
+          "actor": "Andres",
           "target": "Chepe",
           "method": "combat_damage",
-          "notes": "Ambos matados por Andrés vía combat damage.",
+          "notes": "Ambos matados por Andres vía combat damage.",
           "explicitness": "explicit"
         },
         {
           "game_id": "G2026-042",
           "event_order": 2,
           "event_type": "elimination",
-          "actor": "Andrés",
+          "actor": "Andres",
           "target": "Jairo",
           "method": "combat_damage",
-          "notes": "Ambos matados por Andrés vía combat damage.",
+          "notes": "Ambos matados por Andres vía combat damage.",
           "explicitness": "explicit"
         }
       ]
@@ -3012,14 +3012,14 @@
       "location": "in_person",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
       "starting_player": "Chepe",
       "start_time": "6:13",
       "end_time": "7:30",
       "duration_minutes": 77,
       "win_condition_category": "tokens",
-      "win_condition_text": "Andrés ganó por tokens.",
+      "win_condition_text": "Andres ganó por tokens.",
       "nuke_recorded": null,
       "nuke_player": null,
       "sol_ring_t1_recorded": null,
@@ -3028,7 +3028,7 @@
       "needs_review": false,
       "notes": "",
       "source_line": 56,
-      "raw_line": "6:13 7:30 / empecé chep / Azula chepe viví andres marneus jairo /chepe mate Jairo, Andrés a chepe, gana por tokens andres / andres",
+      "raw_line": "6:13 7:30 / empecé chep / Azula chepe viví andres marneus jairo /chepe mate Jairo, Andres a chepe, gana por tokens andres / andres",
       "participants": [
         {
           "game_id": "G2026-043",
@@ -3047,7 +3047,7 @@
         {
           "game_id": "G2026-043",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "viví",
           "deck_name_normalized": "Vivi",
           "deck_variant": "",
@@ -3055,7 +3055,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--vivi"
         },
         {
@@ -3088,10 +3088,10 @@
           "game_id": "G2026-043",
           "event_order": 2,
           "event_type": "elimination",
-          "actor": "Andrés",
+          "actor": "Andres",
           "target": "Chepe",
           "method": "unspecified",
-          "notes": "Andrés mató a Chepe.",
+          "notes": "Andres mató a Chepe.",
           "explicitness": "explicit"
         }
       ]
@@ -3118,12 +3118,12 @@
       "needs_review": false,
       "notes": "",
       "source_line": 57,
-      "raw_line": "7:37 8:40 / empezó Jairo/ vivi Andres maerneus jairo dragones chepe / Jairo mató a Andrés, chepe a Jairo con 8 dragones +8+8 / ganó chep",
+      "raw_line": "7:37 8:40 / empezó Jairo/ vivi Andres maerneus jairo dragones chepe / Jairo mató a Andres, chepe a Jairo con 8 dragones +8+8 / ganó chep",
       "participants": [
         {
           "game_id": "G2026-044",
           "seat_order": 1,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "vivi",
           "deck_name_normalized": "Vivi",
           "deck_variant": "",
@@ -3131,7 +3131,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--vivi"
         },
         {
@@ -3169,9 +3169,9 @@
           "event_order": 1,
           "event_type": "elimination",
           "actor": "Jairo",
-          "target": "Andrés",
+          "target": "Andres",
           "method": "unspecified",
-          "notes": "Jairo mató a Andrés.",
+          "notes": "Jairo mató a Andres.",
           "explicitness": "explicit"
         },
         {
@@ -3227,7 +3227,7 @@
         {
           "game_id": "G2026-045",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "auntie",
           "deck_name_normalized": "Auntie",
           "deck_variant": "",
@@ -3235,7 +3235,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--auntie"
         },
         {
@@ -3269,7 +3269,7 @@
           "event_order": 2,
           "event_type": "elimination",
           "actor": "Jairo",
-          "target": "Andrés",
+          "target": "Andres",
           "method": "direct_damage",
           "notes": "Daño directo por disparos al morir.",
           "explicitness": "explicit"
@@ -3284,12 +3284,12 @@
       "result_type": "win",
       "winner_player": "Chepe",
       "winner_raw": "chepe",
-      "starting_player": "Andrés",
+      "starting_player": "Andres",
       "start_time": "5:58",
       "end_time": "6:53",
       "duration_minutes": 55,
       "win_condition_category": "combat_damage",
-      "win_condition_text": "Andrés se eliminó por pérdida de vida; Chepe eliminó a Jairo con una criatura voladora grande.",
+      "win_condition_text": "Andres se eliminó por pérdida de vida; Chepe eliminó a Jairo con una criatura voladora grande.",
       "nuke_recorded": null,
       "nuke_player": null,
       "sol_ring_t1_recorded": null,
@@ -3317,7 +3317,7 @@
         {
           "game_id": "G2026-046",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -3325,7 +3325,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         },
         {
@@ -3348,10 +3348,10 @@
           "game_id": "G2026-046",
           "event_order": 1,
           "event_type": "self_elimination",
-          "actor": "Andrés",
-          "target": "Andrés",
+          "actor": "Andres",
+          "target": "Andres",
           "method": "life_loss",
-          "notes": "Andrés se mató por perder vida.",
+          "notes": "Andres se mató por perder vida.",
           "explicitness": "explicit"
         },
         {
@@ -3421,7 +3421,7 @@
         {
           "game_id": "G2026-047",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -3429,7 +3429,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         }
       ],
@@ -3449,7 +3449,7 @@
           "event_order": 2,
           "event_type": "elimination",
           "actor": "Jairo",
-          "target": "Andrés",
+          "target": "Andres",
           "method": "unspecified",
           "notes": "Jairo mata a ambos.",
           "explicitness": "explicit"
@@ -3462,14 +3462,14 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres (inferido)",
       "starting_player": "Jairo",
       "start_time": "7:23",
       "end_time": "7:38",
       "duration_minutes": 15,
       "win_condition_category": "eliminated_all",
-      "win_condition_text": "Andrés mató a ambos.",
+      "win_condition_text": "Andres mató a ambos.",
       "nuke_recorded": null,
       "nuke_player": null,
       "sol_ring_t1_recorded": null,
@@ -3511,7 +3511,7 @@
         {
           "game_id": "G2026-048",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "halflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -3519,7 +3519,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         }
       ],
@@ -3528,20 +3528,20 @@
           "game_id": "G2026-048",
           "event_order": 1,
           "event_type": "elimination",
-          "actor": "Andrés",
+          "actor": "Andres",
           "target": "Chepe",
           "method": "unspecified",
-          "notes": "Andrés mata a ambos.",
+          "notes": "Andres mata a ambos.",
           "explicitness": "explicit"
         },
         {
           "game_id": "G2026-048",
           "event_order": 2,
           "event_type": "elimination",
-          "actor": "Andrés",
+          "actor": "Andres",
           "target": "Jairo",
           "method": "unspecified",
-          "notes": "Andrés mata a ambos.",
+          "notes": "Andres mata a ambos.",
           "explicitness": "explicit"
         }
       ]
@@ -3554,12 +3554,12 @@
       "result_type": "win",
       "winner_player": "Jairo",
       "winner_raw": "jairo",
-      "starting_player": "Andrés",
+      "starting_player": "Andres",
       "start_time": "7:43",
       "end_time": "8:30",
       "duration_minutes": 47,
       "win_condition_category": "last_player_standing",
-      "win_condition_text": "Andrés eliminó a Chepe por daño de comandante; Jairo eliminó a Andrés.",
+      "win_condition_text": "Andres eliminó a Chepe por daño de comandante; Jairo eliminó a Andres.",
       "nuke_recorded": null,
       "nuke_player": null,
       "sol_ring_t1_recorded": null,
@@ -3601,7 +3601,7 @@
         {
           "game_id": "G2026-049",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "chaos",
           "deck_name_normalized": "Chaos",
           "deck_variant": "",
@@ -3609,7 +3609,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--chaos"
         }
       ],
@@ -3618,10 +3618,10 @@
           "game_id": "G2026-049",
           "event_order": 1,
           "event_type": "elimination",
-          "actor": "Andrés",
+          "actor": "Andres",
           "target": "Chepe",
           "method": "commander_damage",
-          "notes": "Andrés mata a Chepe por commander damage.",
+          "notes": "Andres mata a Chepe por commander damage.",
           "explicitness": "explicit"
         },
         {
@@ -3629,9 +3629,9 @@
           "event_order": 2,
           "event_type": "elimination",
           "actor": "Jairo",
-          "target": "Andrés",
+          "target": "Andres",
           "method": "unspecified",
-          "notes": "Jairo mata a Andrés.",
+          "notes": "Jairo mata a Andres.",
           "explicitness": "explicit"
         }
       ]
@@ -3677,7 +3677,7 @@
         {
           "game_id": "G2026-050",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "auntie",
           "deck_name_normalized": "Auntie",
           "deck_variant": "",
@@ -3685,7 +3685,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--auntie"
         },
         {
@@ -3719,7 +3719,7 @@
           "event_order": 2,
           "event_type": "elimination",
           "actor": "Jairo",
-          "target": "Andrés",
+          "target": "Andres",
           "method": "combat_damage",
           "notes": "Todo era 10/10.",
           "explicitness": "explicit"
@@ -3739,9 +3739,9 @@
       "end_time": "4:20",
       "duration_minutes": 58,
       "win_condition_category": "direct_damage",
-      "win_condition_text": "Chepe eliminó a Andrés por daño de comandante; Jairo eliminó a Chepe por daño directo.",
+      "win_condition_text": "Chepe eliminó a Andres por daño de comandante; Jairo eliminó a Chepe por daño directo.",
       "nuke_recorded": true,
-      "nuke_player": "Andrés",
+      "nuke_player": "Andres",
       "sol_ring_t1_recorded": null,
       "sol_ring_t1_player": null,
       "parse_confidence": "medium",
@@ -3781,7 +3781,7 @@
         {
           "game_id": "G2026-051",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "auntie",
           "deck_name_normalized": "Auntie",
           "deck_variant": "",
@@ -3789,7 +3789,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--auntie"
         }
       ],
@@ -3798,10 +3798,10 @@
           "game_id": "G2026-051",
           "event_order": 1,
           "event_type": "nuke",
-          "actor": "Andrés",
+          "actor": "Andres",
           "target": "",
           "method": "nuke",
-          "notes": "Hubo Nuke de Andrés.",
+          "notes": "Hubo Nuke de Andres.",
           "explicitness": "explicit"
         },
         {
@@ -3809,7 +3809,7 @@
           "event_order": 2,
           "event_type": "elimination",
           "actor": "Chepe",
-          "target": "Andrés",
+          "target": "Andres",
           "method": "commander_damage",
           "notes": "",
           "explicitness": "explicit"
@@ -3839,7 +3839,7 @@
       "end_time": "5:01",
       "duration_minutes": 36,
       "win_condition_category": "combat_damage",
-      "win_condition_text": "Jairo eliminó a Chepe y Andrés por daño de combate.",
+      "win_condition_text": "Jairo eliminó a Chepe y Andres por daño de combate.",
       "nuke_recorded": null,
       "nuke_player": null,
       "sol_ring_t1_recorded": null,
@@ -3848,12 +3848,12 @@
       "needs_review": false,
       "notes": "",
       "source_line": 67,
-      "raw_line": "4:25 5:01 / chep empieza / Vivi andres volo(nerfed ver.) jairo aerith chepe / Jairo mata a chep y a Andrés por combat damage",
+      "raw_line": "4:25 5:01 / chep empieza / Vivi andres volo(nerfed ver.) jairo aerith chepe / Jairo mata a chep y a Andres por combat damage",
       "participants": [
         {
           "game_id": "G2026-052",
           "seat_order": 1,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "Vivi",
           "deck_name_normalized": "Vivi",
           "deck_variant": "",
@@ -3861,7 +3861,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--vivi"
         },
         {
@@ -3909,7 +3909,7 @@
           "event_order": 2,
           "event_type": "elimination",
           "actor": "Jairo",
-          "target": "Andrés",
+          "target": "Andres",
           "method": "combat_damage",
           "notes": "",
           "explicitness": "explicit"
@@ -3922,14 +3922,14 @@
       "location": "in_person",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
-      "starting_player": "Andrés",
+      "starting_player": "Andres",
       "start_time": "5:02",
       "end_time": "5:52",
       "duration_minutes": 50,
       "win_condition_category": "combat_damage",
-      "win_condition_text": "Andrés eliminó a Chepe por daño de comandante y a Jairo por daño de combate.",
+      "win_condition_text": "Andres eliminó a Chepe por daño de comandante y a Jairo por daño de combate.",
       "nuke_recorded": null,
       "nuke_player": null,
       "sol_ring_t1_recorded": null,
@@ -3938,7 +3938,7 @@
       "needs_review": false,
       "notes": "",
       "source_line": 68,
-      "raw_line": "5:02 5:52 empieza Andrés/ Cloud chepe viví Andres dinos jairo / Andrés mata a chep por commander damage, andres a Jairo por combat damage / gana andres",
+      "raw_line": "5:02 5:52 empieza Andres/ Cloud chepe viví Andres dinos jairo / Andres mata a chep por commander damage, andres a Jairo por combat damage / gana andres",
       "participants": [
         {
           "game_id": "G2026-053",
@@ -3957,7 +3957,7 @@
         {
           "game_id": "G2026-053",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "viví",
           "deck_name_normalized": "Vivi",
           "deck_variant": "",
@@ -3965,7 +3965,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--vivi"
         },
         {
@@ -3988,7 +3988,7 @@
           "game_id": "G2026-053",
           "event_order": 1,
           "event_type": "elimination",
-          "actor": "Andrés",
+          "actor": "Andres",
           "target": "Chepe",
           "method": "commander_damage",
           "notes": "",
@@ -3998,7 +3998,7 @@
           "game_id": "G2026-053",
           "event_order": 2,
           "event_type": "elimination",
-          "actor": "Andrés",
+          "actor": "Andres",
           "target": "Jairo",
           "method": "combat_damage",
           "notes": "",
@@ -4061,7 +4061,7 @@
         {
           "game_id": "G2026-054",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "eldrazis",
           "deck_name_normalized": "Eldrazis",
           "deck_variant": "",
@@ -4069,7 +4069,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--eldrazis"
         }
       ],
@@ -4099,7 +4099,7 @@
           "event_order": 3,
           "event_type": "elimination",
           "actor": "Chepe",
-          "target": "Andrés",
+          "target": "Andres",
           "method": "combat_damage",
           "notes": "",
           "explicitness": "explicit"
@@ -4112,14 +4112,14 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres (inferido)",
       "starting_player": "Jairo",
       "start_time": "6:34",
       "end_time": "7:48",
       "duration_minutes": 74,
       "win_condition_category": "tokens",
-      "win_condition_text": "Andrés eliminó a ambos con mucho daño de tokens.",
+      "win_condition_text": "Andres eliminó a ambos con mucho daño de tokens.",
       "nuke_recorded": null,
       "nuke_player": null,
       "sol_ring_t1_recorded": null,
@@ -4161,7 +4161,7 @@
         {
           "game_id": "G2026-055",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "monoblueperonel",
           "deck_name_normalized": "Mono Blue Pero Nel",
           "deck_variant": "",
@@ -4169,7 +4169,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--mono-blue-pero-nel"
         }
       ],
@@ -4178,7 +4178,7 @@
           "game_id": "G2026-055",
           "event_order": 1,
           "event_type": "elimination",
-          "actor": "Andrés",
+          "actor": "Andres",
           "target": "Jairo",
           "method": "token_damage",
           "notes": "",
@@ -4188,7 +4188,7 @@
           "game_id": "G2026-055",
           "event_order": 2,
           "event_type": "elimination",
-          "actor": "Andrés",
+          "actor": "Andres",
           "target": "Chepe",
           "method": "token_damage",
           "notes": "",
@@ -4237,7 +4237,7 @@
         {
           "game_id": "G2026-056",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "octopus girl",
           "deck_name_normalized": "Octopus Lady",
           "deck_variant": "",
@@ -4245,7 +4245,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--octopus-lady"
         },
         {
@@ -4271,14 +4271,14 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
-      "starting_player": "Andrés",
+      "starting_player": "Andres",
       "start_time": "9:20",
       "end_time": "10:50",
       "duration_minutes": 90,
       "win_condition_category": "combat_damage",
-      "win_condition_text": "Andrés ganó con criaturas de +1000/+1000.",
+      "win_condition_text": "Andres ganó con criaturas de +1000/+1000.",
       "nuke_recorded": null,
       "nuke_player": null,
       "sol_ring_t1_recorded": null,
@@ -4292,7 +4292,7 @@
         {
           "game_id": "G2026-057",
           "seat_order": 1,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "osos",
           "deck_name_normalized": "Osos",
           "deck_variant": "",
@@ -4300,7 +4300,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--osos"
         },
         {
@@ -4354,7 +4354,7 @@
       "sol_ring_t1_player": null,
       "parse_confidence": "low",
       "needs_review": true,
-      "notes": "La fuente menciona «artefacts lady» y «octopus», pero no permite asignarlos con seguridad a Chepe y Andrés.",
+      "notes": "La fuente menciona «artefacts lady» y «octopus», pero no permite asignarlos con seguridad a Chepe y Andres.",
       "source_line": 74,
       "raw_line": "empieza chep jin sakai jairoh artefacts lady octopus gana chep matando a mabos por direct damage",
       "participants": [
@@ -4389,7 +4389,7 @@
         {
           "game_id": "G2026-058",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "",
           "deck_name_normalized": "",
           "deck_variant": "",
@@ -4417,7 +4417,7 @@
           "event_order": 2,
           "event_type": "elimination",
           "actor": "Chepe",
-          "target": "Andrés",
+          "target": "Andres",
           "method": "direct_damage",
           "notes": "",
           "explicitness": "explicit"
@@ -4430,14 +4430,14 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
-      "starting_player": "Andrés",
+      "starting_player": "Andres",
       "start_time": "12:33",
       "end_time": "12:56",
       "duration_minutes": 23,
       "win_condition_category": "combat_damage",
-      "win_condition_text": "Andrés ganó por daño de combate; Jairo se rindió.",
+      "win_condition_text": "Andres ganó por daño de combate; Jairo se rindió.",
       "nuke_recorded": null,
       "nuke_player": null,
       "sol_ring_t1_recorded": null,
@@ -4465,7 +4465,7 @@
         {
           "game_id": "G2026-059",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "octupus lady",
           "deck_name_normalized": "Octopus Lady",
           "deck_variant": "",
@@ -4473,7 +4473,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--octopus-lady"
         },
         {
@@ -4559,7 +4559,7 @@
         {
           "game_id": "G2026-060",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "octolady",
           "deck_name_normalized": "Octopus Lady",
           "deck_variant": "",
@@ -4567,7 +4567,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--octopus-lady"
         }
       ],
@@ -4579,14 +4579,14 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres (inferido)",
       "starting_player": "Jairo",
       "start_time": "7:52",
       "end_time": "8:30",
       "duration_minutes": 38,
       "win_condition_category": "combat_damage",
-      "win_condition_text": "Andrés eliminó a ambos con daño de combate muy grande.",
+      "win_condition_text": "Andres eliminó a ambos con daño de combate muy grande.",
       "nuke_recorded": null,
       "nuke_player": null,
       "sol_ring_t1_recorded": null,
@@ -4628,7 +4628,7 @@
         {
           "game_id": "G2026-061",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "helflife",
           "deck_name_normalized": "Half-Life",
           "deck_variant": "",
@@ -4636,7 +4636,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--half-life"
         }
       ],
@@ -4645,7 +4645,7 @@
           "game_id": "G2026-061",
           "event_order": 1,
           "event_type": "elimination",
-          "actor": "Andrés",
+          "actor": "Andres",
           "target": "Jairo",
           "method": "combat_damage",
           "notes": "«big dick damage» en la fuente.",
@@ -4655,7 +4655,7 @@
           "game_id": "G2026-061",
           "event_order": 2,
           "event_type": "elimination",
-          "actor": "Andrés",
+          "actor": "Andres",
           "target": "Chepe",
           "method": "combat_damage",
           "notes": "«big dick damage» en la fuente.",
@@ -4669,14 +4669,14 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres (inferido)",
-      "starting_player": "Andrés",
+      "starting_player": "Andres",
       "start_time": "8:50",
       "end_time": "9:44",
       "duration_minutes": 54,
       "win_condition_category": "last_player_standing",
-      "win_condition_text": "Andrés eliminó a Chepe; Chepe había eliminado a Jairo.",
+      "win_condition_text": "Andres eliminó a Chepe; Chepe había eliminado a Jairo.",
       "nuke_recorded": null,
       "nuke_player": null,
       "sol_ring_t1_recorded": null,
@@ -4718,7 +4718,7 @@
         {
           "game_id": "G2026-062",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "arañasungoliant",
           "deck_name_normalized": "Arañas/Ungoliant",
           "deck_variant": "",
@@ -4726,7 +4726,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--aranas-ungoliant"
         }
       ],
@@ -4735,10 +4735,10 @@
           "game_id": "G2026-062",
           "event_order": 1,
           "event_type": "elimination",
-          "actor": "Andrés",
+          "actor": "Andres",
           "target": "Chepe",
           "method": "unspecified",
-          "notes": "«Andrés es rata y mata a Chep».",
+          "notes": "«Andres es rata y mata a Chep».",
           "explicitness": "explicit"
         },
         {
@@ -4761,7 +4761,7 @@
       "result_type": "win",
       "winner_player": "Chepe",
       "winner_raw": "chep",
-      "starting_player": "Andrés",
+      "starting_player": "Andres",
       "start_time": "7:58",
       "end_time": "8:11",
       "duration_minutes": 13,
@@ -4808,7 +4808,7 @@
         {
           "game_id": "G2026-063",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "5colores",
           "deck_name_normalized": "5 Colores",
           "deck_variant": "",
@@ -4816,7 +4816,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--5-colores"
         }
       ],
@@ -4835,8 +4835,8 @@
           "game_id": "G2026-063",
           "event_order": 2,
           "event_type": "concession",
-          "actor": "Andrés",
-          "target": "Andrés",
+          "actor": "Andres",
+          "target": "Andres",
           "method": "concession",
           "notes": "Ambos se rindieron.",
           "explicitness": "explicit"
@@ -4884,7 +4884,7 @@
         {
           "game_id": "G2026-064",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "5colores",
           "deck_name_normalized": "5 Colores",
           "deck_variant": "",
@@ -4892,7 +4892,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--5-colores"
         },
         {
@@ -4967,7 +4967,7 @@
         {
           "game_id": "G2026-065",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "5colores",
           "deck_name_normalized": "5 Colores",
           "deck_variant": "",
@@ -4975,7 +4975,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--5-colores"
         }
       ],
@@ -4987,14 +4987,14 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
       "starting_player": "Chepe",
       "start_time": "5:45",
       "end_time": "6:32",
       "duration_minutes": 47,
       "win_condition_category": "damage_unspecified",
-      "win_condition_text": "Andrés ganó por daño.",
+      "win_condition_text": "Andres ganó por daño.",
       "nuke_recorded": null,
       "nuke_player": null,
       "sol_ring_t1_recorded": null,
@@ -5036,7 +5036,7 @@
         {
           "game_id": "G2026-066",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "octolady",
           "deck_name_normalized": "Octopus Lady",
           "deck_variant": "",
@@ -5044,7 +5044,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--octopus-lady"
         }
       ],
@@ -5077,7 +5077,7 @@
         {
           "game_id": "G2026-067",
           "seat_order": 1,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "octolady",
           "deck_name_normalized": "Octopus Lady",
           "deck_variant": "",
@@ -5085,7 +5085,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--octopus-lady"
         },
         {
@@ -5174,7 +5174,7 @@
         {
           "game_id": "G2026-068",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "nekuzar",
           "deck_name_normalized": "Nekusar",
           "deck_variant": "",
@@ -5182,7 +5182,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--nekusar"
         }
       ],
@@ -5196,7 +5196,7 @@
       "result_type": "win",
       "winner_player": "Chepe",
       "winner_raw": "chep",
-      "starting_player": "Andrés",
+      "starting_player": "Andres",
       "start_time": "9:12",
       "end_time": "10:08",
       "duration_minutes": 56,
@@ -5229,7 +5229,7 @@
         {
           "game_id": "G2026-069",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "omnathlocusmana",
           "deck_name_normalized": "Omnath, Locus of Mana",
           "deck_variant": "",
@@ -5237,7 +5237,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--omnath-locus-of-mana"
         },
         {
@@ -5298,7 +5298,7 @@
         {
           "game_id": "G2026-070",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "espiritus",
           "deck_name_normalized": "Espíritus",
           "deck_variant": "",
@@ -5306,7 +5306,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--espiritus"
         },
         {
@@ -5332,7 +5332,7 @@
       "location": "in_person",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andrés",
+      "winner_player": "Andres",
       "winner_raw": "andres",
       "starting_player": null,
       "start_time": null,
@@ -5367,7 +5367,7 @@
         {
           "game_id": "G2026-071",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "tortugas",
           "deck_name_normalized": "Tortugas",
           "deck_variant": "",
@@ -5375,7 +5375,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--tortugas"
         },
         {
@@ -5450,7 +5450,7 @@
         {
           "game_id": "G2026-072",
           "seat_order": 3,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "gato",
           "deck_name_normalized": "Gato",
           "deck_variant": "",
@@ -5458,7 +5458,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--gato"
         },
         {
@@ -5472,7 +5472,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--espiritus"
         }
       ],
@@ -5484,8 +5484,8 @@
       "location": "in_person",
       "player_count": 4,
       "result_type": "win",
-      "winner_player": "Andrés",
-      "winner_raw": "Andrés",
+      "winner_player": "Andres",
+      "winner_raw": "Andres",
       "starting_player": null,
       "start_time": null,
       "end_time": null,
@@ -5500,7 +5500,7 @@
       "needs_review": false,
       "notes": "",
       "source_line": 94,
-      "raw_line": "Dinos cris vivi andres Tidus chepe marneus jairo / gana Andrés",
+      "raw_line": "Dinos cris vivi andres Tidus chepe marneus jairo / gana Andres",
       "participants": [
         {
           "game_id": "G2026-073",
@@ -5519,7 +5519,7 @@
         {
           "game_id": "G2026-073",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "vivi",
           "deck_name_normalized": "Vivi",
           "deck_variant": "",
@@ -5527,7 +5527,7 @@
           "result": "winner",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--vivi"
         },
         {
@@ -5630,7 +5630,7 @@
         {
           "game_id": "G2026-074",
           "seat_order": 4,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "eldrazis",
           "deck_name_normalized": "Eldrazis",
           "deck_variant": "",
@@ -5638,7 +5638,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--eldrazis"
         }
       ],
@@ -5685,7 +5685,7 @@
         {
           "game_id": "G2026-075",
           "seat_order": 2,
-          "player": "Andrés",
+          "player": "Andres",
           "deck_name_raw": "Octolady",
           "deck_name_normalized": "Octopus Lady",
           "deck_variant": "",
@@ -5693,7 +5693,7 @@
           "result": "loser",
           "assignment_confidence": "high",
           "notes": "",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "deck_id": "andres--octopus-lady"
         },
         {
@@ -5731,7 +5731,7 @@
           "event_order": 1,
           "event_type": "elimination",
           "actor": "Chepe",
-          "target": "Andrés",
+          "target": "Andres",
           "method": "direct_damage",
           "notes": "Dano por draw",
           "explicitness": "explicit"
@@ -5764,8 +5764,8 @@
       "location": "virtual",
       "player_count": 3,
       "result_type": "win",
-      "winner_player": "Andr?s",
-      "winner_raw": "Andr?s",
+      "winner_player": "Andres",
+      "winner_raw": "Andres",
       "starting_player": "Jairo",
       "start_time": null,
       "end_time": null,
@@ -5778,7 +5778,7 @@
       "sol_ring_t1_player": null,
       "parse_confidence": "medium",
       "needs_review": true,
-      "notes": "Importado desde GitHub issue #3. https://github.com/Jos242/magicStats/issues/3 Andr?s / Eldrazis Colores: Deck resuelto por nombre único del catálogo; revisar si Andr?s estaba usando un deck de Andrés.",
+      "notes": "Importado desde GitHub issue #3. https://github.com/Jos242/magicStats/issues/3 Andres / Eldrazis Colores: Deck resuelto por nombre único del catálogo; revisar si Andres estaba usando un deck de Andres.",
       "source_line": 0,
       "raw_line": "Si Chepe fuera rata, gana rompiendo tratos con Andres",
       "participants": [
@@ -5800,17 +5800,17 @@
         {
           "game_id": "G2026-076",
           "seat_order": 2,
-          "player": "Andr?s",
+          "player": "Andres",
           "deck_name_raw": "Eldrazis Colores",
           "deck_name_normalized": "Eldrazis Colores",
           "deck_id": "andres--eldrazis-colores",
-          "deck_owner": "Andrés",
+          "deck_owner": "Andres",
           "moxfield_url": "https://moxfield.com/decks/qfc2M2VliEeU1jC-SyrkDQ",
           "deck_variant": "",
           "commander_name": "",
           "result": "winner",
           "assignment_confidence": "medium",
-          "notes": "Deck resuelto por nombre único del catálogo; revisar si Andr?s estaba usando un deck de Andrés."
+          "notes": "Deck resuelto por nombre único del catálogo; revisar si Andres estaba usando un deck de Andres."
         },
         {
           "game_id": "G2026-076",
@@ -5843,7 +5843,7 @@
           "game_id": "G2026-076",
           "event_order": 2,
           "event_type": "elimination",
-          "actor": "Andr?s",
+          "actor": "Andres",
           "target": "Chepe",
           "method": "direct_damage",
           "notes": "Eldrazi 56/56",

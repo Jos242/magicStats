@@ -11,17 +11,17 @@
   "identities": [
     {
       "deck_id": "andres--5-colores",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "5 Colores",
-      "official_name": "5 fakin colors",
-      "commander_name": "Jenson Carthalion, Druid Exile",
-      "moxfield_url": "https://moxfield.com/decks/qFXpa593BUWIwdOzto8rDg",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
       "archidekt_url": "",
       "edhrec_url": "",
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 3,
         "wins": 0,
@@ -33,7 +33,7 @@
     },
     {
       "deck_id": "andres--aranas-ungoliant",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Arañas/Ungoliant",
       "official_name": "",
       "commander_name": "",
@@ -43,7 +43,7 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 1,
         "wins": 1,
@@ -55,17 +55,17 @@
     },
     {
       "deck_id": "andres--auntie",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Auntie",
-      "official_name": "Blight Curse (Lorwyn Eclipsed Commander Precon Decklist)",
-      "commander_name": "Auntie Ool, Cursewretch",
-      "moxfield_url": "https://moxfield.com/decks/wZCqAM_hbEu-TrzZcSpFtw",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
       "archidekt_url": "",
       "edhrec_url": "",
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés",
+          "Andres",
           "Jairo"
         ],
         "games_played": 8,
@@ -78,7 +78,7 @@
     },
     {
       "deck_id": "andres--chaos",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Chaos",
       "official_name": "",
       "commander_name": "",
@@ -88,7 +88,7 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 2,
         "wins": 0,
@@ -100,17 +100,17 @@
     },
     {
       "deck_id": "andres--counters",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Counters",
-      "official_name": "Counter Intelligence (Edge of Eternities Commander Precon Decklist)",
-      "commander_name": "Optimus Prime, Hero // Optimus Prime, Autobot Leader",
-      "moxfield_url": "https://moxfield.com/decks/Xp2se19l60-83ug1gUME8g",
+      "official_name": "",
+      "commander_name": "",
+      "moxfield_url": "",
       "archidekt_url": "",
       "edhrec_url": "",
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 3,
         "wins": 0,
@@ -125,7 +125,7 @@
     },
     {
       "deck_id": "andres--eldrazis",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Eldrazis",
       "official_name": "",
       "commander_name": "",
@@ -135,7 +135,7 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 5,
         "wins": 1,
@@ -151,7 +151,7 @@
     },
     {
       "deck_id": "andres--eldrazis-colores",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Eldrazis Colores",
       "official_name": "",
       "commander_name": "",
@@ -161,12 +161,13 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
-        "games_played": 4,
-        "wins": 1,
+        "games_played": 5,
+        "wins": 2,
         "aliases": [
           "eldrazicolor",
+          "Eldrazis Colores",
           "eldraziscolores"
         ],
         "variants": []
@@ -174,17 +175,17 @@
     },
     {
       "deck_id": "andres--elnazis",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Elnazis",
       "official_name": "",
       "commander_name": "",
       "moxfield_url": "",
       "archidekt_url": "",
       "edhrec_url": "",
-      "notes": "Separado manualmente de Eldrazis; alias Eldrazis Caro.",
+      "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 2,
         "wins": 1,
@@ -199,7 +200,7 @@
     },
     {
       "deck_id": "andres--espiritus",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Espíritus",
       "official_name": "",
       "commander_name": "",
@@ -209,7 +210,7 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés",
+          "Andres",
           "Jairo"
         ],
         "games_played": 2,
@@ -223,7 +224,7 @@
     },
     {
       "deck_id": "andres--gato",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Gato",
       "official_name": "",
       "commander_name": "",
@@ -233,7 +234,7 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 5,
         "wins": 2,
@@ -245,7 +246,7 @@
     },
     {
       "deck_id": "andres--half-life",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Half-Life",
       "official_name": "",
       "commander_name": "",
@@ -255,7 +256,7 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 21,
         "wins": 8,
@@ -268,7 +269,7 @@
     },
     {
       "deck_id": "andres--mono-blue-pero-nel",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Mono Blue Pero Nel",
       "official_name": "",
       "commander_name": "",
@@ -278,7 +279,7 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 1,
         "wins": 1,
@@ -290,7 +291,7 @@
     },
     {
       "deck_id": "andres--nekusar",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Nekusar",
       "official_name": "",
       "commander_name": "",
@@ -300,7 +301,7 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 1,
         "wins": 0,
@@ -312,7 +313,7 @@
     },
     {
       "deck_id": "andres--octopus-lady",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Octopus Lady",
       "official_name": "",
       "commander_name": "",
@@ -322,7 +323,7 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 6,
         "wins": 2,
@@ -337,7 +338,7 @@
     },
     {
       "deck_id": "andres--omnath-locus-of-mana",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Omnath, Locus of Mana",
       "official_name": "",
       "commander_name": "",
@@ -347,7 +348,7 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 1,
         "wins": 0,
@@ -359,7 +360,7 @@
     },
     {
       "deck_id": "andres--osos",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Osos",
       "official_name": "",
       "commander_name": "",
@@ -369,7 +370,7 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 1,
         "wins": 1,
@@ -381,7 +382,7 @@
     },
     {
       "deck_id": "andres--robin",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Robin",
       "official_name": "",
       "commander_name": "",
@@ -391,7 +392,7 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 1,
         "wins": 0,
@@ -403,7 +404,7 @@
     },
     {
       "deck_id": "andres--tortugas",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Tortugas",
       "official_name": "",
       "commander_name": "",
@@ -413,7 +414,7 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 1,
         "wins": 1,
@@ -425,7 +426,7 @@
     },
     {
       "deck_id": "andres--vivi",
-      "owner_player": "Andrés",
+      "owner_player": "Andres",
       "display_name": "Vivi",
       "official_name": "",
       "commander_name": "",
@@ -435,7 +436,7 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés"
+          "Andres"
         ],
         "games_played": 7,
         "wins": 3,
@@ -1009,7 +1010,7 @@
         "pilots": [
           "Chepe"
         ],
-        "games_played": 1,
+        "games_played": 2,
         "wins": 1,
         "aliases": [
           "Stardew"
@@ -1324,7 +1325,7 @@
       "notes": "",
       "stats": {
         "pilots": [
-          "Andrés",
+          "Andres",
           "Jairo"
         ],
         "games_played": 20,
@@ -1626,10 +1627,11 @@
         "pilots": [
           "Jairo"
         ],
-        "games_played": 1,
+        "games_played": 2,
         "wins": 1,
         "aliases": [
-          "yuna(jairo ver)"
+          "yuna(jairo ver)",
+          "YunaJairo"
         ],
         "variants": [
           "Versión Jairo"
@@ -1661,11 +1663,11 @@
   ],
   "assignments": [
     {
-      "assignment_key": "Andrés||5 Colores",
-      "player": "Andrés",
+      "assignment_key": "Andres||5 Colores",
+      "player": "Andres",
       "source_deck_name_normalized": "5 Colores",
       "current_deck_id": "andres--5-colores",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--5-colores",
       "target_deck_name_normalized": "5 Colores",
       "target_assignment_confidence": "",
@@ -1687,11 +1689,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Arañas/Ungoliant",
-      "player": "Andrés",
+      "assignment_key": "Andres||Arañas/Ungoliant",
+      "player": "Andres",
       "source_deck_name_normalized": "Arañas/Ungoliant",
       "current_deck_id": "andres--aranas-ungoliant",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--aranas-ungoliant",
       "target_deck_name_normalized": "Arañas/Ungoliant",
       "target_assignment_confidence": "",
@@ -1711,11 +1713,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Auntie",
-      "player": "Andrés",
+      "assignment_key": "Andres||Auntie",
+      "player": "Andres",
       "source_deck_name_normalized": "Auntie",
       "current_deck_id": "andres--auntie",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--auntie",
       "target_deck_name_normalized": "Auntie",
       "target_assignment_confidence": "",
@@ -1745,7 +1747,7 @@
       "player": "Jairo",
       "source_deck_name_normalized": "Auntie",
       "current_deck_id": "andres--auntie",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--auntie",
       "target_deck_name_normalized": "Auntie",
       "target_assignment_confidence": "",
@@ -1765,11 +1767,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Chaos",
-      "player": "Andrés",
+      "assignment_key": "Andres||Chaos",
+      "player": "Andres",
       "source_deck_name_normalized": "Chaos",
       "current_deck_id": "andres--chaos",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--chaos",
       "target_deck_name_normalized": "Chaos",
       "target_assignment_confidence": "",
@@ -1790,11 +1792,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Counters",
-      "player": "Andrés",
+      "assignment_key": "Andres||Counters",
+      "player": "Andres",
       "source_deck_name_normalized": "Counters",
       "current_deck_id": "andres--counters",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--counters",
       "target_deck_name_normalized": "Counters",
       "target_assignment_confidence": "",
@@ -1819,11 +1821,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Eldrazis",
-      "player": "Andrés",
+      "assignment_key": "Andres||Eldrazis",
+      "player": "Andres",
       "source_deck_name_normalized": "Eldrazis",
       "current_deck_id": "andres--eldrazis",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--eldrazis",
       "target_deck_name_normalized": "Eldrazis",
       "target_assignment_confidence": "",
@@ -1851,22 +1853,23 @@
       }
     },
     {
-      "assignment_key": "Andrés||Eldrazis Colores",
-      "player": "Andrés",
+      "assignment_key": "Andres||Eldrazis Colores",
+      "player": "Andres",
       "source_deck_name_normalized": "Eldrazis Colores",
       "current_deck_id": "andres--eldrazis-colores",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--eldrazis-colores",
       "target_deck_name_normalized": "Eldrazis Colores",
       "target_assignment_confidence": "",
       "target_notes": null,
       "stats": {
-        "appearances": 4,
-        "wins": 1,
+        "appearances": 5,
+        "wins": 2,
         "first_played": "2026-02-09",
-        "last_played": "2026-02-12",
+        "last_played": "2026-07-27",
         "raw_names": [
           "eldrazicolor",
+          "Eldrazis Colores",
           "eldraziscolores"
         ],
         "variants": [],
@@ -1874,16 +1877,17 @@
           "G2026-034",
           "G2026-035",
           "G2026-040",
-          "G2026-041"
+          "G2026-041",
+          "G2026-076"
         ]
       }
     },
     {
-      "assignment_key": "Andrés||Elnazis",
-      "player": "Andrés",
+      "assignment_key": "Andres||Elnazis",
+      "player": "Andres",
       "source_deck_name_normalized": "Elnazis",
       "current_deck_id": "andres--elnazis",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--elnazis",
       "target_deck_name_normalized": "Elnazis",
       "target_assignment_confidence": "",
@@ -1907,11 +1911,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Espíritus",
-      "player": "Andrés",
+      "assignment_key": "Andres||Espíritus",
+      "player": "Andres",
       "source_deck_name_normalized": "Espíritus",
       "current_deck_id": "andres--espiritus",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--espiritus",
       "target_deck_name_normalized": "Espíritus",
       "target_assignment_confidence": "",
@@ -1935,7 +1939,7 @@
       "player": "Jairo",
       "source_deck_name_normalized": "Espíritus",
       "current_deck_id": "andres--espiritus",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--espiritus",
       "target_deck_name_normalized": "Espíritus",
       "target_assignment_confidence": "",
@@ -1955,11 +1959,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Gato",
-      "player": "Andrés",
+      "assignment_key": "Andres||Gato",
+      "player": "Andres",
       "source_deck_name_normalized": "Gato",
       "current_deck_id": "andres--gato",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--gato",
       "target_deck_name_normalized": "Gato",
       "target_assignment_confidence": "",
@@ -1983,11 +1987,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Half-Life",
-      "player": "Andrés",
+      "assignment_key": "Andres||Half-Life",
+      "player": "Andres",
       "source_deck_name_normalized": "Half-Life",
       "current_deck_id": "andres--half-life",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--half-life",
       "target_deck_name_normalized": "Half-Life",
       "target_assignment_confidence": "",
@@ -2028,11 +2032,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Mono Blue Pero Nel",
-      "player": "Andrés",
+      "assignment_key": "Andres||Mono Blue Pero Nel",
+      "player": "Andres",
       "source_deck_name_normalized": "Mono Blue Pero Nel",
       "current_deck_id": "andres--mono-blue-pero-nel",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--mono-blue-pero-nel",
       "target_deck_name_normalized": "Mono Blue Pero Nel",
       "target_assignment_confidence": "",
@@ -2052,11 +2056,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Nekusar",
-      "player": "Andrés",
+      "assignment_key": "Andres||Nekusar",
+      "player": "Andres",
       "source_deck_name_normalized": "Nekusar",
       "current_deck_id": "andres--nekusar",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--nekusar",
       "target_deck_name_normalized": "Nekusar",
       "target_assignment_confidence": "",
@@ -2076,11 +2080,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Octopus Lady",
-      "player": "Andrés",
+      "assignment_key": "Andres||Octopus Lady",
+      "player": "Andres",
       "source_deck_name_normalized": "Octopus Lady",
       "current_deck_id": "andres--octopus-lady",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--octopus-lady",
       "target_deck_name_normalized": "Octopus Lady",
       "target_assignment_confidence": "",
@@ -2108,11 +2112,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Omnath, Locus of Mana",
-      "player": "Andrés",
+      "assignment_key": "Andres||Omnath, Locus of Mana",
+      "player": "Andres",
       "source_deck_name_normalized": "Omnath, Locus of Mana",
       "current_deck_id": "andres--omnath-locus-of-mana",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--omnath-locus-of-mana",
       "target_deck_name_normalized": "Omnath, Locus of Mana",
       "target_assignment_confidence": "",
@@ -2132,11 +2136,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Osos",
-      "player": "Andrés",
+      "assignment_key": "Andres||Osos",
+      "player": "Andres",
       "source_deck_name_normalized": "Osos",
       "current_deck_id": "andres--osos",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--osos",
       "target_deck_name_normalized": "Osos",
       "target_assignment_confidence": "",
@@ -2156,11 +2160,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Robin",
-      "player": "Andrés",
+      "assignment_key": "Andres||Robin",
+      "player": "Andres",
       "source_deck_name_normalized": "Robin",
       "current_deck_id": "andres--robin",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--robin",
       "target_deck_name_normalized": "Robin",
       "target_assignment_confidence": "",
@@ -2180,11 +2184,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Tortugas",
-      "player": "Andrés",
+      "assignment_key": "Andres||Tortugas",
+      "player": "Andres",
       "source_deck_name_normalized": "Tortugas",
       "current_deck_id": "andres--tortugas",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--tortugas",
       "target_deck_name_normalized": "Tortugas",
       "target_assignment_confidence": "",
@@ -2204,11 +2208,11 @@
       }
     },
     {
-      "assignment_key": "Andrés||Vivi",
-      "player": "Andrés",
+      "assignment_key": "Andres||Vivi",
+      "player": "Andres",
       "source_deck_name_normalized": "Vivi",
       "current_deck_id": "andres--vivi",
-      "current_deck_owner": "Andrés",
+      "current_deck_owner": "Andres",
       "target_deck_id": "andres--vivi",
       "target_deck_name_normalized": "Vivi",
       "target_assignment_confidence": "",
@@ -2949,16 +2953,17 @@
       "target_assignment_confidence": "",
       "target_notes": null,
       "stats": {
-        "appearances": 1,
+        "appearances": 2,
         "wins": 1,
         "first_played": "2026-07-26",
-        "last_played": "2026-07-26",
+        "last_played": "2026-07-27",
         "raw_names": [
           "Stardew"
         ],
         "variants": [],
         "game_ids": [
-          "G2026-075"
+          "G2026-075",
+          "G2026-076"
         ]
       }
     },
@@ -3347,8 +3352,8 @@
       }
     },
     {
-      "assignment_key": "Andrés||Iroh",
-      "player": "Andrés",
+      "assignment_key": "Andres||Iroh",
+      "player": "Andres",
       "source_deck_name_normalized": "Iroh",
       "current_deck_id": "jairo--iroh",
       "current_deck_owner": "Jairo",
@@ -3741,18 +3746,20 @@
       "target_assignment_confidence": "",
       "target_notes": null,
       "stats": {
-        "appearances": 1,
+        "appearances": 2,
         "wins": 1,
         "first_played": "2026-01-11",
-        "last_played": "2026-01-11",
+        "last_played": "2026-07-27",
         "raw_names": [
-          "yuna(jairo ver)"
+          "yuna(jairo ver)",
+          "YunaJairo"
         ],
         "variants": [
           "Versión Jairo"
         ],
         "game_ids": [
-          "G2026-008"
+          "G2026-008",
+          "G2026-076"
         ]
       }
     },

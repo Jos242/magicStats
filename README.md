@@ -131,7 +131,7 @@ Jos242,ChepeGitHub,JairoGitHub
 Formato recomendado para eliminaciones en el formulario:
 
 ```text
-Chepe | Andrés | commander_damage | Chepe mata a Andrés.
+Chepe | Andres | commander_damage | Chepe mata a Andres.
 Jairo | Chepe | direct_damage
 ```
 

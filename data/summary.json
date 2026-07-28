@@ -8,8 +8,7 @@
     "virtual": 46
   },
   "players": [
-    "Andr?s",
-    "Andrés",
+    "Andres",
     "Chepe",
     "Cris",
     "Jairo",
@@ -17,23 +16,20 @@
   ],
   "games_played_by_player": {
     "Jairo": 76,
-    "Andrés": 75,
+    "Andres": 76,
     "Chepe": 76,
     "Paniagua": 2,
-    "Cris": 4,
-    "Andr?s": 1
+    "Cris": 4
   },
   "wins_by_player": {
     "Jairo": 20,
     "Chepe": 28,
     "Paniagua": 1,
-    "Andrés": 24,
-    "Cris": 1,
-    "Andr?s": 1
+    "Andres": 25,
+    "Cris": 1
   },
   "win_rate_by_player": {
-    "Andr?s": 1.0,
-    "Andrés": 0.32,
+    "Andres": 0.3289,
     "Chepe": 0.3684,
     "Cris": 0.25,
     "Jairo": 0.2632,

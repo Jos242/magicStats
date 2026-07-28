@@ -33,7 +33,7 @@ body:
       label: Jugador 1
       options:
         - Chepe
-        - Andrés
+        - Andres
         - Jairo
         - Paniagua
         - Cris
@@ -73,7 +73,7 @@ body:
       label: Jugador 2
       options:
         - Chepe
-        - Andrés
+        - Andres
         - Jairo
         - Paniagua
         - Cris
@@ -114,7 +114,7 @@ body:
       options:
         - No player
         - Chepe
-        - Andrés
+        - Andres
         - Jairo
         - Paniagua
         - Cris
@@ -155,7 +155,7 @@ body:
       options:
         - No player
         - Chepe
-        - Andrés
+        - Andres
         - Jairo
         - Paniagua
         - Cris
@@ -196,7 +196,7 @@ body:
       options:
         - No player
         - Chepe
-        - Andrés
+        - Andres
         - Jairo
         - Paniagua
         - Cris
@@ -247,7 +247,7 @@ body:
       options:
         - No winner / draw
         - Chepe
-        - Andrés
+        - Andres
         - Jairo
         - Paniagua
         - Cris
@@ -271,7 +271,7 @@ body:
       options:
         - No player
         - Chepe
-        - Andrés
+        - Andres
         - Jairo
         - Paniagua
         - Cris
@@ -340,7 +340,7 @@ body:
       label: Eliminaciones
       description: "Una por línea: Actor | Objetivo | método | notas. Puedes usar un método nuevo; quedará marcado para revisión."
       placeholder: |
-        Chepe | Andrés | commander_damage | Chepe mata a Andrés.
+        Chepe | Andres | commander_damage | Chepe mata a Andres.
         Jairo | Chepe | direct_damage
     validations:
       required: false
@@ -361,7 +361,7 @@ body:
       label: Autoeliminaciones
       description: Una por línea. Puedes escribir solo el jugador o "Jugador | nota".
       placeholder: |
-        Andrés | se autoelimina con su propio efecto
+        Andres | se autoelimina con su propio efecto
     validations:
       required: false
 

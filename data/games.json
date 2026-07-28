@@ -2,9 +2,9 @@
   "metadata": {
     "title": "Partidas MTG Commander 2026",
     "season_year": 2026,
-    "generated_on": "2026-07-27",
+    "generated_on": "2026-07-28",
     "source_file": "source/magicpartidas.txt",
-    "total_games": 75,
+    "total_games": 76,
     "normalization_policy": {
       "default_location": "in_person",
       "virtual_markers": [
@@ -5754,6 +5754,109 @@
           "target": "",
           "method": "nuke",
           "notes": "Nuke registrado por Chepe.",
+          "explicitness": "explicit"
+        }
+      ]
+    },
+    {
+      "game_id": "G2026-076",
+      "date": "2026-07-27",
+      "location": "virtual",
+      "player_count": 3,
+      "result_type": "win",
+      "winner_player": "Andr?s",
+      "winner_raw": "Andr?s",
+      "starting_player": "Jairo",
+      "start_time": null,
+      "end_time": null,
+      "duration_minutes": 65,
+      "win_condition_category": null,
+      "win_condition_text": "Andres gano por un eldrazi 56/56, Chepe mato a Jairo con 189 de 5 plantas",
+      "nuke_recorded": true,
+      "nuke_player": "Chepe",
+      "sol_ring_t1_recorded": null,
+      "sol_ring_t1_player": null,
+      "parse_confidence": "medium",
+      "needs_review": true,
+      "notes": "Importado desde GitHub issue #3. https://github.com/Jos242/magicStats/issues/3 Andr?s / Eldrazis Colores: Deck resuelto por nombre único del catálogo; revisar si Andr?s estaba usando un deck de Andrés.",
+      "source_line": 0,
+      "raw_line": "Si Chepe fuera rata, gana rompiendo tratos con Andres",
+      "participants": [
+        {
+          "game_id": "G2026-076",
+          "seat_order": 1,
+          "player": "Chepe",
+          "deck_name_raw": "Stardew",
+          "deck_name_normalized": "Stardew",
+          "deck_id": "chepe--stardew",
+          "deck_owner": "Chepe",
+          "moxfield_url": "https://moxfield.com/decks/OqWfAWfFUHibnL-v73Kyrw",
+          "deck_variant": "",
+          "commander_name": "",
+          "result": "loser",
+          "assignment_confidence": "high",
+          "notes": ""
+        },
+        {
+          "game_id": "G2026-076",
+          "seat_order": 2,
+          "player": "Andr?s",
+          "deck_name_raw": "Eldrazis Colores",
+          "deck_name_normalized": "Eldrazis Colores",
+          "deck_id": "andres--eldrazis-colores",
+          "deck_owner": "Andrés",
+          "moxfield_url": "https://moxfield.com/decks/qfc2M2VliEeU1jC-SyrkDQ",
+          "deck_variant": "",
+          "commander_name": "",
+          "result": "winner",
+          "assignment_confidence": "medium",
+          "notes": "Deck resuelto por nombre único del catálogo; revisar si Andr?s estaba usando un deck de Andrés."
+        },
+        {
+          "game_id": "G2026-076",
+          "seat_order": 3,
+          "player": "Jairo",
+          "deck_name_raw": "YunaJairo",
+          "deck_name_normalized": "Yuna",
+          "deck_id": "jairo--yuna",
+          "deck_owner": "Jairo",
+          "moxfield_url": "",
+          "deck_variant": "",
+          "commander_name": "",
+          "result": "loser",
+          "assignment_confidence": "high",
+          "notes": ""
+        }
+      ],
+      "events": [
+        {
+          "game_id": "G2026-076",
+          "event_order": 1,
+          "event_type": "elimination",
+          "actor": "Chepe",
+          "target": "Jairo",
+          "method": "direct_damage",
+          "notes": "Platas con 189 de dmg",
+          "explicitness": "explicit"
+        },
+        {
+          "game_id": "G2026-076",
+          "event_order": 2,
+          "event_type": "elimination",
+          "actor": "Andr?s",
+          "target": "Chepe",
+          "method": "direct_damage",
+          "notes": "Eldrazi 56/56",
+          "explicitness": "explicit"
+        },
+        {
+          "game_id": "G2026-076",
+          "event_order": 3,
+          "event_type": "nuke",
+          "actor": "Chepe",
+          "target": "",
+          "method": "nuke",
+          "notes": "Promise of Loyalty",
           "explicitness": "explicit"
         }
       ]

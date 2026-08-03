@@ -1,81 +1,81 @@
-deck_id,owner_player,player,deck_name_normalized,display_name,official_name,commander_name,moxfield_url,archidekt_url,edhrec_url,first_played,last_played,games_played,wins,notes,aliases,variants,win_rate
-andres--5-colores,Andres,Andres,5 Colores,5 Colores,,,,,,2026-03-03,2026-03-26,3,0,,"[""5colores""]",[],0.0
-andres--aranas-ungoliant,Andres,Andres,Arañas/Ungoliant,Arañas/Ungoliant,,,,,,2026-03-03,2026-03-03,1,1,,"[""arañasungoliant""]",[],1.0
-andres--auntie,Andres,Andres,Auntie,Auntie,,,,,,2026-01-21,2026-02-16,7,1,,"[""auntie""]",[],0.1429
-andres--auntie,Andres,Jairo,Auntie,Auntie,Blight Curse (Lorwyn Eclipsed Commander Precon Decklist),"Auntie Ool, Cursewretch",https://moxfield.com/decks/wZCqAM_hbEu-TrzZcSpFtw,,,2026-01-21,2026-01-21,1,0,,"[""auntie""]",[],0.0
-andres--chaos,Andres,Andres,Chaos,Chaos,,,,,,2026-01-19,2026-02-15,2,0,,"[""chaos""]",[],0.0
-andres--counters,Andres,Andres,Counters,Counters,,,,,,2026-01-08,2026-01-08,3,0,,"[""counters(precon)"", ""counterscounters(precon)""]","[""Precon""]",0.0
-andres--eldrazis,Andres,Andres,Eldrazis,Eldrazis,,,,,,2026-01-22,2026-07-25,5,1,,"[""eldrazis"", ""eldrazis(precon)"", ""Eldrazisprecon""]","[""Precon""]",0.2
-andres--eldrazis-colores,Andres,Andres,Eldrazis Colores,Eldrazis Colores,,,,,,2026-02-09,2026-07-27,5,2,,"[""eldrazicolor"", ""Eldrazis Colores"", ""eldraziscolores""]",[],0.4
-andres--elnazis,Andres,Andres,Elnazis,Elnazis,,,,,,2026-01-11,2026-01-11,2,1,,"[""elnazis"", ""elnazis(eldrazis caro)""]","[""Caro""]",0.5
-andres--espiritus,Andres,Andres,Espíritus,Espíritus,,,,,,2026-07-10,2026-07-10,1,0,,"[""espiritus""]",[],0.0
-andres--espiritus,Andres,Jairo,Espíritus,Espíritus,,,,,,2026-07-25,2026-07-25,1,0,,"[""espíritus""]",[],0.0
-andres--gato,Andres,Andres,Gato,Gato,,,,,,2026-01-08,2026-07-25,5,2,,"[""gato""]",[],0.4
-andres--half-life,Andres,Andres,Half-Life,Half-Life,,,,,,2026-01-11,2026-03-03,21,8,,"[""halflife"", ""helflife""]",[],0.381
-andres--mono-blue-pero-nel,Andres,Andres,Mono Blue Pero Nel,Mono Blue Pero Nel,,,,,,2026-02-22,2026-02-22,1,1,,"[""monoblueperonel""]",[],1.0
-andres--nekusar,Andres,Andres,Nekusar,Nekusar,,,,,,2026-04-16,2026-04-16,1,0,,"[""nekuzar""]",[],0.0
-andres--octopus-lady,Andres,Andres,Octopus Lady,Octopus Lady,,,,,,2026-02-22,2026-07-26,6,2,,"[""Octolady"", ""octolady"", ""octopus girl"", ""octupus lady""]",[],0.3333
-andres--omnath-locus-of-mana,Andres,Andres,"Omnath, Locus of Mana","Omnath, Locus of Mana",,,,,,2026-04-16,2026-04-16,1,0,,"[""omnathlocusmana""]",[],0.0
-andres--osos,Andres,Andres,Osos,Osos,,,,,,2026-02-22,2026-02-22,1,1,,"[""osos""]",[],1.0
-andres--robin,Andres,Andres,Robin,Robin,,,,,,2026-01-19,2026-01-19,1,0,,"[""robin""]",[],0.0
-andres--tortugas,Andres,Andres,Tortugas,Tortugas,,,,,,2026-07-10,2026-07-10,1,1,,"[""tortugas""]",[],1.0
-andres--vivi,Andres,Andres,Vivi,Vivi,,,,,,2026-01-21,2026-07-25,7,3,,"[""Vivi"", ""vivi"", ""viví""]",[],0.4286
-chepe--aerith,Chepe,Chepe,Aerith,Aerith,,,,,,2026-01-11,2026-02-16,4,1,,"[""aerith""]",[],0.25
-chepe--azula,Chepe,Chepe,Azula,Azula,,,,,,2026-02-13,2026-02-13,1,0,,"[""Azula""]",[],0.0
-chepe--bulk-artifacts,Chepe,Chepe,Bulk Artifacts,Bulk Artifacts,,,,,,2026-01-08,2026-02-16,4,1,,"[""bulk(artefactos sami)"", ""bulkartifacts""]",[],0.25
-chepe--cloud,Chepe,Chepe,Cloud,Cloud,,,,,,2026-02-16,2026-02-16,1,0,,"[""Cloud""]",[],0.0
-chepe--cloud,Chepe,Jairo,Cloud,Cloud,,,,,,2026-01-30,2026-01-30,1,0,,"[""cloud""]",[],0.0
-chepe--counters-weird,Chepe,Jairo,CountersWeird,CountersWeird,,,,,,2026-02-10,2026-02-10,1,0,,"[""countersweird""]",[],0.0
-chepe--destroy,Chepe,Chepe,Destroy,Destroy,,,,,,2026-01-19,2026-01-19,1,0,,"[""destroy""]",[],0.0
-chepe--dragones,Chepe,Chepe,Dragones,Dragones,,,,,,2026-01-21,2026-07-10,5,3,,"[""Dragones"", ""dragones""]",[],0.6
-chepe--dragones,Chepe,Jairo,Dragones,Dragones,,,,,,2026-01-08,2026-01-08,1,0,,"[""dragones(Jairo)""]",[],0.0
-chepe--edea,Chepe,Chepe,Edea,Edea,,,,,,2026-02-09,2026-02-09,1,1,,"[""edea""]",[],1.0
-chepe--elementals,Chepe,Chepe,Elementals,Elementals,,,,,,2026-01-21,2026-07-25,7,4,,"[""elementales"", ""Elementals"", ""elementals"", ""elementtals""]",[],0.5714
-chepe--esix,Chepe,Chepe,Esix,Esix,,,,,,2026-02-04,2026-02-04,1,0,,"[""esix""]",[],0.0
-chepe--experience,Chepe,Chepe,Experience,Experience,,,,,,2026-01-19,2026-02-04,4,0,,"[""experience""]",[],0.0
-chepe--jeskai,Chepe,Chepe,Jeskai,Jeskai,,,,,,2026-01-30,2026-01-30,1,0,,"[""jeskai""]",[],0.0
-chepe--jin-gitaxias,Chepe,Chepe,Jin-Gitaxias,Jin-Gitaxias,,,,,,2026-01-11,2026-02-15,4,0,,"[""jin"", ""jin gitaxias"", ""jingitaxias""]",[],0.0
-chepe--jin-sakai,Chepe,Chepe,Jin Sakai,Jin Sakai,Jin Sakai Draw,"Jin Sakai, Ghost of Tsushima",https://moxfield.com/decks/IfKVN4kO3UmoSUmRJ7pyig,,,2026-02-10,2026-03-26,9,5,,"[""jin sakai"", ""jin skaai"", ""jinsakai""]",[],0.5556
-chepe--jin-sakai,Chepe,Jairo,Jin Sakai,Jin Sakai,Jin Sakai Draw,"Jin Sakai, Ghost of Tsushima",https://moxfield.com/decks/IfKVN4kO3UmoSUmRJ7pyig,,,2026-02-22,2026-02-22,1,0,,"[""jin sakai""]",[],0.0
-chepe--koma,Chepe,Chepe,Koma,Koma,,,,,,2026-03-03,2026-03-03,1,1,,"[""koma""]",[],1.0
-chepe--lands,Chepe,Chepe,Lands,Lands,,,,,,2026-01-22,2026-07-25,2,1,,"[""Lands"", ""lands""]",[],0.5
-chepe--pajaros,Chepe,Chepe,Pájaros,Pájaros,,,,,,2026-02-22,2026-02-22,1,1,,"[""pajaros""]",[],1.0
-chepe--phyrexians,Chepe,Chepe,Phyrexians,Phyrexians,,,,,,2026-01-19,2026-01-31,4,1,,"[""phyrexia"", ""phyrexians""]",[],0.25
-chepe--raphael,Chepe,Chepe,Raphael,Raphael,,,,,,2026-03-26,2026-04-16,4,2,,"[""rapahael"", ""raphael""]",[],0.5
-chepe--rocco,Chepe,Chepe,Rocco,Rocco,,,,,,2026-02-15,2026-03-03,2,0,,"[""rocco""]",[],0.0
-chepe--sauron,Chepe,Chepe,Sauron,Sauron,,,,,,2026-01-08,2026-02-13,2,1,,"[""Sauron"", ""Sauron(nuevocommander)""]","[""Nuevo commander""]",0.5
-chepe--sephiroth,Chepe,Chepe,Sephiroth,Sephiroth,,,,,,2026-01-19,2026-01-19,1,1,,"[""sephiroth""]",[],1.0
-chepe--shadowdillas,Chepe,Chepe,Shadowdillas,Shadowdillas,,,,,,2026-02-09,2026-02-10,2,0,,"[""shadowdillas""]",[],0.0
-chepe--shadowheart,Chepe,Chepe,Shadowheart,Shadowheart,,,,,,2026-07-10,2026-07-10,1,1,,"[""shadowheart""]",[],1.0
-chepe--stardew,Chepe,Chepe,Stardew,Stardew,,,,,,2026-07-26,2026-07-27,2,1,,"[""Stardew""]",[],0.5
-chepe--terra-sagas,Chepe,Chepe,Terra Sagas,Terra Sagas,,,,,,2026-03-03,2026-03-03,1,0,,"[""terrasagas""]",[],0.0
-chepe--tidus,Chepe,Chepe,Tidus,Tidus,,,,,,2026-01-30,2026-07-25,3,0,,"[""Tidus"", ""tidus""]",[],0.0
-chepe--tifa,Chepe,Chepe,Tifa,Tifa,,,,,,2026-02-10,2026-02-10,2,0,,"[""tifa""]",[],0.0
-chepe--vanille-tutors,Chepe,Chepe,Vanille Tutors,Vanille Tutors,,,,,,2026-02-22,2026-02-22,1,0,,"[""vanilletutors""]",[],0.0
-chepe--yuna,Chepe,Chepe,Yuna,Yuna,,,,,,2026-01-11,2026-02-12,3,2,,"[""yuna"", ""yunachepe""]",[],0.6667
-cris--angeles,Cris,Cris,Ángeles,Ángeles,,,,,,2026-07-25,2026-07-25,2,1,,"[""Angeles"", ""angeles""]",[],0.5
-cris--gigantes,Cris,Cris,Gigantes,Gigantes,,,,,,2026-07-26,2026-07-26,1,0,,"[""Gigantes""]",[],0.0
-jairo--abuelo,Jairo,Jairo,Abuelo,Abuelo,,,,,,2026-02-22,2026-02-22,1,0,,"[""abuelo""]",[],0.0
-jairo--attractions,Jairo,Jairo,Attractions,Attractions,,,,,,2026-02-02,2026-02-02,1,0,,"[""attractions""]",[],0.0
-jairo--conejos,Jairo,Jairo,Conejos,Conejos,,,,,,2026-01-31,2026-03-26,5,1,,"[""conejos"", ""conejosjairo""]",[],0.2
-jairo--dinos,Jairo,Cris,Dinos,Dinos,,,,,,2026-07-25,2026-07-25,1,0,,"[""Dinos""]",[],0.0
-jairo--dinos,Jairo,Jairo,Dinos,Dinos,,,,,,2026-01-21,2026-07-10,4,1,,"[""dinos""]",[],0.25
-jairo--dinos,Jairo,Paniagua,Dinos,Dinos,,,,,,2026-01-08,2026-01-08,2,1,,"[""dinos(Pani)"", ""dinosaurios(Pani)""]",[],0.5
-jairo--equipments,Jairo,Jairo,Jairo Equipments,Jairo Equipments,,,,,,2026-02-04,2026-02-04,1,1,,"[""equipsjairo""]",[],1.0
-jairo--graveyard,Jairo,Jairo,Graveyard,Graveyard,,,,,,2026-01-08,2026-07-10,6,0,,"[""graveyard""]",[],0.0
-jairo--iroh,Jairo,Andres,Iroh,Iroh,,,,,,2026-01-30,2026-01-30,1,1,,"[""Iroh""]",[],1.0
-jairo--iroh,Jairo,Jairo,Iroh,Iroh,,,,,,2026-01-11,2026-04-16,19,5,,"[""iroh""]",[],0.2632
-jairo--jairo-verde-verde,Jairo,Jairo,Jairo Verde Verde,Jairo Verde Verde,,,,,,2026-02-12,2026-02-12,1,0,,"[""jairoverdeverde""]",[],0.0
-jairo--kithkin,Jairo,Jairo,Kithkin,Kithkin,,,,,,2026-01-19,2026-01-19,1,1,,"[""kithkin""]",[],1.0
-jairo--loreholdinternet,Jairo,Jairo,LoreholdInternet,LoreholdInternet,,,,,,2026-07-26,2026-07-26,1,0,,"[""LoreholdInternet""]",[],0.0
-jairo--mabel-mouses,Jairo,Jairo,Mabel Mouses,Mabel Mouses,,,,,,2026-02-22,2026-02-22,1,0,,"[""mabelmouses""]",[],0.0
-jairo--marneus,Jairo,Jairo,Marneus,Marneus,,,,,,2026-01-22,2026-07-25,9,2,,"[""maerneus"", ""Magnus"", ""Marneus"", ""marneus""]",[],0.2222
-jairo--ragost,Jairo,Jairo,Ragost,Ragost,,,,,,2026-03-03,2026-03-03,1,0,,"[""ragostjairo""]",[],0.0
-jairo--rata,Jairo,Jairo,Rata,Rata,,,,,,2026-01-11,2026-03-26,5,1,,"[""rata"", ""rata(vehic)"", ""rata(vehiculos)""]","[""Vehículos""]",0.2
-jairo--roxanne,Jairo,Jairo,Roxanne,Roxanne,,,,,,2026-03-03,2026-04-16,2,1,,"[""metoritos"", ""roxanne""]",[],0.5
-jairo--scry,Jairo,Jairo,Scry,Scry,,,,,,2026-01-19,2026-01-19,1,1,,"[""scry""]",[],1.0
-jairo--sokka-suki,Jairo,Jairo,Sokka/Suki,Sokka/Suki,,,,,,2026-01-31,2026-02-12,2,1,,"[""sokkasuki""]",[],0.5
-jairo--volo,Jairo,Jairo,Volo,Volo,,,,,,2026-01-08,2026-02-16,4,3,,"[""Volo"", ""volo"", ""volo(nerfed ver.)""]","[""Nerfed""]",0.75
-jairo--winota,Jairo,Jairo,Winota,Winota,,,,,,2026-02-15,2026-02-15,2,1,,"[""winota""]",[],0.5
-jairo--yuna,Jairo,Jairo,Yuna,Yuna,,,,,,2026-01-11,2026-07-27,2,1,,"[""yuna(jairo ver)"", ""YunaJairo""]","[""Versión Jairo""]",0.5
-unknown--unknown,No registrado,Jairo,Unknown,Unknown,,,,,,2026-01-19,2026-01-19,1,0,,"[""unknown""]",[],0.0
+deck_id,owner_player,player,deck_name_normalized,display_name,official_name,commander_name,moxfield_url,archidekt_url,edhrec_url,archetype,power_level,tags,colors,first_played,last_played,games_played,wins,notes,aliases,variants,win_rate
+andres--5-colores,Andres,Andres,5 Colores,5 Colores,,,,,,,,[],[],2026-03-03,2026-03-26,3,0,,"[""5colores""]",[],0.0
+andres--aranas-ungoliant,Andres,Andres,Arañas/Ungoliant,Arañas/Ungoliant,,,,,,,,[],[],2026-03-03,2026-03-03,1,1,,"[""arañasungoliant""]",[],1.0
+andres--auntie,Andres,Andres,Auntie,Auntie,Blight Curse (Lorwyn Eclipsed Commander Precon Decklist),"Auntie Ool, Cursewretch",https://moxfield.com/decks/wZCqAM_hbEu-TrzZcSpFtw,,,,,[],"[""B"", ""R"", ""G""]",2026-01-21,2026-02-16,7,1,,"[""auntie""]",[],0.1429
+andres--auntie,Andres,Jairo,Auntie,Auntie,Blight Curse (Lorwyn Eclipsed Commander Precon Decklist),"Auntie Ool, Cursewretch",https://moxfield.com/decks/wZCqAM_hbEu-TrzZcSpFtw,,,,,[],"[""B"", ""R"", ""G""]",2026-01-21,2026-01-21,1,0,,"[""auntie""]",[],0.0
+andres--chaos,Andres,Andres,Chaos,Chaos,,,,,,,,[],[],2026-01-19,2026-02-15,2,0,,"[""chaos""]",[],0.0
+andres--counters,Andres,Andres,Counters,Counters,,,,,,,,[],[],2026-01-08,2026-01-08,3,0,,"[""counters(precon)"", ""counterscounters(precon)""]","[""Precon""]",0.0
+andres--eldrazis,Andres,Andres,Eldrazis,Eldrazis,,,,,,,,[],[],2026-01-22,2026-07-25,5,1,,"[""eldrazis"", ""eldrazis(precon)"", ""Eldrazisprecon""]","[""Precon""]",0.2
+andres--eldrazis-colores,Andres,Andres,Eldrazis Colores,Eldrazis Colores,,,,,,,,[],[],2026-02-09,2026-07-27,5,2,,"[""eldrazicolor"", ""Eldrazis Colores"", ""eldraziscolores""]",[],0.4
+andres--elnazis,Andres,Andres,Elnazis,Elnazis,,,,,,,,[],[],2026-01-11,2026-01-11,2,1,,"[""elnazis"", ""elnazis(eldrazis caro)""]","[""Caro""]",0.5
+andres--espiritus,Andres,Andres,Espíritus,Espíritus,,,,,,,,[],[],2026-07-10,2026-07-10,1,0,,"[""espiritus""]",[],0.0
+andres--espiritus,Andres,Jairo,Espíritus,Espíritus,,,,,,,,[],[],2026-07-25,2026-07-25,1,0,,"[""espíritus""]",[],0.0
+andres--gato,Andres,Andres,Gato,Gato,,,,,,,,[],[],2026-01-08,2026-07-25,5,2,,"[""gato""]",[],0.4
+andres--half-life,Andres,Andres,Half-Life,Half-Life,,,,,,,,[],[],2026-01-11,2026-03-03,21,8,,"[""halflife"", ""helflife""]",[],0.381
+andres--mono-blue-pero-nel,Andres,Andres,Mono Blue Pero Nel,Mono Blue Pero Nel,,,,,,,,[],[],2026-02-22,2026-02-22,1,1,,"[""monoblueperonel""]",[],1.0
+andres--nekusar,Andres,Andres,Nekusar,Nekusar,,,,,,,,[],[],2026-04-16,2026-04-16,1,0,,"[""nekuzar""]",[],0.0
+andres--octopus-lady,Andres,Andres,Octopus Lady,Octopus Lady,,,,,,,,[],[],2026-02-22,2026-07-26,6,2,,"[""Octolady"", ""octolady"", ""octopus girl"", ""octupus lady""]",[],0.3333
+andres--omnath-locus-of-mana,Andres,Andres,"Omnath, Locus of Mana","Omnath, Locus of Mana",,,,,,,,[],[],2026-04-16,2026-04-16,1,0,,"[""omnathlocusmana""]",[],0.0
+andres--osos,Andres,Andres,Osos,Osos,,,,,,,,[],[],2026-02-22,2026-02-22,1,1,,"[""osos""]",[],1.0
+andres--robin,Andres,Andres,Robin,Robin,,,,,,,,[],[],2026-01-19,2026-01-19,1,0,,"[""robin""]",[],0.0
+andres--tortugas,Andres,Andres,Tortugas,Tortugas,,,,,,,,[],[],2026-07-10,2026-07-10,1,1,,"[""tortugas""]",[],1.0
+andres--vivi,Andres,Andres,Vivi,Vivi,,,,,,,,[],[],2026-01-21,2026-07-25,7,3,,"[""Vivi"", ""vivi"", ""viví""]",[],0.4286
+chepe--aerith,Chepe,Chepe,Aerith,Aerith,,,,,,,,[],[],2026-01-11,2026-02-16,4,1,,"[""aerith""]",[],0.25
+chepe--azula,Chepe,Chepe,Azula,Azula,,,,,,,,[],[],2026-02-13,2026-02-13,1,0,,"[""Azula""]",[],0.0
+chepe--bulk-artifacts,Chepe,Chepe,Bulk Artifacts,Bulk Artifacts,,,,,,,,[],[],2026-01-08,2026-02-16,4,1,,"[""bulk(artefactos sami)"", ""bulkartifacts""]",[],0.25
+chepe--cloud,Chepe,Chepe,Cloud,Cloud,,,,,,,,[],[],2026-02-16,2026-02-16,1,0,,"[""Cloud""]",[],0.0
+chepe--cloud,Chepe,Jairo,Cloud,Cloud,,,,,,,,[],[],2026-01-30,2026-01-30,1,0,,"[""cloud""]",[],0.0
+chepe--counters-weird,Chepe,Jairo,CountersWeird,CountersWeird,,,,,,,,[],[],2026-02-10,2026-02-10,1,0,,"[""countersweird""]",[],0.0
+chepe--destroy,Chepe,Chepe,Destroy,Destroy,,,,,,,,[],[],2026-01-19,2026-01-19,1,0,,"[""destroy""]",[],0.0
+chepe--dragones,Chepe,Chepe,Dragones,Dragones,,,,,,,,[],[],2026-01-21,2026-07-10,5,3,,"[""Dragones"", ""dragones""]",[],0.6
+chepe--dragones,Chepe,Jairo,Dragones,Dragones,,,,,,,,[],[],2026-01-08,2026-01-08,1,0,,"[""dragones(Jairo)""]",[],0.0
+chepe--edea,Chepe,Chepe,Edea,Edea,,,,,,,,[],[],2026-02-09,2026-02-09,1,1,,"[""edea""]",[],1.0
+chepe--elementals,Chepe,Chepe,Elementals,Elementals,,,,,,,,[],[],2026-01-21,2026-07-25,7,4,,"[""elementales"", ""Elementals"", ""elementals"", ""elementtals""]",[],0.5714
+chepe--esix,Chepe,Chepe,Esix,Esix,,,,,,,,[],[],2026-02-04,2026-02-04,1,0,,"[""esix""]",[],0.0
+chepe--experience,Chepe,Chepe,Experience,Experience,,,,,,,,[],[],2026-01-19,2026-02-04,4,0,,"[""experience""]",[],0.0
+chepe--jeskai,Chepe,Chepe,Jeskai,Jeskai,,,,,,,,[],[],2026-01-30,2026-01-30,1,0,,"[""jeskai""]",[],0.0
+chepe--jin-gitaxias,Chepe,Chepe,Jin-Gitaxias,Jin-Gitaxias,,,,,,,,[],[],2026-01-11,2026-02-15,4,0,,"[""jin"", ""jin gitaxias"", ""jingitaxias""]",[],0.0
+chepe--jin-sakai,Chepe,Chepe,Jin Sakai,Jin Sakai,Jin Sakai Draw,"Jin Sakai, Ghost of Tsushima",https://moxfield.com/decks/IfKVN4kO3UmoSUmRJ7pyig,,,,,[],"[""W"", ""U"", ""B""]",2026-02-10,2026-03-26,9,5,,"[""jin sakai"", ""jin skaai"", ""jinsakai""]",[],0.5556
+chepe--jin-sakai,Chepe,Jairo,Jin Sakai,Jin Sakai,Jin Sakai Draw,"Jin Sakai, Ghost of Tsushima",https://moxfield.com/decks/IfKVN4kO3UmoSUmRJ7pyig,,,,,[],"[""W"", ""U"", ""B""]",2026-02-22,2026-02-22,1,0,,"[""jin sakai""]",[],0.0
+chepe--koma,Chepe,Chepe,Koma,Koma,,,,,,,,[],[],2026-03-03,2026-03-03,1,1,,"[""koma""]",[],1.0
+chepe--lands,Chepe,Chepe,Lands,Lands,,,,,,,,[],[],2026-01-22,2026-07-25,2,1,,"[""Lands"", ""lands""]",[],0.5
+chepe--pajaros,Chepe,Chepe,Pájaros,Pájaros,,,,,,,,[],[],2026-02-22,2026-02-22,1,1,,"[""pajaros""]",[],1.0
+chepe--phyrexians,Chepe,Chepe,Phyrexians,Phyrexians,,,,,,,,[],[],2026-01-19,2026-01-31,4,1,,"[""phyrexia"", ""phyrexians""]",[],0.25
+chepe--raphael,Chepe,Chepe,Raphael,Raphael,,,,,,,,[],[],2026-03-26,2026-04-16,4,2,,"[""rapahael"", ""raphael""]",[],0.5
+chepe--rocco,Chepe,Chepe,Rocco,Rocco,,,,,,,,[],[],2026-02-15,2026-03-03,2,0,,"[""rocco""]",[],0.0
+chepe--sauron,Chepe,Chepe,Sauron,Sauron,,,,,,,,[],[],2026-01-08,2026-02-13,2,1,,"[""Sauron"", ""Sauron(nuevocommander)""]","[""Nuevo commander""]",0.5
+chepe--sephiroth,Chepe,Chepe,Sephiroth,Sephiroth,,,,,,,,[],[],2026-01-19,2026-01-19,1,1,,"[""sephiroth""]",[],1.0
+chepe--shadowdillas,Chepe,Chepe,Shadowdillas,Shadowdillas,,,,,,,,[],[],2026-02-09,2026-02-10,2,0,,"[""shadowdillas""]",[],0.0
+chepe--shadowheart,Chepe,Chepe,Shadowheart,Shadowheart,,,,,,,,[],[],2026-07-10,2026-07-10,1,1,,"[""shadowheart""]",[],1.0
+chepe--stardew,Chepe,Chepe,Stardew,Stardew,,,,,,,,[],[],2026-07-26,2026-07-27,2,1,,"[""Stardew""]",[],0.5
+chepe--terra-sagas,Chepe,Chepe,Terra Sagas,Terra Sagas,,,,,,,,[],[],2026-03-03,2026-03-03,1,0,,"[""terrasagas""]",[],0.0
+chepe--tidus,Chepe,Chepe,Tidus,Tidus,,,,,,,,[],[],2026-01-30,2026-07-25,3,0,,"[""Tidus"", ""tidus""]",[],0.0
+chepe--tifa,Chepe,Chepe,Tifa,Tifa,,,,,,,,[],[],2026-02-10,2026-02-10,2,0,,"[""tifa""]",[],0.0
+chepe--vanille-tutors,Chepe,Chepe,Vanille Tutors,Vanille Tutors,,,,,,,,[],[],2026-02-22,2026-02-22,1,0,,"[""vanilletutors""]",[],0.0
+chepe--yuna,Chepe,Chepe,Yuna,Yuna,,,,,,,,[],[],2026-01-11,2026-02-12,3,2,,"[""yuna"", ""yunachepe""]",[],0.6667
+cris--angeles,Cris,Cris,Ángeles,Ángeles,,,,,,,,[],[],2026-07-25,2026-07-25,2,1,,"[""Angeles"", ""angeles""]",[],0.5
+cris--gigantes,Cris,Cris,Gigantes,Gigantes,,,,,,,,[],[],2026-07-26,2026-07-26,1,0,,"[""Gigantes""]",[],0.0
+jairo--abuelo,Jairo,Jairo,Abuelo,Abuelo,,,,,,,,[],[],2026-02-22,2026-02-22,1,0,,"[""abuelo""]",[],0.0
+jairo--attractions,Jairo,Jairo,Attractions,Attractions,,,,,,,,[],[],2026-02-02,2026-02-02,1,0,,"[""attractions""]",[],0.0
+jairo--conejos,Jairo,Jairo,Conejos,Conejos,,,,,,,,[],[],2026-01-31,2026-03-26,5,1,,"[""conejos"", ""conejosjairo""]",[],0.2
+jairo--dinos,Jairo,Cris,Dinos,Dinos,,,,,,,,[],[],2026-07-25,2026-07-25,1,0,,"[""Dinos""]",[],0.0
+jairo--dinos,Jairo,Jairo,Dinos,Dinos,,,,,,,,[],[],2026-01-21,2026-07-10,4,1,,"[""dinos""]",[],0.25
+jairo--dinos,Jairo,Paniagua,Dinos,Dinos,,,,,,,,[],[],2026-01-08,2026-01-08,2,1,,"[""dinos(Pani)"", ""dinosaurios(Pani)""]",[],0.5
+jairo--equipments,Jairo,Jairo,Jairo Equipments,Jairo Equipments,,,,,,,,[],[],2026-02-04,2026-02-04,1,1,,"[""equipsjairo""]",[],1.0
+jairo--graveyard,Jairo,Jairo,Graveyard,Graveyard,,,,,,,,[],[],2026-01-08,2026-07-10,6,0,,"[""graveyard""]",[],0.0
+jairo--iroh,Jairo,Andres,Iroh,Iroh,,,,,,,,[],[],2026-01-30,2026-01-30,1,1,,"[""Iroh""]",[],1.0
+jairo--iroh,Jairo,Jairo,Iroh,Iroh,,,,,,,,[],[],2026-01-11,2026-04-16,19,5,,"[""iroh""]",[],0.2632
+jairo--jairo-verde-verde,Jairo,Jairo,Jairo Verde Verde,Jairo Verde Verde,,,,,,,,[],[],2026-02-12,2026-02-12,1,0,,"[""jairoverdeverde""]",[],0.0
+jairo--kithkin,Jairo,Jairo,Kithkin,Kithkin,,,,,,,,[],[],2026-01-19,2026-01-19,1,1,,"[""kithkin""]",[],1.0
+jairo--loreholdinternet,Jairo,Jairo,LoreholdInternet,LoreholdInternet,,,,,,,,[],[],2026-07-26,2026-07-26,1,0,,"[""LoreholdInternet""]",[],0.0
+jairo--mabel-mouses,Jairo,Jairo,Mabel Mouses,Mabel Mouses,,,,,,,,[],[],2026-02-22,2026-02-22,1,0,,"[""mabelmouses""]",[],0.0
+jairo--marneus,Jairo,Jairo,Marneus,Marneus,,,,,,,,[],[],2026-01-22,2026-07-25,9,2,,"[""maerneus"", ""Magnus"", ""Marneus"", ""marneus""]",[],0.2222
+jairo--ragost,Jairo,Jairo,Ragost,Ragost,,,,,,,,[],[],2026-03-03,2026-03-03,1,0,,"[""ragostjairo""]",[],0.0
+jairo--rata,Jairo,Jairo,Rata,Rata,,,,,,,,[],[],2026-01-11,2026-03-26,5,1,,"[""rata"", ""rata(vehic)"", ""rata(vehiculos)""]","[""Vehículos""]",0.2
+jairo--roxanne,Jairo,Jairo,Roxanne,Roxanne,,,,,,,,[],[],2026-03-03,2026-04-16,2,1,,"[""metoritos"", ""roxanne""]",[],0.5
+jairo--scry,Jairo,Jairo,Scry,Scry,,,,,,,,[],[],2026-01-19,2026-01-19,1,1,,"[""scry""]",[],1.0
+jairo--sokka-suki,Jairo,Jairo,Sokka/Suki,Sokka/Suki,,,,,,,,[],[],2026-01-31,2026-02-12,2,1,,"[""sokkasuki""]",[],0.5
+jairo--volo,Jairo,Jairo,Volo,Volo,,,,,,,,[],[],2026-01-08,2026-02-16,4,3,,"[""Volo"", ""volo"", ""volo(nerfed ver.)""]","[""Nerfed""]",0.75
+jairo--winota,Jairo,Jairo,Winota,Winota,,,,,,,,[],[],2026-02-15,2026-02-15,2,1,,"[""winota""]",[],0.5
+jairo--yuna,Jairo,Jairo,Yuna,Yuna,,,,,,,,[],[],2026-01-11,2026-07-27,2,1,,"[""yuna(jairo ver)"", ""YunaJairo""]","[""Versión Jairo""]",0.5
+unknown--unknown,No registrado,Jairo,Unknown,Unknown,,,,,,,,[],[],2026-01-19,2026-01-19,1,0,,"[""unknown""]",[],0.0

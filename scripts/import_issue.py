@@ -187,6 +187,33 @@ def normalize_result(fields: dict[str, str], participants: list[dict[str, Any]],
     return "win", winner, winner
 
 
+def parse_turn_order(fields: dict[str, str], aliases: dict[str, str], participants: list[dict[str, Any]]) -> list[str] | None:
+    raw_order = optional_field(fields, "Orden de turno opcional")
+    if not raw_order:
+        return None
+
+    parts: list[str] = []
+    for line in raw_order.splitlines():
+        clean_line = clean_response(line)
+        if not clean_line:
+            continue
+        parts.extend(part.strip() for part in re.split(r"\s*(?:\||>|,)\s*", clean_line) if part.strip())
+
+    order = [normalize_event_player(part, aliases) for part in parts]
+    if not order:
+        return None
+
+    player_set = {participant["player"] for participant in participants}
+    if len(order) != len(player_set) or set(order) != player_set:
+        expected = " | ".join(participant["player"] for participant in participants)
+        received = " | ".join(order)
+        raise ValueError(f"Orden de turno debe incluir exactamente los participantes. Esperado: {expected}. Recibido: {received}")
+    if len(order) != len(set(order)):
+        raise ValueError("Orden de turno contiene jugadores duplicados")
+
+    return order
+
+
 def parse_player_line(line: str, aliases: dict[str, str]) -> tuple[str, str]:
     parts = [part.strip() for part in line.split("|", 1)]
     player = normalize_event_player(parts[0], aliases)
@@ -376,6 +403,10 @@ def build_game(fields: dict[str, str], issue_number: str, issue_url: str) -> dic
     if starting_player and starting_player not in {participant["player"] for participant in participants}:
         raise ValueError(f"El jugador inicial no participa: {starting_player}")
 
+    turn_order = parse_turn_order(fields, aliases, participants)
+    if turn_order and starting_player and turn_order[0] != starting_player:
+        raise ValueError(f"Orden de turno inicia con {turn_order[0]}, pero Jugador inicial es {starting_player}")
+
     duration_minutes = parse_int_or_none(optional_field(fields, "Duración minutos"))
     win_condition_category = normalize_win_condition_from_fields(fields)
     win_condition_text = optional_field(fields, "Detalle de victoria")
@@ -409,6 +440,7 @@ def build_game(fields: dict[str, str], issue_number: str, issue_url: str) -> dic
         "winner_player": winner,
         "winner_raw": winner_raw,
         "starting_player": starting_player,
+        "turn_order": turn_order,
         "start_time": None,
         "end_time": None,
         "duration_minutes": duration_minutes,

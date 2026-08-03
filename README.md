@@ -19,7 +19,7 @@ Página web estática para explorar partidas de Magic: The Gathering Commander r
 - `data/summary.json`: resumen precalculado para referencia.
 - `data/quality_issues.csv`: partidas con inferencias o ambigüedades.
 - `scripts/import_issue.py`: importa una partida desde un GitHub Issue Form.
-- `scripts/enrich_deck_catalog.py`: completa nombres y comandantes desde links de Moxfield.
+- `scripts/enrich_deck_catalog.py`: completa nombres, comandantes y colores desde links de Moxfield cuando el endpoint los expone.
 - `scripts/deck_review.py`: genera/aplica un JSON editable para limpiar identidades de decks.
 - `scripts/rebuild_exports.py`: regenera CSVs, catálogo, issues de calidad y resumen desde `games.json`.
 - `scripts/validate_data.py`: validación local sin dependencias externas.
@@ -62,12 +62,13 @@ No abras `index.html` directamente como archivo local, porque `fetch()` puede qu
 
 ## Uso
 
-La página muestra inicialmente las 75 partidas. Los filtros se combinan y actualizan:
+La pagina muestra inicialmente las partidas actuales del dataset. Los filtros se combinan y actualizan:
 
 - KPIs de resumen;
 - gráficos Chart.js;
 - tablas de jugadores, decks e historial;
 - gráficos y tabla de matchups deck contra deck;
+- reportes avanzados de periodo, meta, orden de turno, duracion, Elo, timeline y achievements;
 - gráficos de eliminaciones registradas y formas de victoria;
 - panel de calidad de datos;
 - exportación CSV.
@@ -79,6 +80,21 @@ La sección **Eliminaciones** usa solo eventos `elimination` con actor y objetiv
 Un jugador que pierde no necesariamente fue eliminado o se rindió. Si alguien gana con una condición como `Approach of the Second Sun`, los demás participantes quedan como `loser`, pero solo habrá eventos de eliminación/rendición si realmente fueron registrados.
 
 Los valores `null`, vacíos o ausentes se muestran como **No registrado**. No se convierten a `false` ni a cero. Esto es importante para campos con poca cobertura como duración, jugador inicial, nuke y Sol Ring turno 1.
+
+## Reportes avanzados
+
+El tab **Reportes** agrupa analisis que se recalculan con los filtros globales:
+
+- ranking por periodo mensual o por todo el subconjunto filtrado;
+- forma reciente por jugador y rachas;
+- reporte de meta con presencia de decks, decks emergentes, arquetipos, tags y tamano de mesa;
+- analisis de orden de turno: usa `turn_order` si existe y, para partidas virtuales, infiere `Jairo > Andres > Chepe` o `Jairo > Andres > Cris > Chepe`;
+- duracion promedio/mediana por jugador y deck, siempre con cobertura `n=`;
+- condiciones de victoria y eliminaciones agrupadas por deck;
+- rating Elo experimental multijugador;
+- achievements mensuales, timeline y resumen listo para copiar a Discord.
+
+El rating Elo es exploratorio: empieza en 1000, usa K=24 por partida y reparte comparaciones pairwise dentro del pod. No reemplaza las estadisticas oficiales de victorias.
 
 ## Despliegue en GitHub Pages
 
@@ -128,6 +144,15 @@ con usuarios separados por coma o espacios, por ejemplo:
 Jos242,ChepeGitHub,JairoGitHub
 ```
 
+Campo opcional de orden de turno:
+
+```text
+Orden de turno opcional:
+Jairo | Andres | Cris | Chepe
+```
+
+Si lo dejas vacio en una partida virtual, la web usa la regla fija del grupo para los reportes. En partidas presenciales, el orden solo cuenta como real si se llena este campo.
+
 Formato recomendado para eliminaciones en el formulario:
 
 ```text
@@ -160,6 +185,10 @@ commander_name
 moxfield_url
 archidekt_url
 edhrec_url
+archetype
+power_level
+tags
+colors
 ```
 
 Después de completar esos datos, corre:
@@ -173,7 +202,7 @@ El regenerador preserva esos campos cuando vuelve a crear el catálogo.
 
 ### Enriquecer decks desde Moxfield
 
-Si pegas un link en `moxfield_url`, puedes intentar completar `official_name` y `commander_name` automáticamente:
+Si pegas un link en `moxfield_url`, puedes intentar completar `official_name`, `commander_name` y `colors` automaticamente. El script tambien llena `tags` o `power_level` solo si Moxfield los devuelve claramente:
 
 ```bash
 python scripts/enrich_deck_catalog.py
@@ -205,7 +234,7 @@ Si quieres sobrescribir valores existentes:
 python scripts/enrich_deck_catalog.py --overwrite
 ```
 
-Moxfield no publica una API oficial estable para esto. El script usa endpoints no oficiales y fallback por HTML; si Moxfield bloquea o cambia algo, reporta el error y deja el CSV intacto para esos decks.
+Moxfield no publica una API oficial estable para esto. El script usa endpoints no oficiales y fallback por HTML; si Moxfield bloquea o cambia algo, reporta el error y deja el CSV intacto para esos decks. El fallback HTML normalmente solo puede recuperar nombre del deck/comandante, no colores ni bracket.
 
 En GitHub también existe el workflow manual **Enrich deck catalog**. Sirve para correr el mismo script desde Actions y abrir un PR con los cambios. En issues nuevos puedes llenar los campos `Deck N Moxfield URL opcional`; el workflow de import intentará enriquecer el catálogo automáticamente si Moxfield responde.
 
@@ -332,20 +361,21 @@ Esos campos aceptan más de una línea. El JSON conserva todos los registros com
 
 Después de iniciar el servidor:
 
-- sin filtros deben verse 75 partidas;
-- `virtual` debe dejar 45 partidas;
+- sin filtros deben verse 76 partidas;
+- `virtual` debe dejar 46 partidas;
 - `in_person` debe dejar 30 partidas;
 - `draw` debe dejar 1 partida;
 - ganador `Cris` debe dejar 1 partida;
 - búsqueda `Sol Ring` debe encontrar `G2026-054`;
-- `needs_review` debe mostrar `G2026-003`, `G2026-008`, `G2026-049`, `G2026-058` y `G2026-075`;
-- duración debe indicar muestra `n=28`;
-- comenzar y ganar debe indicar muestra `n=30`;
+- `needs_review` debe mostrar `G2026-003`, `G2026-008`, `G2026-049`, `G2026-058`, `G2026-075` y `G2026-076`;
+- duración debe indicar muestra `n=29`;
+- comenzar y ganar debe indicar muestra `n=31`;
 - el filtro de deck `Dinos / Jairo` debe incluir partidas donde lo pilotearon Jairo, Paniagua o Cris;
 - `Yuna / Chepe` y `Yuna / Jairo` deben aparecer como decks separados.
 
 ## Limitaciones
 
 - Chart.js se carga mediante CDN, así que los gráficos requieren acceso a internet en el navegador.
-- `commander_name`, `official_name` y los links externos se completan manualmente en `data/deck_catalog.csv`; la UI los mostrará sin cambiar JavaScript.
-- La web publicada sigue siendo de solo lectura. La entrada dinámica ocurre por GitHub Issues y PRs.
+- `commander_name`, `official_name`, links externos, `archetype`, `power_level`, `tags` y `colors` viven en `data/deck_catalog.csv`; Moxfield puede autocompletar parte de eso, y la UI lo muestra sin cambiar JavaScript.
+- La web publicada sigue siendo de solo lectura. La entrada dinamica ocurre por GitHub Issues y PRs.
+- La entrada directa desde web con backend queda para una fase futura.

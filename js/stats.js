@@ -126,6 +126,10 @@ function createDeckRecord(game, participant) {
     moxfieldUrl: catalog?.moxfield_url || "",
     archidektUrl: catalog?.archidekt_url || "",
     edhrecUrl: catalog?.edhrec_url || "",
+    archetype: catalog?.archetype || "",
+    powerLevel: catalog?.power_level || "",
+    tags: new Set(catalog?.tags_list ?? []),
+    colors: new Set(catalog?.colors_list ?? []),
     appearances: 0,
     wins: 0,
     firstDate: game.date,
@@ -169,6 +173,14 @@ function buildDeckStats(games) {
       if (!isKnown(record.edhrecUrl) && isKnown(participant.deck_catalog?.edhrec_url)) {
         record.edhrecUrl = participant.deck_catalog.edhrec_url;
       }
+      if (!isKnown(record.archetype) && isKnown(participant.deck_catalog?.archetype)) {
+        record.archetype = participant.deck_catalog.archetype;
+      }
+      if (!isKnown(record.powerLevel) && isKnown(participant.deck_catalog?.power_level)) {
+        record.powerLevel = participant.deck_catalog.power_level;
+      }
+      for (const tag of participant.deck_catalog?.tags_list ?? []) record.tags.add(tag);
+      for (const color of participant.deck_catalog?.colors_list ?? []) record.colors.add(color);
 
       if (game.result_type === "win" && game.winner_player === participant.player) {
         record.wins += 1;
@@ -181,6 +193,8 @@ function buildDeckStats(games) {
       ...record,
       variants: uniqueSorted([...record.variants]),
       aliases: uniqueSorted([...record.aliases]),
+      tags: uniqueSorted([...record.tags]),
+      colors: uniqueSorted([...record.colors]),
       pilots: [...record.pilots.entries()]
         .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "es", { sensitivity: "base" }))
         .map(([pilot, count]) => `${pilot} (n=${count})`),
@@ -217,7 +231,10 @@ function createPlayerDeckRecord(game, participant) {
     moxfieldUrl: catalog?.moxfield_url || "",
     archidektUrl: catalog?.archidekt_url || "",
     edhrecUrl: catalog?.edhrec_url || "",
-  };
+    archetype: catalog?.archetype || "",
+    powerLevel: catalog?.power_level || "",
+    tags: new Set(catalog?.tags_list ?? []),
+    colors: new Set(catalog?.colors_list ?? []),  };
 }
 
 export function calculatePlayerDeckStats(games, player) {
@@ -946,6 +963,10 @@ function deckIdentityFromGames(games, deckKey, catalogRows = []) {
     moxfieldUrl: catalogRow?.moxfield_url || participant?.deck_catalog?.moxfield_url || participant?.moxfield_url || "",
     archidektUrl: catalogRow?.archidekt_url || participant?.deck_catalog?.archidekt_url || "",
     edhrecUrl: catalogRow?.edhrec_url || participant?.deck_catalog?.edhrec_url || "",
+    archetype: catalogRow?.archetype || participant?.deck_catalog?.archetype || "",
+    powerLevel: catalogRow?.power_level || participant?.deck_catalog?.power_level || "",
+    tags: catalogRow?.tags_list || participant?.deck_catalog?.tags_list || [],
+    colors: catalogRow?.colors_list || participant?.deck_catalog?.colors_list || [],
   };
 }
 

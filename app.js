@@ -1,4 +1,5 @@
 import {
+  renderAdvancedCharts,
   renderCharts,
   renderDeckProfileCharts,
   renderHeadToHeadCharts,
@@ -18,7 +19,9 @@ import {
   calculatePlayerProfile,
   calculateStats,
 } from "./js/stats.js";
+import { calculateAdvancedReports, listReportMonths } from "./js/reports.js";
 import {
+  renderAdvancedReports,
   renderBadges,
   renderCoverage,
   renderDeckMatchupMatrix,
@@ -59,6 +62,9 @@ const elements = {
   matrixTopDecks: document.getElementById("matrixTopDecks"),
   matrixMinAppearances: document.getElementById("matrixMinAppearances"),
   matrixMinGames: document.getElementById("matrixMinGames"),
+  reportPeriod: document.getElementById("reportPeriod"),
+  copyDiscordSummary: document.getElementById("copyDiscordSummary"),
+  copyDiscordStatus: document.getElementById("copyDiscordStatus"),
   dialog: document.getElementById("gameDialog"),
   closeDialog: document.getElementById("closeDialog"),
 };
@@ -308,6 +314,19 @@ function syncHeadToHeadControls(playerStats, preferredPlayer = "") {
   return { playerA, playerB };
 }
 
+function syncReportPeriodControl(games) {
+  const months = listReportMonths(games);
+  const previousValue = elements.reportPeriod.value;
+  elements.reportPeriod.replaceChildren(new Option("Todo el subconjunto", ""));
+
+  for (const month of months) {
+    elements.reportPeriod.append(new Option(month, month));
+  }
+
+  elements.reportPeriod.value = months.includes(previousValue) ? previousValue : "";
+  return elements.reportPeriod.value;
+}
+
 function render() {
   if (!dataset) return;
 
@@ -352,6 +371,11 @@ function render() {
     minGames: readMatchupMinimum(),
     catalogRows: dataset.deckIdentityRows,
   });
+  const selectedReportPeriod = syncReportPeriodControl(filteredGames);
+  const advancedReports = calculateAdvancedReports(filteredGames, {
+    periodMonth: selectedReportPeriod,
+    catalogRows: dataset.deckIdentityRows,
+  });
 
   currentFilteredGames = filteredGames;
   updateVisibleCounter(filteredGames, filters);
@@ -364,6 +388,7 @@ function render() {
   renderHeadToHead(headToHead);
   renderDeckMatchupMatrix(deckMatrix);
   renderBadges(badges);
+  renderAdvancedReports(advancedReports);
   renderDeckTable(stats.deckStats, deckMinimum);
   renderGameTable(filteredGames, openGameDetail);
   renderQualityPanel(stats);
@@ -373,6 +398,7 @@ function render() {
   renderDeckProfileCharts(deckProfile);
   renderHeadToHeadCharts(headToHead);
   renderMatchupCharts(matchupStats);
+  renderAdvancedCharts(advancedReports);
   renderMatchupTable(matchupStats);
   renderKillPairsTable(stats.combat);
   elements.deckMinimumEffect.textContent = `Filtra ${stats.deckStats.filter((deck) => deck.appearances >= deckMinimum).length} decks en gráfica y tabla`;
@@ -397,6 +423,24 @@ function exportCurrentCsv() {
   const csv = buildFilteredCsv(currentFilteredGames);
   const today = new Date().toISOString().slice(0, 10);
   downloadTextFile(`mtg-commander-filtrado-${today}.csv`, csv, "text/csv;charset=utf-8");
+}
+
+async function copyDiscordSummaryText() {
+  const textarea = document.getElementById("discordSummaryText");
+  const text = textarea?.value ?? "";
+  if (!text) {
+    elements.copyDiscordStatus.textContent = "Sin resumen";
+    return;
+  }
+
+  try {
+    await navigator.clipboard.writeText(text);
+    elements.copyDiscordStatus.textContent = "Copiado";
+  } catch {
+    textarea?.focus();
+    textarea?.select();
+    elements.copyDiscordStatus.textContent = "Texto seleccionado";
+  }
 }
 
 function attachEvents() {
@@ -430,6 +474,8 @@ function attachEvents() {
   elements.matrixMinAppearances.addEventListener("change", scheduleRender);
   elements.matrixMinGames.addEventListener("input", scheduleRender);
   elements.matrixMinGames.addEventListener("change", scheduleRender);
+  elements.reportPeriod.addEventListener("change", scheduleRender);
+  elements.copyDiscordSummary.addEventListener("click", copyDiscordSummaryText);
   elements.clearFilters.addEventListener("click", () => {
     resetFilterControls(elements.form);
     scheduleRender();

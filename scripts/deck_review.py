@@ -33,6 +33,10 @@ IDENTITY_FIELDS = [
     "moxfield_url",
     "archidekt_url",
     "edhrec_url",
+    "archetype",
+    "power_level",
+    "tags",
+    "colors",
     "notes",
 ]
 
@@ -90,6 +94,10 @@ def identity_from_rows(deck_id: str, rows: list[dict[str, Any]]) -> dict[str, An
         "moxfield_url": preferred.get("moxfield_url", ""),
         "archidekt_url": preferred.get("archidekt_url", ""),
         "edhrec_url": preferred.get("edhrec_url", ""),
+        "archetype": preferred.get("archetype", ""),
+        "power_level": preferred.get("power_level", ""),
+        "tags": preferred.get("tags", ""),
+        "colors": preferred.get("colors", ""),
         "notes": preferred.get("notes", ""),
         "stats": {
             "pilots": sorted_unique(pilots),
@@ -213,7 +221,7 @@ def build_review(dataset: dict[str, Any], catalog: list[dict[str, Any]]) -> dict
             "Edita target_deck_id y target_deck_name_normalized en assignments.",
             "Si dos filas deben ser el mismo deck real, apunta ambas al mismo target_deck_id.",
             "Si una fila fue fusionada por error, crea una identidad nueva en identities y apunta esa assignment al nuevo deck_id.",
-            "Edita owner_player, display_name, official_name, commander_name y links dentro de identities.",
+            "Edita owner_player, display_name, official_name, commander_name, links, archetype, power_level, tags y colors dentro de identities.",
             "No edites stats salvo que quieras dejar notas personales; el script las regenera.",
             "Para casos puntuales por partida, agrega filas en game_overrides con game_id, seat_order, target_deck_id y target_deck_name_normalized.",
         ],

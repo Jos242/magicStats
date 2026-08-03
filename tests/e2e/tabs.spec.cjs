@@ -3,6 +3,7 @@ const { expect, test } = require("@playwright/test");
 const tabs = [
   ["summary", "Resumen"],
   ["charts", "Graficos"],
+  ["reports", "Reportes"],
   ["matchups", "Matchups"],
   ["profiles", "Perfiles"],
   ["players", "Jugadores/Decks"],
@@ -35,6 +36,11 @@ test("dashboard loads and tab panels switch without JS errors", async ({ page })
 
   await page.getByRole("tab", { name: "Graficos" }).click();
   await expect(page.locator("#winsByPlayerChart")).toBeVisible();
+
+  await page.getByRole("tab", { name: "Reportes" }).click();
+  await expect(page.locator("#reportSummary .kpi").first()).toBeVisible();
+  await expect(page.locator("#periodRankingChart")).toBeVisible();
+  await expect(page.locator("#discordSummaryText")).toHaveValue(/MTG Commander/);
 
   await page.getByRole("tab", { name: "Matchups" }).click();
   await expect(page.locator("#deckMatchupMatrix")).toBeVisible();

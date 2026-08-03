@@ -290,6 +290,15 @@ export function renderPlayerDeckBreakdown(playerDeckStats) {
   );
 }
 
+function deckMetadataList(deck) {
+  return [...(deck?.colors ?? []), ...(deck?.tags ?? [])].filter(isKnown);
+}
+
+function deckMetadataSummary(deck) {
+  const parts = [deck?.archetype, deck?.powerLevel ? `Power ${deck.powerLevel}` : ""].filter(isKnown);
+  return parts.length > 0 ? parts.join(" / ") : UNKNOWN_LABEL;
+}
+
 export function renderDeckTable(deckStats, minAppearances = 1) {
   const container = document.getElementById("decksTable");
   const visibleDeckStats = deckStats.filter((deck) => deck.appearances >= minAppearances);
@@ -308,6 +317,9 @@ export function renderDeckTable(deckStats, minAppearances = 1) {
       createElement("td", { text: displayName }),
       createElement("td", { text: deck.ownerPlayer }),
       createElement("td", { text: commander }),
+      createElement("td", { text: displayValue(deck.archetype) }),
+      createElement("td", { text: displayValue(deck.powerLevel) }),
+      createElement("td", {}, tagList(deckMetadataList(deck), "Sin metadata")),
       createElement("td", {}, tagList(deck.pilots, "Sin pilotos")),
       createElement("td", { text: String(deck.appearances) }),
       createElement("td", { text: String(deck.wins) }),
@@ -324,8 +336,11 @@ export function renderDeckTable(deckStats, minAppearances = 1) {
     createTable(
       [
         "Deck",
-        "Dueño",
+        "Dueno",
         "Comandante",
+        "Arquetipo",
+        "Power",
+        "Tags/colores",
         "Pilotos",
         "Apariciones",
         "Victorias",
@@ -547,13 +562,19 @@ function nullableBooleanLabel(value) {
   return UNKNOWN_LABEL;
 }
 
+function turnOrderText(game) {
+  const order = Array.isArray(game.turn_order) ? game.turn_order.filter(isKnown) : [];
+  return order.length > 0 ? order.join(" > ") : "";
+}
+
 function missingFields(game) {
   const fields = [
     ["Hora inicial", game.start_time],
     ["Hora final", game.end_time],
     ["Duración", game.duration_minutes],
     ["Jugador inicial", game.starting_player],
-    ["Condición de victoria", game.win_condition_category],
+    ["Orden de turno", game.turn_order],
+    ["Condicion de victoria", game.win_condition_category],
     ["Nuke", game.nuke_recorded],
     ["Sol Ring turno 1", game.sol_ring_t1_recorded],
   ];
@@ -643,10 +664,11 @@ export function renderGameDetail(game) {
       createElement("p", { text: `Inicio: ${displayValue(game.start_time)}` }),
       createElement("p", { text: `Fin: ${displayValue(game.end_time)}` }),
       createElement("p", { text: `Duración: ${formatDuration(game.duration_minutes)}` }),
-      createElement("p", { text: `Comenzó: ${displayValue(game.starting_player)}` }),
+      createElement("p", { text: `Comenzo: ${displayValue(game.starting_player)}` }),
+      createElement("p", { text: `Orden de turno: ${displayValue(turnOrderText(game))}` }),
     ]),
     detailBlock("Metadata escasa", [
-      createElement("p", { text: `Condición: ${formatWinCondition(game.win_condition_category)}` }),
+      createElement("p", { text: `Condicion: ${formatWinCondition(game.win_condition_category)}` }),
       createElement("p", { text: `Nuke: ${nullableBooleanLabel(game.nuke_recorded)}` }),
       createElement("p", { text: `Sol Ring turno 1: ${nullableBooleanLabel(game.sol_ring_t1_recorded)}` }),
     ]),
@@ -791,7 +813,7 @@ export function renderPlayerProfile(profile) {
     makeKpi("Partidas", formatNumber(profile.totalGames), "Subconjunto filtrado"),
     makeKpi("Winrate", profile.winRate === null ? UNKNOWN_LABEL : formatPercent(profile.winRate), `${profile.wins}/${profile.totalGames} victorias`),
     makeKpi("No gano", formatNumber(profile.notWins), `${profile.draws} empates registrados`),
-    makeKpi("Duracion", formatAverage(profile.averageDuration, profile.durationSample, "min"), "Solo partidas con minutos"),
+    makeKpi("Duracion de partidas", formatAverage(profile.averageDuration, profile.durationSample, "min"), "Solo partidas con minutos"),
     makeKpi("Racha actual", streakLabel(profile.streaks), `Mejor racha: ${profile.streaks.longestWin} victorias`),
     makeKpi("Eventos", profile.nukeCount + profile.solRingCount > 0 ? `Nuke: ${profile.nukeCount || UNKNOWN_LABEL} / Sol Ring T1: ${profile.solRingCount || UNKNOWN_LABEL}` : UNKNOWN_LABEL, "Solo registros explicitos"),
   );
@@ -877,7 +899,7 @@ export function renderDeckProfile(profile) {
     makeKpi("Partidas", formatNumber(profile.totalGames), `Pilotos: ${profile.pilotRows.length}`),
     makeKpi("Winrate", profile.winRate === null ? UNKNOWN_LABEL : formatPercent(profile.winRate), `${profile.wins}/${profile.totalGames} victorias`),
     makeKpi("Ubicacion", `${profile.byLocation.in_person} presencial / ${profile.byLocation.virtual} virtual`, "Apariciones"),
-    makeKpi("Links", [profile.identity.moxfieldUrl, profile.identity.archidektUrl, profile.identity.edhrecUrl].some(isKnown) ? "Disponibles" : UNKNOWN_LABEL, "Ver tabla de pilotos para abrir fuentes"),
+    makeKpi("Metadata", deckMetadataSummary(profile.identity), deckMetadataList(profile.identity).length > 0 ? deckMetadataList(profile.identity).join(" / ") : "Sin tags/colores"),
   );
 
   appendTableOrEmpty(
@@ -1079,4 +1101,429 @@ export function renderBadges(badges) {
       ]),
     );
   }
+}
+function rankChangeText(row, hasPreviousPeriod) {
+  if (!hasPreviousPeriod) return "No aplica";
+  if (row.previousRank === null) return "Nuevo";
+  if (row.rankChange > 0) return `Sube ${row.rankChange}`;
+  if (row.rankChange < 0) return `Baja ${Math.abs(row.rankChange)}`;
+  return "Igual";
+}
+
+function formatNullablePercent(value, sample) {
+  return `${formatPercent(value)} (n=${sample})`;
+}
+
+function renderReportSummary(reports) {
+  const container = document.getElementById("reportSummary");
+  removeChildren(container);
+
+  container.append(
+    makeKpi("Periodo", reports.period.label, `${reports.period.games} partidas`),
+    makeKpi("Decks unicos", formatNumber(reports.meta.uniqueDecks), `${reports.meta.deckAppearances} apariciones con deck`),
+    makeKpi(
+      "Diversidad",
+      reports.meta.diversityRate === null ? UNKNOWN_LABEL : formatPercent(reports.meta.diversityRate),
+      "Decks unicos / apariciones",
+    ),
+    makeKpi(
+      "Orden de turno",
+      `${reports.turnOrder.eligibleGames}/${reports.turnOrder.totalGames}`,
+      "Real registrado o virtual inferido",
+    ),
+    makeKpi(
+      "Duracion",
+      reports.duration.average === null ? UNKNOWN_LABEL : `${reports.duration.average.toFixed(1)} min`,
+      `Promedio de partidas con minutos; cobertura ${reports.duration.knownGames}/${reports.duration.totalGames}`,
+    ),
+    makeKpi(
+      "Rating",
+      reports.elo.rows[0] ? reports.elo.rows[0].player : UNKNOWN_LABEL,
+      reports.elo.rows[0] ? `${Math.round(reports.elo.rows[0].rating)} Elo` : "Sin muestra",
+    ),
+  );
+}
+
+function renderPeriodTables(reports) {
+  const hasPreviousPeriod = isKnown(reports.period.previousMonth);
+
+  appendTableOrEmpty(
+    document.getElementById("reportPeriodPlayers"),
+    ["#", "Jugador", "Partidas", "Victorias", "Tasa", "Decks", "Ubicacion", "Cambio"],
+    reports.period.playerRows.slice(0, 12).map((player) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: String(player.rank) }),
+        createElement("td", { text: player.player }),
+        createElement("td", { text: String(player.games) }),
+        createElement("td", { text: String(player.wins) }),
+        createElement("td", { text: formatNullablePercent(player.winRate, player.games) }),
+        createElement("td", { text: String(player.decksUsed) }),
+        createElement("td", { text: `${player.inPerson} presencial / ${player.virtual} virtual` }),
+        createElement("td", { text: rankChangeText(player, hasPreviousPeriod) }),
+      );
+      return row;
+    }),
+    "No hay jugadores para este periodo.",
+  );
+
+  appendTableOrEmpty(
+    document.getElementById("reportPeriodDecks"),
+    ["#", "Deck", "Apariciones", "Victorias", "Tasa", "Pilotos", "Fechas", "Cambio"],
+    reports.period.deckRows.slice(0, 12).map((deck) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: String(deck.rank) }),
+        createElement("td", { text: deck.label }),
+        createElement("td", { text: String(deck.appearances) }),
+        createElement("td", { text: String(deck.wins) }),
+        createElement("td", { text: formatNullablePercent(deck.winRate, deck.appearances) }),
+        createElement("td", {}, tagList(deck.pilotsList, "Sin pilotos")),
+        createElement("td", { text: `${deck.firstDate} a ${deck.lastDate}` }),
+        createElement("td", { text: rankChangeText(deck, hasPreviousPeriod) }),
+      );
+      return row;
+    }),
+    "No hay decks para este periodo.",
+  );
+
+  appendTableOrEmpty(
+    document.getElementById("reportRecentForm"),
+    ["Jugador", "Ultimas partidas", "Victorias", "Empates", "Tasa", "Partidas"],
+    reports.recentForm.playerRows.slice(0, 10).map((player) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: player.player }),
+        createElement("td", { text: String(player.games) }),
+        createElement("td", { text: String(player.wins) }),
+        createElement("td", { text: String(player.draws) }),
+        createElement("td", { text: formatNullablePercent(player.winRate, player.games) }),
+        createElement("td", {}, tagList(player.recentGameIds)),
+      );
+      return row;
+    }),
+    "No hay forma reciente para este subconjunto.",
+  );
+
+  appendTableOrEmpty(
+    document.getElementById("reportStreaks"),
+    ["Jugador", "Partidas", "Racha actual", "Mejor racha", "Mayor sequia", "Desde ultima victoria"],
+    reports.recentForm.streakRows.slice(0, 12).map((streak) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: streak.player }),
+        createElement("td", { text: String(streak.games) }),
+        createElement("td", { text: streakLabel(streak) }),
+        createElement("td", { text: `${streak.longestWin} victorias` }),
+        createElement("td", { text: `${streak.longestNotWin} sin ganar` }),
+        createElement("td", { text: streak.gamesSinceWin === null ? UNKNOWN_LABEL : `${streak.gamesSinceWin} partidas` }),
+      );
+      return row;
+    }),
+    "No hay rachas para este subconjunto.",
+  );
+}
+
+function renderMetaTables(reports) {
+  appendTableOrEmpty(
+    document.getElementById("metaTopDecks"),
+    ["Deck", "Apariciones", "Victorias", "Tasa", "Pilotos"],
+    reports.meta.topDecks.slice(0, 12).map((deck) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: deck.label }),
+        createElement("td", { text: String(deck.appearances) }),
+        createElement("td", { text: String(deck.wins) }),
+        createElement("td", { text: formatNullablePercent(deck.winRate, deck.appearances) }),
+        createElement("td", {}, tagList(deck.pilotsList, "Sin pilotos")),
+      );
+      return row;
+    }),
+    "No hay decks registrados en este subconjunto.",
+  );
+
+  appendTableOrEmpty(
+    document.getElementById("metaEmergingDecks"),
+    ["Deck", "Ventana reciente", "Ventana previa", "Diferencia", "Tasa reciente"],
+    reports.meta.emergingDecks.map((deck) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: deck.label }),
+        createElement("td", { text: String(deck.appearances) }),
+        createElement("td", { text: String(deck.previousAppearances) }),
+        createElement("td", { text: `+${deck.appearanceDelta}` }),
+        createElement("td", { text: formatNullablePercent(deck.winRate, deck.appearances) }),
+      );
+      return row;
+    }),
+    "No hay decks emergentes con la ventana actual.",
+  );
+
+  const categoryRows = (rows, nameKey) =>
+    rows.slice(0, 12).map((item) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: displayValue(item[nameKey] ?? item.label) }),
+        createElement("td", { text: String(item.count) }),
+        createElement("td", { text: formatNullablePercent(item.winRate, item.count) }),
+      );
+      return row;
+    });
+
+  appendTableOrEmpty(
+    document.getElementById("metaArchetypes"),
+    ["Arquetipo", "Apariciones", "Tasa"],
+    categoryRows(reports.meta.archetypeRows, "archetype"),
+    "No hay arquetipos registrados en deck_catalog.csv.",
+  );
+  appendTableOrEmpty(
+    document.getElementById("metaTags"),
+    ["Tag", "Apariciones", "Tasa"],
+    categoryRows(reports.meta.tagRows, "tag"),
+    "No hay tags registrados en deck_catalog.csv.",
+  );
+  appendTableOrEmpty(
+    document.getElementById("metaPodSizes"),
+    ["Tamano", "Partidas", "Tasa con ganador"],
+    categoryRows(reports.meta.podSizeRows, "podSize"),
+    "No hay partidas para resumir tamano de mesa.",
+  );
+}
+
+function renderTurnOrderReports(reports) {
+  const summary = document.getElementById("turnOrderSummary");
+  removeChildren(summary);
+  summary.append(
+    makeKpi(
+      "Cobertura",
+      reports.turnOrder.coverageRate === null ? UNKNOWN_LABEL : formatPercent(reports.turnOrder.coverageRate),
+      `${reports.turnOrder.eligibleGames}/${reports.turnOrder.totalGames} partidas`,
+    ),
+    makeKpi("Regla virtual", "Solo virtual", reports.turnOrder.virtualRule),
+    makeKpi("Fuentes", String(reports.turnOrder.sourceRows.length), "Real registrado o virtual inferido"),
+    makeKpi("Seat proxy", `${reports.turnOrder.seatPositionRows.length} posiciones`, "Orden escrito, no necesariamente turno real"),
+  );
+
+  appendTableOrEmpty(
+    document.getElementById("turnOrderTable"),
+    ["Posicion de turno", "Apariciones", "Victorias", "Winrate"],
+    reports.turnOrder.positionRows.map((position) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: String(position.position) }),
+        createElement("td", { text: String(position.count) }),
+        createElement("td", { text: String(position.wins) }),
+        createElement("td", { text: formatNullablePercent(position.winRate, position.count) }),
+      );
+      return row;
+    }),
+    "No hay orden de turno explicito o inferible en este subconjunto.",
+  );
+
+  appendTableOrEmpty(
+    document.getElementById("turnOrderPlayerTable"),
+    ["Jugador", "Apariciones", "Posicion promedio", "Victorias", "Winrate"],
+    reports.turnOrder.playerRows.map((player) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: player.player }),
+        createElement("td", { text: String(player.appearances) }),
+        createElement("td", { text: player.averagePosition === null ? UNKNOWN_LABEL : player.averagePosition.toFixed(2) }),
+        createElement("td", { text: String(player.wins) }),
+        createElement("td", { text: formatNullablePercent(player.winRate, player.appearances) }),
+      );
+      return row;
+    }),
+    "No hay datos de jugadores por posicion de turno.",
+  );
+
+  appendTableOrEmpty(
+    document.getElementById("seatOrderTable"),
+    ["Seat order", "Apariciones", "Victorias", "Winrate"],
+    reports.turnOrder.seatPositionRows.map((position) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: String(position.position) }),
+        createElement("td", { text: String(position.count) }),
+        createElement("td", { text: String(position.wins) }),
+        createElement("td", { text: formatNullablePercent(position.winRate, position.count) }),
+      );
+      return row;
+    }),
+    "No hay seat_order registrado.",
+  );
+}
+
+function renderDurationReports(reports) {
+  const summary = document.getElementById("durationSummary");
+  removeChildren(summary);
+  summary.append(
+    makeKpi(
+      "Cobertura",
+      reports.duration.coverageRate === null ? UNKNOWN_LABEL : formatPercent(reports.duration.coverageRate),
+      `${reports.duration.knownGames}/${reports.duration.totalGames} partidas`,
+    ),
+    makeKpi("Promedio partida", reports.duration.average === null ? UNKNOWN_LABEL : `${reports.duration.average.toFixed(1)} min`, "Solo partidas con minutos"),
+    makeKpi("Mediana partida", reports.duration.median === null ? UNKNOWN_LABEL : `${reports.duration.median.toFixed(1)} min`, "Solo partidas con minutos"),
+  );
+
+  const durationRows = (rows) =>
+    rows.slice(0, 12).map((item) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: item.label }),
+        createElement("td", { text: `${item.average.toFixed(1)} min (n=${item.sample})` }),
+        createElement("td", { text: `${item.median.toFixed(1)} min` }),
+        createElement("td", { text: `${item.min}-${item.max} min` }),
+      );
+      return row;
+    });
+
+  appendTableOrEmpty(
+    document.getElementById("durationByPlayerTable"),
+    ["Jugador", "Promedio partida", "Mediana partida", "Rango partida"],
+    durationRows(reports.duration.byPlayer),
+    "No hay duracion registrada en partidas de estos jugadores.",
+  );
+  appendTableOrEmpty(
+    document.getElementById("durationByDeckTable"),
+    ["Deck", "Promedio partida", "Mediana partida", "Rango partida"],
+    durationRows(reports.duration.byDeck),
+    "No hay duracion registrada en partidas de estos decks.",
+  );
+}
+
+function renderDeckEventReports(reports) {
+  appendTableOrEmpty(
+    document.getElementById("deckEventWinConditions"),
+    ["Deck", "Condicion", "Veces", "Partidas"],
+    reports.deckEvents.winConditionRows.slice(0, 12).map((item) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: item.label }),
+        createElement("td", { text: formatWinCondition(item.condition) }),
+        createElement("td", { text: String(item.count) }),
+        createElement("td", {}, tagList(item.gameIds)),
+      );
+      return row;
+    }),
+    "No hay condiciones de victoria por deck registradas.",
+  );
+
+  appendTableOrEmpty(
+    document.getElementById("deckEventKills"),
+    ["Deck", "Eliminaciones", "Metodos", "Partidas"],
+    reports.deckEvents.killRows.slice(0, 12).map((item) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: item.label }),
+        createElement("td", { text: String(item.count) }),
+        createElement("td", {}, tagList(item.methods)),
+        createElement("td", {}, tagList(item.gameIds)),
+      );
+      return row;
+    }),
+    "No hay eliminaciones hechas por deck registradas.",
+  );
+
+  appendTableOrEmpty(
+    document.getElementById("deckEventDeaths"),
+    ["Deck eliminado", "Veces", "Eliminadores", "Partidas"],
+    reports.deckEvents.deathRows.slice(0, 12).map((item) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: item.label }),
+        createElement("td", { text: String(item.count) }),
+        createElement("td", {}, tagList(item.byActor)),
+        createElement("td", {}, tagList(item.gameIds)),
+      );
+      return row;
+    }),
+    "No hay decks eliminados registrados.",
+  );
+}
+
+function renderMonthlyAwards(reports) {
+  appendTableOrEmpty(
+    document.getElementById("monthlyAwardsTable"),
+    ["Mes", "Partidas", "Mas victorias", "Mejor tasa", "Mas variedad", "Deck top", "Eventos"],
+    reports.awards.slice(0, 12).map((award) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: award.label }),
+        createElement("td", { text: String(award.games) }),
+        createElement("td", { text: award.topWinner ? `${award.topWinner.player} (${award.topWinner.wins})` : UNKNOWN_LABEL }),
+        createElement("td", {
+          text: award.bestRatePlayer
+            ? `${award.bestRatePlayer.player} ${formatNullablePercent(award.bestRatePlayer.winRate, award.bestRatePlayer.games)}`
+            : UNKNOWN_LABEL,
+        }),
+        createElement("td", { text: award.mostVariety ? `${award.mostVariety.player} (${award.mostVariety.decksUsed})` : UNKNOWN_LABEL }),
+        createElement("td", { text: award.topDeck ? `${award.topDeck.label} (${award.topDeck.appearances})` : UNKNOWN_LABEL }),
+        createElement("td", { text: `Nuke ${award.nukeCount}; Sol Ring T1 ${award.solRingCount}` }),
+      );
+      return row;
+    }),
+    "No hay meses para calcular achievements.",
+  );
+}
+
+function renderTimeline(reports) {
+  appendTableOrEmpty(
+    document.getElementById("timelineTable"),
+    ["Fecha", "Partida", "Ubicacion", "Resultado", "Duracion", "Condicion", "Eventos", "Participantes"],
+    reports.timeline.map((game) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: game.date }),
+        createElement("td", { text: game.gameId }),
+        createElement("td", { text: formatLocation(game.location) }),
+        createElement("td", { text: displayValue(game.result) }),
+        createElement("td", { text: formatDuration(game.duration) }),
+        createElement("td", { text: formatWinCondition(game.winCondition) }),
+        createElement("td", { text: displayValue(game.events) }),
+        createElement("td", {}, tagList(game.participants)),
+      );
+      return row;
+    }),
+    "No hay partidas en el timeline.",
+  );
+}
+
+function renderFunFacts(reports) {
+  const container = document.getElementById("funFactsGrid");
+  removeChildren(container);
+
+  if (reports.funFacts.length === 0) {
+    renderEmpty(container, "No hay datos suficientes para curiosidades.");
+    return;
+  }
+
+  for (const fact of reports.funFacts) {
+    container.append(
+      appendChildren(createElement("article", { className: "badge-card" }), [
+        createElement("p", { className: "badge-card__title", text: fact.title }),
+        createElement("p", { className: "badge-card__winner", text: displayValue(fact.value) }),
+        createElement("p", { className: "badge-card__sample", text: displayValue(fact.sample) }),
+      ]),
+    );
+  }
+}
+
+function renderDiscordSummary(reports) {
+  const textarea = document.getElementById("discordSummaryText");
+  textarea.value = reports.discordSummary;
+}
+
+export function renderAdvancedReports(reports) {
+  renderReportSummary(reports);
+  renderPeriodTables(reports);
+  renderMetaTables(reports);
+  renderTurnOrderReports(reports);
+  renderDurationReports(reports);
+  renderDeckEventReports(reports);
+  renderMonthlyAwards(reports);
+  renderTimeline(reports);
+  renderFunFacts(reports);
+  renderDiscordSummary(reports);
 }

@@ -632,3 +632,165 @@ export function renderHeadToHeadCharts(headToHead) {
   }
   renderHeadToHeadResult(headToHead);
 }
+
+function percentBarOptions() {
+  return baseOptions({
+    indexAxis: "y",
+    plugins: {
+      ...baseOptions().plugins,
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label(context) {
+            return `Tasa: ${context.formattedValue}%`;
+          },
+        },
+      },
+    },
+    scales: {
+      x: { beginAtZero: true, max: 100, ticks: { color: mutedColor, callback: (value) => `${value}%` }, grid: { color: gridColor } },
+      y: { ticks: { color: mutedColor }, grid: { display: false } },
+    },
+  });
+}
+
+function renderPeriodRanking(reports) {
+  const rows = reports.period.playerRows.slice(0, 10);
+  setMeta("periodRankingMeta", `${reports.period.label}; ${rows.length} jugadores visibles`);
+  createChart("periodRankingChart", {
+    type: "bar",
+    data: {
+      labels: rows.length > 0 ? rows.map((row) => `${row.player} (n=${row.games})`) : ["Sin datos"],
+      datasets: [
+        barDataset(
+          "Tasa de victoria",
+          rows.length > 0 ? rows.map((row) => Number(((row.winRate ?? 0) * 100).toFixed(2))) : [0],
+          palette[0],
+        ),
+      ],
+    },
+    options: percentBarOptions(),
+  });
+}
+
+function renderElo(reports) {
+  const rows = reports.elo.rows.slice(0, 10);
+  setMeta("eloMeta", `Base ${reports.elo.startRating}, K ${reports.elo.kFactor}; rating experimental`);
+  createChart("eloChart", {
+    type: "bar",
+    data: {
+      labels: rows.length > 0 ? rows.map((row) => `${row.player} (n=${row.games})`) : ["Sin datos"],
+      datasets: [barDataset("Elo", rows.length > 0 ? rows.map((row) => Math.round(row.rating)) : [0], palette[2])],
+    },
+    options: baseOptions({
+      indexAxis: "y",
+      plugins: { ...baseOptions().plugins, legend: { display: false } },
+      scales: {
+        x: { ticks: { color: mutedColor, precision: 0 }, grid: { color: gridColor } },
+        y: { ticks: { color: mutedColor }, grid: { display: false } },
+      },
+    }),
+  });
+}
+
+function renderTurnOrderAdvanced(reports) {
+  const rows = reports.turnOrder.positionRows;
+  setMeta("turnOrderMeta", `${reports.turnOrder.eligibleGames}/${reports.turnOrder.totalGames} partidas; posicion real o virtual inferida`);
+  createChart("turnOrderChart", {
+    type: "bar",
+    data: {
+      labels: rows.length > 0 ? rows.map((row) => `Pos ${row.position} (n=${row.count})`) : ["Sin datos"],
+      datasets: [
+        barDataset(
+          "Tasa de victoria",
+          rows.length > 0 ? rows.map((row) => Number(((row.winRate ?? 0) * 100).toFixed(2))) : [0],
+          palette[1],
+        ),
+      ],
+    },
+    options: percentBarOptions(),
+  });
+}
+
+function renderDurationLeaders(reports) {
+  const rows = reports.duration.byPlayer.slice(0, 10);
+  setMeta("durationLeadersMeta", `${reports.duration.knownGames}/${reports.duration.totalGames} partidas con duracion; usa la duracion completa de la partida`);
+  createChart("durationLeadersChart", {
+    type: "bar",
+    data: {
+      labels: rows.length > 0 ? rows.map((row) => `${row.label} (n=${row.sample})`) : ["Sin datos"],
+      datasets: [barDataset("Minutos promedio de partida", rows.length > 0 ? rows.map((row) => Number(row.average.toFixed(1))) : [0], palette[5])],
+    },
+    options: baseOptions({
+      indexAxis: "y",
+      plugins: { ...baseOptions().plugins, legend: { display: false } },
+      scales: {
+        x: { beginAtZero: true, ticks: { color: mutedColor }, grid: { color: gridColor } },
+        y: { ticks: { color: mutedColor }, grid: { display: false } },
+      },
+    }),
+  });
+}
+
+function renderMetaDeckShare(reports) {
+  const rows = reports.meta.topDecks.slice(0, 10);
+  setMeta("metaDeckShareMeta", `${reports.meta.uniqueDecks} decks unicos; ${reports.meta.deckAppearances} apariciones`);
+  createChart("metaDeckShareChart", {
+    type: "bar",
+    data: {
+      labels: rows.length > 0 ? rows.map((row) => row.label) : ["Sin datos"],
+      datasets: [barDataset("Apariciones", rows.length > 0 ? rows.map((row) => row.appearances) : [0], palette[3])],
+    },
+    options: baseOptions({
+      indexAxis: "y",
+      plugins: { ...baseOptions().plugins, legend: { display: false } },
+      scales: {
+        x: { beginAtZero: true, ticks: { color: mutedColor, precision: 0 }, grid: { color: gridColor } },
+        y: { ticks: { color: mutedColor }, grid: { display: false } },
+      },
+    }),
+  });
+}
+
+function renderDeckCondition(reports) {
+  const rows = reports.deckEvents.winConditionRows.slice(0, 10);
+  setMeta("deckConditionMeta", `${reports.deckEvents.winConditionSample} victorias con condicion y deck registrados`);
+  createChart("deckConditionChart", {
+    type: "bar",
+    data: {
+      labels: rows.length > 0 ? rows.map((row) => `${row.label} / ${formatWinCondition(row.condition)}`) : ["Sin datos"],
+      datasets: [barDataset("Victorias", rows.length > 0 ? rows.map((row) => row.count) : [0], palette[6])],
+    },
+    options: baseOptions({
+      indexAxis: "y",
+      plugins: { ...baseOptions().plugins, legend: { display: false } },
+      scales: {
+        x: { beginAtZero: true, ticks: { color: mutedColor, precision: 0 }, grid: { color: gridColor } },
+        y: { ticks: { color: mutedColor }, grid: { display: false } },
+      },
+    }),
+  });
+}
+
+export function renderAdvancedCharts(reports) {
+  if (!window.Chart) {
+    for (const id of [
+      "periodRankingMeta",
+      "eloMeta",
+      "turnOrderMeta",
+      "durationLeadersMeta",
+      "metaDeckShareMeta",
+      "deckConditionMeta",
+    ]) {
+      setMeta(id, "Chart.js no esta disponible");
+    }
+    return;
+  }
+
+  renderPeriodRanking(reports);
+  renderElo(reports);
+  renderTurnOrderAdvanced(reports);
+  renderDurationLeaders(reports);
+  renderMetaDeckShare(reports);
+  renderDeckCondition(reports);
+}

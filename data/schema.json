@@ -55,6 +55,15 @@
               "null"
             ]
           },
+          "turn_order": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
           "duration_minutes": {
             "type": [
               "integer",

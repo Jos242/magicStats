@@ -288,6 +288,15 @@ body:
     validations:
       required: false
 
+  - type: textarea
+    id: turn_order
+    attributes:
+      label: Orden de turno opcional
+      description: "Si quieres registrar el orden real, escribe todos los participantes en orden. Separadores aceptados: |, > o coma. En partidas virtuales la web infiere Jairo > Andres > Cris > Chepe cuando no lo llenas."
+      placeholder: |
+        Jairo | Andres | Cris | Chepe
+    validations:
+      required: false
   - type: input
     id: duration_minutes
     attributes:

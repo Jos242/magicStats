@@ -1,50 +1,45 @@
 # Roadmap de MTG Commander Stats
 
-Este documento lista ideas aprobadas para seguir evolucionando la pagina. La prioridad practica es mantener la app estatica compatible con GitHub Pages y calcular todo desde `data/games.json` mas `data/deck_catalog.csv`.
+Este documento lista ideas aprobadas para seguir evolucionando la pagina. La prioridad practica sigue siendo mantener la app estatica compatible con GitHub Pages y calcular todo desde `data/games.json` mas `data/deck_catalog.csv`.
 
-## Implementado en esta version
+## Implementado
 
 - Perfil de jugador: decks usados, winrate, forma reciente, rivales frecuentes, eliminaciones hechas/recibidas y ultimas partidas.
 - Perfil de deck: apariciones, winrate, pilotos, comandante, links, rendimiento por ubicacion, condiciones de victoria y rivales frecuentes.
 - Head-to-head de jugadores: comparar dos jugadores cuando aparecen en la misma partida, incluyendo victorias directas, victorias de terceros y lista de partidas.
-- Heatmap de matchups deck contra deck: matriz de tasas de victoria y tamanos de muestra para los decks con suficiente aparicion.
-- Badges y curiosidades: lideres por victorias, diversidad de decks, rachas, nukes, eliminaciones, duracion y otros logros derivados de datos registrados.
+- Matchups deck contra deck: tabla, graficos directos y heatmap por `deck_id` canonico.
+- Combate: eliminaciones actor -> objetivo, metodos y formas de victoria con muestras registradas.
+- Badges y curiosidades: lideres por victorias, diversidad de decks, rachas, nukes, eliminaciones y duracion.
+- Reportes por periodo: ranking mensual o del subconjunto filtrado, con cambio contra el mes previo cuando aplica.
+- Forma reciente y rachas globales por jugador.
+- Reporte de meta: decks mas presentes, decks emergentes, arquetipos/tags si el catalogo los tiene, y tamano de mesa.
+- Analisis de orden de turno: `turn_order` explicito cuando exista, inferencia virtual fija `Jairo > Andres > Chepe` / `Jairo > Andres > Cris > Chepe`, y `seat_order` presencial como proxy separado.
+- Duracion por jugador/deck con cobertura y muestras, sin convertir faltantes a cero.
+- Condiciones de victoria y eliminaciones agrupadas por deck.
+- Timeline de ultimas partidas, achievements mensuales y resumen para copiar a Discord.
+- Elo experimental multijugador, documentado como exploratorio.
+- Metadata manual de deck en `deck_catalog.csv`: `archetype`, `power_level`, `tags` y `colors`, preservada por rebuild y deck review.
+- Formulario/importador con `Orden de turno opcional`.
 
-Estos puntos ya existen en la interfaz principal y se recalculan con los filtros globales.
+## Pendiente estatico o de baja complejidad
 
-## Siguientes mejoras estaticas
+- Mejorar presentacion del resumen para Discord con plantillas por sesion.
+- Mostrar filtros rapidos por arquetipo/tag/color cuando el catalogo tenga cobertura suficiente.
+- Agregar comparacion por arquetipos y colores una vez que `deck_catalog.csv` tenga metadata consistente.
+- Ampliar Moxfield si aparece una fuente estable para brackets/power levels; colores ya se derivan del comandante cuando el endpoint responde.
+- Validacion previa al submit: autocompletar jugadores/decks y avisar aliases nuevos antes de generar markdown de issue.
 
-- Ranking por periodo: vistas mensuales o por rango de fechas con cambios de posiciones.
-- Forma reciente: ultimas N partidas por jugador/deck y tendencia de winrate.
-- Rachas: victorias, derrotas, decks repetidos y jugadores que mas tiempo llevan sin ganar.
-- Reporte de meta: decks mas presentes, decks emergentes, decks inactivos, diversidad por sesion.
-- Analisis de orden de turno: ventaja del jugador inicial y posicion de asiento cuando haya cobertura suficiente.
-- Duracion por jugador/deck: promedios solo con cobertura registrada, sin tratar datos faltantes como cero.
-- Condiciones de victoria por deck: ver que decks ganan por combate, combo, Approach, mill, concesiones u otras categorias.
-- Eliminaciones por deck: quien elimina usando que deck, y que decks suelen quedar fuera primero cuando hay eventos.
-- Vista de timeline: cronologia de partidas con filtros y eventos importantes.
-- Estadisticas aleatorias: facts pequenos tipo "deck con mas segundos lugares" cuando el dato exista.
+## Pendiente avanzado
 
-## Ideas divertidas
+- Entrada directa desde web con backend: Firebase, Supabase, Airtable, Google Forms/Sheets u otra opcion. Se deja para ultimo por decision del proyecto.
+- Rating mas serio que Elo experimental: definir formula multijugador, tratamiento de pods de 3/4/5, empates y victorias por terceros.
+- Temporadas futuras: separar 2026, 2027, playoffs o ligas.
+- Dashboard de sesion en vivo si algun dia hay backend.
 
-- Achievements mensuales: premios como mas decks jugados, mas victorias, mas partidas, mejor comeback, mas nukes registrados.
-- Rivalidades: pares de jugadores/decks con mas encuentros y resultados mas cerrados.
-- Presentacion para Discord: una vista compacta para compartir capturas despues de cada sesion.
-- Perfil historico por temporada si despues separan 2026, 2027, etc.
-
-## Ideas avanzadas que podrian requerir decisiones nuevas
-
-- Elo o rating multijugador: requiere definir formula, tratamiento de pods de 3/4/5, empates y victorias por terceros.
-- Entrada directa desde web: GitHub Pages no tiene backend; opciones futuras incluyen Firebase, Supabase, Airtable, Google Forms/Sheets o issues de GitHub.
-- Validacion previa al submit: autocompletar jugadores/decks y avisar aliases nuevos antes de generar el markdown de issue.
-- Sincronizacion mejorada con Moxfield: refrescar nombres, commander, colores, tags y fecha de ultima actualizacion.
-- Tags manuales de decks: power level, arquetipo, precon/modificado, tribu, combo, control, casual, etc.
-- Comparacion por arquetipos: solo viable si `deck_catalog.csv` incluye tags consistentes.
-
-## Principios para implementar
+## Principios
 
 - `data/games.json` sigue siendo la fuente principal.
-- `data/deck_catalog.csv` se usa para enriquecer nombres oficiales, commanders, propietarios y links.
+- `data/deck_catalog.csv` enriquece nombres oficiales, commanders, propietarios, links y metadata manual.
 - `null`, texto vacio y campos ausentes significan `No registrado`, nunca `false` ni `0`.
 - Toda estadistica incompleta debe mostrar cobertura o tamano de muestra.
 - La app debe funcionar con rutas relativas en GitHub Pages.

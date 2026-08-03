@@ -81,6 +81,18 @@ def validate_core(dataset: dict) -> list[str]:
             add(errors, f"{gid}: empate con ganador")
         if is_known(game.get("starting_player")) and game["starting_player"] not in player_set:
             add(errors, f"{gid}: jugador inicial no participa")
+        turn_order = game.get("turn_order")
+        if turn_order is not None:
+            if not isinstance(turn_order, list):
+                add(errors, f"{gid}: turn_order debe ser lista o null")
+            else:
+                clean_turn_order = [player for player in turn_order if is_known(player)]
+                if clean_turn_order != turn_order:
+                    add(errors, f"{gid}: turn_order no debe contener valores vacios")
+                if len(clean_turn_order) != len(player_set) or set(clean_turn_order) != player_set:
+                    add(errors, f"{gid}: turn_order debe incluir exactamente los participantes")
+                if len(clean_turn_order) != len(set(clean_turn_order)):
+                    add(errors, f"{gid}: turn_order contiene jugadores duplicados")
         if game.get("duration_minutes") is not None and game["duration_minutes"] < 0:
             add(errors, f"{gid}: duración negativa")
 

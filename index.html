@@ -113,6 +113,7 @@
           <div class="tab-list" role="tablist" aria-label="Secciones de estadisticas">
             <button id="tab-button-summary" class="tab-button is-active" type="button" role="tab" aria-selected="true" aria-controls="tab-summary" data-tab-target="summary">Resumen</button>
             <button id="tab-button-charts" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-charts" data-tab-target="charts" tabindex="-1">Graficos</button>
+            <button id="tab-button-reports" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-reports" data-tab-target="reports" tabindex="-1">Reportes</button>
             <button id="tab-button-matchups" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-matchups" data-tab-target="matchups" tabindex="-1">Matchups</button>
             <button id="tab-button-profiles" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-profiles" data-tab-target="profiles" tabindex="-1">Perfiles</button>
             <button id="tab-button-players" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-players" data-tab-target="players" tabindex="-1">Jugadores/Decks</button>
@@ -221,6 +222,225 @@
         </div>
       </section>
 
+        </div>
+        <div id="tab-reports" class="tab-panel" role="tabpanel" aria-labelledby="tab-button-reports" data-tab-panel="reports" hidden>
+      <section class="section-shell" aria-labelledby="reportsTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Reportes</p>
+            <h2 id="reportsTitle">Meta, progreso y curiosidades</h2>
+          </div>
+          <div class="control-cluster">
+            <label class="inline-control inline-control--select">
+              <span>Periodo</span>
+              <select id="reportPeriod" aria-label="Periodo para reportes"></select>
+            </label>
+            <button id="copyDiscordSummary" class="button button--secondary" type="button">Copiar resumen</button>
+            <span id="copyDiscordStatus" class="chart-meta" aria-live="polite"></span>
+          </div>
+        </div>
+        <div id="reportSummary" class="mini-kpi-grid mini-kpi-grid--six" aria-live="polite"></div>
+
+        <div class="chart-grid">
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Ranking del periodo</h3>
+              <span id="periodRankingMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="periodRankingChart" aria-label="Ranking del periodo por jugador"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Rating experimental</h3>
+              <span id="eloMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="eloChart" aria-label="Rating experimental por jugador"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Winrate por posicion de turno</h3>
+              <span id="turnOrderMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="turnOrderChart" aria-label="Tasa de victoria por posicion de turno registrada o inferida"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Duracion de partidas por jugador</h3>
+              <span id="durationLeadersMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="durationLeadersChart" aria-label="Duracion promedio de partidas donde participo cada jugador"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Presencia de decks</h3>
+              <span id="metaDeckShareMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="metaDeckShareChart" aria-label="Decks con mas apariciones"></canvas>
+          </article>
+
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Formas por deck</h3>
+              <span id="deckConditionMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="deckConditionChart" aria-label="Condiciones de victoria por deck"></canvas>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="rankingReportsTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Periodo</p>
+            <h2 id="rankingReportsTitle">Ranking y forma</h2>
+          </div>
+        </div>
+        <div class="profile-grid">
+          <div class="profile-table-block">
+            <h3>Jugadores del periodo</h3>
+            <div id="reportPeriodPlayers" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block">
+            <h3>Decks del periodo</h3>
+            <div id="reportPeriodDecks" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block">
+            <h3>Forma reciente</h3>
+            <div id="reportRecentForm" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block">
+            <h3>Rachas</h3>
+            <div id="reportStreaks" class="table-shell"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="metaReportsTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Meta</p>
+            <h2 id="metaReportsTitle">Decks, arquetipos y mesa</h2>
+          </div>
+        </div>
+        <div class="profile-grid">
+          <div class="profile-table-block">
+            <h3>Decks mas presentes</h3>
+            <div id="metaTopDecks" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block">
+            <h3>Decks emergentes</h3>
+            <div id="metaEmergingDecks" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block">
+            <h3>Arquetipos</h3>
+            <div id="metaArchetypes" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block">
+            <h3>Tags</h3>
+            <div id="metaTags" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block profile-table-block--wide">
+            <h3>Tamano de mesa</h3>
+            <div id="metaPodSizes" class="table-shell"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="turnReportsTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Turnos</p>
+            <h2 id="turnReportsTitle">Posicion de turno registrada/inferida</h2>
+          </div>
+          <p class="section-note">Mide winrate por posicion de turno. En virtual se infiere por la regla fija del grupo; en presencial solo cuenta como real si se registro turn_order.</p>
+        </div>
+        <div id="turnOrderSummary" class="mini-kpi-grid" aria-live="polite"></div>
+        <div class="profile-grid">
+          <div class="profile-table-block">
+            <h3>Winrate por posicion</h3>
+            <div id="turnOrderTable" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block">
+            <h3>Jugador y posicion promedio</h3>
+            <div id="turnOrderPlayerTable" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block profile-table-block--wide">
+            <h3>Seat order como proxy</h3>
+            <div id="seatOrderTable" class="table-shell"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="durationReportsTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Duracion</p>
+            <h2 id="durationReportsTitle">Duracion de partidas donde aparecen</h2>
+          </div>
+        </div>
+        <div id="durationSummary" class="mini-kpi-grid" aria-live="polite"></div>
+        <div class="profile-grid">
+          <div class="profile-table-block">
+            <h3>Partidas donde participo el jugador</h3>
+            <div id="durationByPlayerTable" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block">
+            <h3>Partidas donde aparecio el deck</h3>
+            <div id="durationByDeckTable" class="table-shell"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="deckEventReportsTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Decks</p>
+            <h2 id="deckEventReportsTitle">Formas de ganar y eliminaciones</h2>
+          </div>
+        </div>
+        <div class="profile-grid">
+          <div class="profile-table-block">
+            <h3>Condiciones de victoria</h3>
+            <div id="deckEventWinConditions" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block">
+            <h3>Eliminaciones hechas</h3>
+            <div id="deckEventKills" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block profile-table-block--wide">
+            <h3>Decks eliminados</h3>
+            <div id="deckEventDeaths" class="table-shell"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="timelineReportsTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Cronologia</p>
+            <h2 id="timelineReportsTitle">Timeline, premios y resumen</h2>
+          </div>
+        </div>
+        <div id="funFactsGrid" class="badge-grid" aria-live="polite"></div>
+        <div class="profile-grid table-shell--spaced">
+          <div class="profile-table-block">
+            <h3>Achievements mensuales</h3>
+            <div id="monthlyAwardsTable" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block">
+            <h3>Resumen para compartir</h3>
+            <textarea id="discordSummaryText" class="report-textarea" readonly aria-label="Resumen para compartir"></textarea>
+          </div>
+          <div class="profile-table-block profile-table-block--wide">
+            <h3>Ultimas partidas</h3>
+            <div id="timelineTable" class="table-shell"></div>
+          </div>
+        </div>
+      </section>
         </div>
         <div id="tab-matchups" class="tab-panel" role="tabpanel" aria-labelledby="tab-button-matchups" data-tab-panel="matchups" hidden>
       <section class="section-shell" aria-labelledby="matchupsTitle">

@@ -11,6 +11,7 @@ The current app provides:
 - Chart.js visualizations;
 - player and deck statistics;
 - deck matchup analysis;
+- advanced reports for periods, recent form, streaks, meta, turn order, duration, Elo, monthly awards and timeline;
 - elimination and win-condition analysis;
 - match history with expandable details;
 - filtered CSV export.
@@ -29,6 +30,8 @@ It contains:
 - `games[]`;
 - `participants[]` inside each game;
 - `events[]` inside each game.
+
+Optional game-level `turn_order` stores explicit real turn order when the issue form provides it. If absent, the website only infers turn order for virtual games using the group rule `Jairo > Andres > Chepe`, or `Jairo > Andres > Cris > Chepe` when Cris participates. In-person `seat_order` remains a textual/proxy order, not guaranteed real turn order.
 
 Participants store the pilot of that match. Deck identity is stored separately through `deck_id` and `deck_owner`, so a borrowed deck can remain one canonical deck across several pilots. Decks with the same display name but different real versions must keep different IDs.
 
@@ -89,6 +92,8 @@ The Issue Form intentionally supports `Otro jugador`, custom win conditions, cus
 
 Deck resolution first tries the exact pilot/deck catalog row. If that is missing but the deck name maps to exactly one canonical `deck_id`, the importer treats it as a likely borrowed deck and marks the game for review. Ambiguous names, such as decks with multiple real versions, should be reviewed manually.
 
+Deck catalog supports optional manual metadata: `archetype`, `power_level`, `tags` and `colors`. `tags` and `colors` are JSON arrays in `data/deck_catalog.csv` and are preserved by rebuilds and deck review apply.
+
 Deck catalog enrichment can be run locally with:
 
 ```bash
@@ -97,7 +102,7 @@ python scripts/rebuild_exports.py
 python scripts/validate_data.py
 ```
 
-It reads `moxfield_url` and fills empty `official_name` / `commander_name`. It uses unofficial Moxfield endpoints plus an HTML-title fallback, so failures should be handled as recoverable unless `--strict` is used.
+It reads `moxfield_url` and fills empty `official_name`, `commander_name` and `colors`; it also preserves `tags`/`power_level` if Moxfield exposes clear values. It uses unofficial Moxfield endpoints plus an HTML-title fallback, so failures should be handled as recoverable unless `--strict` is used.
 
 Manual deck cleanup should go through:
 
@@ -133,6 +138,8 @@ Do not calculate percentages over all games for sparse metadata unless the cover
 4. Submit a fake test issue and verify that the Action opens a PR.
 5. Review the generated PR, merge it if valid, then delete the fake match through a cleanup PR or test on a temporary branch/repo first.
 6. Add aliases to `data/player_aliases.csv` and `data/deck_catalog.csv` as new spelling variants appear.
+7. Fill deck catalog tags/archetypes/power manually when the group wants richer meta reports; colors can usually be refreshed from Moxfield links.
+8. Leave direct web entry with backend for a later phase.
 
 ## Local Commands
 

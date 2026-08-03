@@ -26,6 +26,7 @@ GAME_FIELDS = [
     "winner_player",
     "winner_raw",
     "starting_player",
+    "turn_order",
     "start_time",
     "end_time",
     "duration_minutes",
@@ -80,6 +81,10 @@ DECK_CATALOG_FIELDS = [
     "moxfield_url",
     "archidekt_url",
     "edhrec_url",
+    "archetype",
+    "power_level",
+    "tags",
+    "colors",
     "first_played",
     "last_played",
     "games_played",
@@ -229,6 +234,8 @@ def csv_cell(value: Any) -> Any:
         return ""
     if isinstance(value, bool):
         return "true" if value else "false"
+    if isinstance(value, (list, dict)):
+        return json.dumps(value, ensure_ascii=False)
     return value
 
 
@@ -245,6 +252,14 @@ def parse_json_list(value: str) -> list[str]:
 def json_list(values: list[str]) -> str:
     clean = sorted({value for value in values if is_known(value)}, key=lambda value: (normalize_text(value), value))
     return json.dumps(clean, ensure_ascii=False)
+
+
+def json_color_list(values: list[str]) -> str:
+    order = {color: index for index, color in enumerate(("W", "U", "B", "R", "G"))}
+    clean = {str(value).strip().upper() for value in values if is_known(value)}
+    sorted_colors = [color for color in ("W", "U", "B", "R", "G") if color in clean]
+    extra = sorted((color for color in clean if color not in order), key=lambda value: (normalize_text(value), value))
+    return json.dumps(sorted_colors + extra, ensure_ascii=False)
 
 
 def read_player_aliases(path: Path = DATA_DIR / "player_aliases.csv") -> dict[str, str]:
@@ -282,11 +297,17 @@ def read_deck_catalog(path: Path = DATA_DIR / "deck_catalog.csv") -> list[dict[s
                 "moxfield_url": row.get("moxfield_url", "").strip(),
                 "archidekt_url": row.get("archidekt_url", "").strip(),
                 "edhrec_url": row.get("edhrec_url", "").strip(),
+                "archetype": row.get("archetype", "").strip(),
+                "power_level": row.get("power_level", "").strip(),
+                "tags": row.get("tags", "").strip(),
+                "colors": row.get("colors", "").strip(),
                 "games_played": int(row.get("games_played") or 0),
                 "wins": int(row.get("wins") or 0),
                 "win_rate": float(row.get("win_rate") or 0),
                 "aliases_list": parse_json_list(row.get("aliases", "")),
                 "variants_list": parse_json_list(row.get("variants", "")),
+                "tags_list": parse_json_list(row.get("tags", "")),
+                "colors_list": parse_json_list(row.get("colors", "")),
             }
         )
     return rows
@@ -601,6 +622,10 @@ def generate_exports(dataset: dict[str, Any], current_catalog: list[dict[str, An
                     "moxfield_url": current.get("moxfield_url") or participant.get("moxfield_url", ""),
                     "archidekt_url": current.get("archidekt_url", ""),
                     "edhrec_url": current.get("edhrec_url", ""),
+                    "archetype": current.get("archetype", ""),
+                    "power_level": current.get("power_level", ""),
+                    "tags": list(current.get("tags_list", [])),
+                    "colors": list(current.get("colors_list", [])),
                     "first_played": game["date"],
                     "last_played": game["date"],
                     "games_played": 0,
@@ -630,6 +655,8 @@ def generate_exports(dataset: dict[str, Any], current_catalog: list[dict[str, An
                 **stat,
                 "aliases": json_list(stat["aliases"]),
                 "variants": json_list(stat["variants"]),
+                "tags": json_list(stat["tags"]),
+                "colors": json_color_list(stat["colors"]),
                 "win_rate": round(stat["wins"] / games_played, 4) if games_played else 0,
             }
         )

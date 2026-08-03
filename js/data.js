@@ -50,11 +50,17 @@ function normalizeCatalogRow(row) {
     moxfield_url: row.moxfield_url || "",
     archidekt_url: row.archidekt_url || "",
     edhrec_url: row.edhrec_url || "",
+    archetype: row.archetype || "",
+    power_level: row.power_level || "",
+    tags: row.tags || "",
+    colors: row.colors || "",
     games_played: Number(row.games_played) || 0,
     wins: Number(row.wins) || 0,
     win_rate: Number(row.win_rate) || 0,
     aliases_list: parseJsonArray(row.aliases),
     variants_list: parseJsonArray(row.variants),
+    tags_list: parseJsonArray(row.tags),
+    colors_list: parseJsonArray(row.colors),
   };
 }
 
@@ -78,6 +84,12 @@ function mergeParticipantCatalog(participant, catalogMap, identityMap) {
         moxfield_url: catalogEntry.moxfield_url || identityEntry?.moxfield_url || "",
         archidekt_url: catalogEntry.archidekt_url || identityEntry?.archidekt_url || "",
         edhrec_url: catalogEntry.edhrec_url || identityEntry?.edhrec_url || "",
+        archetype: catalogEntry.archetype || identityEntry?.archetype || "",
+        power_level: catalogEntry.power_level || identityEntry?.power_level || "",
+        tags: catalogEntry.tags || identityEntry?.tags || "",
+        colors: catalogEntry.colors || identityEntry?.colors || "",
+        tags_list: catalogEntry.tags_list?.length ? catalogEntry.tags_list : (identityEntry?.tags_list ?? []),
+        colors_list: catalogEntry.colors_list?.length ? catalogEntry.colors_list : (identityEntry?.colors_list ?? []),
       }
     : identityEntry ?? null;
   const commanderName = isKnown(mergedCatalog?.commander_name)

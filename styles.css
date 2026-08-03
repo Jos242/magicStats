@@ -275,6 +275,14 @@ main {
   margin: 1.2rem 0 0.85rem;
 }
 
+.subsection-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
 .mini-kpi-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -631,7 +639,8 @@ tbody tr:hover {
   }
 
   .control-cluster,
-  .matchup-controls {
+  .matchup-controls,
+  .subsection-controls {
     align-items: stretch;
     flex-direction: column;
     width: 100%;

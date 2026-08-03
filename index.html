@@ -259,10 +259,20 @@
             <p class="eyebrow">Decks por jugador</p>
             <h3>Decks usados en el subconjunto filtrado</h3>
           </div>
-          <label class="inline-control inline-control--select">
-            <span>Jugador analizado</span>
-            <select id="playerDeckPlayer" aria-label="Jugador para desglose de decks"></select>
-          </label>
+          <div class="subsection-controls">
+            <label class="inline-control inline-control--select">
+              <span>Jugador analizado</span>
+              <select id="playerDeckPlayer" aria-label="Jugador para desglose de decks"></select>
+            </label>
+            <label class="inline-control inline-control--select">
+              <span>Ubicacion</span>
+              <select id="playerDeckLocation" aria-label="Ubicacion para desglose de decks por jugador">
+                <option value="">Todas</option>
+                <option value="in_person">Presencial</option>
+                <option value="virtual">Virtual</option>
+              </select>
+            </label>
+          </div>
         </div>
         <div id="playerDeckSummary" class="mini-kpi-grid" aria-live="polite"></div>
         <div id="playerDeckTable" class="table-shell table-shell--spaced"></div>

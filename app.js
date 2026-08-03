@@ -31,6 +31,7 @@ const elements = {
   matchupRivalDeck: document.getElementById("matchupRivalDeck"),
   matchupMinGames: document.getElementById("matchupMinGames"),
   playerDeckPlayer: document.getElementById("playerDeckPlayer"),
+  playerDeckLocation: document.getElementById("playerDeckLocation"),
   dialog: document.getElementById("gameDialog"),
   closeDialog: document.getElementById("closeDialog"),
 };
@@ -98,6 +99,12 @@ function populateMatchupControls(deckIdentityRows) {
 }
 
 
+
+function filterPlayerDeckGames(games) {
+  const location = elements.playerDeckLocation.value;
+  return isKnown(location) ? games.filter((game) => game.location === location) : games;
+}
+
 function syncPlayerDeckControl(playerStats, preferredPlayer = "") {
   const previousValue = elements.playerDeckPlayer.value;
   const players = playerStats.map((player) => player.player);
@@ -131,8 +138,10 @@ function render() {
   const filteredGames = applyFilters(dataset.games, filters);
   const stats = calculateStats(filteredGames);
   const deckMinimum = readDeckMinimum();
-  const selectedPlayerForDecks = syncPlayerDeckControl(stats.playerStats, filters.participant);
-  const playerDeckStats = calculatePlayerDeckStats(filteredGames, selectedPlayerForDecks);
+  const playerDeckGames = filterPlayerDeckGames(filteredGames);
+  const playerDeckControlStats = calculateStats(playerDeckGames);
+  const selectedPlayerForDecks = syncPlayerDeckControl(playerDeckControlStats.playerStats, filters.participant);
+  const playerDeckStats = calculatePlayerDeckStats(playerDeckGames, selectedPlayerForDecks);
   const matchupStats = calculateMatchupStats(filteredGames, {
     subjectKey: elements.matchupSubjectDeck.value,
     rivalKey: elements.matchupRivalDeck.value,
@@ -193,6 +202,7 @@ function attachEvents() {
   elements.matchupMinGames.addEventListener("input", scheduleRender);
   elements.matchupMinGames.addEventListener("change", scheduleRender);
   elements.playerDeckPlayer.addEventListener("change", scheduleRender);
+  elements.playerDeckLocation.addEventListener("change", scheduleRender);
   elements.clearFilters.addEventListener("click", () => {
     resetFilterControls(elements.form);
     scheduleRender();

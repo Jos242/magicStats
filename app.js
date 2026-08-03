@@ -2,7 +2,7 @@ import { renderCharts, renderMatchupCharts } from "./js/charts.js";
 import { collectDataWarnings, loadDataset } from "./js/data.js";
 import { buildFilteredCsv } from "./js/export.js";
 import { applyFilters, countActiveFilters, populateFilterControls, readFilterState, resetFilterControls } from "./js/filters.js";
-import { calculateMatchupStats, calculateStats } from "./js/stats.js";
+import { calculateMatchupStats, calculatePlayerDeckStats, calculateStats } from "./js/stats.js";
 import {
   renderCoverage,
   renderDeckTable,
@@ -10,6 +10,7 @@ import {
   renderGameTable,
   renderKillPairsTable,
   renderMatchupTable,
+  renderPlayerDeckBreakdown,
   renderPlayerTable,
   renderQualityPanel,
   renderReviewList,
@@ -29,6 +30,7 @@ const elements = {
   matchupSubjectDeck: document.getElementById("matchupSubjectDeck"),
   matchupRivalDeck: document.getElementById("matchupRivalDeck"),
   matchupMinGames: document.getElementById("matchupMinGames"),
+  playerDeckPlayer: document.getElementById("playerDeckPlayer"),
   dialog: document.getElementById("gameDialog"),
   closeDialog: document.getElementById("closeDialog"),
 };
@@ -95,6 +97,33 @@ function populateMatchupControls(deckIdentityRows) {
   }
 }
 
+
+function syncPlayerDeckControl(playerStats, preferredPlayer = "") {
+  const previousValue = elements.playerDeckPlayer.value;
+  const players = playerStats.map((player) => player.player);
+
+  elements.playerDeckPlayer.replaceChildren();
+
+  if (players.length === 0) {
+    elements.playerDeckPlayer.disabled = true;
+    elements.playerDeckPlayer.append(new Option("Sin jugadores", ""));
+    return "";
+  }
+
+  elements.playerDeckPlayer.disabled = false;
+  for (const player of playerStats) {
+    elements.playerDeckPlayer.append(new Option(`${player.player} (${player.participations})`, player.player));
+  }
+
+  const nextValue = players.includes(previousValue)
+    ? previousValue
+    : players.includes(preferredPlayer)
+      ? preferredPlayer
+      : players[0];
+  elements.playerDeckPlayer.value = nextValue;
+  return nextValue;
+}
+
 function render() {
   if (!dataset) return;
 
@@ -102,6 +131,8 @@ function render() {
   const filteredGames = applyFilters(dataset.games, filters);
   const stats = calculateStats(filteredGames);
   const deckMinimum = readDeckMinimum();
+  const selectedPlayerForDecks = syncPlayerDeckControl(stats.playerStats, filters.participant);
+  const playerDeckStats = calculatePlayerDeckStats(filteredGames, selectedPlayerForDecks);
   const matchupStats = calculateMatchupStats(filteredGames, {
     subjectKey: elements.matchupSubjectDeck.value,
     rivalKey: elements.matchupRivalDeck.value,
@@ -114,6 +145,7 @@ function render() {
   renderSummary(stats);
   renderCoverage(stats);
   renderPlayerTable(stats.playerStats);
+  renderPlayerDeckBreakdown(playerDeckStats);
   renderDeckTable(stats.deckStats, deckMinimum);
   renderGameTable(filteredGames, openGameDetail);
   renderQualityPanel(stats);
@@ -160,6 +192,7 @@ function attachEvents() {
   elements.matchupRivalDeck.addEventListener("change", scheduleRender);
   elements.matchupMinGames.addEventListener("input", scheduleRender);
   elements.matchupMinGames.addEventListener("change", scheduleRender);
+  elements.playerDeckPlayer.addEventListener("change", scheduleRender);
   elements.clearFilters.addEventListener("click", () => {
     resetFilterControls(elements.form);
     scheduleRender();

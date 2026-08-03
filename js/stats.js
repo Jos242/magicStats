@@ -193,6 +193,115 @@ function buildDeckStats(games) {
     });
 }
 
+
+function createPlayerDeckRecord(game, participant) {
+  const catalog = participant.deck_catalog;
+  const displayName = deckNameForParticipant(participant);
+  const ownerPlayer = deckOwnerForParticipant(participant);
+  return {
+    key: deckIdForParticipant(participant),
+    deckId: deckIdForParticipant(participant),
+    displayName,
+    officialName: catalog?.official_name || "",
+    commanderName: participant.commander_name || "",
+    ownerPlayer,
+    appearances: 0,
+    wins: 0,
+    draws: 0,
+    inPerson: 0,
+    virtual: 0,
+    firstDate: game.date,
+    lastDate: game.date,
+    variants: new Set(catalog?.variants_list ?? []),
+    aliases: new Set(catalog?.aliases_list ?? []),
+    moxfieldUrl: catalog?.moxfield_url || "",
+    archidektUrl: catalog?.archidekt_url || "",
+    edhrecUrl: catalog?.edhrec_url || "",
+  };
+}
+
+export function calculatePlayerDeckStats(games, player) {
+  const playerGames = games.filter((game) => game.participants.some((participant) => participant.player === player));
+  const decks = new Map();
+
+  if (!isKnown(player)) {
+    return {
+      player: "",
+      totalGames: 0,
+      deckGames: 0,
+      wins: 0,
+      winRate: null,
+      deckCount: 0,
+      mostPlayed: null,
+      bestWinRate: null,
+      rows: [],
+    };
+  }
+
+  for (const game of playerGames) {
+    const participant = game.participants.find((candidate) => candidate.player === player);
+    if (!participant || !isKnown(participant.deck_name_normalized)) continue;
+
+    const key = deckIdForParticipant(participant);
+    if (!decks.has(key)) decks.set(key, createPlayerDeckRecord(game, participant));
+
+    const record = decks.get(key);
+    record.appearances += 1;
+    record.firstDate = record.firstDate < game.date ? record.firstDate : game.date;
+    record.lastDate = record.lastDate > game.date ? record.lastDate : game.date;
+    if (game.location === "in_person") record.inPerson += 1;
+    if (game.location === "virtual") record.virtual += 1;
+    if (game.result_type === "draw") record.draws += 1;
+    if (isKnown(participant.deck_variant)) record.variants.add(participant.deck_variant);
+    if (isKnown(participant.deck_name_raw)) record.aliases.add(participant.deck_name_raw);
+    if (!isKnown(record.commanderName) && isKnown(participant.commander_name)) {
+      record.commanderName = participant.commander_name;
+    }
+
+    if (game.result_type === "win" && game.winner_player === player) {
+      record.wins += 1;
+    }
+  }
+
+  const rows = [...decks.values()]
+    .map((record) => ({
+      ...record,
+      variants: uniqueSorted([...record.variants]),
+      aliases: uniqueSorted([...record.aliases]),
+      winRate: safeRatio(record.wins, record.appearances) ?? 0,
+    }))
+    .sort((a, b) => {
+      const appearancesDifference = b.appearances - a.appearances;
+      if (appearancesDifference !== 0) return appearancesDifference;
+      const rateDifference = b.winRate - a.winRate;
+      if (rateDifference !== 0) return rateDifference;
+      return a.displayName.localeCompare(b.displayName, "es", { sensitivity: "base" });
+    });
+
+  const deckGames = rows.reduce((total, row) => total + row.appearances, 0);
+  const wins = rows.reduce((total, row) => total + row.wins, 0);
+  const mostPlayed = rows[0] ?? null;
+  const bestWinRate = [...rows].sort((a, b) => {
+    const rateDifference = b.winRate - a.winRate;
+    if (rateDifference !== 0) return rateDifference;
+    const winsDifference = b.wins - a.wins;
+    if (winsDifference !== 0) return winsDifference;
+    return b.appearances - a.appearances;
+  })[0] ?? null;
+
+  return {
+    player,
+    totalGames: playerGames.length,
+    deckGames,
+    wins,
+    winRate: safeRatio(wins, deckGames),
+    deckCount: rows.length,
+    mostPlayed,
+    bestWinRate,
+    rows,
+  };
+}
+
 function buildGamesByMonth(games) {
   const grouped = groupBy(games, (game) => String(game.date).slice(0, 7));
   return [...grouped.entries()]

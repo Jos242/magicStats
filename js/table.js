@@ -208,6 +208,88 @@ export function renderPlayerTable(playerStats) {
   );
 }
 
+
+function playerDeckDisplayName(deck) {
+  return deck?.officialName || deck?.displayName || UNKNOWN_LABEL;
+}
+
+function playerDeckSummaryText(deck) {
+  if (!deck) return UNKNOWN_LABEL;
+  return `${playerDeckDisplayName(deck)} (${formatPercent(deck.winRate)}, n=${deck.appearances})`;
+}
+
+export function renderPlayerDeckBreakdown(playerDeckStats) {
+  const summaryContainer = document.getElementById("playerDeckSummary");
+  const tableContainer = document.getElementById("playerDeckTable");
+  removeChildren(summaryContainer);
+
+  if (!playerDeckStats.player) {
+    renderEmpty(tableContainer, "Selecciona un jugador para ver sus decks.");
+    return;
+  }
+
+  summaryContainer.append(
+    makeKpi(
+      "Partidas del jugador",
+      formatNumber(playerDeckStats.totalGames),
+      `${playerDeckStats.deckGames}/${playerDeckStats.totalGames} con deck registrado`,
+    ),
+    makeKpi("Decks usados", formatNumber(playerDeckStats.deckCount), "Identidades canonicas distintas"),
+    makeKpi(
+      "Winrate",
+      playerDeckStats.winRate === null ? UNKNOWN_LABEL : formatPercent(playerDeckStats.winRate),
+      `Victorias con deck registrado: ${playerDeckStats.wins}/${playerDeckStats.deckGames}`,
+    ),
+    makeKpi("Mas jugado", playerDeckSummaryText(playerDeckStats.mostPlayed), "Ordenado por apariciones"),
+    makeKpi("Mejor tasa", playerDeckSummaryText(playerDeckStats.bestWinRate), "Desempata por victorias y muestra"),
+  );
+
+  if (playerDeckStats.rows.length === 0) {
+    renderEmpty(tableContainer, `${playerDeckStats.player} no tiene decks registrados en el subconjunto filtrado.`);
+    return;
+  }
+
+  removeChildren(tableContainer);
+  const rows = playerDeckStats.rows.map((deck) => {
+    const row = createElement("tr");
+    row.append(
+      createElement("td", { text: playerDeckDisplayName(deck) }),
+      createElement("td", { text: displayValue(deck.ownerPlayer) }),
+      createElement("td", { text: isKnown(deck.commanderName) ? deck.commanderName : "Comandante pendiente" }),
+      createElement("td", { text: String(deck.appearances) }),
+      createElement("td", { text: String(deck.wins) }),
+      createElement("td", { text: `${formatPercent(deck.winRate)} (n=${deck.appearances})` }),
+      createElement("td", { text: `${deck.inPerson} presencial / ${deck.virtual} virtual` }),
+      createElement("td", { text: String(deck.draws) }),
+      createElement("td", { text: `${deck.firstDate} a ${deck.lastDate}` }),
+      createElement("td", {}, deckLinks(deck)),
+      createElement("td", {}, tagList(deck.variants, "Sin variantes")),
+      createElement("td", {}, tagList(deck.aliases, "Sin aliases")),
+    );
+    return row;
+  });
+
+  tableContainer.append(
+    createTable(
+      [
+        "Deck",
+        "Dueno",
+        "Comandante",
+        "Partidas",
+        "Victorias",
+        "Tasa",
+        "Ubicacion",
+        "Empates",
+        "Fechas",
+        "Links",
+        "Variantes",
+        "Aliases",
+      ],
+      rows,
+    ),
+  );
+}
+
 export function renderDeckTable(deckStats, minAppearances = 1) {
   const container = document.getElementById("decksTable");
   const visibleDeckStats = deckStats.filter((deck) => deck.appearances >= minAppearances);

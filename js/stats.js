@@ -655,3 +655,754 @@ export function calculateMatchupStats(games, options = {}) {
     direct,
   };
 }
+
+function compareGamesByDateAsc(a, b) {
+  const dateComparison = String(a.date ?? "").localeCompare(String(b.date ?? ""));
+  if (dateComparison !== 0) return dateComparison;
+  return String(a.game_id ?? "").localeCompare(String(b.game_id ?? ""));
+}
+
+function compareGamesByDateDesc(a, b) {
+  return -compareGamesByDateAsc(a, b);
+}
+
+function participantForPlayer(game, player) {
+  return game.participants.find((participant) => participant.player === player) ?? null;
+}
+
+function participantForDeck(game, deckKey) {
+  return (
+    game.participants.find(
+      (participant) => isKnown(participant.deck_name_normalized) && deckIdForParticipant(participant) === deckKey,
+    ) ?? null
+  );
+}
+
+function resultForPlayer(game, player) {
+  if (game.result_type === "draw") return "draw";
+  if (game.result_type === "win" && game.winner_player === player) return "win";
+  if (game.result_type === "win" && isKnown(game.winner_player)) return "not_win";
+  return "unknown";
+}
+
+function gameOutcomeCounts(games, player) {
+  const counts = { wins: 0, draws: 0, notWins: 0, unknown: 0 };
+  for (const game of games) {
+    const result = resultForPlayer(game, player);
+    if (result === "win") counts.wins += 1;
+    else if (result === "draw") counts.draws += 1;
+    else if (result === "not_win") counts.notWins += 1;
+    else counts.unknown += 1;
+  }
+  return counts;
+}
+
+function buildStreaks(games, player) {
+  let currentType = "";
+  let currentCount = 0;
+  let longestWin = 0;
+  let longestNotWin = 0;
+
+  for (const game of [...games].sort(compareGamesByDateAsc)) {
+    const result = resultForPlayer(game, player);
+    const streakType = result === "win" ? "win" : result === "not_win" ? "not_win" : result;
+    if (streakType === currentType) {
+      currentCount += 1;
+    } else {
+      currentType = streakType;
+      currentCount = 1;
+    }
+
+    if (streakType === "win") longestWin = Math.max(longestWin, currentCount);
+    if (streakType === "not_win") longestNotWin = Math.max(longestNotWin, currentCount);
+  }
+
+  return {
+    currentType,
+    currentCount: games.length > 0 ? currentCount : 0,
+    longestWin,
+    longestNotWin,
+  };
+}
+
+function ensureNamedCountRecord(map, key, defaults = {}) {
+  if (!map.has(key)) {
+    map.set(key, { key, count: 0, ...defaults });
+  }
+  return map.get(key);
+}
+
+function mapEntriesByCount(map) {
+  return [...map.values()].sort((a, b) => {
+    const countDifference = (b.count ?? 0) - (a.count ?? 0);
+    if (countDifference !== 0) return countDifference;
+    return String(a.label ?? a.key ?? "").localeCompare(String(b.label ?? b.key ?? ""), "es", { sensitivity: "base" });
+  });
+}
+
+function eventBelongsToPlayer(game, event, player, eventType) {
+  if (event.event_type !== eventType || event.actor !== player) return false;
+  return Boolean(participantForPlayer(game, player));
+}
+
+function countSpecialEventsForPlayer(games, player, eventType, legacyField, legacyPlayerField) {
+  let count = 0;
+  for (const game of games) {
+    const explicitEvents = game.events.filter((event) => eventBelongsToPlayer(game, event, player, eventType));
+    if (explicitEvents.length > 0) {
+      count += explicitEvents.length;
+    } else if (game[legacyField] === true && game[legacyPlayerField] === player) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
+function buildRecentRows(games, getSubjectParticipant, subjectPlayer = "") {
+  return [...games]
+    .sort(compareGamesByDateDesc)
+    .slice(0, 10)
+    .map((game) => {
+      const participant = getSubjectParticipant(game);
+      const player = subjectPlayer || participant?.player || "";
+      return {
+        gameId: game.game_id,
+        date: game.date,
+        location: game.location,
+        deckLabel: participant ? deckLabelForParticipant(participant) : "",
+        result: isKnown(player) ? resultForPlayer(game, player) : "unknown",
+        winner: game.winner_player,
+        winCondition: game.win_condition_category,
+      };
+    });
+}
+
+function buildRecentTrend(games, player) {
+  let wins = 0;
+  return [...games]
+    .sort(compareGamesByDateDesc)
+    .slice(0, 12)
+    .reverse()
+    .map((game, index) => {
+      if (resultForPlayer(game, player) === "win") wins += 1;
+      return {
+        label: `${game.date} ${game.game_id}`,
+        wins,
+        games: index + 1,
+        winRate: safeRatio(wins, index + 1) ?? 0,
+        result: resultForPlayer(game, player),
+      };
+    });
+}
+
+function playerDeckLabel(participant) {
+  return participant ? deckLabelForParticipant(participant) : "";
+}
+
+export function calculatePlayerProfile(games, player) {
+  if (!isKnown(player)) {
+    return {
+      player: "",
+      games: [],
+      totalGames: 0,
+      wins: 0,
+      draws: 0,
+      notWins: 0,
+      winRate: null,
+      averageDuration: null,
+      durationSample: 0,
+      deckRows: [],
+      rivalRows: [],
+      killedRows: [],
+      killedByRows: [],
+      nukeCount: 0,
+      solRingCount: 0,
+      streaks: buildStreaks([], player),
+      recentRows: [],
+      recentTrend: [],
+    };
+  }
+
+  const playerGames = games.filter((game) => participantForPlayer(game, player));
+  const outcomes = gameOutcomeCounts(playerGames, player);
+  const durations = [];
+  const deckMap = new Map();
+  const rivals = new Map();
+  const killed = new Map();
+  const killedBy = new Map();
+
+  for (const game of playerGames) {
+    if (isKnown(game.duration_minutes)) durations.push(Number(game.duration_minutes));
+
+    const participant = participantForPlayer(game, player);
+    if (participant && isKnown(participant.deck_name_normalized)) {
+      const deckKey = deckIdForParticipant(participant);
+      const deckRecord = ensureNamedCountRecord(deckMap, deckKey, {
+        deckKey,
+        label: deckLabelForParticipant(participant),
+        wins: 0,
+        draws: 0,
+        firstDate: game.date,
+        lastDate: game.date,
+      });
+      deckRecord.count += 1;
+      deckRecord.firstDate = deckRecord.firstDate < game.date ? deckRecord.firstDate : game.date;
+      deckRecord.lastDate = deckRecord.lastDate > game.date ? deckRecord.lastDate : game.date;
+      if (game.result_type === "draw") deckRecord.draws += 1;
+      if (game.result_type === "win" && game.winner_player === player) deckRecord.wins += 1;
+    }
+
+    for (const opponent of game.participants) {
+      if (opponent.player === player) continue;
+      const record = ensureNamedCountRecord(rivals, opponent.player, {
+        player: opponent.player,
+        label: opponent.player,
+        playerWins: 0,
+        opponentWins: 0,
+        otherWins: 0,
+        draws: 0,
+      });
+      record.count += 1;
+      if (game.result_type === "draw") record.draws += 1;
+      else if (game.winner_player === player) record.playerWins += 1;
+      else if (game.winner_player === opponent.player) record.opponentWins += 1;
+      else record.otherWins += 1;
+    }
+
+    for (const event of game.events) {
+      if (event.event_type === "elimination" && event.actor === player && isKnown(event.target)) {
+        const record = ensureNamedCountRecord(killed, event.target, { player: event.target, label: event.target, methods: new Map() });
+        record.count += 1;
+        incrementMap(record.methods, event.method || "unspecified");
+      }
+      if (event.event_type === "elimination" && event.target === player && isKnown(event.actor)) {
+        const record = ensureNamedCountRecord(killedBy, event.actor, { player: event.actor, label: event.actor, methods: new Map() });
+        record.count += 1;
+        incrementMap(record.methods, event.method || "unspecified");
+      }
+    }
+  }
+
+  const deckRows = [...deckMap.values()]
+    .map((record) => ({
+      ...record,
+      appearances: record.count,
+      winRate: safeRatio(record.wins, record.count) ?? 0,
+    }))
+    .sort((a, b) => b.appearances - a.appearances || b.winRate - a.winRate || a.label.localeCompare(b.label, "es"));
+
+  const rivalRows = [...rivals.values()]
+    .map((record) => ({
+      ...record,
+      meetings: record.count,
+      playerWinRate: safeRatio(record.playerWins, record.count) ?? 0,
+      opponentWinRate: safeRatio(record.opponentWins, record.count) ?? 0,
+    }))
+    .sort((a, b) => b.meetings - a.meetings || b.opponentWins - a.opponentWins || a.player.localeCompare(b.player, "es"));
+
+  const normalizeKillRows = (map) =>
+    mapEntriesByCount(map).map((record) => ({
+      ...record,
+      methods: [...record.methods.entries()]
+        .sort((a, b) => b[1] - a[1])
+        .map(([method, count]) => `${method} (${count})`),
+    }));
+
+  return {
+    player,
+    games: playerGames,
+    totalGames: playerGames.length,
+    wins: outcomes.wins,
+    draws: outcomes.draws,
+    notWins: outcomes.notWins,
+    winRate: safeRatio(outcomes.wins, playerGames.length),
+    averageDuration: mean(durations),
+    durationSample: durations.length,
+    deckRows,
+    rivalRows,
+    killedRows: normalizeKillRows(killed),
+    killedByRows: normalizeKillRows(killedBy),
+    nukeCount: countSpecialEventsForPlayer(playerGames, player, "nuke", "nuke_recorded", "nuke_player"),
+    solRingCount: countSpecialEventsForPlayer(playerGames, player, "sol_ring_turn_1", "sol_ring_t1_recorded", "sol_ring_t1_player"),
+    streaks: buildStreaks(playerGames, player),
+    recentRows: buildRecentRows(playerGames, (game) => participantForPlayer(game, player), player),
+    recentTrend: buildRecentTrend(playerGames, player),
+  };
+}
+
+function deckIdentityFromGames(games, deckKey, catalogRows = []) {
+  const catalogRow = catalogRows.find((row) => row.deck_id === deckKey) ?? null;
+  const participant = games
+    .flatMap((game) => game.participants)
+    .find((candidate) => isKnown(candidate.deck_name_normalized) && deckIdForParticipant(candidate) === deckKey);
+
+  return {
+    deckKey,
+    label: catalogRow ? deckLabelForCatalog(catalogRow) : participant ? deckLabelForParticipant(participant) : deckOptionLabel(deckKey, catalogRows),
+    displayName: catalogRow ? deckLabelForCatalog(catalogRow) : participant ? deckLabelForParticipant(participant) : "",
+    ownerPlayer: catalogRow?.owner_player || participant?.deck_owner || "",
+    commanderName: catalogRow?.commander_name || participant?.commander_name || "",
+    officialName: catalogRow?.official_name || participant?.deck_catalog?.official_name || "",
+    moxfieldUrl: catalogRow?.moxfield_url || participant?.deck_catalog?.moxfield_url || participant?.moxfield_url || "",
+    archidektUrl: catalogRow?.archidekt_url || participant?.deck_catalog?.archidekt_url || "",
+    edhrecUrl: catalogRow?.edhrec_url || participant?.deck_catalog?.edhrec_url || "",
+  };
+}
+
+export function calculateDeckProfile(games, deckKey, catalogRows = []) {
+  if (!isKnown(deckKey)) {
+    return {
+      deckKey: "",
+      identity: deckIdentityFromGames([], "", catalogRows),
+      totalGames: 0,
+      wins: 0,
+      draws: 0,
+      winRate: null,
+      byLocation: emptyLocationCounts(),
+      locationRows: [],
+      pilotRows: [],
+      opponentRows: [],
+      winConditionRows: [],
+      killRows: [],
+      deathRows: [],
+      recentRows: [],
+    };
+  }
+
+  const identity = deckIdentityFromGames(games, deckKey, catalogRows);
+  const deckAppearances = [];
+  const byLocation = emptyLocationCounts();
+  const locationWins = emptyLocationCounts();
+  const pilots = new Map();
+  const opponents = new Map();
+  const winConditions = new Map();
+  const kills = new Map();
+  const deaths = new Map();
+  let wins = 0;
+  let draws = 0;
+
+  for (const game of games) {
+    const subject = participantForDeck(game, deckKey);
+    if (!subject) continue;
+    deckAppearances.push({ game, participant: subject });
+    if (byLocation[game.location] !== undefined) byLocation[game.location] += 1;
+
+    const pilotRecord = ensureNamedCountRecord(pilots, subject.player, {
+      player: subject.player,
+      label: subject.player,
+      wins: 0,
+      draws: 0,
+    });
+    pilotRecord.count += 1;
+
+    if (game.result_type === "draw") {
+      draws += 1;
+      pilotRecord.draws += 1;
+    } else if (game.result_type === "win" && game.winner_player === subject.player) {
+      wins += 1;
+      pilotRecord.wins += 1;
+      if (locationWins[game.location] !== undefined) locationWins[game.location] += 1;
+      if (isKnown(game.win_condition_category)) {
+        const conditionRecord = ensureNamedCountRecord(winConditions, game.win_condition_category, {
+          category: game.win_condition_category,
+          label: game.win_condition_category,
+        });
+        conditionRecord.count += 1;
+      }
+    }
+
+    for (const opponent of game.participants) {
+      if (opponent === subject || !isKnown(opponent.deck_name_normalized)) continue;
+      const opponentKey = deckIdForParticipant(opponent);
+      const record = ensureNamedCountRecord(opponents, opponentKey, {
+        opponentKey,
+        label: playerDeckLabel(opponent),
+        deckWins: 0,
+        opponentWins: 0,
+        otherWins: 0,
+        draws: 0,
+      });
+      record.count += 1;
+      if (game.result_type === "draw") record.draws += 1;
+      else if (game.winner_player === subject.player) record.deckWins += 1;
+      else if (game.winner_player === opponent.player) record.opponentWins += 1;
+      else record.otherWins += 1;
+    }
+
+    for (const event of game.events) {
+      if (event.event_type !== "elimination") continue;
+      const actorParticipant = isKnown(event.actor) ? participantForPlayer(game, event.actor) : null;
+      const targetParticipant = isKnown(event.target) ? participantForPlayer(game, event.target) : null;
+      if (actorParticipant && deckIdForParticipant(actorParticipant) === deckKey && isKnown(event.target)) {
+        const record = ensureNamedCountRecord(kills, event.target, { label: event.target, methods: new Map() });
+        record.count += 1;
+        incrementMap(record.methods, event.method || "unspecified");
+      }
+      if (targetParticipant && deckIdForParticipant(targetParticipant) === deckKey && isKnown(event.actor)) {
+        const record = ensureNamedCountRecord(deaths, event.actor, { label: event.actor, methods: new Map() });
+        record.count += 1;
+        incrementMap(record.methods, event.method || "unspecified");
+      }
+    }
+  }
+
+  const locationRows = Object.entries(byLocation).map(([location, appearances]) => ({
+    location,
+    appearances,
+    wins: locationWins[location] ?? 0,
+    winRate: safeRatio(locationWins[location] ?? 0, appearances),
+  }));
+
+  const pilotRows = [...pilots.values()]
+    .map((record) => ({
+      ...record,
+      appearances: record.count,
+      winRate: safeRatio(record.wins, record.count) ?? 0,
+    }))
+    .sort((a, b) => b.appearances - a.appearances || b.wins - a.wins || a.player.localeCompare(b.player, "es"));
+
+  const opponentRows = [...opponents.values()]
+    .map((record) => ({
+      ...record,
+      appearances: record.count,
+      deckWinRate: safeRatio(record.deckWins, record.count) ?? 0,
+      opponentWinRate: safeRatio(record.opponentWins, record.count) ?? 0,
+    }))
+    .sort((a, b) => b.appearances - a.appearances || b.deckWinRate - a.deckWinRate || a.label.localeCompare(b.label, "es"));
+
+  const normalizeEventRows = (map) =>
+    mapEntriesByCount(map).map((record) => ({
+      ...record,
+      methods: [...record.methods.entries()]
+        .sort((a, b) => b[1] - a[1])
+        .map(([method, count]) => `${method} (${count})`),
+    }));
+
+  return {
+    deckKey,
+    identity,
+    totalGames: deckAppearances.length,
+    wins,
+    draws,
+    winRate: safeRatio(wins, deckAppearances.length),
+    byLocation,
+    locationRows,
+    pilotRows,
+    opponentRows,
+    winConditionRows: mapEntriesByCount(winConditions),
+    killRows: normalizeEventRows(kills),
+    deathRows: normalizeEventRows(deaths),
+    recentRows: buildRecentRows(
+      deckAppearances.map((row) => row.game),
+      (game) => participantForDeck(game, deckKey),
+    ),
+  };
+}
+
+export function calculatePlayerHeadToHead(games, playerA, playerB) {
+  if (!isKnown(playerA) || !isKnown(playerB) || playerA === playerB) {
+    return {
+      playerA,
+      playerB,
+      totalGames: 0,
+      aWins: 0,
+      bWins: 0,
+      otherWins: 0,
+      draws: 0,
+      aWinRate: null,
+      bWinRate: null,
+      aEliminatedB: 0,
+      bEliminatedA: 0,
+      deckPairRows: [],
+      rows: [],
+    };
+  }
+
+  const togetherGames = games.filter((game) => participantForPlayer(game, playerA) && participantForPlayer(game, playerB));
+  let aWins = 0;
+  let bWins = 0;
+  let otherWins = 0;
+  let draws = 0;
+  let aEliminatedB = 0;
+  let bEliminatedA = 0;
+  const deckPairs = new Map();
+
+  for (const game of togetherGames) {
+    const participantA = participantForPlayer(game, playerA);
+    const participantB = participantForPlayer(game, playerB);
+    const pairKey = `${playerDeckLabel(participantA)}||${playerDeckLabel(participantB)}`;
+    const pair = ensureNamedCountRecord(deckPairs, pairKey, {
+      deckA: playerDeckLabel(participantA),
+      deckB: playerDeckLabel(participantB),
+      aWins: 0,
+      bWins: 0,
+      otherWins: 0,
+      draws: 0,
+    });
+    pair.count += 1;
+
+    if (game.result_type === "draw") {
+      draws += 1;
+      pair.draws += 1;
+    } else if (game.winner_player === playerA) {
+      aWins += 1;
+      pair.aWins += 1;
+    } else if (game.winner_player === playerB) {
+      bWins += 1;
+      pair.bWins += 1;
+    } else {
+      otherWins += 1;
+      pair.otherWins += 1;
+    }
+
+    for (const event of game.events) {
+      if (event.event_type !== "elimination") continue;
+      if (event.actor === playerA && event.target === playerB) aEliminatedB += 1;
+      if (event.actor === playerB && event.target === playerA) bEliminatedA += 1;
+    }
+  }
+
+  return {
+    playerA,
+    playerB,
+    totalGames: togetherGames.length,
+    aWins,
+    bWins,
+    otherWins,
+    draws,
+    aWinRate: safeRatio(aWins, togetherGames.length),
+    bWinRate: safeRatio(bWins, togetherGames.length),
+    aEliminatedB,
+    bEliminatedA,
+    deckPairRows: mapEntriesByCount(deckPairs).map((record) => ({
+      ...record,
+      appearances: record.count,
+      aWinRate: safeRatio(record.aWins, record.count) ?? 0,
+      bWinRate: safeRatio(record.bWins, record.count) ?? 0,
+    })),
+    rows: [...togetherGames].sort(compareGamesByDateDesc).map((game) => {
+      const participantA = participantForPlayer(game, playerA);
+      const participantB = participantForPlayer(game, playerB);
+      return {
+        gameId: game.game_id,
+        date: game.date,
+        location: game.location,
+        deckA: playerDeckLabel(participantA),
+        deckB: playerDeckLabel(participantB),
+        winner: game.winner_player,
+        resultType: game.result_type,
+        winCondition: game.win_condition_category,
+      };
+    }),
+  };
+}
+
+export function calculateDeckMatchupMatrix(games, options = {}) {
+  const { minAppearances = 2, minGames = 1, topN = 12, catalogRows = [] } = options;
+  const deckMap = new Map();
+
+  for (const game of games) {
+    const seenInGame = new Set();
+    for (const participant of game.participants) {
+      if (!isKnown(participant.deck_name_normalized)) continue;
+      const deckKey = deckIdForParticipant(participant);
+      if (seenInGame.has(deckKey)) continue;
+      seenInGame.add(deckKey);
+      const record = ensureNamedCountRecord(deckMap, deckKey, {
+        deckKey,
+        label: deckLabelForParticipant(participant) || deckOptionLabel(deckKey, catalogRows),
+        wins: 0,
+      });
+      record.count += 1;
+      if (game.result_type === "win" && game.winner_player === participant.player) record.wins += 1;
+    }
+  }
+
+  const decks = [...deckMap.values()]
+    .map((record) => ({
+      deckKey: record.deckKey,
+      label: record.label,
+      appearances: record.count,
+      wins: record.wins,
+      winRate: safeRatio(record.wins, record.count) ?? 0,
+    }))
+    .filter((record) => record.appearances >= minAppearances)
+    .sort((a, b) => b.appearances - a.appearances || b.wins - a.wins || a.label.localeCompare(b.label, "es"))
+    .slice(0, topN);
+
+  const selectedKeys = new Set(decks.map((deck) => deck.deckKey));
+  const pairRecords = new Map();
+
+  function ensurePair(subject, opponent) {
+    const key = `${subject.deckKey}||${opponent.deckKey}`;
+    if (!pairRecords.has(key)) {
+      pairRecords.set(key, {
+        subjectKey: subject.deckKey,
+        opponentKey: opponent.deckKey,
+        appearances: 0,
+        subjectWins: 0,
+        opponentWins: 0,
+        otherWins: 0,
+        draws: 0,
+      });
+    }
+    return pairRecords.get(key);
+  }
+
+  for (const game of games) {
+    const selectedParticipants = game.participants
+      .filter((participant) => {
+        if (!isKnown(participant.deck_name_normalized)) return false;
+        return selectedKeys.has(deckIdForParticipant(participant));
+      })
+      .map((participant) => ({
+        participant,
+        deckKey: deckIdForParticipant(participant),
+        label: deckLabelForParticipant(participant),
+      }));
+
+    for (let subjectIndex = 0; subjectIndex < selectedParticipants.length; subjectIndex += 1) {
+      for (let opponentIndex = 0; opponentIndex < selectedParticipants.length; opponentIndex += 1) {
+        if (subjectIndex === opponentIndex) continue;
+        const subject = selectedParticipants[subjectIndex];
+        const opponent = selectedParticipants[opponentIndex];
+        if (subject.deckKey === opponent.deckKey) continue;
+        const record = ensurePair(subject, opponent);
+        record.appearances += 1;
+        if (game.result_type === "draw") record.draws += 1;
+        else if (game.winner_player === subject.participant.player) record.subjectWins += 1;
+        else if (game.winner_player === opponent.participant.player) record.opponentWins += 1;
+        else record.otherWins += 1;
+      }
+    }
+  }
+
+  return {
+    decks,
+    minAppearances,
+    minGames,
+    topN,
+    rows: decks.map((deck) => ({
+      ...deck,
+      cells: decks.map((opponent) => {
+        if (deck.deckKey === opponent.deckKey) return null;
+        const record = pairRecords.get(`${deck.deckKey}||${opponent.deckKey}`) ?? {
+          appearances: 0,
+          subjectWins: 0,
+          opponentWins: 0,
+          otherWins: 0,
+          draws: 0,
+        };
+        return {
+          ...record,
+          subjectWinRate: safeRatio(record.subjectWins, record.appearances),
+          visible: record.appearances >= minGames,
+        };
+      }),
+    })),
+  };
+}
+
+function topRecord(rows, scoreGetter, minimumGetter = () => true) {
+  return [...rows].filter(minimumGetter).sort((a, b) => {
+    const scoreDifference = scoreGetter(b) - scoreGetter(a);
+    if (scoreDifference !== 0) return scoreDifference;
+    return String(a.player ?? a.displayName ?? a.label ?? "").localeCompare(
+      String(b.player ?? b.displayName ?? b.label ?? ""),
+      "es",
+      { sensitivity: "base" },
+    );
+  })[0] ?? null;
+}
+
+function countSpecialEvents(games, eventType, legacyField, legacyPlayerField) {
+  const counts = new Map();
+  for (const game of games) {
+    const explicitEvents = game.events.filter((event) => event.event_type === eventType && isKnown(event.actor));
+    if (explicitEvents.length > 0) {
+      for (const event of explicitEvents) incrementMap(counts, event.actor);
+    } else if (game[legacyField] === true && isKnown(game[legacyPlayerField])) {
+      incrementMap(counts, game[legacyPlayerField]);
+    }
+  }
+  return [...counts.entries()]
+    .map(([player, count]) => ({ player, count }))
+    .sort((a, b) => b.count - a.count || a.player.localeCompare(b.player, "es"));
+}
+
+export function calculateBadges(games, stats) {
+  const badges = [];
+  const addBadge = (title, winner, value, sample, note = "") => {
+    badges.push({
+      title,
+      winner: winner || "",
+      value: value || "",
+      sample: sample || "",
+      note,
+    });
+  };
+
+  const mostWins = topRecord(stats.playerStats, (row) => row.wins);
+  if (mostWins) addBadge("Mas victorias", mostWins.player, `${mostWins.wins} victorias`, `n=${mostWins.participations}`);
+
+  const bestWinRate = topRecord(
+    stats.playerStats,
+    (row) => row.winRate,
+    (row) => row.participations >= Math.min(3, Math.max(1, stats.totalGames)),
+  );
+  if (bestWinRate) {
+    addBadge("Mejor tasa jugador", bestWinRate.player, `${(bestWinRate.winRate * 100).toFixed(1)}%`, `n=${bestWinRate.participations}`);
+  }
+
+  const mostDecks = topRecord(stats.playerStats, (row) => row.decksUsed);
+  if (mostDecks) addBadge("Mayor variedad", mostDecks.player, `${mostDecks.decksUsed} decks`, `n=${mostDecks.participations}`);
+
+  const mostPlayedDeck = topRecord(stats.deckStats, (row) => row.appearances);
+  if (mostPlayedDeck) {
+    addBadge("Deck mas jugado", `${mostPlayedDeck.displayName} / ${mostPlayedDeck.ownerPlayer}`, `${mostPlayedDeck.appearances} partidas`, "");
+  }
+
+  const bestDeck = topRecord(
+    stats.deckStats,
+    (row) => row.winRate,
+    (row) => row.appearances >= Math.min(2, Math.max(1, stats.totalGames)),
+  );
+  if (bestDeck) {
+    addBadge("Mejor tasa deck", `${bestDeck.displayName} / ${bestDeck.ownerPlayer}`, `${(bestDeck.winRate * 100).toFixed(1)}%`, `n=${bestDeck.appearances}`);
+  }
+
+  const topKiller = stats.combat.byActor[0];
+  if (topKiller) addBadge("Mas eliminaciones", topKiller.actor, `${topKiller.count} eliminaciones`, "Solo eventos registrados");
+
+  const topTarget = stats.combat.byTarget[0];
+  if (topTarget) addBadge("Mas veces eliminado", topTarget.target, `${topTarget.count} veces`, "Solo eventos registrados");
+
+  const topNuke = countSpecialEvents(games, "nuke", "nuke_recorded", "nuke_player")[0];
+  if (topNuke) addBadge("Mas nukes", topNuke.player, `${topNuke.count} nukes`, "Solo registros explicitos");
+
+  const topSolRing = countSpecialEvents(games, "sol_ring_turn_1", "sol_ring_t1_recorded", "sol_ring_t1_player")[0];
+  if (topSolRing) addBadge("Sol Ring T1", topSolRing.player, `${topSolRing.count} veces`, "Solo registros explicitos");
+
+  const longestGame = [...games]
+    .filter((game) => isKnown(game.duration_minutes))
+    .sort((a, b) => Number(b.duration_minutes) - Number(a.duration_minutes))[0];
+  if (longestGame) {
+    addBadge("Partida mas larga", longestGame.game_id, `${longestGame.duration_minutes} min`, longestGame.date);
+  }
+
+  const streakRows = stats.uniquePlayers
+    .map((player) => ({
+      player,
+      streaks: buildStreaks(
+        games.filter((game) => participantForPlayer(game, player)),
+        player,
+      ),
+    }))
+    .sort((a, b) => b.streaks.longestWin - a.streaks.longestWin || a.player.localeCompare(b.player, "es"));
+  const topStreak = streakRows[0];
+  if (topStreak && topStreak.streaks.longestWin > 0) {
+    addBadge("Mejor racha", topStreak.player, `${topStreak.streaks.longestWin} victorias seguidas`, "En el subconjunto filtrado");
+  }
+
+  return badges;
+}

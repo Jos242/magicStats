@@ -728,3 +728,355 @@ export function renderReviewList(reviewGames) {
   }
   container.append(list);
 }
+
+function resultLabel(result, winner = "") {
+  if (result === "win") return "Victoria";
+  if (result === "draw") return "Empate";
+  if (result === "not_win") return isKnown(winner) ? `No gano; gano ${winner}` : "No gano";
+  return UNKNOWN_LABEL;
+}
+
+function streakLabel(streaks) {
+  if (!streaks || streaks.currentCount === 0) return UNKNOWN_LABEL;
+  const labels = {
+    win: "victorias seguidas",
+    not_win: "partidas sin ganar",
+    draw: "empates seguidos",
+    unknown: "partidas sin resultado claro",
+  };
+  return `${streaks.currentCount} ${labels[streaks.currentType] ?? "partidas"}`;
+}
+
+function appendTableOrEmpty(container, headers, rows, emptyMessage) {
+  if (rows.length === 0) {
+    renderEmpty(container, emptyMessage);
+    return;
+  }
+  removeChildren(container);
+  container.append(createTable(headers, rows));
+}
+
+function recentRowsTableRows(rows) {
+  return rows.map((item) => {
+    const row = createElement("tr");
+    row.append(
+      createElement("td", { text: item.date }),
+      createElement("td", { text: item.gameId }),
+      createElement("td", { text: formatLocation(item.location) }),
+      createElement("td", { text: displayValue(item.deckLabel) }),
+      createElement("td", { text: resultLabel(item.result, item.winner) }),
+      createElement("td", { text: formatWinCondition(item.winCondition) }),
+    );
+    return row;
+  });
+}
+
+export function renderPlayerProfile(profile) {
+  const summary = document.getElementById("playerProfileSummary");
+  const decks = document.getElementById("playerProfileDecks");
+  const rivals = document.getElementById("playerProfileRivals");
+  const combat = document.getElementById("playerProfileCombat");
+  const recent = document.getElementById("playerProfileRecent");
+  removeChildren(summary);
+
+  if (!profile.player) {
+    renderEmpty(decks, "Selecciona un jugador para ver su perfil.");
+    renderEmpty(rivals, "Selecciona un jugador para ver rivales.");
+    renderEmpty(combat, "Selecciona un jugador para ver eliminaciones.");
+    renderEmpty(recent, "Selecciona un jugador para ver partidas recientes.");
+    return;
+  }
+
+  summary.append(
+    makeKpi("Partidas", formatNumber(profile.totalGames), "Subconjunto filtrado"),
+    makeKpi("Winrate", profile.winRate === null ? UNKNOWN_LABEL : formatPercent(profile.winRate), `${profile.wins}/${profile.totalGames} victorias`),
+    makeKpi("No gano", formatNumber(profile.notWins), `${profile.draws} empates registrados`),
+    makeKpi("Duracion", formatAverage(profile.averageDuration, profile.durationSample, "min"), "Solo partidas con minutos"),
+    makeKpi("Racha actual", streakLabel(profile.streaks), `Mejor racha: ${profile.streaks.longestWin} victorias`),
+    makeKpi("Eventos", profile.nukeCount + profile.solRingCount > 0 ? `Nuke: ${profile.nukeCount || UNKNOWN_LABEL} / Sol Ring T1: ${profile.solRingCount || UNKNOWN_LABEL}` : UNKNOWN_LABEL, "Solo registros explicitos"),
+  );
+
+  appendTableOrEmpty(
+    decks,
+    ["Deck", "Partidas", "Victorias", "Tasa", "Empates", "Fechas"],
+    profile.deckRows.slice(0, 12).map((deck) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: deck.label }),
+        createElement("td", { text: String(deck.appearances) }),
+        createElement("td", { text: String(deck.wins) }),
+        createElement("td", { text: `${formatPercent(deck.winRate)} (n=${deck.appearances})` }),
+        createElement("td", { text: String(deck.draws) }),
+        createElement("td", { text: `${deck.firstDate} a ${deck.lastDate}` }),
+      );
+      return row;
+    }),
+    `${profile.player} no tiene decks registrados en el subconjunto filtrado.`,
+  );
+
+  appendTableOrEmpty(
+    rivals,
+    ["Rival", "Juntos", `${profile.player} gana`, "Rival gana", "Otros/empates", "Tasa"],
+    profile.rivalRows.slice(0, 12).map((rival) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: rival.player }),
+        createElement("td", { text: String(rival.meetings) }),
+        createElement("td", { text: String(rival.playerWins) }),
+        createElement("td", { text: String(rival.opponentWins) }),
+        createElement("td", { text: String(rival.otherWins + rival.draws) }),
+        createElement("td", { text: `${formatPercent(rival.playerWinRate)} (n=${rival.meetings})` }),
+      );
+      return row;
+    }),
+    `${profile.player} no tiene rivales en el subconjunto filtrado.`,
+  );
+
+  const combatRows = [
+    ...profile.killedRows.slice(0, 6).map((item) => ({ type: "Elimina a", ...item })),
+    ...profile.killedByRows.slice(0, 6).map((item) => ({ type: "Eliminado por", ...item })),
+  ].map((item) => {
+    const row = createElement("tr");
+    row.append(
+      createElement("td", { text: item.type }),
+      createElement("td", { text: item.player }),
+      createElement("td", { text: String(item.count) }),
+      createElement("td", {}, tagList(item.methods)),
+    );
+    return row;
+  });
+  appendTableOrEmpty(combat, ["Tipo", "Jugador", "Veces", "Metodos"], combatRows, "No hay eliminaciones registradas para este jugador.");
+
+  appendTableOrEmpty(
+    recent,
+    ["Fecha", "Partida", "Ubicacion", "Deck", "Resultado", "Condicion"],
+    recentRowsTableRows(profile.recentRows),
+    "No hay partidas recientes para este jugador.",
+  );
+}
+
+export function renderDeckProfile(profile) {
+  const summary = document.getElementById("deckProfileSummary");
+  const pilots = document.getElementById("deckProfilePilots");
+  const opponents = document.getElementById("deckProfileOpponents");
+  const events = document.getElementById("deckProfileEvents");
+  const recent = document.getElementById("deckProfileRecent");
+  removeChildren(summary);
+
+  if (!profile.deckKey) {
+    renderEmpty(pilots, "Selecciona un deck para ver su perfil.");
+    renderEmpty(opponents, "Selecciona un deck para ver rivales.");
+    renderEmpty(events, "Selecciona un deck para ver eventos.");
+    renderEmpty(recent, "Selecciona un deck para ver partidas recientes.");
+    return;
+  }
+
+  summary.append(
+    makeKpi("Deck", profile.identity.label, "Identidad canonica"),
+    makeKpi("Comandante", displayValue(profile.identity.commanderName), "Desde deck_catalog/Moxfield"),
+    makeKpi("Partidas", formatNumber(profile.totalGames), `Pilotos: ${profile.pilotRows.length}`),
+    makeKpi("Winrate", profile.winRate === null ? UNKNOWN_LABEL : formatPercent(profile.winRate), `${profile.wins}/${profile.totalGames} victorias`),
+    makeKpi("Ubicacion", `${profile.byLocation.in_person} presencial / ${profile.byLocation.virtual} virtual`, "Apariciones"),
+    makeKpi("Links", [profile.identity.moxfieldUrl, profile.identity.archidektUrl, profile.identity.edhrecUrl].some(isKnown) ? "Disponibles" : UNKNOWN_LABEL, "Ver tabla de pilotos para abrir fuentes"),
+  );
+
+  appendTableOrEmpty(
+    pilots,
+    ["Piloto", "Partidas", "Victorias", "Tasa", "Empates", "Links"],
+    profile.pilotRows.map((pilot, index) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: pilot.player }),
+        createElement("td", { text: String(pilot.appearances) }),
+        createElement("td", { text: String(pilot.wins) }),
+        createElement("td", { text: `${formatPercent(pilot.winRate)} (n=${pilot.appearances})` }),
+        createElement("td", { text: String(pilot.draws) }),
+        createElement("td", {}, index === 0 ? deckLinks(profile.identity) : tagList([], "Ver arriba")),
+      );
+      return row;
+    }),
+    "No hay pilotos registrados para este deck.",
+  );
+
+  appendTableOrEmpty(
+    opponents,
+    ["Rival", "Juntos", "Victorias deck", "Victorias rival", "Otros/empates", "Tasa deck"],
+    profile.opponentRows.slice(0, 12).map((opponent) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: opponent.label }),
+        createElement("td", { text: String(opponent.appearances) }),
+        createElement("td", { text: String(opponent.deckWins) }),
+        createElement("td", { text: String(opponent.opponentWins) }),
+        createElement("td", { text: String(opponent.otherWins + opponent.draws) }),
+        createElement("td", { text: `${formatPercent(opponent.deckWinRate)} (n=${opponent.appearances})` }),
+      );
+      return row;
+    }),
+    "No hay rivales registrados para este deck.",
+  );
+
+  const eventRows = [
+    ...profile.winConditionRows.map((item) => ({ type: "Forma de victoria", label: formatWinCondition(item.category), count: item.count, methods: [] })),
+    ...profile.killRows.map((item) => ({ type: "Elimina a", label: item.label, count: item.count, methods: item.methods })),
+    ...profile.deathRows.map((item) => ({ type: "Eliminado por", label: item.label, count: item.count, methods: item.methods })),
+  ].map((item) => {
+    const row = createElement("tr");
+    row.append(
+      createElement("td", { text: item.type }),
+      createElement("td", { text: item.label }),
+      createElement("td", { text: String(item.count) }),
+      createElement("td", {}, tagList(item.methods, "Sin metodo")),
+    );
+    return row;
+  });
+  appendTableOrEmpty(events, ["Tipo", "Detalle", "Veces", "Metodos"], eventRows, "No hay eventos o condiciones registradas para este deck.");
+
+  appendTableOrEmpty(
+    recent,
+    ["Fecha", "Partida", "Ubicacion", "Piloto/deck", "Resultado", "Condicion"],
+    recentRowsTableRows(profile.recentRows),
+    "No hay partidas recientes para este deck.",
+  );
+}
+
+export function renderHeadToHead(headToHead) {
+  const summary = document.getElementById("headToHeadSummary");
+  const deckPairs = document.getElementById("headToHeadDeckPairs");
+  const games = document.getElementById("headToHeadGames");
+  removeChildren(summary);
+
+  if (!headToHead.playerA || !headToHead.playerB || headToHead.playerA === headToHead.playerB) {
+    renderEmpty(deckPairs, "Selecciona dos jugadores distintos para comparar.");
+    renderEmpty(games, "Selecciona dos jugadores distintos para ver partidas compartidas.");
+    return;
+  }
+
+  summary.append(
+    makeKpi("Partidas juntos", formatNumber(headToHead.totalGames), "Subconjunto filtrado"),
+    makeKpi(headToHead.playerA, headToHead.aWinRate === null ? UNKNOWN_LABEL : formatPercent(headToHead.aWinRate), `${headToHead.aWins} victorias`),
+    makeKpi(headToHead.playerB, headToHead.bWinRate === null ? UNKNOWN_LABEL : formatPercent(headToHead.bWinRate), `${headToHead.bWins} victorias`),
+    makeKpi("Otros/empates", String(headToHead.otherWins + headToHead.draws), `${headToHead.otherWins} terceros / ${headToHead.draws} empates`),
+    makeKpi("Eliminaciones", headToHead.aEliminatedB + headToHead.bEliminatedA > 0 ? `${headToHead.aEliminatedB} / ${headToHead.bEliminatedA}` : UNKNOWN_LABEL, `${headToHead.playerA}->${headToHead.playerB} / ${headToHead.playerB}->${headToHead.playerA}; solo registros explicitos`),
+  );
+
+  appendTableOrEmpty(
+    deckPairs,
+    ["Deck A", "Deck B", "Partidas", `${headToHead.playerA} gana`, `${headToHead.playerB} gana`, "Otros/empates"],
+    headToHead.deckPairRows.slice(0, 12).map((pair) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: displayValue(pair.deckA) }),
+        createElement("td", { text: displayValue(pair.deckB) }),
+        createElement("td", { text: String(pair.appearances) }),
+        createElement("td", { text: `${pair.aWins} (${formatPercent(pair.aWinRate)})` }),
+        createElement("td", { text: `${pair.bWins} (${formatPercent(pair.bWinRate)})` }),
+        createElement("td", { text: String(pair.otherWins + pair.draws) }),
+      );
+      return row;
+    }),
+    "No hay pares de decks para estos jugadores.",
+  );
+
+  appendTableOrEmpty(
+    games,
+    ["Fecha", "Partida", "Ubicacion", `Deck ${headToHead.playerA}`, `Deck ${headToHead.playerB}`, "Resultado", "Condicion"],
+    headToHead.rows.map((item) => {
+      const row = createElement("tr");
+      row.append(
+        createElement("td", { text: item.date }),
+        createElement("td", { text: item.gameId }),
+        createElement("td", { text: formatLocation(item.location) }),
+        createElement("td", { text: displayValue(item.deckA) }),
+        createElement("td", { text: displayValue(item.deckB) }),
+        createElement("td", { text: formatResult(item.resultType, item.winner) }),
+        createElement("td", { text: formatWinCondition(item.winCondition) }),
+      );
+      return row;
+    }),
+    "No hay partidas compartidas para estos jugadores.",
+  );
+}
+
+function shortMatrixLabel(label) {
+  const text = String(label ?? UNKNOWN_LABEL);
+  return text.length > 22 ? `${text.slice(0, 21)}...` : text;
+}
+
+function heatCellStyle(rate) {
+  if (!Number.isFinite(rate)) return "";
+  const clamped = Math.max(0, Math.min(1, rate));
+  const color = clamped >= 0.5 ? "117, 183, 152" : "215, 123, 114";
+  const alpha = 0.14 + Math.abs(clamped - 0.5) * 0.62;
+  return `background: rgba(${color}, ${alpha.toFixed(3)})`;
+}
+
+export function renderDeckMatchupMatrix(matrix) {
+  const container = document.getElementById("deckMatchupMatrix");
+  const meta = document.getElementById("deckMatchupMatrixMeta");
+  if (meta) meta.textContent = `${matrix.decks.length} decks, n deck>=${matrix.minAppearances}, n matchup>=${matrix.minGames}`;
+
+  if (matrix.decks.length === 0) {
+    renderEmpty(container, "No hay suficientes decks para construir el heatmap con esos minimos.");
+    return;
+  }
+
+  removeChildren(container);
+  const table = createElement("table", { className: "heatmap-table" });
+  const thead = createElement("thead");
+  const headRow = createElement("tr");
+  headRow.append(createElement("th", { scope: "col", text: "Deck" }));
+  for (const deck of matrix.decks) {
+    headRow.append(createElement("th", { scope: "col", title: deck.label, text: shortMatrixLabel(deck.label) }));
+  }
+  thead.append(headRow);
+
+  const tbody = createElement("tbody");
+  for (const rowData of matrix.rows) {
+    const row = createElement("tr");
+    row.append(createElement("th", { scope: "row", title: rowData.label, text: shortMatrixLabel(rowData.label) }));
+    for (const cell of rowData.cells) {
+      if (cell === null) {
+        row.append(createElement("td", { className: "heat-cell heat-cell--self", text: "-" }));
+        continue;
+      }
+
+      if (!cell.visible || cell.subjectWinRate === null) {
+        row.append(createElement("td", { className: "heat-cell heat-cell--empty", text: `n=${cell.appearances}` }));
+        continue;
+      }
+
+      row.append(
+        createElement("td", { className: "heat-cell", style: heatCellStyle(cell.subjectWinRate) }, [
+          createElement("strong", { text: formatPercent(cell.subjectWinRate, 0) }),
+          createElement("span", { text: `n=${cell.appearances}` }),
+        ]),
+      );
+    }
+    tbody.append(row);
+  }
+
+  table.append(thead, tbody);
+  container.append(table);
+}
+
+export function renderBadges(badges) {
+  const container = document.getElementById("badgesGrid");
+  removeChildren(container);
+
+  if (badges.length === 0) {
+    renderEmpty(container, "No hay suficientes datos registrados para mostrar badges en este subconjunto.");
+    return;
+  }
+
+  for (const badge of badges) {
+    container.append(
+      appendChildren(createElement("article", { className: "badge-card" }), [
+        createElement("p", { className: "badge-card__title", text: badge.title }),
+        createElement("p", { className: "badge-card__winner", text: displayValue(badge.winner) }),
+        createElement("p", { className: "badge-card__value", text: displayValue(badge.value) }),
+        createElement("p", { className: "badge-card__sample", text: [badge.sample, badge.note].filter(isKnown).join(" · ") }),
+      ]),
+    );
+  }
+}

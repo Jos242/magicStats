@@ -108,6 +108,23 @@
         </div>
       </section>
 
+      <section class="tabs-band" aria-label="Navegacion de secciones">
+        <div class="section-shell tabs-shell">
+          <div class="tab-list" role="tablist" aria-label="Secciones de estadisticas">
+            <button id="tab-button-summary" class="tab-button is-active" type="button" role="tab" aria-selected="true" aria-controls="tab-summary" data-tab-target="summary">Resumen</button>
+            <button id="tab-button-charts" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-charts" data-tab-target="charts" tabindex="-1">Graficos</button>
+            <button id="tab-button-matchups" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-matchups" data-tab-target="matchups" tabindex="-1">Matchups</button>
+            <button id="tab-button-profiles" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-profiles" data-tab-target="profiles" tabindex="-1">Perfiles</button>
+            <button id="tab-button-players" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-players" data-tab-target="players" tabindex="-1">Jugadores/Decks</button>
+            <button id="tab-button-history" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-history" data-tab-target="history" tabindex="-1">Partidas</button>
+            <button id="tab-button-combat" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-combat" data-tab-target="combat" tabindex="-1">Combate</button>
+            <button id="tab-button-extras" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-extras" data-tab-target="extras" tabindex="-1">Badges/Calidad</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="tab-panels">
+        <div id="tab-summary" class="tab-panel is-active" role="tabpanel" aria-labelledby="tab-button-summary" data-tab-panel="summary">
       <section class="section-shell" aria-labelledby="summaryTitle">
         <div class="section-heading">
           <div>
@@ -120,6 +137,8 @@
         <div id="coverageGrid" class="coverage-grid"></div>
       </section>
 
+        </div>
+        <div id="tab-charts" class="tab-panel" role="tabpanel" aria-labelledby="tab-button-charts" data-tab-panel="charts" hidden>
       <section class="section-shell" aria-labelledby="chartsTitle">
         <div class="section-heading">
           <div>
@@ -202,6 +221,8 @@
         </div>
       </section>
 
+        </div>
+        <div id="tab-matchups" class="tab-panel" role="tabpanel" aria-labelledby="tab-button-matchups" data-tab-panel="matchups" hidden>
       <section class="section-shell" aria-labelledby="matchupsTitle">
         <div class="section-heading">
           <div>
@@ -243,8 +264,158 @@
         </div>
 
         <div id="matchupTable" class="table-shell table-shell--spaced"></div>
+        <div class="subsection-heading">
+          <div>
+            <p class="eyebrow">Heatmap</p>
+            <h3>Matriz de matchups entre decks</h3>
+          </div>
+          <div class="subsection-controls">
+            <label class="inline-control">
+              <span>Top decks</span>
+              <input id="matrixTopDecks" type="number" min="3" max="20" step="1" value="10">
+            </label>
+            <label class="inline-control">
+              <span>Min apariciones deck</span>
+              <input id="matrixMinAppearances" type="number" min="1" max="99" step="1" value="2">
+            </label>
+            <label class="inline-control">
+              <span>Min partidas matchup</span>
+              <input id="matrixMinGames" type="number" min="1" max="99" step="1" value="1">
+            </label>
+          </div>
+        </div>
+        <p id="deckMatchupMatrixMeta" class="chart-meta" aria-live="polite">Preparando matriz</p>
+        <div id="deckMatchupMatrix" class="table-shell table-shell--spaced"></div>
       </section>
 
+        </div>
+        <div id="tab-profiles" class="tab-panel" role="tabpanel" aria-labelledby="tab-button-profiles" data-tab-panel="profiles" hidden>
+      <section class="section-shell" aria-labelledby="profilesTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Perfiles</p>
+            <h2 id="profilesTitle">Jugador y deck</h2>
+          </div>
+          <p class="section-note">Estas vistas usan el mismo subconjunto filtrado; los nulos siguen siendo No registrado.</p>
+        </div>
+
+        <div class="subsection-heading">
+          <div>
+            <p class="eyebrow">Perfil de jugador</p>
+            <h3>Forma, rivales y eventos</h3>
+          </div>
+          <div class="subsection-controls">
+            <label class="inline-control inline-control--select">
+              <span>Jugador</span>
+              <select id="profilePlayer" aria-label="Jugador para perfil"></select>
+            </label>
+          </div>
+        </div>
+        <div id="playerProfileSummary" class="mini-kpi-grid mini-kpi-grid--six" aria-live="polite"></div>
+        <div class="profile-grid">
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Forma reciente</h3>
+              <span id="playerRecentMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="playerRecentChart" aria-label="Winrate reciente del jugador seleccionado"></canvas>
+          </article>
+          <div class="profile-table-block">
+            <h3>Decks del jugador</h3>
+            <div id="playerProfileDecks" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block">
+            <h3>Rivales frecuentes</h3>
+            <div id="playerProfileRivals" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block">
+            <h3>Eliminaciones</h3>
+            <div id="playerProfileCombat" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block profile-table-block--wide">
+            <h3>Ultimas partidas</h3>
+            <div id="playerProfileRecent" class="table-shell"></div>
+          </div>
+        </div>
+
+        <div class="subsection-heading">
+          <div>
+            <p class="eyebrow">Perfil de deck</p>
+            <h3>Pilotos, ubicacion y rivales</h3>
+          </div>
+          <div class="subsection-controls">
+            <label class="inline-control inline-control--select">
+              <span>Deck</span>
+              <select id="profileDeck" aria-label="Deck para perfil"></select>
+            </label>
+          </div>
+        </div>
+        <div id="deckProfileSummary" class="mini-kpi-grid mini-kpi-grid--six" aria-live="polite"></div>
+        <div class="profile-grid">
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Por ubicacion</h3>
+              <span id="deckLocationProfileMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="deckLocationProfileChart" aria-label="Rendimiento del deck por ubicacion"></canvas>
+          </article>
+          <div class="profile-table-block">
+            <h3>Pilotos</h3>
+            <div id="deckProfilePilots" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block">
+            <h3>Rivales del deck</h3>
+            <div id="deckProfileOpponents" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block">
+            <h3>Eventos y formas</h3>
+            <div id="deckProfileEvents" class="table-shell"></div>
+          </div>
+          <div class="profile-table-block profile-table-block--wide">
+            <h3>Ultimas partidas del deck</h3>
+            <div id="deckProfileRecent" class="table-shell"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" aria-labelledby="rivalriesTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Rivalidades</p>
+            <h2 id="rivalriesTitle">Head-to-head de jugadores</h2>
+          </div>
+          <div class="subsection-controls">
+            <label class="inline-control inline-control--select">
+              <span>Jugador A</span>
+              <select id="headToHeadPlayerA" aria-label="Primer jugador para head-to-head"></select>
+            </label>
+            <label class="inline-control inline-control--select">
+              <span>Jugador B</span>
+              <select id="headToHeadPlayerB" aria-label="Segundo jugador para head-to-head"></select>
+            </label>
+          </div>
+        </div>
+        <div id="headToHeadSummary" class="mini-kpi-grid" aria-live="polite"></div>
+        <div class="chart-grid">
+          <article class="chart-panel">
+            <div class="chart-panel__header">
+              <h3>Resultados compartidos</h3>
+              <span id="headToHeadMeta" class="chart-meta"></span>
+            </div>
+            <canvas id="headToHeadChart" aria-label="Resultados de partidas compartidas entre dos jugadores"></canvas>
+          </article>
+          <div class="profile-table-block">
+            <h3>Pares de decks</h3>
+            <div id="headToHeadDeckPairs" class="table-shell"></div>
+          </div>
+        </div>
+        <div class="profile-table-block profile-table-block--wide table-shell--spaced">
+          <h3>Partidas compartidas</h3>
+          <div id="headToHeadGames" class="table-shell"></div>
+        </div>
+      </section>
+        </div>
+        <div id="tab-players" class="tab-panel" role="tabpanel" aria-labelledby="tab-button-players" data-tab-panel="players" hidden>
       <section class="section-shell" aria-labelledby="playersTitle">
         <div class="section-heading">
           <div>
@@ -288,6 +459,8 @@
         <div id="decksTable" class="table-shell"></div>
       </section>
 
+        </div>
+        <div id="tab-history" class="tab-panel" role="tabpanel" aria-labelledby="tab-button-history" data-tab-panel="history" hidden>
       <section class="section-shell" aria-labelledby="historyTitle">
         <div class="section-heading">
           <div>
@@ -299,6 +472,8 @@
         <div id="gamesTable" class="table-shell"></div>
       </section>
 
+        </div>
+        <div id="tab-combat" class="tab-panel" role="tabpanel" aria-labelledby="tab-button-combat" data-tab-panel="combat" hidden>
       <section class="section-shell" aria-labelledby="combatTitle">
         <div class="section-heading">
           <div>
@@ -353,6 +528,18 @@
         <div id="killPairsTable" class="table-shell table-shell--spaced"></div>
       </section>
 
+        </div>
+        <div id="tab-extras" class="tab-panel" role="tabpanel" aria-labelledby="tab-button-extras" data-tab-panel="extras" hidden>
+      <section class="section-shell" aria-labelledby="badgesTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Curiosidades</p>
+            <h2 id="badgesTitle">Badges del subconjunto</h2>
+          </div>
+          <p class="section-note">Solo se entregan badges con muestra o evento registrado; ausencia de dato no cuenta como cero.</p>
+        </div>
+        <div id="badgesGrid" class="badge-grid" aria-live="polite"></div>
+      </section>
       <section class="section-shell" aria-labelledby="qualityTitle">
         <div class="section-heading">
           <div>
@@ -365,6 +552,8 @@
           <div id="reviewList" class="quality-panel"></div>
         </div>
       </section>
+        </div>
+      </div>
     </main>
 
     <dialog id="gameDialog" class="game-dialog">

@@ -1,0 +1,15 @@
+{
+    "name":  "magicstats",
+    "version":  "1.0.0",
+    "private":  true,
+    "description":  "Static MTG Commander statistics dashboard.",
+    "scripts":  {
+                    "validate":  "python scripts/validate_data.py",
+                    "check:js":  "node --check app.js \u0026\u0026 node --check js/data.js \u0026\u0026 node --check js/filters.js \u0026\u0026 node --check js/stats.js \u0026\u0026 node --check js/table.js \u0026\u0026 node --check js/charts.js",
+                    "test:e2e":  "playwright test",
+                    "test":  "npm run validate \u0026\u0026 npm run check:js \u0026\u0026 npm run test:e2e"
+                },
+    "devDependencies":  {
+                            "@playwright/test":  "^1.62.1"
+                        }
+}

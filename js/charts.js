@@ -509,3 +509,126 @@ export function destroyCharts() {
     destroyChart(id);
   }
 }
+
+function renderPlayerRecent(profile) {
+  const rows = profile.recentTrend ?? [];
+  const hasRows = rows.length > 0;
+  setMeta(
+    "playerRecentMeta",
+    hasRows ? `${profile.player}; ultimas ${rows.length} partidas visibles` : "Sin partidas para el jugador seleccionado",
+  );
+  createChart("playerRecentChart", {
+    type: "line",
+    data: {
+      labels: hasRows ? rows.map((row) => row.label.replace("G2026-", "G")) : ["Sin datos"],
+      datasets: [
+        {
+          label: "Winrate acumulado reciente",
+          data: hasRows ? rows.map((row) => Number((row.winRate * 100).toFixed(2))) : [0],
+          borderColor: palette[0],
+          backgroundColor: "rgba(117, 183, 152, 0.2)",
+          fill: true,
+          tension: 0.25,
+          pointRadius: 4,
+        },
+      ],
+    },
+    options: baseOptions({
+      plugins: {
+        ...baseOptions().plugins,
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label(context) {
+              return `Tasa reciente: ${context.formattedValue}%`;
+            },
+          },
+        },
+      },
+      scales: {
+        x: { ticks: { color: mutedColor }, grid: { display: false } },
+        y: { beginAtZero: true, max: 100, ticks: { color: mutedColor, callback: (value) => `${value}%` } },
+      },
+    }),
+  });
+}
+
+function renderDeckLocationProfile(profile) {
+  const rows = profile.locationRows ?? [];
+  const hasRows = rows.some((row) => row.appearances > 0);
+  setMeta(
+    "deckLocationProfileMeta",
+    hasRows ? `${profile.identity.label}; presencial/virtual con muestra visible` : "Sin apariciones para el deck seleccionado",
+  );
+  createChart("deckLocationProfileChart", {
+    type: "bar",
+    data: {
+      labels: rows.length > 0 ? rows.map((row) => formatLocation(row.location)) : ["Sin datos"],
+      datasets: [
+        barDataset("Apariciones", rows.length > 0 ? rows.map((row) => row.appearances) : [0], palette[2]),
+        barDataset("Victorias", rows.length > 0 ? rows.map((row) => row.wins) : [0], palette[0]),
+      ],
+    },
+    options: baseOptions({
+      scales: {
+        x: { ticks: { color: mutedColor }, grid: { display: false } },
+        y: { beginAtZero: true, ticks: { color: mutedColor, precision: 0 }, grid: { color: gridColor } },
+      },
+    }),
+  });
+}
+
+function renderHeadToHeadResult(headToHead) {
+  const valid = headToHead.totalGames > 0 && headToHead.playerA !== headToHead.playerB;
+  setMeta(
+    "headToHeadMeta",
+    valid ? `${headToHead.totalGames} partidas compartidas` : "Selecciona dos jugadores con partidas compartidas",
+  );
+  createChart("headToHeadChart", {
+    type: "doughnut",
+    data: {
+      labels: [
+        `Gana ${headToHead.playerA || "A"}`,
+        `Gana ${headToHead.playerB || "B"}`,
+        "Gana otro o empate",
+      ],
+      datasets: [
+        {
+          label: "Partidas",
+          data: valid ? [headToHead.aWins, headToHead.bWins, headToHead.otherWins + headToHead.draws] : [0, 0, 0],
+          backgroundColor: [palette[0], palette[3], palette[2]],
+          borderColor: "#20272f",
+          borderWidth: 2,
+        },
+      ],
+    },
+    options: baseOptions({
+      cutout: "58%",
+      scales: {},
+    }),
+  });
+}
+
+export function renderPlayerProfileCharts(profile) {
+  if (!window.Chart) {
+    setMeta("playerRecentMeta", "Chart.js no esta disponible");
+    return;
+  }
+  renderPlayerRecent(profile);
+}
+
+export function renderDeckProfileCharts(profile) {
+  if (!window.Chart) {
+    setMeta("deckLocationProfileMeta", "Chart.js no esta disponible");
+    return;
+  }
+  renderDeckLocationProfile(profile);
+}
+
+export function renderHeadToHeadCharts(headToHead) {
+  if (!window.Chart) {
+    setMeta("headToHeadMeta", "Chart.js no esta disponible");
+    return;
+  }
+  renderHeadToHeadResult(headToHead);
+}

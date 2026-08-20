@@ -2,9 +2,9 @@
   "metadata": {
     "title": "Partidas MTG Commander 2026",
     "season_year": 2026,
-    "generated_on": "2026-07-28",
+    "generated_on": "2026-08-20",
     "source_file": "source/magicpartidas.txt",
-    "total_games": 76,
+    "total_games": 77,
     "normalization_policy": {
       "default_location": "in_person",
       "virtual_markers": [
@@ -5857,6 +5857,114 @@
           "target": "",
           "method": "nuke",
           "notes": "Promise of Loyalty",
+          "explicitness": "explicit"
+        }
+      ]
+    },
+    {
+      "game_id": "G2026-077",
+      "date": "2026-08-19",
+      "location": "virtual",
+      "player_count": 3,
+      "result_type": "win",
+      "winner_player": "Chepe",
+      "winner_raw": "Chepe",
+      "starting_player": "Andres",
+      "turn_order": [
+        "Andres",
+        "Chepe",
+        "Jairo"
+      ],
+      "start_time": null,
+      "end_time": null,
+      "duration_minutes": 88,
+      "win_condition_category": "combat_damage",
+      "win_condition_text": "Jetmir el carry + +2 a todo de un mae random",
+      "nuke_recorded": true,
+      "nuke_player": "Chepe",
+      "sol_ring_t1_recorded": null,
+      "sol_ring_t1_player": null,
+      "parse_confidence": "high",
+      "needs_review": false,
+      "notes": "Importado desde GitHub issue #5. https://github.com/Jos242/magicStats/issues/5",
+      "source_line": 0,
+      "raw_line": "jairo dice que peor partida x2 xd",
+      "participants": [
+        {
+          "game_id": "G2026-077",
+          "seat_order": 1,
+          "player": "Chepe",
+          "deck_name_raw": "Stardew",
+          "deck_name_normalized": "Stardew",
+          "deck_id": "chepe--stardew",
+          "deck_owner": "Chepe",
+          "moxfield_url": "https://moxfield.com/decks/OqWfAWfFUHibnL-v73Kyrw",
+          "deck_variant": "",
+          "commander_name": "",
+          "result": "winner",
+          "assignment_confidence": "high",
+          "notes": ""
+        },
+        {
+          "game_id": "G2026-077",
+          "seat_order": 2,
+          "player": "Jairo",
+          "deck_name_raw": "Conejos",
+          "deck_name_normalized": "Conejos",
+          "deck_id": "jairo--conejos",
+          "deck_owner": "Jairo",
+          "moxfield_url": "",
+          "deck_variant": "",
+          "commander_name": "",
+          "result": "loser",
+          "assignment_confidence": "high",
+          "notes": ""
+        },
+        {
+          "game_id": "G2026-077",
+          "seat_order": 3,
+          "player": "Andres",
+          "deck_name_raw": "half-life",
+          "deck_name_normalized": "Half-Life",
+          "deck_id": "andres--half-life",
+          "deck_owner": "Andres",
+          "moxfield_url": "",
+          "deck_variant": "",
+          "commander_name": "",
+          "result": "loser",
+          "assignment_confidence": "high",
+          "notes": ""
+        }
+      ],
+      "events": [
+        {
+          "game_id": "G2026-077",
+          "event_order": 1,
+          "event_type": "elimination",
+          "actor": "Chepe",
+          "target": "Andres",
+          "method": "combat_damage",
+          "notes": "jetmir",
+          "explicitness": "explicit"
+        },
+        {
+          "game_id": "G2026-077",
+          "event_order": 2,
+          "event_type": "elimination",
+          "actor": "Chepe",
+          "target": "Jairo",
+          "method": "combat_damage",
+          "notes": "jetmir",
+          "explicitness": "explicit"
+        },
+        {
+          "game_id": "G2026-077",
+          "event_order": 3,
+          "event_type": "nuke",
+          "actor": "Chepe",
+          "target": "",
+          "method": "nuke",
+          "notes": "Nuke por blasphemous act",
           "explicitness": "explicit"
         }
       ]

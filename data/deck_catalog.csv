@@ -11,7 +11,7 @@ andres--elnazis,Andres,Andres,Elnazis,Elnazis,,,,,,,,[],[],2026-01-11,2026-01-11
 andres--espiritus,Andres,Andres,Espíritus,Espíritus,,,,,,,,[],[],2026-07-10,2026-07-10,1,0,,"[""espiritus""]",[],0.0
 andres--espiritus,Andres,Jairo,Espíritus,Espíritus,,,,,,,,[],[],2026-07-25,2026-07-25,1,0,,"[""espíritus""]",[],0.0
 andres--gato,Andres,Andres,Gato,Gato,,,,,,,,[],[],2026-01-08,2026-07-25,5,2,,"[""gato""]",[],0.4
-andres--half-life,Andres,Andres,Half-Life,Half-Life,,,,,,,,[],[],2026-01-11,2026-03-03,21,8,,"[""halflife"", ""helflife""]",[],0.381
+andres--half-life,Andres,Andres,Half-Life,Half-Life,,,,,,,,[],[],2026-01-11,2026-08-19,22,8,,"[""half-life"", ""halflife"", ""helflife""]",[],0.3636
 andres--mono-blue-pero-nel,Andres,Andres,Mono Blue Pero Nel,Mono Blue Pero Nel,,,,,,,,[],[],2026-02-22,2026-02-22,1,1,,"[""monoblueperonel""]",[],1.0
 andres--nekusar,Andres,Andres,Nekusar,Nekusar,,,,,,,,[],[],2026-04-16,2026-04-16,1,0,,"[""nekuzar""]",[],0.0
 andres--octopus-lady,Andres,Andres,Octopus Lady,Octopus Lady,,,,,,,,[],[],2026-02-22,2026-07-26,6,2,,"[""Octolady"", ""octolady"", ""octopus girl"", ""octupus lady""]",[],0.3333
@@ -47,7 +47,7 @@ chepe--sauron,Chepe,Chepe,Sauron,Sauron,,,,,,,,[],[],2026-01-08,2026-02-13,2,1,,
 chepe--sephiroth,Chepe,Chepe,Sephiroth,Sephiroth,,,,,,,,[],[],2026-01-19,2026-01-19,1,1,,"[""sephiroth""]",[],1.0
 chepe--shadowdillas,Chepe,Chepe,Shadowdillas,Shadowdillas,,,,,,,,[],[],2026-02-09,2026-02-10,2,0,,"[""shadowdillas""]",[],0.0
 chepe--shadowheart,Chepe,Chepe,Shadowheart,Shadowheart,,,,,,,,[],[],2026-07-10,2026-07-10,1,1,,"[""shadowheart""]",[],1.0
-chepe--stardew,Chepe,Chepe,Stardew,Stardew,,,,,,,,[],[],2026-07-26,2026-07-27,2,1,,"[""Stardew""]",[],0.5
+chepe--stardew,Chepe,Chepe,Stardew,Stardew,,,,,,,,[],[],2026-07-26,2026-08-19,3,2,,"[""Stardew""]",[],0.6667
 chepe--terra-sagas,Chepe,Chepe,Terra Sagas,Terra Sagas,,,,,,,,[],[],2026-03-03,2026-03-03,1,0,,"[""terrasagas""]",[],0.0
 chepe--tidus,Chepe,Chepe,Tidus,Tidus,,,,,,,,[],[],2026-01-30,2026-07-25,3,0,,"[""Tidus"", ""tidus""]",[],0.0
 chepe--tifa,Chepe,Chepe,Tifa,Tifa,,,,,,,,[],[],2026-02-10,2026-02-10,2,0,,"[""tifa""]",[],0.0
@@ -57,7 +57,7 @@ cris--angeles,Cris,Cris,Ángeles,Ángeles,,,,,,,,[],[],2026-07-25,2026-07-25,2,1
 cris--gigantes,Cris,Cris,Gigantes,Gigantes,,,,,,,,[],[],2026-07-26,2026-07-26,1,0,,"[""Gigantes""]",[],0.0
 jairo--abuelo,Jairo,Jairo,Abuelo,Abuelo,,,,,,,,[],[],2026-02-22,2026-02-22,1,0,,"[""abuelo""]",[],0.0
 jairo--attractions,Jairo,Jairo,Attractions,Attractions,,,,,,,,[],[],2026-02-02,2026-02-02,1,0,,"[""attractions""]",[],0.0
-jairo--conejos,Jairo,Jairo,Conejos,Conejos,,,,,,,,[],[],2026-01-31,2026-03-26,5,1,,"[""conejos"", ""conejosjairo""]",[],0.2
+jairo--conejos,Jairo,Jairo,Conejos,Conejos,,,,,,,,[],[],2026-01-31,2026-08-19,6,1,,"[""Conejos"", ""conejos"", ""conejosjairo""]",[],0.1667
 jairo--dinos,Jairo,Cris,Dinos,Dinos,,,,,,,,[],[],2026-07-25,2026-07-25,1,0,,"[""Dinos""]",[],0.0
 jairo--dinos,Jairo,Jairo,Dinos,Dinos,,,,,,,,[],[],2026-01-21,2026-07-10,4,1,,"[""dinos""]",[],0.25
 jairo--dinos,Jairo,Paniagua,Dinos,Dinos,,,,,,,,[],[],2026-01-08,2026-01-08,2,1,,"[""dinos(Pani)"", ""dinosaurios(Pani)""]",[],0.5

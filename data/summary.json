@@ -1,11 +1,11 @@
 {
   "season_year": 2026,
-  "total_games": 76,
-  "decisive_games": 75,
+  "total_games": 77,
+  "decisive_games": 76,
   "draws": 1,
   "locations": {
     "in_person": 30,
-    "virtual": 46
+    "virtual": 47
   },
   "players": [
     "Andres",
@@ -15,33 +15,33 @@
     "Paniagua"
   ],
   "games_played_by_player": {
-    "Jairo": 76,
-    "Andres": 76,
-    "Chepe": 76,
+    "Jairo": 77,
+    "Andres": 77,
+    "Chepe": 77,
     "Paniagua": 2,
     "Cris": 4
   },
   "wins_by_player": {
     "Jairo": 20,
-    "Chepe": 28,
+    "Chepe": 29,
     "Paniagua": 1,
     "Andres": 25,
     "Cris": 1
   },
   "win_rate_by_player": {
-    "Andres": 0.3289,
-    "Chepe": 0.3684,
+    "Andres": 0.3247,
+    "Chepe": 0.3766,
     "Cris": 0.25,
-    "Jairo": 0.2632,
+    "Jairo": 0.2597,
     "Paniagua": 0.5
   },
-  "duration_coverage_games": 29,
-  "average_duration_minutes": 51.6,
-  "median_duration_minutes": 53,
-  "starting_player_coverage_games": 31,
-  "win_condition_coverage_games": 28,
+  "duration_coverage_games": 30,
+  "average_duration_minutes": 52.8,
+  "median_duration_minutes": 53.5,
+  "starting_player_coverage_games": 32,
+  "win_condition_coverage_games": 29,
   "parse_confidence": {
-    "high": 60,
+    "high": 61,
     "medium": 15,
     "low": 1
   },

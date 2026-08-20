@@ -48,3 +48,6 @@ G2026-075,3,nuke,Chepe,,nuke,Nuke registrado por Chepe.,explicit
 G2026-076,1,elimination,Chepe,Jairo,direct_damage,Platas con 189 de dmg,explicit
 G2026-076,2,elimination,Andres,Chepe,direct_damage,Eldrazi 56/56,explicit
 G2026-076,3,nuke,Chepe,,nuke,Promise of Loyalty,explicit
+G2026-077,1,elimination,Chepe,Andres,combat_damage,jetmir,explicit
+G2026-077,2,elimination,Chepe,Jairo,combat_damage,jetmir,explicit
+G2026-077,3,nuke,Chepe,,nuke,Nuke por blasphemous act,explicit
